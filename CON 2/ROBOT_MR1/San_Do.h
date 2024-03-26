@@ -842,6 +842,9 @@ void XuatPhat_5()
 {
     silo_so = 5;
 }
+//phai dung tren branch cua nhau de code, thi dung chung file duoc :))))
+//neu thay cai nay thi nhan tin cho t 
+
 
 void test()
 {
