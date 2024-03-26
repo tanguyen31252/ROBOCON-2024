@@ -855,9 +855,3 @@ void test()
         }
     }
 }
-
-
-void test_git()
-{
-    i = 10;
-}
