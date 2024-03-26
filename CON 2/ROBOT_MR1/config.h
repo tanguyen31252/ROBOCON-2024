@@ -123,9 +123,8 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx OUTPUT xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
-#define KEP_BONG_KEP				   					GPIO_WriteBit(GPIOB,GPIO_Pin_14,1)
-#define KEP_BONG_NHA			   				 	    GPIO_WriteBit(GPIOB,GPIO_Pin_14,0)
-
+#define KEP_BONG_KEP				   		GPIO_WriteBit(GPIOB,GPIO_Pin_14,1)
+#define KEP_BONG_NHA			   			GPIO_WriteBit(GPIOB,GPIO_Pin_14,0)
 
 #define ROLE_BANG_TAI_LEN					GPIO_WriteBit(GPIOC,GPIO_Pin_9,0)
 #define ROLE_BANG_TAI_XUONG					GPIO_WriteBit(GPIOC,GPIO_Pin_9,1)
