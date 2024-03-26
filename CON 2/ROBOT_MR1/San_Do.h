@@ -401,6 +401,40 @@ void di_chuyen_len_5()                              //di chuyen len silo 5
     
     silo_vua_chay = silo_so;
 }
+// void do_bong_dau_tien()                                  // 26/4/2024 16h33
+// {
+ // MO_TAY_HOT_BONG();
+//         DONG_CO_HOT_BONG();
+        
+//         robotRunAngle(-1800,10,0,0);
+//         while (ENCODER_TONG() < 1000);
+
+//         if (CAM_BIEN_TRAI == 1 || CAM_BIEN_PHAI == 1)
+//             {  
+//                 //cho dong co nguoc de day bong ra ngoai
+//                 DAY_BONG_LEN_NONG(); 
+//                 DONG_CO_HOT_BONG(1);
+//                 GIU_BONG();
+//                 robotRotate(0,-6,0,0);
+//                 while (lazeNgangValue > 80){}
+//                 //chay len silo 
+//                 robotRunAngle(-1800,10,0,0);
+//                 while (ENCODER_TONG() < 9000){}
+//                 robotStop(2);
+//                 RESET_ENCODER();
+//                     robotRunAngle(900,40,0,0);
+//                     while (lazeNgangValue <460){}
+
+//                     RESET_ENCODER();
+
+//                     robotRunAngle(-1800,10,0,0);
+//                     while(lazeTruocValue > 10){}
+
+//                     if (CB_TU_NHAN_SILO() == 1)
+//                     {
+//                         CAM_BIEN_DAY_BONG_VAO_SILO();
+//                     }
+//}
 void do_bong()
 {
     bien_do_bong = 0;
@@ -812,12 +846,16 @@ void XuatPhat_5()
 void test()
 {
     XuatPhat();    
-        
+
+    //do_bong_trai_dau_tien();
+
     do_bong();
 
     di_chuyen_len_5();
     
     tha_bong();
+
+    bien_nho_bong_da_tha_trong_silo[silo_so]++;
 
     di_chuyen_ve();
 
@@ -840,7 +878,7 @@ void test()
         while(bien_nhan_bong == 0)
         {
             nhan_bong_trong_silo();
-            if(bien_nhan_bong == 1)             tha_bong(),di_chuyen_ve();
+            if(bien_nhan_bong == 1)             tha_bong(),bien_nho_bong_da_tha_trong_silo[silo_so]++,di_chuyen_ve();
             else                                di_chuyen();
         }
         bien_nhan_bong = 0;
@@ -855,98 +893,82 @@ void test()
         }
     }
 }
-void test()
-{
+// void test()
+// {
 
-    //đi lên chỗ để bóng
-    robotRunAngle (-1800,10,0,0);
-    while (ENCODER_TONG() < 10500){if(wantExit()) break;}
+//     //đi lên chỗ để bóng
+//     robotRunAngle (-1800,10,0,0);
+//     while (ENCODER_TONG() < 10500){if(wantExit()) break;}
 		
-    RESET_ENCODER();
+//     RESET_ENCODER();
 
-    robotRunAngle(900,10,0,0);
-    while (ENCODER_FR() < 3900){if(wantExit()) break;}
+//     robotRunAngle(900,10,0,0);
+//     while (ENCODER_FR() < 3900){if(wantExit()) break;}
 
-    RESET_ENCODER(); 
+//     RESET_ENCODER(); 
 
-    robotRunAngle(-1800,10,0,0);
-    while (ENCODER_TONG() < 3000){if(wantExit()) break;}
+//     robotRunAngle(-1800,10,0,0);
+//     while (ENCODER_TONG() < 3000){if(wantExit()) break;}
 
-    robotRunAngle (-900,10,0,0);
-    while (lazeNgangValue > 100){}
+//     robotRunAngle (-900,10,0,0);
+//     while (lazeNgangValue > 100){}
 
-    robotRotate (0,6,0);
-    while (lazeNgangValue < 60){}
+//     robotRotate (0,6,0,1);
+//     while (lazeNgangValue < 60){}
 
-    RESET_ENCODER();
+//     RESET_ENCODER();
 
-    robotRunAngle (-1800,10,0,0);
-    while (ENCODER_TONG < 100 ){}
-    RESET_ENCODER();
-    robotStop(10000);
+//     robotRunAngle (-1800,10,0,0);
+//     while (ENCODER_TONG < 100 ){}
+//     RESET_ENCODER();
+//     robotStop(10000);
 
-    //Bắt đầu 
+//     //Bắt đầu 
         
-        MO_TAY_HOT_BONG();
-        DONG_CO_HOT_BONG();
+//         MO_TAY_HOT_BONG();
+//         DONG_CO_HOT_BONG();
         
-        robotRunAngle(-1800,10,0,0);
-        while (ENCODER_TONG() < 1000);
+//         robotRunAngle(-1800,10,0,0);
+//         while (ENCODER_TONG() < 1000);
 
-        //Tím là 0, Xanh là 1
-        if (CAM_BIEN_TRAI == 0)
-        {
-            DAY_BONG_VAO_SILO();        
-        }
+//         if (CAM_BIEN_TRAI == 1 || CAM_BIEN_PHAI == 1)
+//             {  
+//                 //cho dong co nguoc de day bong ra ngoai
+//                 DAY_BONG_LEN_NONG(); 
+//                 DONG_CO_HOT_BONG(1);
+//                 GIU_BONG();
+//                 robotRotate(0,-6,0,0);
+//                 while (lazeNgangValue > 80){}
+//                 //chay len silo 
+//                 robotRunAngle(-1800,10,0,0);
+//                 while (ENCODER_TONG() < 9000){}
+//                 robotStop(2);
+//                 RESET_ENCODER();
+//                     robotRunAngle(900,40,0,0);
+//                     while (lazeNgangValue <460){}
 
-        else 
-        {
-            if(CAM_BIEN_PHAI == 1)
-            {
-                //cho dong co nguoc de day bong ra ngoai
-                DONG_CO_HOT_BONG(1);
-                DONG_CO_GIU_BONG();
-                robotRotate(0,-6,0);
-                while (lazeNgangValue > 80){}
-                //chay len silo 
-                robotRunAngle(0,10,0,0);
-                while (ENCODER_TONG() < 9000){}
-                robotStop(2);
-                RESET_ENCODER();
-                    robotRunAngle(-900,20,0,0);
-                    while (lazeNgangValue <500){}
+//                     RESET_ENCODER();
 
-                    RESET_ENCODER();
+//                     robotRunAngle(-1800,10,0,0);
+//                     while(lazeTruocValue > 10){}
 
-                    robotRunAngle(0,10,0,0);
-                    while(lazeTruocValue > 10){}
+//                     if (CB_TU_NHAN_SILO() == 1)
+//                     {
+//                         CAM_BIEN_DAY_BONG_VAO_SILO();
+//                     }
+
+
+//                 if (CB_BONG_1 == 0)
+//                 {
+//                     DAY_BONG_VAO_SILO();
+//                 } 
+//                 else if ()
                 
-            }
-            //0 là có, 1 là không
-            if(CB_SILO_1 = 0 )
-            {
-                robotRunAngle (-900,10,0,0);
-                while (lazeNgangValue)
-            }
-        }
+//             }
+//             else 
+//             {
+//                 DONG_CO_HOT_BONG(1);
+//             }
 
-
-        robotRunAngle (-1800,10,0,0);
-        while (ENCODER_TONG < 100 ){}
-
-
-        robotRunAngle(-1800,40,0,0);
-        while(ENCODER_TONG() < 2500){}
-
-        RESET_ENCODER();
-
-        robotRunAngle (-900,20,0,0);
-        while(lazeNgangValue < 390)
-
-
-}
-
-void toa_do_y()
-{
-
-}
+// }
+  
