@@ -855,3 +855,98 @@ void test()
         }
     }
 }
+void test()
+{
+
+    //đi lên chỗ để bóng
+    robotRunAngle (-1800,10,0,0);
+    while (ENCODER_TONG() < 10500){if(wantExit()) break;}
+		
+    RESET_ENCODER();
+
+    robotRunAngle(900,10,0,0);
+    while (ENCODER_FR() < 3900){if(wantExit()) break;}
+
+    RESET_ENCODER(); 
+
+    robotRunAngle(-1800,10,0,0);
+    while (ENCODER_TONG() < 3000){if(wantExit()) break;}
+
+    robotRunAngle (-900,10,0,0);
+    while (lazeNgangValue > 100){}
+
+    robotRotate (0,6,0);
+    while (lazeNgangValue < 60){}
+
+    RESET_ENCODER();
+
+    robotRunAngle (-1800,10,0,0);
+    while (ENCODER_TONG < 100 ){}
+    RESET_ENCODER();
+    robotStop(10000);
+
+    //Bắt đầu 
+        
+        MO_TAY_HOT_BONG();
+        DONG_CO_HOT_BONG();
+        
+        robotRunAngle(-1800,10,0,0);
+        while (ENCODER_TONG() < 1000);
+
+        //Tím là 0, Xanh là 1
+        if (CAM_BIEN_TRAI == 0)
+        {
+            DAY_BONG_VAO_SILO();        
+        }
+
+        else 
+        {
+            if(CAM_BIEN_PHAI == 1)
+            {
+                //cho dong co nguoc de day bong ra ngoai
+                DONG_CO_HOT_BONG(1);
+                DONG_CO_GIU_BONG();
+                robotRotate(0,-6,0);
+                while (lazeNgangValue > 80){}
+                //chay len silo 
+                robotRunAngle(0,10,0,0);
+                while (ENCODER_TONG() < 9000){}
+                robotStop(2);
+                RESET_ENCODER();
+                    robotRunAngle(-900,20,0,0);
+                    while (lazeNgangValue <500){}
+
+                    RESET_ENCODER();
+
+                    robotRunAngle(0,10,0,0);
+                    while(lazeTruocValue > 10){}
+                
+            }
+            //0 là có, 1 là không
+            if(CB_SILO_1 = 0 )
+            {
+                robotRunAngle (-900,10,0,0);
+                while (lazeNgangValue)
+            }
+        }
+
+
+        robotRunAngle (-1800,10,0,0);
+        while (ENCODER_TONG < 100 ){}
+
+
+        robotRunAngle(-1800,40,0,0);
+        while(ENCODER_TONG() < 2500){}
+
+        RESET_ENCODER();
+
+        robotRunAngle (-900,20,0,0);
+        while(lazeNgangValue < 390)
+
+
+}
+
+void toa_do_y()
+{
+
+}
