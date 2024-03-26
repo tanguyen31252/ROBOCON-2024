@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Project\Project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Project\Project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060020: Last Updated: Mon Mar 25 14:15:13 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060020: Last Updated: Mon Mar 25 23:12:07 2024
 <BR><P>
 <H3>Maximum Stack Usage =        224 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -471,7 +471,7 @@ Global Symbols
 <P><STRONG><a name="[84]"></a>random</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, main.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rand
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen
+<BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen
 </UL>
 
 <P><STRONG><a name="[86]"></a>ENCODER_FL</STRONG> (Thumb, 84 bytes, Stack size 32 bytes, main.o(.text))
@@ -498,11 +498,11 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENCODER_FR
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENCODER_FL
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat_1
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
-<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
+<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat_1
+<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
+<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HMI_TRAN
 </UL>
 
@@ -515,18 +515,18 @@ Global Symbols
 <P><STRONG><a name="[bb]"></a>delay_ms</STRONG> (Thumb, 24 bytes, Stack size 12 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = delay_ms
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat_1
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kiem_tra_di_chuyen
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
-<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tha_bong
+<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat_1
+<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
+<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kiem_tra_di_chuyen
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tha_bong
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;run_read_gyro_uart3
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;resetIMU
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;run_read_gyro_uart1
 </UL>
 
-<P><STRONG><a name="[89]"></a>Config_out_mode</STRONG> (Thumb, 102 bytes, Stack size 32 bytes, main.o(.text))
+<P><STRONG><a name="[89]"></a>Config_out_mode</STRONG> (Thumb, 128 bytes, Stack size 32 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = Config_out_mode &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHB1PeriphClockCmd
@@ -570,7 +570,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;taskMain
 </UL>
 
-<P><STRONG><a name="[95]"></a>Config_pwm_time_t8</STRONG> (Thumb, 252 bytes, Stack size 56 bytes, main.o(.text), UNUSED)
+<P><STRONG><a name="[95]"></a>Config_pwm_time_t8</STRONG> (Thumb, 250 bytes, Stack size 56 bytes, main.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC4Init
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC3Init
@@ -795,17 +795,17 @@ Global Symbols
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;run_read_gyro_uart1
 </UL>
 
-<P><STRONG><a name="[eb]"></a>RESET_ENCODER</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, main.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat_1
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
-<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_5
-<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_4
-<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_3
-<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_2
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_1
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_ve
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reset_all
+<P><STRONG><a name="[ec]"></a>RESET_ENCODER</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, main.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat_1
+<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
+<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
+<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_5
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_4
+<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_3
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_2
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_1
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_ve
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reset_all
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;taskMain
 </UL>
 
@@ -823,7 +823,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEND_UART
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reset_all
+<BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reset_all
 </UL>
 
 <P><STRONG><a name="[bd]"></a>run_read_gyro_uart3</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, main.o(.text), UNUSED)
@@ -831,8 +831,8 @@ Global Symbols
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
 
-<P><STRONG><a name="[be]"></a>HMI_TRAN</STRONG> (Thumb, 1184 bytes, Stack size 128 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 208<LI>Call Chain = HMI_TRAN &rArr; HMI_PUTS &rArr; __2sprintf
+<P><STRONG><a name="[be]"></a>HMI_TRAN</STRONG> (Thumb, 1144 bytes, Stack size 120 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = HMI_TRAN &rArr; HMI_PUTS &rArr; __2sprintf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_WriteBit
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadOutputDataBit
@@ -853,14 +853,14 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[c2]"></a>HMI_RUN_LOOP</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = HMI_RUN_LOOP &rArr; HMI_TRAN &rArr; HMI_PUTS &rArr; __2sprintf
+<BR><BR>[Stack]<UL><LI>Max Depth = 208<LI>Call Chain = HMI_RUN_LOOP &rArr; HMI_TRAN &rArr; HMI_PUTS &rArr; __2sprintf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HMI_TRAN
 </UL>
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;taskGyro
 </UL>
 
-<P><STRONG><a name="[c3]"></a>SPIxmit</STRONG> (Thumb, 292 bytes, Stack size 32 bytes, main.o(.text), UNUSED)
+<P><STRONG><a name="[c3]"></a>SPIxmit</STRONG> (Thumb, 262 bytes, Stack size 32 bytes, main.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_WriteBit
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
@@ -891,10 +891,10 @@ Global Symbols
 
 <P><STRONG><a name="[188]"></a>wantExit</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
 
-<P><STRONG><a name="[f0]"></a>wantExit_UP</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat_1
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
+<P><STRONG><a name="[f1]"></a>wantExit_UP</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat_1
+<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
 </UL>
 
 <P><STRONG><a name="[c8]"></a>motorMinFix</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, main.o(.text), UNUSED)
@@ -960,7 +960,7 @@ Global Symbols
 
 <P><STRONG><a name="[18c]"></a>robotFixAngle</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
 
-<P><STRONG><a name="[d1]"></a>calculateMotor</STRONG> (Thumb, 448 bytes, Stack size 32 bytes, main.o(.text), UNUSED)
+<P><STRONG><a name="[d1]"></a>calculateMotor</STRONG> (Thumb, 446 bytes, Stack size 32 bytes, main.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxF4
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sinf
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cosf
@@ -976,12 +976,12 @@ Global Symbols
 <P><STRONG><a name="[d5]"></a>robotStop</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculateMotor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat_1
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
-<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_ve
+<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat_1
+<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
+<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_ve
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotGamePadControl
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotAngleAnalytics
 </UL>
@@ -1004,9 +1004,9 @@ Global Symbols
 <P><STRONG><a name="[d8]"></a>robotRotate</STRONG> (Thumb, 114 bytes, Stack size 16 bytes, main.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculateMotor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat_1
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
+<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat_1
+<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRunAngle
 <LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRotateFree
 </UL>
@@ -1030,12 +1030,12 @@ Global Symbols
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRotate
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotCurve
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat_1
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
-<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_ve
+<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat_1
+<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
+<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_ve
 </UL>
 
 <P><STRONG><a name="[dd]"></a>robotAngleAnalytics</STRONG> (Thumb, 94 bytes, Stack size 8 bytes, main.o(.text), UNUSED)
@@ -1096,253 +1096,257 @@ Global Symbols
 
 <P><STRONG><a name="[18e]"></a>testtaygap</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
 
-<P><STRONG><a name="[102]"></a>dieuKhienCoCau</STRONG> (Thumb, 84 bytes, Stack size 12 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = dieuKhienCoCau
+<P><STRONG><a name="[18f]"></a>testbanhxe</STRONG> (Thumb, 84 bytes, Stack size 12 bytes, main.o(.text), UNUSED)
+
+<P><STRONG><a name="[ea]"></a>dieuKhienCoCau</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = dieuKhienCoCau
+</UL>
+<BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_WriteBit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;taskDieuKhienCoCau
 </UL>
 
-<P><STRONG><a name="[ea]"></a>reset_all</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, main.o(.text), UNUSED)
+<P><STRONG><a name="[eb]"></a>reset_all</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, main.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;resetIMU
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat_1
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
-</UL>
-
-<P><STRONG><a name="[ef]"></a>encoder_silo</STRONG> (Thumb, 84 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
+<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat_1
+<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
 </UL>
 
-<P><STRONG><a name="[ec]"></a>tha_bong</STRONG> (Thumb, 108 bytes, Stack size 24 bytes, main.o(.text), UNUSED)
+<P><STRONG><a name="[f0]"></a>encoder_silo</STRONG> (Thumb, 58 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
+</UL>
+
+<P><STRONG><a name="[ed]"></a>tha_bong</STRONG> (Thumb, 110 bytes, Stack size 24 bytes, main.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_WriteBit
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
-<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kiem_tra_nhan_bong
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
+<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kiem_tra_nhan_bong
 </UL>
 
-<P><STRONG><a name="[ed]"></a>di_chuyen_ve</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, main.o(.text), UNUSED)
+<P><STRONG><a name="[ee]"></a>di_chuyen_ve</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, main.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRunAngle
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotStop
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
 </UL>
 
-<P><STRONG><a name="[ee]"></a>duong_di_silo</STRONG> (Thumb, 640 bytes, Stack size 40 bytes, main.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;encoder_silo
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reset_all
+<P><STRONG><a name="[ef]"></a>duong_di_silo</STRONG> (Thumb, 636 bytes, Stack size 40 bytes, main.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;encoder_silo
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reset_all
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRunAngle
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRotate
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotStop
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wantExit_UP
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wantExit_UP
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENCODER_TONG
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_5
-<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_4
-<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_3
-<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_2
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_1
+<BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_5
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_4
+<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_3
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_2
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_1
 </UL>
 
-<P><STRONG><a name="[f1]"></a>di_chuyen</STRONG> (Thumb, 656 bytes, Stack size 32 bytes, main.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;encoder_silo
+<P><STRONG><a name="[f2]"></a>di_chuyen</STRONG> (Thumb, 656 bytes, Stack size 32 bytes, main.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;encoder_silo
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRunAngle
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotStop
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENCODER_TONG
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;random
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kiem_tra_di_chuyen
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kiem_tra_di_chuyen
 </UL>
 
-<P><STRONG><a name="[f2]"></a>nhan_bong_trong_silo</STRONG> (Thumb, 192 bytes, Stack size 40 bytes, main.o(.text), UNUSED)
+<P><STRONG><a name="[f3]"></a>nhan_bong_trong_silo</STRONG> (Thumb, 226 bytes, Stack size 40 bytes, main.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kiem_tra_di_chuyen
-<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kiem_tra_nhan_bong
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kiem_tra_di_chuyen
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kiem_tra_nhan_bong
 </UL>
 
-<P><STRONG><a name="[f3]"></a>kiem_tra_nhan_bong</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, main.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nhan_bong_trong_silo
-<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tha_bong
+<P><STRONG><a name="[f4]"></a>kiem_tra_nhan_bong</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, main.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nhan_bong_trong_silo
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tha_bong
 </UL>
 
-<P><STRONG><a name="[f4]"></a>kiem_tra_di_chuyen</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, main.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nhan_bong_trong_silo
-<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen
+<P><STRONG><a name="[f5]"></a>kiem_tra_di_chuyen</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, main.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nhan_bong_trong_silo
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_5
-<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_4
-<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_3
-<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_2
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_1
+<BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_5
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_4
+<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_3
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_2
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_1
 </UL>
 
-<P><STRONG><a name="[f5]"></a>di_chuyen_len_1</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, main.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kiem_tra_di_chuyen
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
+<P><STRONG><a name="[f6]"></a>di_chuyen_len_1</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, main.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kiem_tra_di_chuyen
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
-<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_bo_bong_thu_3
-</UL>
-
-<P><STRONG><a name="[f6]"></a>di_chuyen_len_2</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, main.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kiem_tra_di_chuyen
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
-</UL>
-<BR>[Called By]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
-<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_bo_bong_thu_3
+<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
+<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_bo_bong_thu_3
 </UL>
 
-<P><STRONG><a name="[f7]"></a>di_chuyen_len_3</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, main.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kiem_tra_di_chuyen
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
+<P><STRONG><a name="[f7]"></a>di_chuyen_len_2</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, main.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kiem_tra_di_chuyen
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
-<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_bo_bong_thu_3
-</UL>
-
-<P><STRONG><a name="[f8]"></a>di_chuyen_len_4</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, main.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kiem_tra_di_chuyen
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
-</UL>
-<BR>[Called By]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
-<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_bo_bong_thu_3
+<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
+<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_bo_bong_thu_3
 </UL>
 
-<P><STRONG><a name="[f9]"></a>di_chuyen_len_5</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, main.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kiem_tra_di_chuyen
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
+<P><STRONG><a name="[f8]"></a>di_chuyen_len_3</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, main.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kiem_tra_di_chuyen
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
 </UL>
-<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
-<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_bo_bong_thu_3
+<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
+<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_bo_bong_thu_3
 </UL>
 
-<P><STRONG><a name="[fa]"></a>do_bong</STRONG> (Thumb, 606 bytes, Stack size 56 bytes, main.o(.text), UNUSED)
+<P><STRONG><a name="[f9]"></a>di_chuyen_len_4</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, main.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kiem_tra_di_chuyen
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
+<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_bo_bong_thu_3
+</UL>
+
+<P><STRONG><a name="[fa]"></a>di_chuyen_len_5</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, main.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kiem_tra_di_chuyen
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
+<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_bo_bong_thu_3
+</UL>
+
+<P><STRONG><a name="[fb]"></a>do_bong</STRONG> (Thumb, 606 bytes, Stack size 56 bytes, main.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_WriteBit
-<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tha_bong
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tha_bong
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRunAngle
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotStop
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENCODER_TONG
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
 </UL>
 
-<P><STRONG><a name="[fb]"></a>XuatPhat</STRONG> (Thumb, 760 bytes, Stack size 24 bytes, main.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reset_all
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRunAngle
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRotate
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotStop
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wantExit_UP
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENCODER_TONG
-<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
-</UL>
-<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
-</UL>
-
-<P><STRONG><a name="[fc]"></a>di_chuyen_len_bo_bong_thu_3</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, main.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_5
-<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_4
-<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_3
-<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_2
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_1
-</UL>
-<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
-</UL>
-
-<P><STRONG><a name="[fd]"></a>di_chuyen_len</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_5
-<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_4
-<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_3
-<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_2
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_1
-</UL>
-<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
-</UL>
-
-<P><STRONG><a name="[fe]"></a>quy_trinh_lua_bong_up_silo</STRONG> (Thumb, 206 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_bo_bong_thu_3
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
-<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_5
-<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_4
-<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_3
-<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_2
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_1
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nhan_bong_trong_silo
-<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_ve
-<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tha_bong
-</UL>
-<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat_1
-</UL>
-
-<P><STRONG><a name="[ff]"></a>XuatPhat_1</STRONG> (Thumb, 584 bytes, Stack size 16 bytes, main.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reset_all
+<P><STRONG><a name="[fc]"></a>XuatPhat</STRONG> (Thumb, 760 bytes, Stack size 24 bytes, main.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reset_all
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRunAngle
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRotate
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotStop
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wantExit_UP
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wantExit_UP
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENCODER_TONG
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
+</UL>
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
+</UL>
+
+<P><STRONG><a name="[fd]"></a>di_chuyen_len_bo_bong_thu_3</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, main.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_5
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_4
+<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_3
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_2
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_1
+</UL>
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
+</UL>
+
+<P><STRONG><a name="[fe]"></a>di_chuyen_len</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_5
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_4
+<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_3
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_2
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_1
+</UL>
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
+</UL>
+
+<P><STRONG><a name="[ff]"></a>quy_trinh_lua_bong_up_silo</STRONG> (Thumb, 206 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_bo_bong_thu_3
+<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
+<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_5
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_4
+<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_3
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_2
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_1
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nhan_bong_trong_silo
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_ve
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tha_bong
+</UL>
+<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat_1
+</UL>
+
+<P><STRONG><a name="[100]"></a>XuatPhat_1</STRONG> (Thumb, 584 bytes, Stack size 16 bytes, main.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reset_all
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRunAngle
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRotate
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotStop
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wantExit_UP
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENCODER_TONG
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
 </UL>
 
-<P><STRONG><a name="[18f]"></a>XuatPhat_2</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
+<P><STRONG><a name="[190]"></a>XuatPhat_2</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
 
-<P><STRONG><a name="[190]"></a>XuatPhat_3</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
+<P><STRONG><a name="[191]"></a>XuatPhat_3</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
 
-<P><STRONG><a name="[191]"></a>XuatPhat_4</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
+<P><STRONG><a name="[192]"></a>XuatPhat_4</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
 
-<P><STRONG><a name="[192]"></a>XuatPhat_5</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
+<P><STRONG><a name="[193]"></a>XuatPhat_5</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
 
-<P><STRONG><a name="[100]"></a>test</STRONG> (Thumb, 92 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_bo_bong_thu_3
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
-<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_5
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nhan_bong_trong_silo
-<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_ve
-<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tha_bong
+<P><STRONG><a name="[101]"></a>test</STRONG> (Thumb, 92 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_bo_bong_thu_3
+<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
+<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
+<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_5
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nhan_bong_trong_silo
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_ve
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tha_bong
 </UL>
 
 <P><STRONG><a name="[5c]"></a>main</STRONG> (Thumb, 58 bytes, Stack size 32 bytes, main.o(.text))
@@ -1360,7 +1364,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f4xx.o(.text)
 </UL>
-<P><STRONG><a name="[193]"></a>SystemCoreClockUpdate</STRONG> (Thumb, 108 bytes, Stack size 16 bytes, system_stm32f4xx.o(.text), UNUSED)
+<P><STRONG><a name="[194]"></a>SystemCoreClockUpdate</STRONG> (Thumb, 108 bytes, Stack size 16 bytes, system_stm32f4xx.o(.text), UNUSED)
 
 <P><STRONG><a name="[0]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_stm32f4xx.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f4xx.o(RESET)
@@ -1581,11 +1585,11 @@ Global Symbols
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Config_int_time6
 </UL>
 
-<P><STRONG><a name="[194]"></a>NVIC_SetVectorTable</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, misc.o(.text), UNUSED)
+<P><STRONG><a name="[195]"></a>NVIC_SetVectorTable</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, misc.o(.text), UNUSED)
 
-<P><STRONG><a name="[195]"></a>NVIC_SystemLPConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, misc.o(.text), UNUSED)
+<P><STRONG><a name="[196]"></a>NVIC_SystemLPConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, misc.o(.text), UNUSED)
 
-<P><STRONG><a name="[196]"></a>SysTick_CLKSourceConfig</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, misc.o(.text), UNUSED)
+<P><STRONG><a name="[197]"></a>SysTick_CLKSourceConfig</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, misc.o(.text), UNUSED)
 
 <P><STRONG><a name="[107]"></a>GPIO_DeInit</STRONG> (Thumb, 192 bytes, Stack size 8 bytes, stm32f4xx_gpio.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHB1PeriphResetCmd
@@ -1609,40 +1613,41 @@ Global Symbols
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Config_out_mode
 </UL>
 
-<P><STRONG><a name="[197]"></a>GPIO_StructInit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(.text), UNUSED)
+<P><STRONG><a name="[198]"></a>GPIO_StructInit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(.text), UNUSED)
 
-<P><STRONG><a name="[198]"></a>GPIO_PinLockConfig</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, stm32f4xx_gpio.o(.text), UNUSED)
+<P><STRONG><a name="[199]"></a>GPIO_PinLockConfig</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, stm32f4xx_gpio.o(.text), UNUSED)
 
 <P><STRONG><a name="[73]"></a>GPIO_ReadInputDataBit</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat_1
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nhan_bong_trong_silo
-<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_ve
-<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tha_bong
+<BR><BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat_1
+<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
+<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nhan_bong_trong_silo
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_ve
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tha_bong
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIxmit
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HMI_TRAN
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gui_line
 <LI><a href="#[12]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI2_IRQHandler
 </UL>
 
-<P><STRONG><a name="[199]"></a>GPIO_ReadInputData</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(.text), UNUSED)
+<P><STRONG><a name="[19a]"></a>GPIO_ReadInputData</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(.text), UNUSED)
 
 <P><STRONG><a name="[c0]"></a>GPIO_ReadOutputDataBit</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HMI_TRAN
 </UL>
 
-<P><STRONG><a name="[19a]"></a>GPIO_ReadOutputData</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(.text), UNUSED)
+<P><STRONG><a name="[19b]"></a>GPIO_ReadOutputData</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(.text), UNUSED)
 
-<P><STRONG><a name="[19b]"></a>GPIO_SetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(.text), UNUSED)
+<P><STRONG><a name="[19c]"></a>GPIO_SetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(.text), UNUSED)
 
-<P><STRONG><a name="[19c]"></a>GPIO_ResetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(.text), UNUSED)
+<P><STRONG><a name="[19d]"></a>GPIO_ResetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(.text), UNUSED)
 
 <P><STRONG><a name="[bf]"></a>GPIO_WriteBit</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
-<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tha_bong
+<BR><BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tha_bong
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dieuKhienCoCau
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_xl
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gp_get_mode
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gp_update_btn
@@ -1650,7 +1655,7 @@ Global Symbols
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HMI_TRAN
 </UL>
 
-<P><STRONG><a name="[19d]"></a>GPIO_Write</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(.text), UNUSED)
+<P><STRONG><a name="[19e]"></a>GPIO_Write</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(.text), UNUSED)
 
 <P><STRONG><a name="[72]"></a>GPIO_ToggleBits</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[12]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI2_IRQHandler
@@ -1670,9 +1675,9 @@ Global Symbols
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Config_pwm_time_t8
 </UL>
 
-<P><STRONG><a name="[19e]"></a>RCC_DeInit</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[19f]"></a>RCC_DeInit</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[19f]"></a>RCC_HSEConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1a0]"></a>RCC_HSEConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
 <P><STRONG><a name="[10a]"></a>RCC_GetFlagStatus</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_WaitForHSEStartUp
@@ -1682,37 +1687,37 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_GetFlagStatus
 </UL>
 
-<P><STRONG><a name="[1a0]"></a>RCC_AdjustHSICalibrationValue</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1a1]"></a>RCC_AdjustHSICalibrationValue</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1a1]"></a>RCC_HSICmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1a2]"></a>RCC_HSICmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1a2]"></a>RCC_LSEConfig</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1a3]"></a>RCC_LSEConfig</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1a3]"></a>RCC_LSICmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1a4]"></a>RCC_LSICmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1a4]"></a>RCC_PLLConfig</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1a5]"></a>RCC_PLLConfig</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1a5]"></a>RCC_PLLCmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1a6]"></a>RCC_PLLCmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1a6]"></a>RCC_PLLI2SConfig</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1a7]"></a>RCC_PLLI2SConfig</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1a7]"></a>RCC_PLLI2SCmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1a8]"></a>RCC_PLLI2SCmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1a8]"></a>RCC_ClockSecuritySystemCmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1a9]"></a>RCC_ClockSecuritySystemCmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1a9]"></a>RCC_MCO1Config</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1aa]"></a>RCC_MCO1Config</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1aa]"></a>RCC_MCO2Config</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1ab]"></a>RCC_MCO2Config</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1ab]"></a>RCC_SYSCLKConfig</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1ac]"></a>RCC_SYSCLKConfig</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1ac]"></a>RCC_GetSYSCLKSource</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1ad]"></a>RCC_GetSYSCLKSource</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1ad]"></a>RCC_HCLKConfig</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1ae]"></a>RCC_HCLKConfig</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1ae]"></a>RCC_PCLK1Config</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1af]"></a>RCC_PCLK1Config</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1af]"></a>RCC_PCLK2Config</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1b0]"></a>RCC_PCLK2Config</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
 <P><STRONG><a name="[11d]"></a>RCC_GetClocksFreq</STRONG> (Thumb, 134 bytes, Stack size 16 bytes, stm32f4xx_rcc.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = RCC_GetClocksFreq
@@ -1720,13 +1725,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
 </UL>
 
-<P><STRONG><a name="[1b0]"></a>RCC_RTCCLKConfig</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1b1]"></a>RCC_RTCCLKConfig</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1b1]"></a>RCC_RTCCLKCmd</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1b2]"></a>RCC_RTCCLKCmd</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1b2]"></a>RCC_BackupResetCmd</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1b3]"></a>RCC_BackupResetCmd</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1b3]"></a>RCC_I2SCLKConfig</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1b4]"></a>RCC_I2SCLKConfig</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
 <P><STRONG><a name="[8a]"></a>RCC_AHB1PeriphClockCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ngat_ngoai
@@ -1745,9 +1750,9 @@ Global Symbols
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Config_out_mode
 </UL>
 
-<P><STRONG><a name="[1b4]"></a>RCC_AHB2PeriphClockCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1b5]"></a>RCC_AHB2PeriphClockCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1b5]"></a>RCC_AHB3PeriphClockCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1b6]"></a>RCC_AHB3PeriphClockCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
 <P><STRONG><a name="[90]"></a>RCC_APB1PeriphClockCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_DMA_TX
@@ -1773,9 +1778,9 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_DeInit
 </UL>
 
-<P><STRONG><a name="[1b6]"></a>RCC_AHB2PeriphResetCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1b7]"></a>RCC_AHB2PeriphResetCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1b7]"></a>RCC_AHB3PeriphResetCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1b8]"></a>RCC_AHB3PeriphResetCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
 <P><STRONG><a name="[10e]"></a>RCC_APB1PeriphResetCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_DeInit
@@ -1789,23 +1794,23 @@ Global Symbols
 <LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_DeInit
 </UL>
 
-<P><STRONG><a name="[1b8]"></a>RCC_AHB1PeriphClockLPModeCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1b9]"></a>RCC_AHB1PeriphClockLPModeCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1b9]"></a>RCC_AHB2PeriphClockLPModeCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1ba]"></a>RCC_AHB2PeriphClockLPModeCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1ba]"></a>RCC_AHB3PeriphClockLPModeCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1bb]"></a>RCC_AHB3PeriphClockLPModeCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1bb]"></a>RCC_APB1PeriphClockLPModeCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1bc]"></a>RCC_APB1PeriphClockLPModeCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1bc]"></a>RCC_APB2PeriphClockLPModeCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1bd]"></a>RCC_APB2PeriphClockLPModeCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1bd]"></a>RCC_ITConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1be]"></a>RCC_ITConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1be]"></a>RCC_ClearFlag</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1bf]"></a>RCC_ClearFlag</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1bf]"></a>RCC_GetITStatus</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1c0]"></a>RCC_GetITStatus</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1c0]"></a>RCC_ClearITPendingBit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[1c1]"></a>RCC_ClearITPendingBit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
 
 <P><STRONG><a name="[10b]"></a>ADC_DeInit</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, stm32f4xx_adc.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphResetCmd
@@ -1817,7 +1822,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Config_ADC1_DMA
 </UL>
 
-<P><STRONG><a name="[1c1]"></a>ADC_StructInit</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1c2]"></a>ADC_StructInit</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
 <P><STRONG><a name="[a5]"></a>ADC_CommonInit</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, stm32f4xx_adc.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = ADC_CommonInit
@@ -1825,21 +1830,21 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Config_ADC1_DMA
 </UL>
 
-<P><STRONG><a name="[1c2]"></a>ADC_CommonStructInit</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1c3]"></a>ADC_CommonStructInit</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
 <P><STRONG><a name="[aa]"></a>ADC_Cmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Config_ADC1_DMA
 </UL>
 
-<P><STRONG><a name="[1c3]"></a>ADC_AnalogWatchdogCmd</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1c4]"></a>ADC_AnalogWatchdogCmd</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1c4]"></a>ADC_AnalogWatchdogThresholdsConfig</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1c5]"></a>ADC_AnalogWatchdogThresholdsConfig</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1c5]"></a>ADC_AnalogWatchdogSingleChannelConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1c6]"></a>ADC_AnalogWatchdogSingleChannelConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1c6]"></a>ADC_TempSensorVrefintCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1c7]"></a>ADC_TempSensorVrefintCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1c7]"></a>ADC_VBATCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1c8]"></a>ADC_VBATCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
 <P><STRONG><a name="[a7]"></a>ADC_RegularChannelConfig</STRONG> (Thumb, 116 bytes, Stack size 16 bytes, stm32f4xx_adc.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = ADC_RegularChannelConfig
@@ -1851,19 +1856,19 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Config_ADC1_DMA
 </UL>
 
-<P><STRONG><a name="[1c8]"></a>ADC_GetSoftwareStartConvStatus</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1c9]"></a>ADC_GetSoftwareStartConvStatus</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1c9]"></a>ADC_EOCOnEachRegularChannelCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1ca]"></a>ADC_EOCOnEachRegularChannelCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1ca]"></a>ADC_ContinuousModeCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1cb]"></a>ADC_ContinuousModeCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1cb]"></a>ADC_DiscModeChannelCountConfig</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1cc]"></a>ADC_DiscModeChannelCountConfig</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1cc]"></a>ADC_DiscModeCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1cd]"></a>ADC_DiscModeCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1cd]"></a>ADC_GetConversionValue</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1ce]"></a>ADC_GetConversionValue</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1ce]"></a>ADC_GetMultiModeConversionValue</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1cf]"></a>ADC_GetMultiModeConversionValue</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
 <P><STRONG><a name="[a9]"></a>ADC_DMACmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Config_ADC1_DMA
@@ -1873,37 +1878,37 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Config_ADC1_DMA
 </UL>
 
-<P><STRONG><a name="[1cf]"></a>ADC_MultiModeDMARequestAfterLastTransferCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1d0]"></a>ADC_MultiModeDMARequestAfterLastTransferCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1d0]"></a>ADC_InjectedChannelConfig</STRONG> (Thumb, 74 bytes, Stack size 16 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1d1]"></a>ADC_InjectedChannelConfig</STRONG> (Thumb, 74 bytes, Stack size 16 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1d1]"></a>ADC_InjectedSequencerLengthConfig</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1d2]"></a>ADC_InjectedSequencerLengthConfig</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1d2]"></a>ADC_SetInjectedOffset</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1d3]"></a>ADC_SetInjectedOffset</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1d3]"></a>ADC_ExternalTrigInjectedConvConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1d4]"></a>ADC_ExternalTrigInjectedConvConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1d4]"></a>ADC_ExternalTrigInjectedConvEdgeConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1d5]"></a>ADC_ExternalTrigInjectedConvEdgeConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1d5]"></a>ADC_SoftwareStartInjectedConv</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1d6]"></a>ADC_SoftwareStartInjectedConv</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1d6]"></a>ADC_GetSoftwareStartInjectedConvCmdStatus</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1d7]"></a>ADC_GetSoftwareStartInjectedConvCmdStatus</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1d7]"></a>ADC_AutoInjectedConvCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1d8]"></a>ADC_AutoInjectedConvCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1d8]"></a>ADC_InjectedDiscModeCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1d9]"></a>ADC_InjectedDiscModeCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1d9]"></a>ADC_GetInjectedConversionValue</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1da]"></a>ADC_GetInjectedConversionValue</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1da]"></a>ADC_ITConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1db]"></a>ADC_ITConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1db]"></a>ADC_GetFlagStatus</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1dc]"></a>ADC_GetFlagStatus</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1dc]"></a>ADC_ClearFlag</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1dd]"></a>ADC_ClearFlag</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1dd]"></a>ADC_GetITStatus</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1de]"></a>ADC_GetITStatus</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1de]"></a>ADC_ClearITPendingBit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1df]"></a>ADC_ClearITPendingBit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_adc.o(.text), UNUSED)
 
 <P><STRONG><a name="[af]"></a>DMA_DeInit</STRONG> (Thumb, 272 bytes, Stack size 28 bytes, stm32f4xx_dma.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = DMA_DeInit
@@ -1926,7 +1931,7 @@ Global Symbols
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Config_ADC1_DMA
 </UL>
 
-<P><STRONG><a name="[1df]"></a>DMA_StructInit</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
+<P><STRONG><a name="[1e0]"></a>DMA_StructInit</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
 
 <P><STRONG><a name="[6f]"></a>DMA_Cmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DATA_SPEED_RUN_LOOP
@@ -1940,29 +1945,29 @@ Global Symbols
 <LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA1_Stream7_IRQHandler
 </UL>
 
-<P><STRONG><a name="[1e0]"></a>DMA_PeriphIncOffsetSizeConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
+<P><STRONG><a name="[1e1]"></a>DMA_PeriphIncOffsetSizeConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
 
-<P><STRONG><a name="[1e1]"></a>DMA_FlowControllerConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
+<P><STRONG><a name="[1e2]"></a>DMA_FlowControllerConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
 
-<P><STRONG><a name="[1e2]"></a>DMA_SetCurrDataCounter</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
+<P><STRONG><a name="[1e3]"></a>DMA_SetCurrDataCounter</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
 
-<P><STRONG><a name="[1e3]"></a>DMA_GetCurrDataCounter</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
+<P><STRONG><a name="[1e4]"></a>DMA_GetCurrDataCounter</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
 
-<P><STRONG><a name="[1e4]"></a>DMA_DoubleBufferModeConfig</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
+<P><STRONG><a name="[1e5]"></a>DMA_DoubleBufferModeConfig</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
 
-<P><STRONG><a name="[1e5]"></a>DMA_DoubleBufferModeCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
+<P><STRONG><a name="[1e6]"></a>DMA_DoubleBufferModeCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
 
-<P><STRONG><a name="[1e6]"></a>DMA_MemoryTargetConfig</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
+<P><STRONG><a name="[1e7]"></a>DMA_MemoryTargetConfig</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
 
-<P><STRONG><a name="[1e7]"></a>DMA_GetCurrentMemoryTarget</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
+<P><STRONG><a name="[1e8]"></a>DMA_GetCurrentMemoryTarget</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
 
-<P><STRONG><a name="[1e8]"></a>DMA_GetCmdStatus</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
+<P><STRONG><a name="[1e9]"></a>DMA_GetCmdStatus</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
 
-<P><STRONG><a name="[1e9]"></a>DMA_GetFIFOStatus</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
+<P><STRONG><a name="[1ea]"></a>DMA_GetFIFOStatus</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
 
-<P><STRONG><a name="[1ea]"></a>DMA_GetFlagStatus</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
+<P><STRONG><a name="[1eb]"></a>DMA_GetFlagStatus</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
 
-<P><STRONG><a name="[1eb]"></a>DMA_ClearFlag</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
+<P><STRONG><a name="[1ec]"></a>DMA_ClearFlag</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text), UNUSED)
 
 <P><STRONG><a name="[b1]"></a>DMA_ITConfig</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, stm32f4xx_dma.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_DMA_TX
@@ -1992,25 +1997,25 @@ Global Symbols
 <LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA1_Stream4_IRQHandler
 </UL>
 
-<P><STRONG><a name="[1ec]"></a>EXTI_DeInit</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, stm32f4xx_exti.o(.text), UNUSED)
+<P><STRONG><a name="[1ed]"></a>EXTI_DeInit</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, stm32f4xx_exti.o(.text), UNUSED)
 
 <P><STRONG><a name="[b8]"></a>EXTI_Init</STRONG> (Thumb, 108 bytes, Stack size 12 bytes, stm32f4xx_exti.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ngat_ngoai
 </UL>
 
-<P><STRONG><a name="[1ed]"></a>EXTI_StructInit</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f4xx_exti.o(.text), UNUSED)
+<P><STRONG><a name="[1ee]"></a>EXTI_StructInit</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f4xx_exti.o(.text), UNUSED)
 
-<P><STRONG><a name="[1ee]"></a>EXTI_GenerateSWInterrupt</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_exti.o(.text), UNUSED)
+<P><STRONG><a name="[1ef]"></a>EXTI_GenerateSWInterrupt</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_exti.o(.text), UNUSED)
 
-<P><STRONG><a name="[1ef]"></a>EXTI_GetFlagStatus</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_exti.o(.text), UNUSED)
+<P><STRONG><a name="[1f0]"></a>EXTI_GetFlagStatus</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_exti.o(.text), UNUSED)
 
-<P><STRONG><a name="[1f0]"></a>EXTI_ClearFlag</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_exti.o(.text), UNUSED)
+<P><STRONG><a name="[1f1]"></a>EXTI_ClearFlag</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_exti.o(.text), UNUSED)
 
 <P><STRONG><a name="[71]"></a>EXTI_GetITStatus</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, stm32f4xx_exti.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[12]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI2_IRQHandler
 </UL>
 
-<P><STRONG><a name="[1f1]"></a>EXTI_ClearITPendingBit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_exti.o(.text), UNUSED)
+<P><STRONG><a name="[1f2]"></a>EXTI_ClearITPendingBit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_exti.o(.text), UNUSED)
 
 <P><STRONG><a name="[10d]"></a>TIM_DeInit</STRONG> (Thumb, 284 bytes, Stack size 8 bytes, stm32f4xx_tim.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphResetCmd
@@ -2029,11 +2034,11 @@ Global Symbols
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Config_int_time6
 </UL>
 
-<P><STRONG><a name="[1f2]"></a>TIM_TimeBaseStructInit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1f3]"></a>TIM_TimeBaseStructInit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1f3]"></a>TIM_PrescalerConfig</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1f4]"></a>TIM_PrescalerConfig</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1f4]"></a>TIM_CounterModeConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1f5]"></a>TIM_CounterModeConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
 <P><STRONG><a name="[74]"></a>TIM_SetCounter</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Config_encoder_timer1
@@ -2046,7 +2051,7 @@ Global Symbols
 <LI><a href="#[12]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI2_IRQHandler
 </UL>
 
-<P><STRONG><a name="[1f5]"></a>TIM_SetAutoreload</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1f6]"></a>TIM_SetAutoreload</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
 <P><STRONG><a name="[75]"></a>TIM_GetCounter</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENCODER_FR
@@ -2054,17 +2059,17 @@ Global Symbols
 <LI><a href="#[12]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI2_IRQHandler
 </UL>
 
-<P><STRONG><a name="[1f6]"></a>TIM_GetPrescaler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1f7]"></a>TIM_GetPrescaler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1f7]"></a>TIM_UpdateDisableConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1f8]"></a>TIM_UpdateDisableConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1f8]"></a>TIM_UpdateRequestConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1f9]"></a>TIM_UpdateRequestConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1f9]"></a>TIM_ARRPreloadConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1fa]"></a>TIM_ARRPreloadConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1fa]"></a>TIM_SelectOnePulseMode</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1fb]"></a>TIM_SelectOnePulseMode</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1fb]"></a>TIM_SetClockDivision</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1fc]"></a>TIM_SetClockDivision</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
 <P><STRONG><a name="[93]"></a>TIM_Cmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Config_encoder_timer1
@@ -2104,67 +2109,67 @@ Global Symbols
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Config_pwm_time_t8
 </UL>
 
-<P><STRONG><a name="[1fc]"></a>TIM_OCStructInit</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1fd]"></a>TIM_OCStructInit</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1fd]"></a>TIM_SelectOCxM</STRONG> (Thumb, 130 bytes, Stack size 12 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1fe]"></a>TIM_SelectOCxM</STRONG> (Thumb, 130 bytes, Stack size 12 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1fe]"></a>TIM_SetCompare1</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1ff]"></a>TIM_SetCompare1</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1ff]"></a>TIM_SetCompare2</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[200]"></a>TIM_SetCompare2</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[200]"></a>TIM_SetCompare3</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[201]"></a>TIM_SetCompare3</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[201]"></a>TIM_SetCompare4</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[202]"></a>TIM_SetCompare4</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[202]"></a>TIM_ForcedOC1Config</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[203]"></a>TIM_ForcedOC1Config</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[203]"></a>TIM_ForcedOC2Config</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[204]"></a>TIM_ForcedOC2Config</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[204]"></a>TIM_ForcedOC3Config</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[205]"></a>TIM_ForcedOC3Config</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[205]"></a>TIM_ForcedOC4Config</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[206]"></a>TIM_ForcedOC4Config</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[206]"></a>TIM_OC1PreloadConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[207]"></a>TIM_OC1PreloadConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[207]"></a>TIM_OC2PreloadConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[208]"></a>TIM_OC2PreloadConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[208]"></a>TIM_OC3PreloadConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[209]"></a>TIM_OC3PreloadConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[209]"></a>TIM_OC4PreloadConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[20a]"></a>TIM_OC4PreloadConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[20a]"></a>TIM_OC1FastConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[20b]"></a>TIM_OC1FastConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[20b]"></a>TIM_OC2FastConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[20c]"></a>TIM_OC2FastConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[20c]"></a>TIM_OC3FastConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[20d]"></a>TIM_OC3FastConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[20d]"></a>TIM_OC4FastConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[20e]"></a>TIM_OC4FastConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[20e]"></a>TIM_ClearOC1Ref</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[20f]"></a>TIM_ClearOC1Ref</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[20f]"></a>TIM_ClearOC2Ref</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[210]"></a>TIM_ClearOC2Ref</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[210]"></a>TIM_ClearOC3Ref</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[211]"></a>TIM_ClearOC3Ref</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[211]"></a>TIM_ClearOC4Ref</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[212]"></a>TIM_ClearOC4Ref</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[212]"></a>TIM_OC1PolarityConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[213]"></a>TIM_OC1PolarityConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[213]"></a>TIM_OC1NPolarityConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[214]"></a>TIM_OC1NPolarityConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[214]"></a>TIM_OC2PolarityConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[215]"></a>TIM_OC2PolarityConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[215]"></a>TIM_OC2NPolarityConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[216]"></a>TIM_OC2NPolarityConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[216]"></a>TIM_OC3PolarityConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[217]"></a>TIM_OC3PolarityConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[217]"></a>TIM_OC3NPolarityConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[218]"></a>TIM_OC3NPolarityConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[218]"></a>TIM_OC4PolarityConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[219]"></a>TIM_OC4PolarityConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[219]"></a>TIM_CCxCmd</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[21a]"></a>TIM_CCxCmd</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[21a]"></a>TIM_CCxNCmd</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[21b]"></a>TIM_CCxNCmd</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
 <P><STRONG><a name="[10f]"></a>TIM_SetIC4Prescaler</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
@@ -2199,7 +2204,7 @@ Global Symbols
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Config_pwm_time_t9
 </UL>
 
-<P><STRONG><a name="[21b]"></a>TIM_ICStructInit</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[21c]"></a>TIM_ICStructInit</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
 <P><STRONG><a name="[115]"></a>TIM_PWMIConfig</STRONG> (Thumb, 104 bytes, Stack size 24 bytes, stm32f4xx_tim.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC1Prescaler
@@ -2208,25 +2213,25 @@ Global Symbols
 <LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI2_Config
 </UL>
 
-<P><STRONG><a name="[21c]"></a>TIM_GetCapture1</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[21d]"></a>TIM_GetCapture1</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[21d]"></a>TIM_GetCapture2</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[21e]"></a>TIM_GetCapture2</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[21e]"></a>TIM_GetCapture3</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[21f]"></a>TIM_GetCapture3</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[21f]"></a>TIM_GetCapture4</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[220]"></a>TIM_GetCapture4</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[220]"></a>TIM_BDTRConfig</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[221]"></a>TIM_BDTRConfig</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[221]"></a>TIM_BDTRStructInit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[222]"></a>TIM_BDTRStructInit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
 <P><STRONG><a name="[9c]"></a>TIM_CtrlPWMOutputs</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Config_pwm_time_t8
 </UL>
 
-<P><STRONG><a name="[222]"></a>TIM_SelectCOM</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[223]"></a>TIM_SelectCOM</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[223]"></a>TIM_CCPreloadControl</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[224]"></a>TIM_CCPreloadControl</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
 <P><STRONG><a name="[92]"></a>TIM_ITConfig</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Config_encoder_timer1
@@ -2236,13 +2241,13 @@ Global Symbols
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Config_int_time6
 </UL>
 
-<P><STRONG><a name="[224]"></a>TIM_GenerateEvent</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[225]"></a>TIM_GenerateEvent</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[225]"></a>TIM_GetFlagStatus</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[226]"></a>TIM_GetFlagStatus</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[226]"></a>TIM_ClearFlag</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[227]"></a>TIM_ClearFlag</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[227]"></a>TIM_GetITStatus</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[228]"></a>TIM_GetITStatus</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
 <P><STRONG><a name="[70]"></a>TIM_ClearITPendingBit</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Config_encoder_timer1
@@ -2259,13 +2264,13 @@ Global Symbols
 <LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_DAC_IRQHandler
 </UL>
 
-<P><STRONG><a name="[228]"></a>TIM_DMAConfig</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[229]"></a>TIM_DMAConfig</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[229]"></a>TIM_DMACmd</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[22a]"></a>TIM_DMACmd</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[22a]"></a>TIM_SelectCCDMA</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[22b]"></a>TIM_SelectCCDMA</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[22b]"></a>TIM_InternalClockConfig</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[22c]"></a>TIM_InternalClockConfig</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
 <P><STRONG><a name="[117]"></a>TIM_SelectInputTrigger</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TIxExternalClockConfig
@@ -2295,11 +2300,11 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ETRConfig
 </UL>
 
-<P><STRONG><a name="[22c]"></a>TIM_SelectOutputTrigger</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[22d]"></a>TIM_SelectOutputTrigger</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[22d]"></a>TIM_SelectSlaveMode</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[22e]"></a>TIM_SelectSlaveMode</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[22e]"></a>TIM_SelectMasterSlaveMode</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[22f]"></a>TIM_SelectMasterSlaveMode</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
 <P><STRONG><a name="[a0]"></a>TIM_EncoderInterfaceConfig</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, stm32f4xx_tim.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = TIM_EncoderInterfaceConfig
@@ -2309,9 +2314,9 @@ Global Symbols
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Config_pwm_time_t9
 </UL>
 
-<P><STRONG><a name="[22f]"></a>TIM_SelectHallSensor</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[230]"></a>TIM_SelectHallSensor</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[230]"></a>TIM_RemapConfig</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
+<P><STRONG><a name="[231]"></a>TIM_RemapConfig</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_tim.o(.text), UNUSED)
 
 <P><STRONG><a name="[11c]"></a>USART_DeInit</STRONG> (Thumb, 114 bytes, Stack size 8 bytes, stm32f4xx_usart.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphResetCmd
@@ -2330,11 +2335,11 @@ Global Symbols
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_DMA_RX
 </UL>
 
-<P><STRONG><a name="[231]"></a>USART_StructInit</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
+<P><STRONG><a name="[232]"></a>USART_StructInit</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[232]"></a>USART_ClockInit</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, stm32f4xx_usart.o(.text), UNUSED)
+<P><STRONG><a name="[233]"></a>USART_ClockInit</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, stm32f4xx_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[233]"></a>USART_ClockStructInit</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
+<P><STRONG><a name="[234]"></a>USART_ClockStructInit</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
 
 <P><STRONG><a name="[6e]"></a>USART_Cmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_DMA_TX
@@ -2345,11 +2350,11 @@ Global Symbols
 <LI><a href="#[16]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA1_Stream1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[234]"></a>USART_SetPrescaler</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
+<P><STRONG><a name="[235]"></a>USART_SetPrescaler</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[235]"></a>USART_OverSampling8Cmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
+<P><STRONG><a name="[236]"></a>USART_OverSampling8Cmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[236]"></a>USART_OneBitMethodCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
+<P><STRONG><a name="[237]"></a>USART_OneBitMethodCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
 
 <P><STRONG><a name="[79]"></a>USART_SendData</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEND_UART
@@ -2358,31 +2363,31 @@ Global Symbols
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HMISends
 </UL>
 
-<P><STRONG><a name="[237]"></a>USART_ReceiveData</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
+<P><STRONG><a name="[238]"></a>USART_ReceiveData</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[238]"></a>USART_SetAddress</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
+<P><STRONG><a name="[239]"></a>USART_SetAddress</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[239]"></a>USART_ReceiverWakeUpCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
+<P><STRONG><a name="[23a]"></a>USART_ReceiverWakeUpCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[23a]"></a>USART_WakeUpConfig</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
+<P><STRONG><a name="[23b]"></a>USART_WakeUpConfig</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[23b]"></a>USART_LINBreakDetectLengthConfig</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
+<P><STRONG><a name="[23c]"></a>USART_LINBreakDetectLengthConfig</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[23c]"></a>USART_LINCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
+<P><STRONG><a name="[23d]"></a>USART_LINCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[23d]"></a>USART_SendBreak</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
+<P><STRONG><a name="[23e]"></a>USART_SendBreak</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[23e]"></a>USART_HalfDuplexCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
+<P><STRONG><a name="[23f]"></a>USART_HalfDuplexCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[23f]"></a>USART_SetGuardTime</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
+<P><STRONG><a name="[240]"></a>USART_SetGuardTime</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[240]"></a>USART_SmartCardCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
+<P><STRONG><a name="[241]"></a>USART_SmartCardCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[241]"></a>USART_SmartCardNACKCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
+<P><STRONG><a name="[242]"></a>USART_SmartCardNACKCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[242]"></a>USART_IrDAConfig</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
+<P><STRONG><a name="[243]"></a>USART_IrDAConfig</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[243]"></a>USART_IrDACmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
+<P><STRONG><a name="[244]"></a>USART_IrDACmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
 
 <P><STRONG><a name="[b0]"></a>USART_DMACmd</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_DMA_TX
@@ -2392,7 +2397,7 @@ Global Symbols
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_DMA_RX
 </UL>
 
-<P><STRONG><a name="[244]"></a>USART_ITConfig</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, stm32f4xx_usart.o(.text), UNUSED)
+<P><STRONG><a name="[245]"></a>USART_ITConfig</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, stm32f4xx_usart.o(.text), UNUSED)
 
 <P><STRONG><a name="[7a]"></a>USART_GetFlagStatus</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEND_UART
@@ -2411,23 +2416,23 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[245]"></a>USART_ClearITPendingBit</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
+<P><STRONG><a name="[246]"></a>USART_ClearITPendingBit</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
 
 <P><STRONG><a name="[11e]"></a>SYSCFG_DeInit</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, stm32f4xx_syscfg.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphResetCmd
 </UL>
 
-<P><STRONG><a name="[246]"></a>SYSCFG_MemoryRemapConfig</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_syscfg.o(.text), UNUSED)
+<P><STRONG><a name="[247]"></a>SYSCFG_MemoryRemapConfig</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_syscfg.o(.text), UNUSED)
 
 <P><STRONG><a name="[b7]"></a>SYSCFG_EXTILineConfig</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, stm32f4xx_syscfg.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ngat_ngoai
 </UL>
 
-<P><STRONG><a name="[247]"></a>SYSCFG_ETH_MediaInterfaceConfig</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_syscfg.o(.text), UNUSED)
+<P><STRONG><a name="[248]"></a>SYSCFG_ETH_MediaInterfaceConfig</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_syscfg.o(.text), UNUSED)
 
-<P><STRONG><a name="[248]"></a>SYSCFG_CompensationCellCmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_syscfg.o(.text), UNUSED)
+<P><STRONG><a name="[249]"></a>SYSCFG_CompensationCellCmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_syscfg.o(.text), UNUSED)
 
-<P><STRONG><a name="[249]"></a>SYSCFG_GetCompensationCellStatus</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_syscfg.o(.text), UNUSED)
+<P><STRONG><a name="[24a]"></a>SYSCFG_GetCompensationCellStatus</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_syscfg.o(.text), UNUSED)
 
 <P><STRONG><a name="[121]"></a>vListInitialise</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, list.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGenericCreate
@@ -2467,7 +2472,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[154]"></a>uxListRemove</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, list.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
+<BR><BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeFromISR
 <LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskResume
 <LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspend
@@ -2612,11 +2617,11 @@ Global Symbols
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ulPortSetInterruptMask
 </UL>
 
-<P><STRONG><a name="[24a]"></a>ucQueueGetQueueNumber</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, queue.o(.text), UNUSED)
+<P><STRONG><a name="[24b]"></a>ucQueueGetQueueNumber</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, queue.o(.text), UNUSED)
 
-<P><STRONG><a name="[24b]"></a>vQueueSetQueueNumber</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, queue.o(.text), UNUSED)
+<P><STRONG><a name="[24c]"></a>vQueueSetQueueNumber</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, queue.o(.text), UNUSED)
 
-<P><STRONG><a name="[24c]"></a>ucQueueGetQueueType</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, queue.o(.text), UNUSED)
+<P><STRONG><a name="[24d]"></a>ucQueueGetQueueType</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, queue.o(.text), UNUSED)
 
 <P><STRONG><a name="[142]"></a>xQueueIsQueueEmptyFromISR</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, queue.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ulPortSetInterruptMask
@@ -2626,7 +2631,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ulPortSetInterruptMask
 </UL>
 
-<P><STRONG><a name="[24d]"></a>vQueueAddToRegistry</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, queue.o(.text), UNUSED)
+<P><STRONG><a name="[24e]"></a>vQueueAddToRegistry</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, queue.o(.text), UNUSED)
 
 <P><STRONG><a name="[144]"></a>vQueueWaitForMessageRestricted</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, queue.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = vQueueWaitForMessageRestricted &rArr; vTaskPlaceOnEventListRestricted &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
@@ -2673,7 +2678,7 @@ Global Symbols
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 </UL>
 
-<P><STRONG><a name="[24e]"></a>pvTimerGetTimerID</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, timers.o(.text), UNUSED)
+<P><STRONG><a name="[24f]"></a>pvTimerGetTimerID</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, timers.o(.text), UNUSED)
 
 <P><STRONG><a name="[15c]"></a>pxPortInitialiseStack</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, port.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = pxPortInitialiseStack
@@ -2701,7 +2706,7 @@ Global Symbols
 
 <P><STRONG><a name="[125]"></a>vPortYieldFromISR</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, port.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGenericCreate
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
+<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskResume
 <LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspend
 <LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPrioritySet
@@ -2797,9 +2802,9 @@ Global Symbols
 <LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreate
 </UL>
 
-<P><STRONG><a name="[24f]"></a>xPortGetFreeHeapSize</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, heap_2.o(.text), UNUSED)
+<P><STRONG><a name="[250]"></a>xPortGetFreeHeapSize</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, heap_2.o(.text), UNUSED)
 
-<P><STRONG><a name="[250]"></a>vPortInitialiseBlocks</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heap_2.o(.text), UNUSED)
+<P><STRONG><a name="[251]"></a>vPortInitialiseBlocks</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heap_2.o(.text), UNUSED)
 
 <P><STRONG><a name="[104]"></a>xTaskGenericCreate</STRONG> (Thumb, 366 bytes, Stack size 56 bytes, tasks.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = xTaskGenericCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; vTaskIncrementTick
@@ -2853,7 +2858,7 @@ Global Symbols
 <LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ulPortSetInterruptMask
 </UL>
-<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
+<BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskList
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelayUntil
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
@@ -2865,7 +2870,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[130]"></a>vTaskSuspendAll</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, tasks.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
+<BR><BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskList
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelayUntil
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
@@ -2885,7 +2890,7 @@ Global Symbols
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ulPortSetInterruptMask
 </UL>
 
-<P><STRONG><a name="[101]"></a>vTaskDelay</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, tasks.o(.text))
+<P><STRONG><a name="[102]"></a>vTaskDelay</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, tasks.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = vTaskDelay &rArr; xTaskResumeAll &rArr; vTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
@@ -2986,7 +2991,7 @@ Global Symbols
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ulPortSetInterruptMask
 </UL>
 
-<P><STRONG><a name="[251]"></a>uxTaskGetNumberOfTasks</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, tasks.o(.text), UNUSED)
+<P><STRONG><a name="[252]"></a>uxTaskGetNumberOfTasks</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, tasks.o(.text), UNUSED)
 
 <P><STRONG><a name="[16c]"></a>vTaskList</STRONG> (Thumb, 134 bytes, Stack size 24 bytes, tasks.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcat
@@ -3060,9 +3065,9 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
 </UL>
 
-<P><STRONG><a name="[252]"></a>uxTaskGetTaskNumber</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, tasks.o(.text), UNUSED)
+<P><STRONG><a name="[253]"></a>uxTaskGetTaskNumber</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, tasks.o(.text), UNUSED)
 
-<P><STRONG><a name="[253]"></a>vTaskSetTaskNumber</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, tasks.o(.text), UNUSED)
+<P><STRONG><a name="[254]"></a>vTaskSetTaskNumber</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, tasks.o(.text), UNUSED)
 
 <P><STRONG><a name="[136]"></a>xTaskGetCurrentTaskHandle</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, tasks.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueTakeMutexRecursive
@@ -3096,16 +3101,16 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;random
 </UL>
 
-<P><STRONG><a name="[254]"></a>srand</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, rand.o(.text), UNUSED)
+<P><STRONG><a name="[255]"></a>srand</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, rand.o(.text), UNUSED)
 
 <P><STRONG><a name="[12c]"></a>__aeabi_memcpy</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, memcpya.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataFromQueue
 <LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataToQueue
 </UL>
 
-<P><STRONG><a name="[255]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
+<P><STRONG><a name="[256]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
 
-<P><STRONG><a name="[256]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
+<P><STRONG><a name="[257]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
 
 <P><STRONG><a name="[15a]"></a>__aeabi_memset</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, memseta.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGenericCreate
@@ -3113,17 +3118,17 @@ Global Symbols
 <LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
 
-<P><STRONG><a name="[257]"></a>__aeabi_memset4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[258]"></a>__aeabi_memset4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
-<P><STRONG><a name="[258]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[259]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
 <P><STRONG><a name="[16d]"></a>__aeabi_memclr</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
 </UL>
 
-<P><STRONG><a name="[259]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[25a]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
-<P><STRONG><a name="[25a]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[25b]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
 <P><STRONG><a name="[16e]"></a>_memset$wrapper</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, memseta.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
@@ -3199,7 +3204,7 @@ Global Symbols
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fixMotorValue
 </UL>
 
-<P><STRONG><a name="[25b]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
+<P><STRONG><a name="[25c]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
 
 <P><STRONG><a name="[17f]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
@@ -3210,21 +3215,21 @@ Global Symbols
 <LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
 
-<P><STRONG><a name="[25c]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llshl.o(.text), UNUSED)
+<P><STRONG><a name="[25d]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llshl.o(.text), UNUSED)
 
 <P><STRONG><a name="[170]"></a>__aeabi_lasr</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, llsshr.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 
-<P><STRONG><a name="[25d]"></a>_ll_sshift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llsshr.o(.text), UNUSED)
+<P><STRONG><a name="[25e]"></a>_ll_sshift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llsshr.o(.text), UNUSED)
 
-<P><STRONG><a name="[25e]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, iusefp.o(.text), UNUSED)
+<P><STRONG><a name="[25f]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, iusefp.o(.text), UNUSED)
 
 <P><STRONG><a name="[174]"></a>_float_round</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, fepilogue.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
 
-<P><STRONG><a name="[25f]"></a>_float_epilogue</STRONG> (Thumb, 92 bytes, Stack size 4 bytes, fepilogue.o(.text), UNUSED)
+<P><STRONG><a name="[260]"></a>_float_epilogue</STRONG> (Thumb, 92 bytes, Stack size 4 bytes, fepilogue.o(.text), UNUSED)
 
 <P><STRONG><a name="[172]"></a>_double_round</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, depilogue.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
@@ -3248,24 +3253,24 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[260]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[261]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
 <P><STRONG><a name="[175]"></a>__aeabi_llsr</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
 
-<P><STRONG><a name="[261]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
+<P><STRONG><a name="[262]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
 
-<P><STRONG><a name="[262]"></a>__decompress</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
+<P><STRONG><a name="[263]"></a>__decompress</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
 
-<P><STRONG><a name="[263]"></a>__decompress1</STRONG> (Thumb, 86 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
+<P><STRONG><a name="[264]"></a>__decompress1</STRONG> (Thumb, 86 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
 
 <P><STRONG><a name="[177]"></a>__0sprintf$3</STRONG> (Thumb, 34 bytes, Stack size 24 bytes, printf3.o(i.__0sprintf$3), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sputc
 <LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[264]"></a>__1sprintf$3</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf3.o(i.__0sprintf$3), UNUSED)
+<P><STRONG><a name="[265]"></a>__1sprintf$3</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf3.o(i.__0sprintf$3), UNUSED)
 
 <P><STRONG><a name="[7d]"></a>__2sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf3.o(i.__0sprintf$3))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2sprintf
@@ -3323,11 +3328,11 @@ Global Symbols
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cosf
 </UL>
 
-<P><STRONG><a name="[265]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[266]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[266]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[267]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[267]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[268]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
 <P><STRONG><a name="[17a]"></a>__set_errno</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errno.o(i.__set_errno), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sinf
@@ -3338,10 +3343,10 @@ Global Symbols
 Local Symbols
 </H3>
 <P><STRONG><a name="[60]"></a>taskGyro</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 216 + In Cycle
+<BR><BR>[Stack]<UL><LI>Max Depth = 208 + In Cycle
 <LI>Call Chain = taskGyro &rArr;  taskGyro (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
+<BR>[Calls]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HMI_RUN_LOOP
 <LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;taskGyro
 </UL>
@@ -3353,8 +3358,8 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 64 + In Cycle
 <LI>Call Chain = taskDieuKhienCoCau &rArr;  taskDieuKhienCoCau (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dieuKhienCoCau
+<BR>[Calls]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dieuKhienCoCau
 <LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;taskDieuKhienCoCau
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;taskDieuKhienCoCau
@@ -3365,7 +3370,7 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 64 + In Cycle
 <LI>Call Chain = taskRobotAnalytics &rArr;  taskRobotAnalytics (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
+<BR>[Calls]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADCValue_Control
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;taskRobotAnalytics
 </UL>
@@ -3378,7 +3383,7 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGenericCreate
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;run_read_gyro_uart1
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_DMA_TX
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART3_DMA_RX
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART2_DMA_TX
@@ -3532,7 +3537,7 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
 </UL>
-<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
+<BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelayUntil
 <LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventListRestricted
 <LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList

@@ -14,13 +14,13 @@ void encoder_silo(int silo_sap_chay)
 
 void tha_bong()
 {
+    bien_nho_bong_da_tha_trong_silo[silo_so]++;
+    
     while(HT_DUNG_TREN == 1){Mor_Silo = 150, Mor_Silo_next;}
     
     delay_ms(500);
     KEP_BONG_NHA;
     delay_ms(500);
-    
-    bien_nho_bong_da_tha_trong_silo[silo_so]++;
     
     Mor_Silo = 150, Mor_Silo_back;
     while(HT_DUNG_DUOI == 1){Mor_Silo = 150, Mor_Silo_back;}
@@ -93,7 +93,7 @@ void duong_di_silo()
         robotRotate(30000, -0.5, 0, 35);
         while(_robotIMUAngle >= 0){if(wantExit_UP()) break;}
     }
-    robotRunAngle(1800, 100, 0, 0);
+    robotRunAngle(1350, 100, 0, 0);
     while(ENCODER_TONG() < 100){}
 
     
@@ -171,7 +171,7 @@ void duong_di_silo()
     }
 }
 
-void di_chuyen()
+void di_chuyen()        //viet lai di chuyen --> dung laze de chay
 {
 /****************************************SAN DO****************************************/
     if(NUT_CHUYEN_SAN == 1)
@@ -279,6 +279,14 @@ void nhan_bong_trong_silo()
     if(bien_nho_bong_trong_silo[5] == 1 && bien_nho_bong_trong_silo[1] == 1 && bien_nho_bong_trong_silo[2] == 1 && bien_nho_bong_trong_silo[3] == 1 && bien_nho_bong_trong_silo[4] == 1)
     {
         bien_nho_bong_trong_silo[0]=1;
+        for(i = 1; i <= 5; i++)
+        {
+            if(bien_nho_bong_da_tha_trong_silo[i] != 0 && bien_nho_bong_trong_silo[i] != 3)
+            {
+                silo_so = i;
+                break;
+            }
+        }
     }
     if(CB_BONG_1 == 1)                                                              //chua co bong thi tha bong roi cho so bong = 1
     {
@@ -838,10 +846,11 @@ void test()
         bien_nhan_bong = 0;
     }
 
-    for(i = 1; i <= silo_so; i++)
+    for(i = 1; i <= 5; i++)
     {
         if(bien_nho_bong_da_tha_trong_silo[i] != 0 && bien_nho_bong_trong_silo[i] != 3)
         {
+            silo_so = i;
             break;
         }
     }

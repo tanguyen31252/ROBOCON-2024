@@ -118,11 +118,10 @@ void testtaygap(void)
     else if(!X)    Mor_Silo = 254, Mor_Silo_back;
     else Mor_Silo = 0;
 }
-//--------------------------- DIEU KHIEN CO CAU ---------------------------------------
-void dieuKhienCoCau(void) 
+void testbanhxe()
 {
     i = 50;
-    if(!UP)
+        if(!UP)
     {
         Mor_FrontLeft = i, Mor_FrontLeft_next;
         Mor_FrontRight = i, Mor_FrontRight_next;
@@ -138,4 +137,18 @@ void dieuKhienCoCau(void)
     }
     else Mor_FrontRight = 2, Mor_FrontLeft = 2, Mor_RearLeft = 2, Mor_RearRight = 2 ;
             
+}
+//--------------------------- DIEU KHIEN CO CAU ---------------------------------------
+void dieuKhienCoCau(void) 
+{
+    i = 50;
+    if(!TRIANGLE)
+    {
+        ROLE_BANG_TAI_LEN;
+    }
+    if(!X)
+    {
+        ROLE_BANG_TAI_XUONG;
+    }
+
 }

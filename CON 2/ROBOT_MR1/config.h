@@ -98,7 +98,6 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 #define  CB_NHAN_MAU_TRAI					GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_0)					//nhan bong tim
 #define  CB_NHAN_MAU_PHAI					GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_1)					//nhan bong tim
 
-
 #define  CB_BONG_2                          GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_0)                 //CB_BONG_2				//BỎ 
 #define  CB_DO_BONG                         GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_1)                 //CB_DO_BONG			//BỎ 
 
@@ -126,6 +125,14 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx OUTPUT xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
 #define KEP_BONG_KEP				   					GPIO_WriteBit(GPIOB,GPIO_Pin_14,1)
 #define KEP_BONG_NHA			   				 	    GPIO_WriteBit(GPIOB,GPIO_Pin_14,0)
+
+
+#define ROLE_BANG_TAI_LEN					GPIO_WriteBit(GPIOA,GPIO_Pin_8,0)
+#define ROLE_BANG_TAI_XUONG					GPIO_WriteBit(GPIOA,GPIO_Pin_8,1)
+
+#define ROLE_HOT_BONG_VAO					GPIO_WriteBit(GPIOB,GPIO_Pin_B,0)
+#define ROLE_HOT_BONG_RA					GPIO_WriteBit(GPIOB,GPIO_Pin_B,1)
+
 
 
 
@@ -225,12 +232,12 @@ void Config_out_mode(void)
 
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD|RCC_AHB1Periph_GPIOB|RCC_AHB1Periph_GPIOA|RCC_AHB1Periph_GPIOE|RCC_AHB1Periph_GPIOC, ENABLE);
 
-//	GPIO_InitStructure.GPIO_Pin = 0xffff;
-//	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-//	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-//	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-//	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
-//	GPIO_Init(GPIOA, &GPIO_InitStructure);
+	GPIO_InitStructure.GPIO_Pin = 0xffff;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+	GPIO_Init(GPIOA, &GPIO_InitStructure);
 
 	GPIO_InitStructure.GPIO_Pin = 0xffff;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
@@ -1196,8 +1203,6 @@ void HMI_TRAN(vs32 _so_dong) {
 									case 16:
 									//	hien thi phan ngo vao
                                     
-										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_4));
-										strcat(_chu_cac_bit,_ghep_bit);
 										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_5));
 										strcat(_chu_cac_bit,_ghep_bit);
 										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_7));
@@ -1207,8 +1212,6 @@ void HMI_TRAN(vs32 _so_dong) {
 										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_10));
 										strcat(_chu_cac_bit,_ghep_bit);
 										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_12));
-										strcat(_chu_cac_bit,_ghep_bit);
-										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_13));
 										strcat(_chu_cac_bit,_ghep_bit);
 										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_7));
 										strcat(_chu_cac_bit,_ghep_bit);
@@ -1223,7 +1226,11 @@ void HMI_TRAN(vs32 _so_dong) {
 										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOD,GPIO_Pin_1));
 										strcat(_chu_cac_bit,_ghep_bit);
 																																//TEN CB					MUC XUAT
+										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_13));						//HT DUNG TRAI					0
+										// strcat(_chu_cac_bit,_ghep_bit);
 										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_6));						//CB_DUNG_BANG_TAI				1
+										// strcat(_chu_cac_bit,_ghep_bit);
+										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_4));						//HT DUNG PHAI					0
 										// strcat(_chu_cac_bit,_ghep_bit);
 										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_15));						//CB_BONG_3						0
 										// strcat(_chu_cac_bit,_ghep_bit);
@@ -1245,35 +1252,35 @@ void HMI_TRAN(vs32 _so_dong) {
 										break;								
 									case 17:
 									// hien thi phan ngo ra
-										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOB,GPIO_Pin_7));		//ok
-										strcat(_chu_cac_bit,_ghep_bit);
-										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOC,GPIO_Pin_8));	
-										strcat(_chu_cac_bit,_ghep_bit);
-										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOC,GPIO_Pin_9));		
-										strcat(_chu_cac_bit,_ghep_bit);		
-										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOB,GPIO_Pin_10)); 	
-										strcat(_chu_cac_bit,_ghep_bit);
-										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOB,GPIO_Pin_11));	
-										strcat(_chu_cac_bit,_ghep_bit);
-										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOB,GPIO_Pin_12));      //ok
-										strcat(_chu_cac_bit,_ghep_bit);
-										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOB,GPIO_Pin_13));	
+										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOB,GPIO_Pin_15));		//ok
 										strcat(_chu_cac_bit,_ghep_bit);
 										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOB,GPIO_Pin_14));	
 										strcat(_chu_cac_bit,_ghep_bit);
-										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOB,GPIO_Pin_15));	
+										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOB,GPIO_Pin_13));		
+										strcat(_chu_cac_bit,_ghep_bit);		
+										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOB,GPIO_Pin_12));      //ok
 										strcat(_chu_cac_bit,_ghep_bit);
-										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOD,GPIO_Pin_10));	    //ok
+										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOB,GPIO_Pin_11));	
 										strcat(_chu_cac_bit,_ghep_bit);
-										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOD,GPIO_Pin_14));	
+										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOB,GPIO_Pin_10)); 	
 										strcat(_chu_cac_bit,_ghep_bit);
-										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOD,GPIO_Pin_11));	    //ok
+										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOC,GPIO_Pin_9));	
 										strcat(_chu_cac_bit,_ghep_bit);
-										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOC,GPIO_Pin_13));	
+										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOC,GPIO_Pin_8));	
+										strcat(_chu_cac_bit,_ghep_bit);
+										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOA,GPIO_Pin_8));	
+										strcat(_chu_cac_bit,_ghep_bit);
+										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOA,GPIO_Pin_0));	    //ok
+										strcat(_chu_cac_bit,_ghep_bit);
+										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOA,GPIO_Pin_1));	
+										strcat(_chu_cac_bit,_ghep_bit);
+										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOB,GPIO_Pin_0));	    //ok
 										strcat(_chu_cac_bit,_ghep_bit);
 										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOA,GPIO_Pin_11));	
 										strcat(_chu_cac_bit,_ghep_bit);
 										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOA,GPIO_Pin_12));	
+										strcat(_chu_cac_bit,_ghep_bit);
+										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOB,GPIO_Pin_7));	
 										strcat(_chu_cac_bit,_ghep_bit);
 										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOB,GPIO_Pin_6));	
 										strcat(_chu_cac_bit,_ghep_bit);

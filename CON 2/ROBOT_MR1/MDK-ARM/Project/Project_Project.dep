@@ -77,7 +77,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x55AF0402)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x55AF0402)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x55AF0402)
 I (..\LID_HMI.h)(0x644281DE)
-I (..\config.h)(0x66012432)
+I (..\config.h)(0x66019CFE)
 I (..\doc_tay_game.h)(0x65A8120B)
 I (..\4OmniControler.h)(0x65FA3484)
 I (..\FreeRTOSV7.3.0\FreeRTOS\Source\include\FreeRTOS.h)(0x644281DE)
@@ -89,20 +89,20 @@ I (..\FreeRTOSV7.3.0\FreeRTOS\Source\portable\RVDS\ARM_CM4F\portmacro.h)(0x64428
 I (..\FreeRTOSV7.3.0\FreeRTOS\Source\include\mpu_wrappers.h)(0x644281DE)
 I (..\FreeRTOSV7.3.0\FreeRTOS\Source\include\task.h)(0x644281DE)
 I (..\FreeRTOSV7.3.0\FreeRTOS\Source\include\list.h)(0x644281DE)
-I (..\DieuKhienCoCau.h)(0x66005658)
+I (..\DieuKhienCoCau.h)(0x6601A257)
 I (..\BasicFunction.h)(0x644281DE)
 I (..\San_Xanh.h)(0x65AA3240)
-I (..\San_Do.h)(0x65FE9D29)
-F (..\config.h)(0x66012432)()
+I (..\San_Do.h)(0x6601866D)
+F (..\config.h)(0x66019CFE)()
 F (..\doc_tay_game.h)(0x65A8120B)()
 F (..\BasicFunction.h)(0x644281DE)()
 F (..\LID_HMI.h)(0x644281DE)()
 F (..\FreeRTOSConfig.h)(0x644281DE)()
-F (..\DieuKhienCoCau.h)(0x66005658)()
+F (..\DieuKhienCoCau.h)(0x6601A257)()
 F (..\ROBOTRUN.h)(0x65A63DE4)()
 F (..\4OmniControler.h)(0x65FA3484)()
 F (..\San_Xanh.h)(0x65AA3240)()
-F (..\San_Do.h)(0x65FE9D29)()
+F (..\San_Do.h)(0x6601866D)()
 F (..\system_stm32f4xx.c)(0x644281DE)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -W -O3 --apcs=interwork -I..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I..\Libraries\STM32F4xx_StdPeriph_Driver\src -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I..\FreeRTOSV7.3.0\FreeRTOS\Source\include -I..\FreeRTOSV7.3.0\FreeRTOS\Source\portable\MemMang -I..\FreeRTOSV7.3.0\FreeRTOS\Source\portable\RVDS\ARM_CM4F -I..\..\ROBOT_MR1-I "D:\Robocon\Nguyen\CON 2\ROBOT_MR1\MDK-ARM\RTE"-I C:\Keil_v5\pack\ARM\CMSIS\4.3.0\CMSIS\Include-I C:\Keil_v5\pack\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="516" -D_RTE_ -DSTM32F407xx -DSTM32F4XX -DUSE_STDPERIPH_DRIVER-o .\project\system_stm32f4xx.o --omf_browse .\project\system_stm32f4xx.crf --depend .\project\system_stm32f4xx.d)
 I (..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x644281DE)
 I (..\Libraries\CMSIS\Include\core_cm4.h)(0x644281DE)
