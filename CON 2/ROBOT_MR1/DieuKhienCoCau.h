@@ -102,13 +102,16 @@ void ADCValue_Control(void)
 
 void test_xl()
 {
-    if(!SQUARE)
+        if(!TRIANGLE)
     {
-        KEP_BONG_KEP;
+        XL_HOT_BONG_BAT_LEN;
     }
-    else if(!O)
+    if(!X)
     {
-        KEP_BONG_NHA;
+        XL_HOT_BONG_HA_XUONG;
+        XL_TRO_LUC_HA_BAT;
+        delay_ms(500);
+        XL_TRO_LUC_HA_TAT;
     }
 }
 
@@ -144,11 +147,11 @@ void dieuKhienCoCau(void)
     i = 50;
     if(!TRIANGLE)
     {
-        ROLE_BANG_TAI_LEN;
+        Mor_Silo = i, Mor_Silo_next;
     }
-    if(!X)
+    else if(!X)
     {
-        ROLE_BANG_TAI_XUONG;
+        Mor_Silo = i, Mor_Silo_back;
     }
-
+    else Mor_Silo = 0;
 }
