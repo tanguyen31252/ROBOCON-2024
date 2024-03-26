@@ -127,13 +127,17 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 #define KEP_BONG_NHA			   				 	    GPIO_WriteBit(GPIOB,GPIO_Pin_14,0)
 
 
-#define ROLE_BANG_TAI_LEN					GPIO_WriteBit(GPIOA,GPIO_Pin_8,0)
-#define ROLE_BANG_TAI_XUONG					GPIO_WriteBit(GPIOA,GPIO_Pin_8,1)
+#define ROLE_BANG_TAI_LEN					GPIO_WriteBit(GPIOC,GPIO_Pin_9,0)
+#define ROLE_BANG_TAI_XUONG					GPIO_WriteBit(GPIOC,GPIO_Pin_9,1)
 
-#define ROLE_HOT_BONG_VAO					GPIO_WriteBit(GPIOB,GPIO_Pin_B,0)
-#define ROLE_HOT_BONG_RA					GPIO_WriteBit(GPIOB,GPIO_Pin_B,1)
+// #define ROLE_HOT_BONG_VAO					GPIO_WriteBit(GPIOB,GPIO_Pin_8,0)
+// #define ROLE_HOT_BONG_RA					GPIO_WriteBit(GPIOB,GPIO_Pin_B,1)
 
+#define XL_HOT_BONG_HA_XUONG			GPIO_WriteBit(GPIOA,GPIO_Pin_8,0)
+#define XL_HOT_BONG_BAT_LEN				GPIO_WriteBit(GPIOA,GPIO_Pin_8,1)
 
+#define XL_TRO_LUC_HA_TAT					GPIO_WriteBit(GPIOB,GPIO_Pin_14,0)
+#define XL_TRO_LUC_HA_BAT					GPIO_WriteBit(GPIOB,GPIO_Pin_14,1)
 
 
 //=============================ENCODER======================================

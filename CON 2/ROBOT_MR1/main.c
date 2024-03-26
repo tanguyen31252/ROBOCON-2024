@@ -47,7 +47,7 @@ static void taskRobotAnalytics(void *pvParameters) {
 	{ 
 		ADCValue_Control();
 
-//		if(bit_khoa_ham_chay_thay_tuan == 0)robotAnalytics();
+		if(bit_khoa_ham_chay_thay_tuan == 0)robotAnalytics();
 		vTaskDelay(5);
 	}
 }
@@ -87,7 +87,7 @@ static void taskMain(void *pvParameters)
 	{
 		while(gp_get_mode_uart()  == GP_MODE_ANALOGUE_RED_LED) 
 		{
-//			 robotGamePadControl();
+			robotGamePadControl();
 //			if(!START)                                      {test_nut = 11,test();}
 //			else if(NUT_1 == 1)                             {XuatPhat_1();}
 //			if(NUT_2 == 1)                                  {test_nut = 22;}
