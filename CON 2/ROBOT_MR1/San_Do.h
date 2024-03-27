@@ -52,56 +52,6 @@ void di_chuyen_ve()
         // }
     }
 }
-void di_chuyen_ve_chien_thuat()   //tốc độ đang là 10, test ok thì đổi thành 40-90
-{
-    RESET_ENCODER();
-    
-    if (NUT_CHUYEN_SAN == 1)
-    {
-        robotRunAngle (-900,10,0,0);
-        while (lazeNgangValue > 100){}
-
-        RESET_ENCODER();
-
-        ROLE_HOT_BONG_VAO();
-        
-        if(CB_NHAN_MAU_TRAI = 1 && CB_NHAN_MAU_PHAI = 1)
-        {
-            ROLE_BANG_TAI_XUONG();
-            ROLE_HOT_BONG_RA();
-        }
-        robotRunAngle (-1800,10,0,0);
-        while (HT_TRUOC_TRAI = 1)
-    }
-
-}
-
-/********************SAN XANH*************************/
-    else
-    {
-        robotRunAngle(-600, 30, -10, 0);
-//        while(HT_TRAI == 1){if(wantExit){break;}}
-        
-        RESET_ENCODER();
-        
-        // robotRunAngle(0, 30, -10, 0);
-        // while(ENCODER_TONG() < 50){}
-                        
-        // if(silo_so > 3)
-        // {
-        //     robotRunAngle(900, 30, 0, 0);
-        //     while(ENCODER_TONG() > 80){}
-        // }
-        // else if(silo_so < 3)
-        // {
-        //     robotRunAngle(-900, 30, 0, 0);
-        //     while(ENCODER_TONG() < 110){}
-        // }
-        robotStop(2);
-    }
-    
-
-}
 
 void duong_di_silo()
 {
@@ -722,7 +672,6 @@ void test()
 {
     XuatPhat();    
 
-    do_bong_trai_dau_tien();  
 
     // do_bong();
 
@@ -733,7 +682,6 @@ void test()
     bien_nho_bong_da_tha_trong_silo[silo_so]++;
 
     // di_chuyen_ve();
-    di_chuyen_ve_chien_thuat();
 
      do_bong();
 
@@ -770,7 +718,6 @@ void test()
     // bien_nho_bong_da_tha_trong_silo[silo_so]++;
 
     // // di_chuyen_ve();
-    // di_chuyen_ve_chien_thuat();
 
 
 
@@ -808,82 +755,3 @@ void test()
         }
     }
 }
-// void test()
-// {
-
-//     //đi lên chỗ để bóng
-//     robotRunAngle (-1800,10,0,0);
-//     while (ENCODER_TONG() < 10500){if(wantExit()) break;}
-		
-//     RESET_ENCODER();
-
-//     robotRunAngle(900,10,0,0);
-//     while (ENCODER_FR() < 3900){if(wantExit()) break;}
-
-//     RESET_ENCODER(); 
-
-//     robotRunAngle(-1800,10,0,0);
-//     while (ENCODER_TONG() < 3000){if(wantExit()) break;}
-
-//     robotRunAngle (-900,10,0,0);
-//     while (lazeNgangValue > 100){}
-
-//     robotRotate (0,6,0,1);
-//     while (lazeNgangValue < 60){}
-
-//     RESET_ENCODER();
-
-//     robotRunAngle (-1800,10,0,0);
-//     while (ENCODER_TONG < 100 ){}
-//     RESET_ENCODER();
-//     robotStop(10000);
-
-//     //Bắt đầu 
-        
-//         MO_TAY_HOT_BONG();
-//         DONG_CO_HOT_BONG();
-        
-//         robotRunAngle(-1800,10,0,0);
-//         while (ENCODER_TONG() < 1000);
-
-//         if (CAM_BIEN_TRAI == 1 || CAM_BIEN_PHAI == 1)
-//             {  
-//                 //cho dong co nguoc de day bong ra ngoai
-//                 DAY_BONG_LEN_NONG(); 
-//                 DONG_CO_HOT_BONG(1);
-//                 GIU_BONG();
-//                 robotRotate(0,-6,0,0);
-//                 while (lazeNgangValue > 80){}
-//                 //chay len silo 
-//                 robotRunAngle(-1800,10,0,0);
-//                 while (ENCODER_TONG() < 9000){}
-//                 robotStop(2);
-//                 RESET_ENCODER();
-//                     robotRunAngle(900,40,0,0);
-//                     while (lazeNgangValue <460){}
-
-//                     RESET_ENCODER();
-
-//                     robotRunAngle(-1800,10,0,0);
-//                     while(lazeTruocValue > 10){}
-
-//                     if (CB_TU_NHAN_SILO() == 1)
-//                     {
-//                         CAM_BIEN_DAY_BONG_VAO_SILO();
-//                     }
-
-
-//                 if (CB_BONG_1 == 0)
-//                 {
-//                     DAY_BONG_VAO_SILO();
-//                 } 
-//                 else if ()
-                
-//             }
-//             else 
-//             {
-//                 DONG_CO_HOT_BONG(1);
-//             }
-
-// }
-  
