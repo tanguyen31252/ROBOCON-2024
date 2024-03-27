@@ -1,0 +1,11 @@
+27/03/24 -- Nguyên
+còn thiếu khai báo cảm biến từ, chưa tìm chân khai báo
+chưa khai báo được 2 rơ-le
+còn lại oke
+
+-> code lại chỗ di_chuyen_ve_chien_thuat()
+-> đã có thể code đường chạy và dùng các biến đã khai báo trong config!!!!
+
+
+15:40 240327  --Nguyên
+khai báo xong các chân role, vẫn còn cảm biến từ, cảm biến ở nòng ra bóng
