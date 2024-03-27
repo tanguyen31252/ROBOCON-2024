@@ -14,16 +14,6 @@ void encoder_silo(int silo_sap_chay)
 
 void tha_bong()
 {
-//    bien_nho_bong_da_tha_trong_silo[silo_so]++;
-//    
-//    while(HT_DUNG_TREN == 1){Mor_Silo = 150, Mor_Silo_next;}
-//    
-//    delay_ms(500);
-//    KEP_BONG_NHA;
-//    delay_ms(500);
-//    
-//    Mor_Silo = 150, Mor_Silo_back;
-//    while(HT_DUNG_DUOI == 1){Mor_Silo = 150, Mor_Silo_back;}
 }
 
 void di_chuyen_ve()
@@ -414,6 +404,28 @@ void do_bong()
 {
     bien_do_bong = 0;
     bien_chay_cap_thanh = 0;
+    Mor_Silo = 254, Mor_Silo_day_vao;
+    ROLE_BANG_TAI_BAT;
+    ROLE_HOT_BONG_BAT;
+
+    // while (HT_TRUOC_PHAI == 1 && HT_TRUOC_TRAI == 1)
+    // {
+    //     while(CB_NHAN_MAU_XANH_PHAI == 1 || CB_NHAN_MAU_XANH_TRAI == 1)
+    //     {
+    //     }
+    //     Mor_Silo = 0;
+    //     ROLE_HOT_BONG_TAT;
+    //     delay_ms(1000);
+    //     ROLE_BANG_TAI_BAT;
+    //     Mor_Silo = 254, Mor_Silo_day_vao;
+    //     while (CB_DUNG_BANG_TAI == 1){}
+    //     ROLE_BANG_TAI_TAT;
+    //     Mor_Silo = 254, Mor_Silo_day_ra;
+    //     delay_ms(1000);
+    //     break;
+    // }
+    
+
     
     delay_ms(100);
 }
