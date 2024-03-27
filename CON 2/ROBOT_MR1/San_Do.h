@@ -51,6 +51,31 @@ void di_chuyen_ve()
         //     while(ENCODER_TONG() < 110){}
         // }
     }
+}
+void di_chuyen_ve_chien_thuat()   //tốc độ đang là 10, test ok thì đổi thành 40-90
+{
+    RESET_ENCODER();
+    
+    if (NUT_CHUYEN_SAN == 1)
+    {
+        robotRunAngle (-900,10,0,0);
+        while (lazeNgangValue > 100){}
+
+        RESET_ENCODER();
+
+        ROLE_HOT_BONG_VAO();
+        
+        if(CB_NHAN_MAU_TRAI = 1 && CB_NHAN_MAU_PHAI = 1)
+        {
+            ROLE_BANG_TAI_XUONG();
+            ROLE_HOT_BONG_RA();
+        }
+        robotRunAngle (-1800,10,0,0);
+        while (HT_TRUOC_TRAI = 1)
+    }
+
+}
+
 /********************SAN XANH*************************/
     else
     {
@@ -697,9 +722,9 @@ void test()
 {
     XuatPhat();    
 
-    //do_bong_trai_dau_tien();
+    do_bong_trai_dau_tien();  
 
-    do_bong();
+    // do_bong();
 
     di_chuyen_len_5();
     
@@ -707,7 +732,47 @@ void test()
 
     bien_nho_bong_da_tha_trong_silo[silo_so]++;
 
-    di_chuyen_ve();
+    // di_chuyen_ve();
+    di_chuyen_ve_chien_thuat();
+
+     do_bong();
+
+    di_chuyen_len_5();
+
+    // if(silo_so < 6 && bien_di_chuyen == 0)                      //di chuyen sang trai      CẦN XEM LẠI 26/3/2024
+    //     {
+    //         if(bien_nho_bong_trong_silo[silo_so] == 1 || bien_nho_bong_trong_silo[silo_so] == 3)
+    //         {
+    //             robotRunAngle(-1000, 20, 6, 0);
+    //             while(ENCODER_TONG() < do_encoder_silo - 20){}
+                
+    //             robotRunAngle(-1000, 5, 6, 0);
+    //             while(CB_TU_NHAN_SILO == 1){}
+                
+    //             robotStop(2);
+                
+    //             silo_so++;
+    //         }  
+            
+    //         if(silo_so == 5)
+    //         {
+    //             bien_di_chuyen = 1;
+    //         }
+    //     }
+    //     while ()
+    
+        
+    
+   
+    // while ()
+    // tha_bong();
+
+    // bien_nho_bong_da_tha_trong_silo[silo_so]++;
+
+    // // di_chuyen_ve();
+    // di_chuyen_ve_chien_thuat();
+
+
 
     while(1)
     {
