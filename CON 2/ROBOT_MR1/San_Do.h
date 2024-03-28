@@ -402,37 +402,64 @@ void di_chuyen_len_5()                              //di chuyen len silo 5
 //}
 void do_bong()
 {
-    bien_do_bong = 0;
-    bien_chay_cap_thanh = 0;
-    Mor_Silo = 254, Mor_Silo_day_vao;
-    ROLE_BANG_TAI_BAT;
-    ROLE_HOT_BONG_BAT;
+   bien_do_bong = 0;
+   bien_chay_cap_thanh = 0;
+   Mor_Silo = 254, Mor_Silo_day_vao;
+   ROLE_BANG_TAI_BAT;
+   ROLE_HOT_BONG_BAT;
 
-    // while (HT_TRUOC_PHAI == 1 && HT_TRUOC_TRAI == 1)
-    // {
-    //     while(CB_NHAN_MAU_XANH_PHAI == 1 || CB_NHAN_MAU_XANH_TRAI == 1)
-    //     {
-    //     }
-    //     Mor_Silo = 0;
-    //     ROLE_HOT_BONG_TAT;
-    //     delay_ms(1000);
-    //     ROLE_BANG_TAI_BAT;
-    //     Mor_Silo = 254, Mor_Silo_day_vao;
-    //     while (CB_DUNG_BANG_TAI == 1){}
-    //     ROLE_BANG_TAI_TAT;
-    //     Mor_Silo = 254, Mor_Silo_day_ra;
-    //     delay_ms(1000);
-    //     break;
-    // }
-    
+   while (HT_TRUOC_PHAI == 1 && HT_TRUOC_TRAI == 1)
+   {
+       while(CB_NHAN_MAU_XANH_PHAI == 1 || CB_NHAN_MAU_XANH_TRAI == 1)
+       {
+       }
+       Mor_Silo = 0;
+       ROLE_HOT_BONG_TAT;
+       delay_ms(3000);
+       Mor_Silo = 254, Mor_Silo_day_vao;
+       while (CB_DUNG_BANG_TAI == 1){}
+       ROLE_BANG_TAI_TAT;
+       Mor_Silo = 254, Mor_Silo_day_ra;
+       delay_ms(3000);
+       Mor_Silo = 0;
+   }
+//}
 
-    
-    delay_ms(100);
+//    
+//    delay_ms(100);
+//bien_do_bong = 0;
+//    bien_chay_cap_thanh = 0;
+//     ROLE_HOT_BONG_BAT;
+//     ROLE_BANG_TAI_BAT;
+//     Mor_Silo = 254,Mor_Silo_day_vao;
+
+// ////    robotRunAngle(0,10,0,0);
+//     while (HT_TRUOC_PHAI == 1 && HT_TRUOC_TRAI ==1)
+//     {
+// //        while (CB_NHAN_MAU_XANH_TRAI == 0 || CB_NHAN_MAU_XANH_PHAI == 0)
+// //        {
+// //            ROLE_HOT_BONG_TAT;
+// //            Mor_Silo = 0;
+// //            delay_ms(500);
+// //            Mor_Silo = 254,Mor_Silo_day_vao;
+// //            if (CB_DUNG_BANG_TAI == 0)
+// //            {
+// //                ROLE_BANG_TAI_TAT;
+// //                XL_HOT_BONG_BAT_LEN;
+// //                Mor_Silo = 200,Mor_Silo_day_ra;
+// //                XL_TRO_LUC_HA_BAT;
+// //                delay_ms(500);
+// //                XL_TRO_LUC_HA_TAT;
+// //            }
+// //        }
+
+//     }
 }
 void XuatPhat()
 {
     if(NUT_CHUYEN_SAN == 1)
-    {reset_all();
+    {
+        reset_all();
         
         robotRunAngle(1800, 100, 0, 0);
         while(ENCODER_TONG() < 80){if(wantExit_UP()) break;}
@@ -489,55 +516,14 @@ void XuatPhat()
     {
         reset_all();
         
-        robotRunAngle(1800, 100, 0, 0);
-        while(ENCODER_TONG() < 80){if(wantExit_UP()) break;}
-        
+        robotRunAngle(1800, 254, 0.5, -0.2);
+        while(ENCODER_TONG() < 4500){}
+            
         robotStop(2);
-        
-        robotRunAngle(1800, 10, 0, 0);
-        while(ENCODER_TONG() < 100){if(wantExit_UP()) break;}
-        
-        robotStop(2);
-        
-        robotRunAngle(1250, 55, 0, 0);
-        while(ENCODER_TONG() < 185){if(wantExit_UP()) break;}
+        delay_ms(10000);
 
-        robotStop(2);
-        delay_ms(100);
-
-        robotStop(2);
-        
-        robotRunAngle(900, 55, 0, 0);
-        while(ENCODER_TONG() < 242){if(wantExit_UP()) break;}
-        
-        robotStop(2);
-        delay_ms(100);
-        
-        RESET_ENCODER();
-        
-        robotRunAngle(1800, 80, 0, 0);
-        while(ENCODER_TONG() < 50){if(wantExit_UP()) break;}
-        
-        robotStop(2);
-        delay_ms(100);
-                
-        robotRotate(30000, -0.5, 0, 150);
-        while(_robotIMUAngle > -900){if(wantExit_UP()) break;}
-
-        robotStop(2);
-
-        robotRotate(30000, 0.5, 0, 20);
-        while(_robotIMUAngle < -900){if(wantExit_UP()) break;}
-
-        robotStop(2);
-        reset_all();
-        
-        robotRunAngle(0, 40, 1800, 0);
-        robotRotate(30000, -0.5, 0, 20);
-        // while(ENCODER_TONG() < 50);      
-        while (_robotIMUAngle > -450){}
-        
-        robotStop(2);
+        robotRun(-1750, 20);
+        while(CB_CAP_THANH == 1){}
         
         delay_ms(100);
     }

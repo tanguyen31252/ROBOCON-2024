@@ -50,9 +50,10 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 #define Mor_Silo_day_ra		    					                	DATA_SPEED[18]=1
 #define Mor_Silo_day_vao			    				                DATA_SPEED[18]=0
 #define	Mor_Silo    		 							        		DATA_SPEED[19]
+
 //=============================ADC DMI======================================//
-#define cam_bien_laze_truoc						  					    _ADC1_Value[6]
-#define cam_bien_laze_sau										        _ADC1_Value[7]
+#define cam_bien_laze_truoc						  					    _ADC1_Value[0]
+#define cam_bien_laze_sau										        _ADC1_Value[6]
 //#define ADC1_Value2										        _ADC1_Value[2]
 //#define ADC1_Value3						  					    _ADC1_Value[3]
 //#define ADC1_Value4										        _ADC1_Value[4]
@@ -103,8 +104,8 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 #define ROLE_HOT_BONG_TAT						GPIO_WriteBit(GPIOB,GPIO_Pin_6,0)
 #define ROLE_HOT_BONG_BAT						GPIO_WriteBit(GPIOB,GPIO_Pin_6,1)
 
-#define XL_HOT_BONG_HA_XUONG					GPIO_WriteBit(GPIOA,GPIO_Pin_8,0)
-#define XL_HOT_BONG_BAT_LEN						GPIO_WriteBit(GPIOA,GPIO_Pin_8,1)
+#define XL_HOT_BONG_HA_XUONG					GPIO_WriteBit(GPIOC,GPIO_Pin_8,0)
+#define XL_HOT_BONG_BAT_LEN						GPIO_WriteBit(GPIOC,GPIO_Pin_8,1)
 
 #define XL_TRO_LUC_HA_TAT						GPIO_WriteBit(GPIOB,GPIO_Pin_14,0)
 #define XL_TRO_LUC_HA_BAT						GPIO_WriteBit(GPIOB,GPIO_Pin_14,1)
@@ -1172,6 +1173,15 @@ void HMI_TRAN(vs32 _so_dong) {
 										break;
 									case 12: 
 										HMI_DMI("bong_trong_silo[5]: ",bien_nho_bong_trong_silo[5],12);
+										break;
+									case 13: 
+										HMI_DMI("laze ngang do: ", lazeNgangValue, 13);
+										break;
+									case 14: 
+										HMI_DMI("bong_trong_silo[5]: ",bien_nho_bong_trong_silo[5],14);
+										break;
+									case 15: 
+										HMI_DMI("bong_trong_silo[5]: ",bien_nho_bong_trong_silo[5],15);
 										break;
 									case 16:
 									//	hien thi phan ngo vao
