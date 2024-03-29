@@ -70,21 +70,34 @@ void duong_di_silo()
         robotStop(2);
         delay_ms(500);
     }
-/****************************************SAN XANH****************************************/
+/****************************************SAN XANH***************************************/
     else    
     {   
         RESET_ENCODER();
-        robotRunAngle(1800, 10, 0, 0);
-        while(ENCODER_TONG() < 5000){}
+        robotRunAngle(1800, 100, 0, 0);
+        while(ENCODER_TONG() < 2000){if(wantExit_UP())break;}
+
+        robotStop(2);
+        delay_ms(5000);
+        
+        if (_robotIMUAngle < 0 )
+        {
+            robotRotate(30000,0.5,0,30);
+            while (_robotIMUAngle < 0){}
+        }
+        else if (_robotIMUAngle > 0)
+        {
+                 robotRotate(30000,-0.5,0,30);
+            while (_robotIMUAngle > 0){}
+        }
 
         RESET_ENCODER();
         robotRunAngle(1800,30,0,0);
-        while(ENCODER_TONG() < 2000){}
+        while(lazeSauValue > 30){if(wantExit_UP())break;}
         
-        robotStop(2);
-        delay_ms(500);
-        
-        
+        robotRunAngle (1800,20,0,0);
+        while (CB_CAP_THANH == 1){if(wantExit_UP())break;}
+ 
     }
 }
 
@@ -338,14 +351,16 @@ void di_chuyen_len_5()                              //di chuyen len silo 5
 
     duong_di_silo();
 
-    robotRunAngle(-900,30,0,0);
-    while(ENCODER_TONG() > 1000){}
+    robotRunAngle(-900,10,0,0);
+    while(lazeNgangXanhValue > 25){if(wantExit_UP())break;}
 
-    RESET_ENCODER();
+    robotRunAngle(-900,10,0,0);
+    while (CB_TU_NHAN_SILO == 1){if(wantExit_UP())break;}
+
     delay_ms(100);
 
-    robotRunAngle(1800,20,0,0);
-    while (CB_CAP_THANH == 1){}
+    // robotRunAngle(1800,20,0,0);
+    // while (CB_CAP_THANH == 1){if(wantExit_UP())break;}
     
     kiem_tra_di_chuyen();
     
@@ -456,7 +471,6 @@ void do_bong_lan_dau()
 }
 void do_bong_lan_dau_1()
 {
-    reset_all();
     bien_do_bong = 0;
     bien_chay_cap_thanh = 0;
     bien_nhan_bong = 0;
@@ -508,7 +522,7 @@ void do_bong_lan_dau_1()
 
             end = ENCODER_TONG();
             robotRunAngle(1800,50,0,0);
-            while (ENCODER_TONG() > end - 200){if(wantExit_UP())break;}
+            while (ENCODER_TONG() > end - 110){if(wantExit_UP())break;}
 
             robotStop(2);
             delay_ms(200);
@@ -517,11 +531,25 @@ void do_bong_lan_dau_1()
             robotRotate (30000,0.5,0,100);
             while (_robotIMUAngle < 900){if(wantExit_UP())break;} 
             robotRotateStop(2);
-
+            if (_robotIMUAngle < 0 )
+        {
+            robotRotate(30000,0.5,0,30);
+            while (_robotIMUAngle < 0){}
+        }
+        else if (_robotIMUAngle > 0)
+        {
+                 robotRotate(30000,-0.5,0,30);
+            while (_robotIMUAngle > 0){}
+        }
             break;
         }
+<<<<<<< HEAD
         delay_ms(100);
         robotRotate(30000, 0.5, 0, 150);
+=======
+
+        // robotRotate(30000, 0.5, 0, 150);
+>>>>>>> ee2ab0c7b0c7ab9f077a939f0bf878514e4b7398
     } 
 
 }
@@ -819,9 +847,15 @@ void test()
     // {
 
     XuatPhat();    
+<<<<<<< HEAD
 
     do_bong_lan_dau();
 
+=======
+    reset_all();
+    do_bong_lan_dau_1();
+
+>>>>>>> ee2ab0c7b0c7ab9f077a939f0bf878514e4b7398
     di_chuyen_len_5();
     
     tha_bong();
