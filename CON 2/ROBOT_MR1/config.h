@@ -50,8 +50,9 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 #define Mor_Silo_day_ra		    					                	DATA_SPEED[18]=1
 #define Mor_Silo_day_vao			    				                DATA_SPEED[18]=0
 #define	Mor_Silo    		 							        		DATA_SPEED[19]
+
 //=============================ADC DMI======================================//
-#define cam_bien_laze_truoc						  					    _ADC1_Value[6]
+#define cam_bien_laze_truoc						  					    _ADC1_Value[0]
 #define cam_bien_laze_sau										        _ADC1_Value[7]
 //#define ADC1_Value2										        _ADC1_Value[2]
 //#define ADC1_Value3						  					    _ADC1_Value[3]
@@ -93,7 +94,7 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 #define  HT_TRUOC_TRAI							GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_13)					//HT_TRAI								0
 #define  HT_TRUOC_PHAI							GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_4)						//HT_PHAI								0
 
-#define  CB_DUNG_BANG_TAI                       GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_12)						//cam bien dung bang tai				1
+#define  CB_DUNG_BANG_TAI                       GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_12)					//cam bien dung bang tai				1
 #define  CB_DAY_BONG_RA_NGOAI					GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_6)
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx OUTPUT xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
@@ -103,8 +104,13 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 #define ROLE_HOT_BONG_TAT						GPIO_WriteBit(GPIOB,GPIO_Pin_6,0)
 #define ROLE_HOT_BONG_BAT						GPIO_WriteBit(GPIOB,GPIO_Pin_6,1)
 
+<<<<<<< HEAD
 #define XL_HOT_BONG_HA_XUONG					GPIO_WriteBit(GPIOB,GPIO_Pin_15,0)
 #define XL_HOT_BONG_BAT_LEN						GPIO_WriteBit(GPIOB,GPIO_Pin_15,1)
+=======
+#define XL_HOT_BONG_HA_XUONG					GPIO_WriteBit(GPIOC,GPIO_Pin_8,0)
+#define XL_HOT_BONG_BAT_LEN						GPIO_WriteBit(GPIOC,GPIO_Pin_8,1)
+>>>>>>> 7a0a145f204965d9f2d13f7f232f73210e96330f
 
 #define XL_TRO_LUC_HA_TAT						GPIO_WriteBit(GPIOB,GPIO_Pin_14,0)
 #define XL_TRO_LUC_HA_BAT						GPIO_WriteBit(GPIOB,GPIO_Pin_14,1)
@@ -133,6 +139,7 @@ extern int _robotIMUAngle;
 char bit_khoa_ham_chay_thay_tuan=0;
 int silo_so = 5, silo_vua_chay = 0, silo_sap_bo = 0;
 char bien_di_chuyen = 0; //0 la trai, 1 la phai
+int bien_day_bong_ra_ngoai = 0, bien_dung_bang_tai = 0;
 int random(int minN, int maxN){
 	return minN + rand() % (maxN + 1 - minN);
 }
@@ -1159,10 +1166,10 @@ void HMI_TRAN(vs32 _so_dong) {
 										HMI_DMI("LJOY_LR:",GP_BTN[4],7); 
 										break;
 									case 8:
-										HMI_DMI("silo_so:", silo_so,8);
+										HMI_DMI("bien do bong: ", bien_do_bong,8);
 										break;
 									case 9:
-										HMI_DMI("encoder:", do_encoder_silo,9);
+										HMI_DMI("bien dung bang tai:", bien_dung_bang_tai,9);
 										break;
 									case 10: 
 										HMI_DMI("silo_vua_chay: ",silo_vua_chay,10);
@@ -1172,6 +1179,15 @@ void HMI_TRAN(vs32 _so_dong) {
 										break;
 									case 12: 
 										HMI_DMI("bong_trong_silo[5]: ",bien_nho_bong_trong_silo[5],12);
+										break;
+									case 13: 
+										HMI_DMI("laze ngang xanh: ", lazeNgangValue, 13);
+										break;
+									case 14: 
+										HMI_DMI("bong_trong_silo[5]: ",bien_nho_bong_trong_silo[5],14);
+										break;
+									case 15: 
+										HMI_DMI("bong_trong_silo[5]: ",bien_nho_bong_trong_silo[5],15);
 										break;
 									case 16:
 									//	hien thi phan ngo vao
@@ -1201,8 +1217,8 @@ void HMI_TRAN(vs32 _so_dong) {
 										// strcat(_chu_cac_bit,_ghep_bit);
 										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_13));						//HT DUNG TRAI					0
 										strcat(_chu_cac_bit,_ghep_bit);
-										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_6));						//CB_DUNG_BANG_TAI				1
-										// strcat(_chu_cac_bit,_ghep_bit);
+										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_12));						//CB_DUNG_BANG_TAI				1
+										strcat(_chu_cac_bit,_ghep_bit);
 										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_4));						//HT DUNG PHAI					0
 										strcat(_chu_cac_bit,_ghep_bit);
 										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_15));						//CB_BONG_3						0
@@ -1211,16 +1227,16 @@ void HMI_TRAN(vs32 _so_dong) {
 										// strcat(_chu_cac_bit,_ghep_bit);
 										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_2));						//CB_BONG_1						0
 										// strcat(_chu_cac_bit,_ghep_bit);
-										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_0));						//CB_NHAN_XANH					0
-										// strcat(_chu_cac_bit,_ghep_bit);
-										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_1));						//CB_NHAN_XANH					0
-										// strcat(_chu_cac_bit,_ghep_bit);
+										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_0));						//CB_NHAN_XANH_TRAI					0
+										strcat(_chu_cac_bit,_ghep_bit);
+										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_1));						//CB_NHAN_XANH_PHAI				0
+										strcat(_chu_cac_bit,_ghep_bit);
 										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_14));						//CB_CAP_THANH					0
 										// strcat(_chu_cac_bit,_ghep_bit);
-										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_13));						//CB_NHAN_DO					0
-										// strcat(_chu_cac_bit,_ghep_bit);		
-										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_14));						//CB_NHAN_DO					0
-										// strcat(_chu_cac_bit,_ghep_bit);
+										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_13));						//CB_NHAN_DO					0
+										strcat(_chu_cac_bit,_ghep_bit);		
+										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_14));						//CB_NHAN_DO					0
+										strcat(_chu_cac_bit,_ghep_bit);
 										HMI_PUTS("I:",_chu_cac_bit,16);
 										break;								
 									case 17:

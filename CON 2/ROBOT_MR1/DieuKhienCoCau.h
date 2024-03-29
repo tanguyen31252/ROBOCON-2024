@@ -125,6 +125,7 @@ void testbanhxe()
 //--------------------------- DIEU KHIEN CO CAU ---------------------------------------
 void dieuKhienCoCau(void) 
 {
+<<<<<<< HEAD
     if (!TRIANGLE)
     {
         XL_HOT_BONG_HA_XUONG;
@@ -134,4 +135,14 @@ void dieuKhienCoCau(void)
     {
         XL_HOT_BONG_BAT_LEN;
     }
+=======
+    if(!TRIANGLE)
+    {
+        XL_HOT_BONG_BAT_LEN;
+    }
+    if(!X)
+    {
+        XL_HOT_BONG_HA_XUONG;
+    }
+>>>>>>> 7a0a145f204965d9f2d13f7f232f73210e96330f
 }
