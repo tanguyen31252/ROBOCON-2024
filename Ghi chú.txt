@@ -11,7 +11,7 @@ còn lại oke
 khai báo xong các chân role, vẫn còn cảm biến từ, cảm biến ở nòng ra bóng
 
 9:30 240329  --Nguyên
-BA đã biết pull push bằng cl
+BA đã biết pull push bằng command line
 
 12:00 240329 --Nguyên
 XuatPhat(), di_chuyen_len() đã xong --> không sửa nữa.
