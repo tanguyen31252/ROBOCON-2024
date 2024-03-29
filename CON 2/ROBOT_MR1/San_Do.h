@@ -45,6 +45,7 @@ void di_chuyen_ve()
 
 void duong_di_silo()
 {
+    reset_all();
     encoder_silo(silo_so);
     bien_nhan_bong = 0;
     
@@ -368,35 +369,26 @@ void do_bong()
     bien_nhan_bong = 0;
     Mor_Silo = 254, Mor_Silo_day_vao;
     ROLE_BANG_TAI_BAT;
-    ROLE_HOT_BONG_BAT;     
-    while(1)
+    ROLE_HOT_BONG_BAT;        
+    while (HT_TRUOC_PHAI == 1 && HT_TRUOC_TRAI == 1)
     {
-        while (HT_TRUOC_PHAI == 1 && HT_TRUOC_TRAI == 1)
-        {
-            robotRun(0, 10);
-            while(CB_NHAN_MAU_XANH_PHAI == 1 || CB_NHAN_MAU_XANH_TRAI == 1){}
-            Mor_Silo = 0;
-            ROLE_HOT_BONG_TAT;
-            delay_ms(2500);
-            Mor_Silo = 254, Mor_Silo_day_vao;
-            while (CB_DUNG_BANG_TAI == 1){}
-            ROLE_BANG_TAI_TAT;
-            XL_HOT_BONG_BAT_LEN;
-            Mor_Silo = 254, Mor_Silo_day_ra;
-            XL_TRO_LUC_HA_BAT;
-            delay_ms(500);
-            XL_TRO_LUC_HA_TAT;
-            delay_ms(2500);
-            Mor_Silo =0;
-            bien_nhan_bong = 1;
-            break;
-        }   
-        if(bien_nhan_bong == 1) break;
-        else
-        {
-            
-        }
-    }
+        while(CB_NHAN_MAU_XANH_PHAI == 1 || CB_NHAN_MAU_XANH_TRAI == 1)
+        {}
+        Mor_Silo = 0;
+        ROLE_HOT_BONG_TAT;
+        delay_ms(2500);
+        Mor_Silo = 254, Mor_Silo_day_vao;
+        while (CB_DUNG_BANG_TAI == 1){}
+        ROLE_BANG_TAI_TAT;
+        XL_HOT_BONG_BAT_LEN;
+        Mor_Silo = 254, Mor_Silo_day_ra;
+        XL_TRO_LUC_HA_BAT;
+        delay_ms(500);
+        XL_TRO_LUC_HA_TAT;
+        delay_ms(2500);
+        Mor_Silo =0;
+        bien_nhan_bong = 1;
+    }   
 }
 void do_bong_lan_dau()
 {
@@ -414,17 +406,26 @@ void do_bong_lan_dau()
         {}
         Mor_Silo = 0;
         ROLE_HOT_BONG_TAT;
-        delay_ms(3500);
+        delay_ms(3200);
         Mor_Silo = 254, Mor_Silo_day_vao;
         while (CB_DAY_BONG_RA_NGOAI == 1 ){}
         ROLE_BANG_TAI_TAT;
         XL_HOT_BONG_BAT_LEN;
         Mor_Silo = 254, Mor_Silo_day_ra;
         bien_nhan_bong = 1;
+        delay_ms(100);
         Mor_Silo =0;
-        robotStop(2);
     }   
+    if (bien_nhan_bong == 1 ){robotStop(2);}
+    else
+     {
+           RESET_ENCODER();    
+           robotRun(1800,10,0,0);
+           while (ENCODER_TONG() <1000){}
 
+           robotRotate(30000,2.5,0,50);
+           while (_robotIMUAngle < 450 ){} 
+    }
 }
 void XuatPhat()
 {
@@ -719,31 +720,17 @@ void test()
 {
     XuatPhat();    
 
-    do_bong();
+    // do_bong_lan_dau();
+
+    // robotRunAngle (0,20,0,2.5);
+    // while ()
+
+    // di_chuyen_len_5();
     
-    di_chuyen_len_5();
+    // tha_bong();
 
-    tha_bong();
+    // bien_nho_bong_da_tha_trong_silo[silo_so]++;
 
-    di_chuyen_ve();
-
-    while(1)
-    {
-        do_bong();
-
-        if(bien_nho_silo_co_2_bong != 0)
-        {
-            di_chuyen_len_bo_bong_thu_3();
-            bien_nho_silo_co_2_bong = 0;
-        }
-        else
-        {
-            di_chuyen_len();
-            while(1){}
-        }
-        di_chuyen_ve();
-
-        bien_do_bong = 0;
-    }
+    // di_chuyen_ve();
 }
 
