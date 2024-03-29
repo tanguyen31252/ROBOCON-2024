@@ -17,7 +17,6 @@ void tha_bong()
     ROLE_BANG_TAI_BAT;
     while (CB_DAY_BONG_RA_NGOAI == 1){}
     
-    delay_ms(500);
     ROLE_BANG_TAI_TAT;
     bien_nho_bong_da_tha_trong_silo[silo_so]++;
 
@@ -35,11 +34,14 @@ void di_chuyen_ve()
     else
     {
         robotRunAngle(0,100,0,0);
-        while (ENCODER_TONG() < 800){if(wantExit_UP()) break;}
+        while (ENCODER_TONG() < 3000){if(wantExit_UP()) break;}
         RESET_ENCODER();
         delay_ms(20);
         
-        robotRunAngle (0,30,0,0);
+        robotRunAngle (-900,30,0,0);
+        while (lazeNgangValue > 100){}
+
+        
     }
 }
 
@@ -51,92 +53,47 @@ void duong_di_silo()
     
     if(_robotIMUAngle < 0)
     {
-        robotRotate(30000, 0.5, 0, 35);
+        robotRotate(30000, 1.5, 0, 35);
         while(_robotIMUAngle <= 0){if(wantExit_UP()) break;}
     }
     else
     {            
-        robotRotate(30000, -0.5, 0, 35);
+        robotRotate(30000, -1.5, 0, 35);
         while(_robotIMUAngle >= 0){if(wantExit_UP()) break;}
     }
-    robotRunAngle(0, 10, 0, 0);
-    while(ENCODER_TONG() < 1000){}
 
-    // robotRunAngle(0,10,0,0);
-    // while (CB_CAP_THANH == 0){}
 
     
 /****************************************SAN DO****************************************/
     if(NUT_CHUYEN_SAN == 1)
     {   
-        robotRunAngle(900, 20, -6, 0.5);
-//        while(HT_PHAI == 1){}
+
+         RESET_ENCODER();
+        robotRunAngle(1800, 10, 0, 0);
+        while(ENCODER_TONG() < 3000){}
+
+        RESET_ENCODER();
+        robotRunAngle(1800,30,0,0);
+        while(lazeNgangValue < 200){}
         
         robotStop(2);
         delay_ms(500);
-        
-        robotRunAngle(900, 5, -6, 0.5);
-//        while(HT_PHAI == 1){}
-            
-        robotStop(2);
-        reset_all();
-        
-        robotRunAngle(1750, 15, -6, 0.5);
-//        while(HT_DUNG_SAU == 1){}
-        
-        delay_ms(50);
-            
-        robotRunAngle(1800, 5, -6, 0.5);
-//        while(HT_DUNG_SAU == 1){}
-            
-        robotStop(2);
-            
-        reset_all();
-            
-        robotRunAngle(-1000, 25, -6, 0.3);
-        while(ENCODER_TONG() < do_encoder_silo){}   
-        
-        robotStop(2);
-            
-        robotRunAngle(1000, 5, -6, 0.3);
-        while(CB_TU_NHAN_SILO == 1){if(!START) break;}
-        robotStop(2);
     }
 /****************************************SAN XANH****************************************/
     else    
     {   
-        robotRunAngle(-900, 20, -6, 0.5);
-//        while(HT_TRAI == 1){}
+        RESET_ENCODER();
+        robotRunAngle(1800, 10, 0, 0);
+        while(ENCODER_TONG() < 5000){}
+
+        RESET_ENCODER();
+        robotRunAngle(1800,30,0,0);
+        while(ENCODER_TONG() < 2000){}
         
         robotStop(2);
         delay_ms(500);
         
-        robotRunAngle(-900, 5, -6, 0.5);
-//        while(HT_TRAI == 1){}
-            
-        robotStop(2);
-        reset_all();
-        
-        robotRunAngle(-1750, 15, -6, 0.5);
-//        while(HT_DUNG_SAU == 1){}
-        
-        delay_ms(50);
-            
-        robotRunAngle(1800, 5, -6, 0.5);
-//        while(HT_DUNG_SAU == 1){}
-            
-        robotStop(2);
-            
-        reset_all();
-            
-        robotRunAngle(1000, 25, -6, 0);
-        while(ENCODER_TONG() < do_encoder_silo){}   
-        
-        robotStop(2);
-            
-        robotRunAngle(1000, 5, -6, 0);
-        while(CB_TU_NHAN_SILO == 1){if(!START) break;}
-        robotStop(2);
+       
     }
 }
 
@@ -248,6 +205,14 @@ void nhan_bong_trong_silo()
     if(bien_nho_bong_trong_silo[5] == 1 && bien_nho_bong_trong_silo[1] == 1 && bien_nho_bong_trong_silo[2] == 1 && bien_nho_bong_trong_silo[3] == 1 && bien_nho_bong_trong_silo[4] == 1)
     {
         bien_nho_bong_trong_silo[0]=1;
+        for(i = 1; i <= 5; i++)
+        {
+            if(bien_nho_bong_da_tha_trong_silo[i] != 0 && bien_nho_bong_trong_silo[i] != 3)
+            {
+                silo_so = i;
+                break;
+            }
+        }
     }
     if(CB_BONG_1 == 1)                                                              //chua co bong thi tha bong roi cho so bong = 1
     {
@@ -302,61 +267,94 @@ void kiem_tra_di_chuyen()
 void di_chuyen_len_1()                              //di chuyen len silo 1
 {
     RESET_ENCODER();
-    
+
     silo_so = 1;
     
     duong_di_silo();
+
+    robotRunAngle(-900,30,0,0);
+    while(lazeNgangValue > 500){}
+
+    robotRunAngle(1800,20,0,0);
+    while (ENCODER_TONG() < 100){}
     
     kiem_tra_di_chuyen();
-        
+    
     silo_vua_chay = silo_so;
 }
 
 void di_chuyen_len_2()                              //di chuyen len silo 2
 {
     RESET_ENCODER();
-    
+
     silo_so = 2;
     
     duong_di_silo();
+
+    robotRunAngle(-900,30,0,0);
+    while(lazeNgangValue > 400){}
+
+    robotRunAngle(1800,20,0,0);
+    while (ENCODER_TONG() < 100){}
     
     kiem_tra_di_chuyen();
-        
+    
     silo_vua_chay = silo_so;
 }
 
 void di_chuyen_len_3()                              //di chuyen len silo 3
 {
     RESET_ENCODER();
-    
+
     silo_so = 3;
     
     duong_di_silo();
+
+    robotRunAngle(-900,30,0,0);
+    while(lazeNgangValue > 300){}
+
+    robotRunAngle(1800,20,0,0);
+    while (ENCODER_TONG() < 100){}
     
     kiem_tra_di_chuyen();
-        
+    
     silo_vua_chay = silo_so;
 }
 
 void di_chuyen_len_4()                              //di chuyen len silo 4
 {
     RESET_ENCODER();
-    
+
     silo_so = 4;
     
     duong_di_silo();
+
+    robotRunAngle(-900,30,0,0);
+    while(lazeNgangValue > 200){}
+
+    robotRunAngle(1800,20,0,0);
+    while (ENCODER_TONG() < 100){}
     
     kiem_tra_di_chuyen();
-        
+    
     silo_vua_chay = silo_so;
 }
 void di_chuyen_len_5()                              //di chuyen len silo 5
 {
     RESET_ENCODER();
-    
+
     silo_so = 5;
     
     duong_di_silo();
+
+    robotRunAngle(-900,30,0,0);
+    while(ENCODER_TONG() > 1000){}
+
+    RESET_ENCODER();
+    delay_ms(100);
+
+    robotRunAngle(1800,20,0,0);
+    while (ENCODER_TONG() < 500){}
     
     kiem_tra_di_chuyen();
     
@@ -369,7 +367,8 @@ void do_bong()
     bien_nhan_bong = 0;
     Mor_Silo = 254, Mor_Silo_day_vao;
     ROLE_BANG_TAI_BAT;
-    ROLE_HOT_BONG_BAT;        
+    ROLE_HOT_BONG_BAT;
+    robotRunAngle(0,10,0,0);
     while (HT_TRUOC_PHAI == 1 && HT_TRUOC_TRAI == 1)
     {
         while(CB_NHAN_MAU_XANH_PHAI == 1 || CB_NHAN_MAU_XANH_TRAI == 1)
@@ -389,6 +388,15 @@ void do_bong()
         Mor_Silo =0;
         bien_nhan_bong = 1;
     }   
+    if (bien_nhan_bong == 1 ){robotStop(2);}
+    else
+     {
+           robotRunAngle(1800,10,0,0);
+           while (ENCODER_TONG() <1000){}
+
+           robotRotate(30000,2.5,0,50);
+           while (DIA_CHI_START3 < 450 ){} 
+    }
 }
 void do_bong_lan_dau()
 {
@@ -415,19 +423,23 @@ void do_bong_lan_dau()
         bien_nhan_bong = 1;
         delay_ms(100);
         Mor_Silo =0;
+        robotStop(2);
     }   
-    if (bien_nhan_bong == 1 ){robotStop(2);}
-    else
-     {
-           RESET_ENCODER();    
-           robotRun(1800,10);
+    if (bien_nhan_bong == 1 )
+    {      RESET_ENCODER();    
+           robotRunAngle(1800,10,0,0);
            while (ENCODER_TONG() <1000){}
 
            robotRotate(30000,2.5,0,50);
-           while (_robotIMUAngle < 450 ){} 
+           while (_robotIMUAngle < 450){} 
+    }
+    else
+     {
+           robotStop(2);
     }
 }
 void XuatPhat()
+
 {
     if(NUT_CHUYEN_SAN == 1)
     {
@@ -580,23 +592,23 @@ void di_chuyen_len()
                 break;
             }
         }
-        if(silo_vua_chay == 5)
+        if(silo_so == 5)
         {
             di_chuyen_len_5();
         }
-        else if(silo_vua_chay == 4)
+        else if(silo_so == 4)
         {
             di_chuyen_len_4();
         }
-        else if(silo_vua_chay == 3)
+        else if(silo_so == 3)
         {
             di_chuyen_len_3();
         }
-        else if(silo_vua_chay == 2)
+        else if(silo_so == 2)
         {
             di_chuyen_len_2();
         }
-        else if(silo_vua_chay == 1)
+        else if(silo_so == 1)
         {
             di_chuyen_len_1();
         }
@@ -711,21 +723,50 @@ void XuatPhat_5()
 {
     silo_so = 5;
 }
+//phai dung tren branch cua nhau de code, thi dung chung file duoc :))))
+//neu thay cai nay thi nhan tin cho t 
 
-void di_chuyen_len_5_lan_dau()
-{
-
-}
 void test()
 {
-    XuatPhat();    
+    // XuatPhat();    
 
-    // do_bong_lan_dau();
+    do_bong_lan_dau();
 
-    // robotRunAngle (0,20,0,2.5);
-    // while ()
+    di_chuyen_len_5();
+    
+    tha_bong();
 
-    // di_chuyen_len_5();
+    bien_nho_bong_da_tha_trong_silo[silo_so]++;
+
+    di_chuyen_ve();
+    while (di_chuyen_len_bo_bong_thu_3){}
+    // do_bong();
+
+    // di_chuyen_len_4();
+    
+    // tha_bong();
+
+    // bien_nho_bong_da_tha_trong_silo[silo_so]++;
+
+    // di_chuyen_ve();
+
+    // di_chuyen_len_3();
+    
+    // tha_bong();
+
+    // bien_nho_bong_da_tha_trong_silo[silo_so]++;
+
+    // di_chuyen_ve();
+
+    // di_chuyen_len_2();
+    
+    // tha_bong();
+
+    // bien_nho_bong_da_tha_trong_silo[silo_so]++;
+
+    // di_chuyen_ve();
+
+    // di_chuyen_len_1();
     
     // tha_bong();
 
