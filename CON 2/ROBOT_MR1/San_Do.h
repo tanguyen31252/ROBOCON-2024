@@ -543,13 +543,10 @@ void do_bong_lan_dau_1()
         }
             break;
         }
-<<<<<<< HEAD
         delay_ms(100);
         robotRotate(30000, 0.5, 0, 150);
-=======
 
         // robotRotate(30000, 0.5, 0, 150);
->>>>>>> ee2ab0c7b0c7ab9f077a939f0bf878514e4b7398
     } 
 
 }
@@ -847,15 +844,12 @@ void test()
     // {
 
     XuatPhat();    
-<<<<<<< HEAD
 
     do_bong_lan_dau();
 
-=======
     reset_all();
     do_bong_lan_dau_1();
 
->>>>>>> ee2ab0c7b0c7ab9f077a939f0bf878514e4b7398
     di_chuyen_len_5();
     
     tha_bong();
@@ -877,7 +871,7 @@ void test()
         {
             di_chuyen_len();
 
-            while(bien_nhan_bong == 1){tha_bong(),di_chuyen_ve()}
+            while(bien_nhan_bong == 1){tha_bong(),di_chuyen_ve();}
             
         }
     }
