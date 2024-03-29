@@ -14,4 +14,8 @@ khai báo xong các chân role, vẫn còn cảm biến từ, cảm biến ở n
 BA đã biết pull push bằng cl
 
 12:00 240329 --Nguyên
-XuatPhat() đã xong --> không sửa nữa.
+XuatPhat(), di_chuyen_len() đã xong --> không sửa nữa.
+
+Sửa:
+duong_di_silo(), do_bong() --> BA sửa.
+xử lí biến nhớ             --> Nguyên sửa.
