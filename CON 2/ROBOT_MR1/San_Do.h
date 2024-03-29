@@ -449,6 +449,7 @@ void do_bong_lan_dau()
     }
 }
 void XuatPhat()
+
 {
     if(NUT_CHUYEN_SAN == 1)
     {
