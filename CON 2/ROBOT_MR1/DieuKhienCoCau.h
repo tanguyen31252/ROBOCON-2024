@@ -125,4 +125,13 @@ void testbanhxe()
 //--------------------------- DIEU KHIEN CO CAU ---------------------------------------
 void dieuKhienCoCau(void) 
 {
+    if (!TRIANGLE)
+    {
+        XL_HOT_BONG_HA_XUONG;
+
+    }
+    else if (!X)
+    {
+        XL_HOT_BONG_BAT_LEN;
+    }
 }

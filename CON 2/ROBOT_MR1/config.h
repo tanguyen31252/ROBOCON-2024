@@ -103,8 +103,8 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 #define ROLE_HOT_BONG_TAT						GPIO_WriteBit(GPIOB,GPIO_Pin_6,0)
 #define ROLE_HOT_BONG_BAT						GPIO_WriteBit(GPIOB,GPIO_Pin_6,1)
 
-#define XL_HOT_BONG_HA_XUONG					GPIO_WriteBit(GPIOA,GPIO_Pin_8,0)
-#define XL_HOT_BONG_BAT_LEN						GPIO_WriteBit(GPIOA,GPIO_Pin_8,1)
+#define XL_HOT_BONG_HA_XUONG					GPIO_WriteBit(GPIOB,GPIO_Pin_15,0)
+#define XL_HOT_BONG_BAT_LEN						GPIO_WriteBit(GPIOB,GPIO_Pin_15,1)
 
 #define XL_TRO_LUC_HA_TAT						GPIO_WriteBit(GPIOB,GPIO_Pin_14,0)
 #define XL_TRO_LUC_HA_BAT						GPIO_WriteBit(GPIOB,GPIO_Pin_14,1)
