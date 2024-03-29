@@ -65,23 +65,32 @@ void robotGamePadControl(void) {
 //////-------------------------------------------------------------	
 void ADCValue_Control(void)
 {
-	static unsigned int lazeTruocCouter =0, lazeTruoc_SUM =0, lazeSauCouter =0, lazeSau_SUM =0, BienTroGocBanThoc_Couter =0, BienTroGocBanThoc_SUM =0, BT_Dia_xoay_Couter =0, BT_Dia_xoay_SUM =0;
+    static unsigned int lazeTruocCouter =0, lazeTruoc_SUM =0, lazeNgang_Counter_do =0, lazeNgang_SUM_do =0, BienTroGocBanThoc_Couter =0, BienTroGocBanThoc_SUM =0, BT_Dia_xoay_Couter =0, BT_Dia_xoay_SUM =0, lazeNgang_Counter_xanh =0,lazeNgang_SUM_xanh =0;
 //------------------------	
-	if(lazeTruocCouter++ < 20)	lazeTruoc_SUM += cam_bien_laze_truoc;  
-	else
-  {
-		lazeTruocValue = lazeTruoc_SUM/20;
-		lazeTruocCouter = 0;
-		lazeTruoc_SUM = 0;
-	}
+    if(lazeTruocCouter++ < 20)	lazeTruoc_SUM += cam_bien_laze_truoc;  
+    else
+    {
+        lazeSauValue = lazeTruoc_SUM/20
+        ;
+        lazeTruocCouter = 0;
+        lazeTruoc_SUM = 0;
+    }
 //------------------------
-	if(lazeSauCouter++ < 20)	lazeSau_SUM += cam_bien_laze_sau;  
-	else
-  {
-		lazeNgangValue = lazeSau_SUM/20;
-		lazeSauCouter = 0;
-		lazeSau_SUM = 0;
-	}
+    if(lazeNgang_Counter_do++ < 20)	lazeNgang_SUM_do += cam_bien_laze_ngang_do;  
+    else
+    {
+        lazeNgangDoValue = lazeNgang_SUM_do/20;
+        lazeNgang_Counter_do = 0;
+        lazeNgang_SUM_do = 0;
+    }
+//------------------------
+    if(lazeNgang_Counter_xanh++ < 20)	lazeNgang_SUM_xanh += cam_bien_laze_ngang_xanh;  
+    else
+    {
+        lazeNgangXanhValue = lazeNgang_SUM_xanh/20;
+        lazeNgang_Counter_xanh = 0;
+        lazeNgang_SUM_xanh = 0;
+    }
 ////------------------------
 //	if(BienTroGocBanThoc_Couter++ < 50)	BienTroGocBanThoc_SUM += BT_Nang_goc_ban;  
 //	else

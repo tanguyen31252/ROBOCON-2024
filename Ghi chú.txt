@@ -26,3 +26,9 @@ lỡ thêm encoder để đụng silo di_chuyen_len 1,2,3,4,5 chưa sửa di_chu
 
 1:15 240330  --BA
 hoàn thiện code do_bong(), tuy nhiên vẫn chưa break được vòng lặp khi đụng tường! Cần xem lại code cũ.
+
+1:54 240330 --Nguyên
+khai báo xong 3 con laze
+laze sau: lazeSauValue
+laze chạy bên sân đỏ: lazeNgangDoValue
+laze chạy bên sân xanh: lazeNgangXanhValue

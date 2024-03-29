@@ -52,8 +52,12 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 #define	Mor_Silo    		 							        		DATA_SPEED[19]
 
 //=============================ADC DMI======================================//
-#define cam_bien_laze_truoc						  					    _ADC1_Value[0]
-#define cam_bien_laze_sau										        _ADC1_Value[7]
+#define cam_bien_laze_truoc										        _ADC1_Value[7]                  //cb_laze_doc
+//=============================LAZE SAN DO==================================
+#define cam_bien_laze_ngang_do									        _ADC1_Value[6]                  //cb_laze_ngang san do
+//=============================LAZE SAN XAN=================================
+#define cam_bien_laze_ngang_xanh								        _ADC1_Value[5]                  //cb_laze_ngang san xanh
+
 //#define ADC1_Value2										        _ADC1_Value[2]
 //#define ADC1_Value3						  					    _ADC1_Value[3]
 //#define ADC1_Value4										        _ADC1_Value[4]
@@ -120,7 +124,7 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 vs32 	sieu_am, num_over_t1=0, num_over_t2=0, num_over_t3=0, num_over_t4=0, num_over_t5=0, CCR2_Val, HMI_LOOP;
 vs16 	IMU,IMUxoay;
 vu8 	data_tx_gyro, en_gyro, dataTxGyro, enGyro, Bien_vong = 0, Bien_nang = 1, Cap_vong = 0, Keo_loxo = 0, bien_nang_tam = 10; 
-int 	lazeTruocValue, lazeNgangValue, i=0;
+int 	lazeSauValue, lazeNgangDoValue, lazeNgangXanhValue, i=0;
 int 	noise, noise1;
 int		BT_Nang_goc_ban_value =0, BT_Dia_xoay_value =0;
 vu16 	_ADC1_Value[8];
@@ -132,7 +136,7 @@ extern unsigned char GP_BTN [15];
 extern int _robotIMUAngle;
 
 char bit_khoa_ham_chay_thay_tuan=0;
-int end = 0;
+int end = 0, bien_cham_tuong = 0;
 int silo_so = 5, silo_vua_chay = 0, silo_sap_bo = 0;
 char bien_di_chuyen = 0; //0 la trai, 1 la phai
 int bien_day_bong_ra_ngoai = 0, bien_dung_bang_tai = 0;
@@ -1177,7 +1181,7 @@ void HMI_TRAN(vs32 _so_dong) {
 										HMI_DMI("truong hop: ",bien_chay_cap_thanh,12);
 										break;
 									case 13: 
-										HMI_DMI("laze ngang xanh: ", lazeNgangValue, 13);
+										HMI_DMI("laze ngang xanh: ", lazeNgangXanhValue, 13);
 										break;
 									case 14: 
 										HMI_DMI("bong_trong_silo[5]: ",bien_nho_bong_trong_silo[5],14);
