@@ -24,4 +24,5 @@ xử lí biến nhớ             --> Nguyên sửa.
 lỡ thêm encoder để đụng silo di_chuyen_len 1,2,3,4,5 chưa sửa di_chuyen_len;
 - duong_di_silo chưa có laze nên không chuẩn
 
-
+1:15 240330  --BA
+hoàn thiện code do_bong(), tuy nhiên vẫn chưa break được vòng lặp khi đụng tường! Cần xem lại code cũ.
