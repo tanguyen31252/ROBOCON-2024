@@ -694,6 +694,8 @@ void XuatPhat_5()
 
 void test()
 {
+    while (CB_BONG_1 == 0 && CB_BONG_2 == 0 && CB_BONG_3 == 0)
+    {
     // XuatPhat();    
 
     do_bong_lan_dau();
@@ -705,7 +707,7 @@ void test()
     bien_nho_bong_da_tha_trong_silo[silo_so]++;
 
     di_chuyen_ve();
-    while (di_chuyen_len_bo_bong_thu_3){}
+
     // do_bong();
 
     // di_chuyen_len_4();
@@ -739,5 +741,6 @@ void test()
     // bien_nho_bong_da_tha_trong_silo[silo_so]++;
 
     // di_chuyen_ve();
+    }robotStop(2);
 }
 
