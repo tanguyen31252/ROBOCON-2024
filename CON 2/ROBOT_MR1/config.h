@@ -81,7 +81,7 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 #define  CB_NHAN_MAU_DO_TRAI					GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_14)					//nhan bong do							0
 #define  CB_NHAN_MAU_DO_PHAI					GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_13)					//nhan bong do							0
 
-#define  CB_NHAN_MAU_XANH_TRAI					GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_0)						//nhan bong xanh						0
+#define  CB_NHAN_MAU_XANH_TRAI					GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_8)						//nhan bong xanh						0
 #define  CB_NHAN_MAU_XANH_PHAI					GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_1)						//nhan bong xanh						0
 
 #define  CB_BONG_1                          	GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_2)						//CB_BONG_1								0
@@ -104,13 +104,8 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 #define ROLE_HOT_BONG_TAT						GPIO_WriteBit(GPIOB,GPIO_Pin_6,0)
 #define ROLE_HOT_BONG_BAT						GPIO_WriteBit(GPIOB,GPIO_Pin_6,1)
 
-<<<<<<< HEAD
-#define XL_HOT_BONG_HA_XUONG					GPIO_WriteBit(GPIOB,GPIO_Pin_15,0)
-#define XL_HOT_BONG_BAT_LEN						GPIO_WriteBit(GPIOB,GPIO_Pin_15,1)
-=======
 #define XL_HOT_BONG_HA_XUONG					GPIO_WriteBit(GPIOC,GPIO_Pin_8,0)
 #define XL_HOT_BONG_BAT_LEN						GPIO_WriteBit(GPIOC,GPIO_Pin_8,1)
->>>>>>> 7a0a145f204965d9f2d13f7f232f73210e96330f
 
 #define XL_TRO_LUC_HA_TAT						GPIO_WriteBit(GPIOB,GPIO_Pin_14,0)
 #define XL_TRO_LUC_HA_BAT						GPIO_WriteBit(GPIOB,GPIO_Pin_14,1)
@@ -1192,42 +1187,40 @@ void HMI_TRAN(vs32 _so_dong) {
 									case 16:
 									//	hien thi phan ngo vao
                                     
-										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_7));
-										// strcat(_chu_cac_bit,_ghep_bit);
-										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_8));
-										// strcat(_chu_cac_bit,_ghep_bit);
-										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_10));
-										// strcat(_chu_cac_bit,_ghep_bit);
-										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_7));
-										// strcat(_chu_cac_bit,_ghep_bit);
-										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_6));
-										// strcat(_chu_cac_bit,_ghep_bit);
-										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_10));
-										// strcat(_chu_cac_bit,_ghep_bit);
-										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOD,GPIO_Pin_0));
-										// strcat(_chu_cac_bit,_ghep_bit);
-										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOD,GPIO_Pin_1));
-										// strcat(_chu_cac_bit,_ghep_bit);
+										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_7));
+										strcat(_chu_cac_bit,_ghep_bit);
+										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_8));					//CB_NHAN_XANH_TRAI				0
+										strcat(_chu_cac_bit,_ghep_bit);
+										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_10));
+										strcat(_chu_cac_bit,_ghep_bit);
+										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_7));
+										strcat(_chu_cac_bit,_ghep_bit);
+										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_6));
+										strcat(_chu_cac_bit,_ghep_bit);
+										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_10));
+										strcat(_chu_cac_bit,_ghep_bit);
+										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOD,GPIO_Pin_0));
+										strcat(_chu_cac_bit,_ghep_bit);
+										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOD,GPIO_Pin_1));
+										strcat(_chu_cac_bit,_ghep_bit);
 																																//TEN CB					MUC XUAT
-										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_5));
-										// strcat(_chu_cac_bit,_ghep_bit);
-										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_6));
-										// strcat(_chu_cac_bit,_ghep_bit);
-										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_12));
-										// strcat(_chu_cac_bit,_ghep_bit);
+										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_5));
+										strcat(_chu_cac_bit,_ghep_bit);
+										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_6));
+										strcat(_chu_cac_bit,_ghep_bit);
 										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_13));						//HT DUNG TRAI					0
 										strcat(_chu_cac_bit,_ghep_bit);
 										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_12));						//CB_DUNG_BANG_TAI				1
 										strcat(_chu_cac_bit,_ghep_bit);
 										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_4));						//HT DUNG PHAI					0
 										strcat(_chu_cac_bit,_ghep_bit);
-										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_15));						//CB_BONG_3						0
-										// strcat(_chu_cac_bit,_ghep_bit);
-										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_3));						//CB_BONG_2						0
-										// strcat(_chu_cac_bit,_ghep_bit);
-										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_2));						//CB_BONG_1						0
-										// strcat(_chu_cac_bit,_ghep_bit);
-										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_0));						//CB_NHAN_XANH_TRAI					0
+										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_15));						//CB_BONG_3						0
+										strcat(_chu_cac_bit,_ghep_bit);
+										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_3));						//CB_BONG_2						0
+										strcat(_chu_cac_bit,_ghep_bit);
+										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_2));						//CB_BONG_1						0
+										strcat(_chu_cac_bit,_ghep_bit);
+										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_0));						//CB_NHAN_XANH_TRAI				0			dang co van de
 										strcat(_chu_cac_bit,_ghep_bit);
 										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_1));						//CB_NHAN_XANH_PHAI				0
 										strcat(_chu_cac_bit,_ghep_bit);

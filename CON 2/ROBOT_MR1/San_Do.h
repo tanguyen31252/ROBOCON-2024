@@ -17,6 +17,7 @@ void tha_bong()
     ROLE_BANG_TAI_BAT;
     while (CB_DAY_BONG_RA_NGOAI == 1){}
     
+    delay_ms(500);
     ROLE_BANG_TAI_TAT;
     bien_nho_bong_da_tha_trong_silo[silo_so]++;
 
@@ -246,14 +247,6 @@ void nhan_bong_trong_silo()
     if(bien_nho_bong_trong_silo[5] == 1 && bien_nho_bong_trong_silo[1] == 1 && bien_nho_bong_trong_silo[2] == 1 && bien_nho_bong_trong_silo[3] == 1 && bien_nho_bong_trong_silo[4] == 1)
     {
         bien_nho_bong_trong_silo[0]=1;
-        for(i = 1; i <= 5; i++)
-        {
-            if(bien_nho_bong_da_tha_trong_silo[i] != 0 && bien_nho_bong_trong_silo[i] != 3)
-            {
-                silo_so = i;
-                break;
-            }
-        }
     }
     if(CB_BONG_1 == 1)                                                              //chua co bong thi tha bong roi cho so bong = 1
     {
@@ -375,26 +368,35 @@ void do_bong()
     bien_nhan_bong = 0;
     Mor_Silo = 254, Mor_Silo_day_vao;
     ROLE_BANG_TAI_BAT;
-    ROLE_HOT_BONG_BAT;        
-    while (HT_TRUOC_PHAI == 1 && HT_TRUOC_TRAI == 1)
+    ROLE_HOT_BONG_BAT;     
+    while(1)
     {
-        while(CB_NHAN_MAU_XANH_PHAI == 1 || CB_NHAN_MAU_XANH_TRAI == 1)
-        {}
-        Mor_Silo = 0;
-        ROLE_HOT_BONG_TAT;
-        delay_ms(2500);
-        Mor_Silo = 254, Mor_Silo_day_vao;
-        while (CB_DUNG_BANG_TAI == 1){}
-        ROLE_BANG_TAI_TAT;
-        XL_HOT_BONG_BAT_LEN;
-        Mor_Silo = 254, Mor_Silo_day_ra;
-        XL_TRO_LUC_HA_BAT;
-        delay_ms(500);
-        XL_TRO_LUC_HA_TAT;
-        delay_ms(2500);
-        Mor_Silo =0;
-        bien_nhan_bong = 1;
-    }   
+        while (HT_TRUOC_PHAI == 1 && HT_TRUOC_TRAI == 1)
+        {
+            robotRun(0, 10);
+            while(CB_NHAN_MAU_XANH_PHAI == 1 || CB_NHAN_MAU_XANH_TRAI == 1){}
+            Mor_Silo = 0;
+            ROLE_HOT_BONG_TAT;
+            delay_ms(2500);
+            Mor_Silo = 254, Mor_Silo_day_vao;
+            while (CB_DUNG_BANG_TAI == 1){}
+            ROLE_BANG_TAI_TAT;
+            XL_HOT_BONG_BAT_LEN;
+            Mor_Silo = 254, Mor_Silo_day_ra;
+            XL_TRO_LUC_HA_BAT;
+            delay_ms(500);
+            XL_TRO_LUC_HA_TAT;
+            delay_ms(2500);
+            Mor_Silo =0;
+            bien_nhan_bong = 1;
+            break;
+        }   
+        if(bien_nhan_bong == 1) break;
+        else
+        {
+            
+        }
+    }
 }
 void do_bong_lan_dau()
 {
@@ -567,6 +569,39 @@ void di_chuyen_len_bo_bong_thu_3()
 
 void di_chuyen_len()
 {
+    if(bien_nho_bong_trong_silo[0] == 1)
+    {
+        for(i = 1; i <= 5; i++)
+        {
+            if(bien_nho_bong_da_tha_trong_silo[i] != 0 && bien_nho_bong_trong_silo[i] != 3)
+            {
+                silo_so = i;
+                break;
+            }
+        }
+        if(silo_vua_chay == 5)
+        {
+            di_chuyen_len_5();
+        }
+        else if(silo_vua_chay == 4)
+        {
+            di_chuyen_len_4();
+        }
+        else if(silo_vua_chay == 3)
+        {
+            di_chuyen_len_3();
+        }
+        else if(silo_vua_chay == 2)
+        {
+            di_chuyen_len_2();
+        }
+        else if(silo_vua_chay == 1)
+        {
+            di_chuyen_len_1();
+        }
+    }
+    else
+    {
         if(silo_vua_chay == 5)
         {
             di_chuyen_len_4();
@@ -587,6 +622,7 @@ void di_chuyen_len()
         {
             di_chuyen_len_5();
         }
+    }
 }
 
 
@@ -674,8 +710,6 @@ void XuatPhat_5()
 {
     silo_so = 5;
 }
-//phai dung tren branch cua nhau de code, thi dung chung file duoc :))))
-//neu thay cai nay thi nhan tin cho t 
 
 void di_chuyen_len_5_lan_dau()
 {
@@ -685,17 +719,31 @@ void test()
 {
     XuatPhat();    
 
-    // do_bong_lan_dau();
-
-    // robotRunAngle (0,20,0,2.5);
-    // while ()
-
-    // di_chuyen_len_5();
+    do_bong();
     
-    // tha_bong();
+    di_chuyen_len_5();
 
-    // bien_nho_bong_da_tha_trong_silo[silo_so]++;
+    tha_bong();
 
-    // di_chuyen_ve();
+    di_chuyen_ve();
+
+    while(1)
+    {
+        do_bong();
+
+        if(bien_nho_silo_co_2_bong != 0)
+        {
+            di_chuyen_len_bo_bong_thu_3();
+            bien_nho_silo_co_2_bong = 0;
+        }
+        else
+        {
+            di_chuyen_len();
+            while(1){}
+        }
+        di_chuyen_ve();
+
+        bien_do_bong = 0;
+    }
 }
 
