@@ -72,6 +72,7 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 //=============================LAZE SAN XAN=================================
 #define cam_bien_laze_ngang_xanh								        _ADC1_Value[4]                  //cb_laze_ngang san xanh
 
+
 ////================================INPUT======================================//
 #define CB_KEP_LUA_4                      GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_0)               
 #define CB_KEP_LUA_1                      GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_1)               

@@ -15,11 +15,12 @@ void encoder_silo(int silo_sap_chay)
 void tha_bong()
 {
     ROLE_BANG_TAI_BAT;
-    while (CB_DAY_BONG_RA_NGOAI == 0)
-    {
-        ROLE_BANG_TAI_TAT;
-        reset_all();
-    }
+    while (CB_DAY_BONG_RA_NGOAI == 1){}
+    
+    ROLE_BANG_TAI_TAT;
+    bien_nho_bong_da_tha_trong_silo[silo_so]++;
+
+    reset_all();
 }
 
 void di_chuyen_ve()
@@ -372,28 +373,76 @@ void di_chuyen_len_5()                              //di chuyen len silo 5
 }
 void do_bong()
 {
+    bien_day_bong_ra_ngoai = 0, bien_dung_bang_tai = 0;
     bien_do_bong = 0;
     bien_chay_cap_thanh = 0;
-    Mor_Silo = 254, Mor_Silo_day_vao;
+    Mor_Silo = 150, Mor_Silo_day_vao;
     ROLE_BANG_TAI_BAT;
     ROLE_HOT_BONG_BAT;
+    
+    if(NUT_CHUYEN_SAN == 1)
+    {
+        
+    }
+    else
+    {
+        while(1)
+        {
+            while (HT_TRUOC_PHAI == 1 || HT_TRUOC_TRAI == 1)
+            {
+                // robotRun(0, 10);
+                while(CB_NHAN_MAU_XANH_PHAI == 1 || CB_NHAN_MAU_XANH_TRAI == 1){}
+                XL_HOT_BONG_BAT_LEN;
+                ROLE_HOT_BONG_TAT;
+                
+                Mor_Silo = 0;
+                ROLE_HOT_BONG_TAT;
+                XL_HOT_BONG_BAT_LEN;
+                delay_ms(2000);
 
-    // while (HT_TRUOC_PHAI == 1 && HT_TRUOC_TRAI == 1)
-    // {
-    //     while(CB_NHAN_MAU_XANH_PHAI == 1 || CB_NHAN_MAU_XANH_TRAI == 1)
-    //     {
-    //     }
-    //     Mor_Silo = 0;
-    //     ROLE_HOT_BONG_TAT;
-    //     delay_ms(1000);
-    //     ROLE_BANG_TAI_BAT;
-    //     Mor_Silo = 254, Mor_Silo_day_vao;
-    //     while (CB_DUNG_BANG_TAI == 1){}
-    //     ROLE_BANG_TAI_TAT;
-    //     Mor_Silo = 254, Mor_Silo_day_ra;
-    //     delay_ms(1000);
-    //     break;
-    // }
+                Mor_Silo = 254, Mor_Silo_day_vao;
+                while(CB_DUNG_BANG_TAI == 1){}
+
+                ROLE_BANG_TAI_TAT;
+                Mor_Silo = 254, Mor_Silo_day_ra;
+                delay_ms(1000);
+
+                Mor_Silo = 0;
+                bien_do_bong = 1;
+                break;
+            }
+            if(bien_do_bong == 1) break;
+            else
+            {
+                Mor_Silo = 0;
+                ROLE_BANG_TAI_TAT;
+                ROLE_HOT_BONG_TAT;
+                delay_ms(5000);
+
+
+                // robotRun(1800, 30);
+                // while(ENCODER_TONG() > 0){if(wantExit())break;}
+                
+                // RESET_ENCODER();
+
+                // if(bien_chay_cap_thanh % 3 == 0)
+                // {
+                //     robotRun(-900, 30);
+                //     while(ENCODER_TONG() < 3000){if(wantExit())break;}
+                // }
+                // else
+                // {
+                //     bien_chay_cap_thanh++;
+
+                //     robotRun(900, 30);
+                //     while(ENCODER_TONG() < 1000){}
+                // }
+            }
+        }
+    }
+        
+    
+    
     
 
     
@@ -402,113 +451,116 @@ void do_bong()
 void XuatPhat()
 {
     if(NUT_CHUYEN_SAN == 1)
-    {reset_all();
+    {
+        reset_all();
         
-    //     robotRunAngle(1800, 100, 0, 0);
-    //     while(ENCODER_TONG() < 80){if(wantExit_UP()) break;}
+        robotRunAngle(1800, 150, -0.5, 0.2);
+        while(ENCODER_TONG() < 2000){if(wantExit())break;}
         
-    //     robotStop(2);
+        robotRunAngle(1800, 120, 0.5, 0.2);
+        while(ENCODER_TONG() < 4000){if(wantExit())break;}
         
-    //     robotRunAngle(1800, 10, 0, 0);
-    //     while(ENCODER_TONG() < 100){if(wantExit_UP()) break;}
-        
-    //     robotStop(2);
-        
-    //     robotRunAngle(-1250, 55, 0, 0);
-    //     while(ENCODER_TONG() < 185){if(wantExit_UP()) break;}
+        robotRun(1800, 70);
+        while(ENCODER_TONG() < 4800){if(wantExit())break;}
 
-    //     robotStop(2);
-    //     delay_ms(100);
+        robotRunAngle(-1750, 20, 0.5, 0.2);
+        while(CB_CAP_THANH == 1){if(wantExit())break;}
         
-    //     robotRunAngle(-900, 55, 0, 0);
-    //     while(ENCODER_TONG() < 242){if(wantExit_UP()) break;}
-        
-    //     robotStop(2);
-    //     delay_ms(100);
-        
-    //     RESET_ENCODER();
-        
-    //     robotRunAngle(1800, 80, 0, 0);
-    //     while(ENCODER_TONG() < 50){if(wantExit_UP()) break;}
-        
-    //     robotStop(2);
-    //     delay_ms(100);
-                
-    //     robotRotate(30000, 0.5, 0, 150);
-    //     while(_robotIMUAngle < 900){if(wantExit_UP()) break;}
+        robotStop(2);
 
-    //     robotStop(2);
+        reset_all();
 
-    //     robotRotate(30000, -0.5, 0, 20);
-    //     while(_robotIMUAngle > 900){if(wantExit_UP()) break;}
+        robotRunAngle(-1000, 50, 0.5, -0.2);
+        while(ENCODER_TONG() < 3700){if(wantExit()) break;}
+        
+        robotStop(2);
+        RESET_ENCODER();
+        
+        robotRunAngle(1800, 50, 0, 0);
+        while(ENCODER_TONG() < 2350){if(wantExit())break;}
 
-    //     robotStop(2);
-    //     reset_all();
+        robotStop(2);
+        delay_ms(200);
         
-    //     robotRunAngle(0, 40, 1800, 0);
-    //     robotRotate(30000, 0.5, 0, 20);
-    //     // while(ENCODER_TONG() < 50);      
-    //     while (_robotIMUAngle < 450){}
+        robotRotate(30000, 0.5, 0, 150);
+        while(_robotIMUAngle < 900){if(wantExit())break;}
         
-    //     robotStop(2);
+        robotRotate(30000, -0.5, 0, 20);
+        while(_robotIMUAngle > 890){if(wantExit())break;}
         
-    //     delay_ms(100);
+        reset_all();    
+
+        robotRunAngle(0, 50, 0, 0);
+        while(ENCODER_TONG() < 3000){if(wantExit())break;}
+
+        robotStop(2);
+        delay_ms(200);
+
+        robotRotate(30000, 0.5, 0, 150);
+        while(_robotIMUAngle < 900){if(wantExit())break;}
+        
+        robotRotate(30000, -0.5, 0, 20);
+        while(_robotIMUAngle > 890){if(wantExit())break;}
+
+        robotStop(2);
+
+        delay_ms(100);
     }
 /**********************************SAN XANH***********************************/
     else
     {
         reset_all();
         
-        robotRunAngle(1800, 100, 0, 0);
-        while(ENCODER_TONG() < 80){if(wantExit_UP()) break;}
+        robotRunAngle(1800, 150, -0.5, 0.2);
+        while(ENCODER_TONG() < 2000){if(wantExit())break;}
         
-        robotStop(2);
+        robotRunAngle(1800, 120, 0.5, 0.2);
+        while(ENCODER_TONG() < 4000){if(wantExit())break;}
         
-        robotRunAngle(1800, 10, 0, 0);
-        while(ENCODER_TONG() < 100){if(wantExit_UP()) break;}
-        
-        robotStop(2);
-        
-        robotRunAngle(1250, 55, 0, 0);
-        while(ENCODER_TONG() < 185){if(wantExit_UP()) break;}
+        robotRun(1800, 70);
+        while(ENCODER_TONG() < 4800){if(wantExit())break;}
 
+        robotRunAngle(-1750, 20, 0.5, 0.2);
+        while(CB_CAP_THANH == 1){if(wantExit())break;}
+        
         robotStop(2);
-        delay_ms(100);
 
+        reset_all();
+
+        robotRunAngle(1000, 50, 0.5, -0.2);
+        while(ENCODER_TONG() < 3700){if(wantExit()) break;}
+        
         robotStop(2);
-        
-        robotRunAngle(900, 55, 0, 0);
-        while(ENCODER_TONG() < 242){if(wantExit_UP()) break;}
-        
-        robotStop(2);
-        delay_ms(100);
-        
         RESET_ENCODER();
         
-        robotRunAngle(1800, 80, 0, 0);
-        while(ENCODER_TONG() < 50){if(wantExit_UP()) break;}
-        
+        robotRunAngle(1800, 50, 0, 0);
+        while(ENCODER_TONG() < 2350){if(wantExit())break;}
+
         robotStop(2);
-        delay_ms(100);
-                
+        delay_ms(200);
+        
         robotRotate(30000, -0.5, 0, 150);
-        while(_robotIMUAngle > -900){if(wantExit_UP()) break;}
-
-        robotStop(2);
-
+        while(_robotIMUAngle > -900){if(wantExit())break;}
+        
         robotRotate(30000, 0.5, 0, 20);
-        while(_robotIMUAngle < -900){if(wantExit_UP()) break;}
+        while(_robotIMUAngle < -890){if(wantExit())break;}
+        
+        reset_all();    
+
+        robotRunAngle(0, 50, 0, 0);
+        while(ENCODER_TONG() < 3000){if(wantExit())break;}
 
         robotStop(2);
-        reset_all();
+        delay_ms(200);
+
+        robotRotate(30000, -0.5, 0, 150);
+        while(_robotIMUAngle > -900){if(wantExit())break;}
         
-        robotRunAngle(0, 40, 1800, 0);
-        robotRotate(30000, -0.5, 0, 20);
-        // while(ENCODER_TONG() < 50);      
-        while (_robotIMUAngle > -450){}
-        
+        robotRotate(30000, 0.5, 0, 20);
+        while(_robotIMUAngle < -890){if(wantExit())break;}
+
         robotStop(2);
-        
+
         delay_ms(100);
     }
     
@@ -655,36 +707,19 @@ void di_chuyen_len_5_lan_dau()
 }
 void test()
 {
-    // XuatPhat();    
+    XuatPhat();    
 
-    do_bong_lan_dau();
+    // do_bong_lan_dau();
 
     // robotRunAngle (0,20,0,2.5);
     // while ()
 
-    di_chuyen_len_5();
+    // di_chuyen_len_5();
     
     // tha_bong();
 
     // bien_nho_bong_da_tha_trong_silo[silo_so]++;
 
     // di_chuyen_ve();
-
-    // di_chuyen_len_4();
-
-    // di_chuyen_len_3();
-    // di_chuyen_len_2();
-    // di_chuyen_len_1();
 }
 
-void test_1111()
-{
-    do_bong_lan_dau();
-
-    tha_bong();
-}
-
-void test_hotbong()
-{
-
-}
