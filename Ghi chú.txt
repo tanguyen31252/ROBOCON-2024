@@ -9,3 +9,6 @@ còn lại oke
 
 15:40 240327  --Nguyên
 khai báo xong các chân role, vẫn còn cảm biến từ, cảm biến ở nòng ra bóng
+
+9:30 240329  --Nguyên
+BA đã biết pull push bằng cl
