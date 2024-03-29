@@ -705,7 +705,7 @@ void test()
     bien_nho_bong_da_tha_trong_silo[silo_so]++;
 
     di_chuyen_ve();
-    while (di_chuyen_len_bo_bong_thu_3)
+    while (di_chuyen_len_bo_bong_thu_3){}
     // do_bong();
 
     // di_chuyen_len_4();
