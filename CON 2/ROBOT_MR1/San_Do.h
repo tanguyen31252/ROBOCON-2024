@@ -196,14 +196,14 @@ void nhan_bong_trong_silo()
     if(bien_nho_bong_trong_silo[5] == 1 && bien_nho_bong_trong_silo[1] == 1 && bien_nho_bong_trong_silo[2] == 1 && bien_nho_bong_trong_silo[3] == 1 && bien_nho_bong_trong_silo[4] == 1)
     {
         bien_nho_bong_trong_silo[0]=1;
-        for(i = 1; i <= 5; i++)
-        {
-            if(bien_nho_bong_da_tha_trong_silo[i] != 0 && bien_nho_bong_trong_silo[i] != 3)
-            {
-                silo_so = i;
-                break;
-            }
-        }
+        // for(i = 1; i <= 5; i++)
+        // {
+        //     if(bien_nho_bong_da_tha_trong_silo[i] != 0 && bien_nho_bong_trong_silo[i] != 3)
+        //     {
+        //         silo_so = i;
+        //         break;
+        //     }
+        // }
     }
     if(CB_BONG_1 == 1)                                                              //chua co bong thi tha bong roi cho so bong = 1
     {
@@ -466,7 +466,7 @@ void do_bong_lan_dau_1()
     while (1)
     {   
         robotRunAngle(0,10,0,0);
-        while ((HT_TRUOC_PHAI == 1 && HT_TRUOC_TRAI == 1) && (CB_NHAN_MAU_XANH_TRAI == 1 || CB_NHAN_MAU_XANH_PHAI == 1)){}
+        while ((HT_TRUOC_PHAI == 1 && HT_TRUOC_TRAI == 1) || (CB_NHAN_MAU_XANH_TRAI == 1 || CB_NHAN_MAU_XANH_PHAI == 1)){}
         robotStop(2);
         if(HT_TRUOC_PHAI == 0 || HT_TRUOC_TRAI == 0)    bien_cham_tuong = 1;
         else
@@ -520,7 +520,7 @@ void do_bong_lan_dau_1()
 
             break;
         }
-
+        delay_ms(100);
         robotRotate(30000, 0.5, 0, 150);
     } 
 
@@ -818,52 +818,34 @@ void test()
     // while (CB_BONG_1 == 0 && CB_BONG_2 == 0 && CB_BONG_3 == 0)
     // {
 
-    //  XuatPhat();    
+    XuatPhat();    
 
     do_bong_lan_dau();
 
-    // di_chuyen_len_5();
+    di_chuyen_len_5();
     
-    // tha_bong();
+    tha_bong();
 
-    // bien_nho_bong_da_tha_trong_silo[silo_so]++;
+    di_chuyen_ve();
 
-    // di_chuyen_ve();
+    while (1)
+    {
+        do_bong();
 
-    // do_bong();
+        if(bien_nho_silo_co_2_bong != 0)
+        {
+            di_chuyen_len_bo_bong_thu_3();
+            tha_bong();
+            bien_nho_silo_co_2_bong = 0;
+            di_chuyen_ve();
+        }
+        else
+        {
+            di_chuyen_len();
 
-    // di_chuyen_len_4();
-    
-    // tha_bong();
-
-    // bien_nho_bong_da_tha_trong_silo[silo_so]++;
-
-    // di_chuyen_ve();
-
-    // di_chuyen_len_3();
-    
-    // tha_bong();
-
-    // bien_nho_bong_da_tha_trong_silo[silo_so]++;
-
-    // di_chuyen_ve();
-
-    // di_chuyen_len_2();
-    
-    // tha_bong();
-
-    // bien_nho_bong_da_tha_trong_silo[silo_so]++;
-
-    // di_chuyen_ve();
-
-    // di_chuyen_len_1();
-    
-    // tha_bong();
-
-    // bien_nho_bong_da_tha_trong_silo[silo_so]++;
-
-    // di_chuyen_ve();
-    // }robotStop(2);
-// }
+            while(bien_nhan_bong == 1){tha_bong(),di_chuyen_ve()}
+            
+        }
+    }
 }
 
