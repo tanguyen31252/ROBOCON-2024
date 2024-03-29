@@ -420,7 +420,7 @@ void do_bong_lan_dau()
     else
      {
            RESET_ENCODER();    
-           robotRun(1800,10,0,0);
+           robotRun(1800,10);
            while (ENCODER_TONG() <1000){}
 
            robotRotate(30000,2.5,0,50);

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Project\Project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Project\Project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060020: Last Updated: Fri Mar 29 11:08:05 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060020: Last Updated: Fri Mar 29 12:04:20 2024
 <BR><P>
 <H3>Maximum Stack Usage =        224 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -497,6 +497,7 @@ Global Symbols
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENCODER_FL
 </UL>
 <BR>[Called By]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
+<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong_lan_dau
 <LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_ve
@@ -796,6 +797,7 @@ Global Symbols
 
 <P><STRONG><a name="[ec]"></a>RESET_ENCODER</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, main.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
+<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong_lan_dau
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_5
 <LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_4
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_3
@@ -1017,6 +1019,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculateMotor
 </UL>
 <BR>[Called By]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
+<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong_lan_dau
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRunAngle
 <LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRotateFree
@@ -1036,7 +1039,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotCurve
 </UL>
 <BR>[Called By]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
+<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong_lan_dau
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotGamePadControl
 </UL>
 
@@ -1158,8 +1161,7 @@ Global Symbols
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
 <LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kiem_tra_nhan_bong
 </UL>
 
@@ -1171,11 +1173,10 @@ Global Symbols
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENCODER_TONG
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
 </UL>
 
-<P><STRONG><a name="[f0]"></a>duong_di_silo</STRONG> (Thumb, 594 bytes, Stack size 40 bytes, main.o(.text), UNUSED)
+<P><STRONG><a name="[f0]"></a>duong_di_silo</STRONG> (Thumb, 598 bytes, Stack size 40 bytes, main.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;encoder_silo
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reset_all
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRunAngle
@@ -1275,35 +1276,36 @@ Global Symbols
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
 </UL>
-<BR>[Called By]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
 <LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_bo_bong_thu_3
 </UL>
 
-<P><STRONG><a name="[fb]"></a>do_bong</STRONG> (Thumb, 294 bytes, Stack size 40 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 116<LI>Call Chain = do_bong &rArr; robotRun &rArr; robotCurve &rArr; calculateMotor &rArr; __hardfp_sinf &rArr; __mathlib_rredf2
+<P><STRONG><a name="[fb]"></a>do_bong</STRONG> (Thumb, 268 bytes, Stack size 40 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = do_bong &rArr; delay_ms
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_WriteBit
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRun
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;taskMain
 </UL>
 
-<P><STRONG><a name="[fc]"></a>do_bong_lan_dau</STRONG> (Thumb, 212 bytes, Stack size 40 bytes, main.o(.text), UNUSED)
+<P><STRONG><a name="[fc]"></a>do_bong_lan_dau</STRONG> (Thumb, 286 bytes, Stack size 40 bytes, main.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_WriteBit
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reset_all
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRunAngle
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRun
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRotate
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotStop
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENCODER_TONG
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
 </UL>
 
-<P><STRONG><a name="[fd]"></a>XuatPhat</STRONG> (Thumb, 1022 bytes, Stack size 64 bytes, main.o(.text), UNUSED)
+<P><STRONG><a name="[fd]"></a>XuatPhat</STRONG> (Thumb, 1018 bytes, Stack size 64 bytes, main.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reset_all
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRunAngle
 <LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRun
@@ -1325,8 +1327,7 @@ Global Symbols
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_2
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_1
 </UL>
-<BR>[Called By]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
 </UL>
 
 <P><STRONG><a name="[100]"></a>di_chuyen_len</STRONG> (Thumb, 112 bytes, Stack size 8 bytes, main.o(.text), UNUSED)
@@ -1336,8 +1337,7 @@ Global Symbols
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_2
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_1
 </UL>
-<BR>[Called By]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
 </UL>
 
 <P><STRONG><a name="[101]"></a>quy_trinh_lua_bong_up_silo</STRONG> (Thumb, 156 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
@@ -1369,14 +1369,8 @@ Global Symbols
 
 <P><STRONG><a name="[196]"></a>di_chuyen_len_5_lan_dau</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
 
-<P><STRONG><a name="[103]"></a>test</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_bo_bong_thu_3
-<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_5
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_ve
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tha_bong
+<P><STRONG><a name="[103]"></a>test</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
 </UL>
 
 <P><STRONG><a name="[5c]"></a>main</STRONG> (Thumb, 58 bytes, Stack size 32 bytes, main.o(.text))

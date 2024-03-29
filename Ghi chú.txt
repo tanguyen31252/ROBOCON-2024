@@ -12,3 +12,6 @@ khai báo xong các chân role, vẫn còn cảm biến từ, cảm biến ở n
 
 9:30 240329  --Nguyên
 BA đã biết pull push bằng cl
+
+12:00 240329 --Nguyên
+XuatPhat() đã xong --> không sửa nữa.
