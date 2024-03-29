@@ -39,9 +39,6 @@ void di_chuyen_ve()
         delay_ms(20);
         
         robotRunAngle (0,30,0,0);
-        // while (cbhanh)
-        // do_bong();
-
     }
 }
 
@@ -52,7 +49,7 @@ void duong_di_silo()
     
     if(_robotIMUAngle < 0)
     {
-        robotRotate(300, 0.5, 0, 35);
+        robotRotate(30000, 0.5, 0, 35);
         while(_robotIMUAngle <= 0){if(wantExit_UP()) break;}
     }
     else
