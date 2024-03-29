@@ -25,13 +25,13 @@
 static void taskGyro(void *pvParameters)
 {
 while(1) 
-{ 
+	{ 
 	//-------------------------------------------------------------	
 	
 	//-----------------------------------------------------------------	
-		HMI_RUN_LOOP(17);
+		HMI_RUN_LOOP(17);	
 		vTaskDelay(15);
-}
+	}
 }
 static void taskDieuKhienCoCau(void *pvParameters) {	
 	while(1) 
@@ -88,7 +88,7 @@ static void taskMain(void *pvParameters)
 		while(gp_get_mode_uart()  == GP_MODE_ANALOGUE_RED_LED) 
 		{
 			robotGamePadControl();
-			if(!START)                                      {test_nut = 11,test();}
+			if(!START)                                      {test_nut = 11,do_bong_lan_dau_1();}
 //			else if(NUT_1 == 1)                             {XuatPhat_1();}
 //			if(NUT_2 == 1)                                  {test_nut = 22;}
 //			if(NUT_3 == 1)                                  {test_nut = 33;}

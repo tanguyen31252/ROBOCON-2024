@@ -104,7 +104,7 @@ void test_xl()
 {
         if(!TRIANGLE)
     {
-        XL_HOT_BONG_BAT_LEN;
+        ROLE_HOT_BONG_BAT;
     }
     if(!X)
     {
