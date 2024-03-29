@@ -74,12 +74,12 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 
 
 ////================================INPUT======================================//
-#define CB_KEP_LUA_4                      GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_0)               
-#define CB_KEP_LUA_1                      GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_1)               
-#define CB_TU_KEO_LUA                     GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_2)               
-#define CB_HOT_BONG                       GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_3)
+#define CB_KEP_LUA_4									GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_0)               
+#define CB_KEP_LUA_1									GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_1)               
+#define CB_TU_KEO_LUA									GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_2)               
+#define CB_HOT_BONG										GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_3)
 
-#define SAN                               GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_1)
+#define SAN												GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_1)
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx OUTPUT xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
 #define HOT_BANH_ON				   					 	GPIO_WriteBit(GPIOB,GPIO_Pin_7,1)       //HOT BANH
@@ -132,8 +132,8 @@ int luu_bien_laze_doc = 0, luu_bien_laze_ngang = 0, ban_thoc = 0, ban_lep = 0, g
 char san = 1;
 
 int LAZENGANG_1[2][7]   =               {    
-                                            {0,     287,    263,    187,    167,    91,     67},                                //san xanh
-                                            {0,     283,    258,    186,    160,    90,     64}                                //san do
+                                            {0,     292,    265,    190,    167,    93,     67},                                //san xanh
+                                            {0,     283,    258,    186,    160,    90,     64}                                	//san do
                                         };
 int LAZEDOC[5]          =               {   0,
                                             103,                                                    //hang 1    
@@ -143,8 +143,8 @@ int LAZEDOC[5]          =               {   0,
                                         };
                                             
 int LAZE_VE[2][2]       =               {
-                                            {205,   105},                                                                       //san xanh
-                                            {185,   86}                                                                         //san do
+                                            {190,   105},																		//san xanh
+											{185,   86}																			//san do
                                         };
 /******************************************************	SAN 2					***************************************************/
 /******************************************************	NGANG SAN 2				**************************************************/			//VT1 tinh tu doc di len

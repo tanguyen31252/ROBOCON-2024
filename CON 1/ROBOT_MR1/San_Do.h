@@ -108,8 +108,8 @@ void quy_trinh_trong_lua_hang_1()
 /****************************************SAN XANH**************************************************/ 
     else
     {
-        for(i=0;i<50;i++)   while(lazeTruocValue > laze_doc_truot+25)        bam_thanh_laze_ngang(0, 80, 0, -100, lazengang, 0);
-        for(i=0;i<50;i++)   while(lazeTruocValue > lazedoc+20)               bam_thanh_laze_ngang(0, 25, 0, -100, lazengang, 0);
+        for(i=0;i<50;i++)   while(lazeTruocValue > laze_doc_truot+30)        bam_thanh_laze_ngang(0, 80, 0, -100, lazengang, 0);
+        for(i=0;i<50;i++)   while(lazeTruocValue > lazedoc+25)               bam_thanh_laze_ngang(0, 25, 0, -100, lazengang, 0);
         
         robotStop(2);
 
@@ -164,7 +164,7 @@ void quy_trinh_trong_lua_hang_2()
     }
     else
     {        
-        for(i=0;i<50;i++)   while(lazeTruocValue > lazedoc)          bam_thanh_laze_ngang(0, 20, 0, -450, lazengang, 0);
+        for(i=0;i<50;i++)   while(lazeTruocValue > lazedoc+4)          bam_thanh_laze_ngang(0, 20, 0, -400, lazengang, 0);
 
         robotStop(2);
 
@@ -173,13 +173,13 @@ void quy_trinh_trong_lua_hang_2()
             delay_ms(500);
             if(_robotIMUAngle < 0)
             {
-                robotRotate(30000, 0.5, 0, 20);
+                robotRotate(30000, 0.5, 0, 10);
                 while(_robotIMUAngle < 0){if(wantExit_UP()) break;}
                 robotRotateStop();
             }
             else
             {
-                robotRotate(30000, -0.5, 0, 20);
+                robotRotate(30000, -0.5, 0, 10);
                 while(_robotIMUAngle > 0){if(wantExit())break;}    
                 robotRotateStop();
             }
@@ -309,7 +309,7 @@ int XuatPhat(void)
         while(ENCODER_FR() < 300) {if(wantExit()) break;  vTaskDelay(1);}
         
         robotRunAngle(-450, 50, -650, 0);
-        while(lazeTruocValue > 314) {if(wantExit()) break;  vTaskDelay(1);}
+        while(lazeTruocValue > 313) {if(wantExit()) break;  vTaskDelay(1);}
         
         chuanbicocau();
         

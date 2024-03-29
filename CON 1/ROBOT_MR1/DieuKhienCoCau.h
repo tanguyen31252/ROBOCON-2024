@@ -185,10 +185,11 @@ void ADCValue_Control(void)
 {
     static unsigned int lazeTruocCouter =0, lazeTruoc_SUM =0, lazeNgang_Counter_do =0, lazeNgang_SUM_do =0, BienTroGocBanThoc_Couter =0, BienTroGocBanThoc_SUM =0, BT_Dia_xoay_Couter =0, BT_Dia_xoay_SUM =0, lazeNgang_Counter_xanh =0,lazeNgang_SUM_xanh =0;
 //------------------------	
-    if(lazeTruocCouter++ < 50)	lazeTruoc_SUM += cam_bien_laze_truoc;  
+    if(lazeTruocCouter++ < 100)	lazeTruoc_SUM += cam_bien_laze_truoc;  
     else
     {
-        lazeTruocValue = lazeTruoc_SUM/50;
+        lazeTruocValue = lazeTruoc_SUM/100
+        ;
         lazeTruocCouter = 0;
         lazeTruoc_SUM = 0;
     }
