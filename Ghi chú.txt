@@ -35,3 +35,7 @@ laze chạy bên sân xanh: lazeNgangXanhValue
 
 15:00 240330 --Nguyên
 đang sửa đường đi silo
+
+19:00 240330 --Nguyên
+làm xong dò bóng, khi nhắc cây quay --> robot dừng 500ms.
+để lệnh do_bong_trong_analystic trong analystic.

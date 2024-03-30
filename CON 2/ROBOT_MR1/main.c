@@ -47,6 +47,8 @@ static void taskRobotAnalytics(void *pvParameters) {
 	{ 
 		ADCValue_Control();
 
+		do_bong_trong_Analytics();
+
 		if(bit_khoa_ham_chay_thay_tuan == 0)robotAnalytics();
 		vTaskDelay(5);
 	}
