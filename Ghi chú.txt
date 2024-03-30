@@ -32,3 +32,6 @@ khai báo xong 3 con laze
 laze sau: lazeSauValue
 laze chạy bên sân đỏ: lazeNgangDoValue
 laze chạy bên sân xanh: lazeNgangXanhValue
+
+15:00 240330 --Nguyên
+đang sửa đường đi silo

@@ -144,7 +144,7 @@ int random(int minN, int maxN){
 	return minN + rand() % (maxN + 1 - minN);
 }
 int test_nut = 0;
-int bien_nho_bong_trong_silo[6]={
+int bien_nho_bong_trong_silo[6]			={
 											0,                      //neu ca 5 silo cung bang 1 so thi bien_nho_bong_trong_silo[0] se = so do
 											0,                      //bien_nho_bong_trong_silo[1] == silo_so 1 
 											0,                      //bien_nho_bong_trong_silo[2] == silo_so 2 
@@ -160,9 +160,14 @@ int bien_nho_bong_da_tha_trong_silo[6]={
 											0,                      //bien_nho_bong_trong_silo[4] == silo_so 4 
 											0,                      //bien_nho_bong_trong_silo[5] == silo_so 5 
 };
+int laze_silo[2][6]={	
+										{	0, 302, 230, 159, 84, 13},
+										{	0, 302, 230, 159, 84, 13},
+};
 int bong_trong_silo = 0;
 int bien_nho_silo_co_2_bong = 0, bien_do_bong = 0, bien_chay_cap_thanh = 0;;
-char bien_nhan_bong = 0, do_encoder_silo = 0;
+char bien_nhan_bong = 0;
+int do_laze_silo = 0;
 //////////////////////////chong nhieu encoder////////////////////
 vs32 ENCODER_FL() {
 	vs32 en, enOld = Encoder_FL;
