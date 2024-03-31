@@ -109,8 +109,8 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 #define ROLE_HOT_BONG_TAT						GPIO_WriteBit(GPIOB,GPIO_Pin_6,0)
 #define ROLE_HOT_BONG_BAT						GPIO_WriteBit(GPIOB,GPIO_Pin_6,1)
 
-#define XL_HOT_BONG_HA_XUONG					GPIO_WriteBit(GPIOC,GPIO_Pin_8,0)
-#define XL_HOT_BONG_BAT_LEN						GPIO_WriteBit(GPIOC,GPIO_Pin_8,1)
+#define XL_HOT_BONG_HA_XUONG					GPIO_WriteBit(GPIOC,GPIO_Pin_8,1)
+#define XL_HOT_BONG_BAT_LEN						GPIO_WriteBit(GPIOC,GPIO_Pin_8,0)
 
 #define XL_TRO_LUC_HA_TAT						GPIO_WriteBit(GPIOB,GPIO_Pin_14,0)
 #define XL_TRO_LUC_HA_BAT						GPIO_WriteBit(GPIOB,GPIO_Pin_14,1)
@@ -137,7 +137,7 @@ extern unsigned char GP_BTN [15];
 extern int _robotIMUAngle;
 
 char bit_khoa_ham_chay_thay_tuan=0;
-int end = 0, bien_cham_tuong = 0;
+int end = 0, bien_cham_tuong = 0,bien_ve_xuat_phat =0;
 int silo_so = 5, silo_vua_chay = 0, silo_sap_bo = 0;
 char bien_di_chuyen = 0; //0 la trai, 1 la phai
 int bien_day_bong_ra_ngoai = 0, bien_dung_bang_tai = 0;
@@ -1157,13 +1157,13 @@ void HMI_TRAN(vs32 _so_dong) {
 										HMI_DMI("ENCODER_TONG:", ENCODER_TONG(),2);
 										break;
 									case 3:
-										HMI_DMI("FR:", ENCODER_FR(),3);
+										HMI_DMI("laze xanh", lazeNgangXanhValue,3);
 										break;
 									case 4:
-										HMI_DMI("FL:", ENCODER_FL(),4);
+										HMI_DMI("laze do:", lazeNgangDoValue,4);
 										break;
 									case 5: 
-										HMI_DMI("Mor_Silo",Mor_Silo,5);
+										HMI_DMI("laze sau",lazeSauValue,5);
 										break;
 									case 6:
 										HMI_DMI("GAME PAD:",GP_BTN[0],6);
@@ -1190,10 +1190,10 @@ void HMI_TRAN(vs32 _so_dong) {
 										HMI_DMI("laze ngang xanh: ", lazeNgangXanhValue, 13);
 										break;
 									case 14: 
-										HMI_DMI("bong_trong_silo[5]: ",bien_nho_bong_trong_silo[5],14);
+										HMI_DMI("silo_so: ",silo_so,14);
 										break;
 									case 15: 
-										HMI_DMI("bong_trong_silo[5]: ",bien_nho_bong_trong_silo[5],15);
+										HMI_DMI("bien da tha: ",bien_nho_bong_da_tha_trong_silo[silo_so],15);
 										break;
 									case 16:
 									//	hien thi phan ngo vao

@@ -39,3 +39,8 @@ laze chạy bên sân xanh: lazeNgangXanhValue
 19:00 240330 --Nguyên
 làm xong dò bóng, khi nhắc cây quay --> robot dừng 500ms.
 để lệnh do_bong_trong_analystic trong analystic.
+
+
+19:00 240331 --Nguyên
+gần như oke hết
+vẫn còn 1 số lỗi do quay robot --> đang fix.
