@@ -915,6 +915,10 @@ void XuatPhat_5()
 void test()
 {
     XuatPhat();
+    
+    while(1)
+    {
+    while (CB_BONG_1 == 1 && CB_BONG_2 == 1 && CB_BONG_3 == 1){}
 
     do_bong_lan_dau_1();
 
@@ -931,4 +935,9 @@ void test()
     tha_bong();
 
     di_chuyen_ve();
+    }
+    if (CB_BONG_1 == 0 && CB_BONG_2 == 0 && CB_BONG_3 == 0)
+    {
+        robotStop(2);
+    }
 }
