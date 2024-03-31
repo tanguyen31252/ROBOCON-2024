@@ -459,32 +459,8 @@ void do_bong_lan_dau_1()
     
     robotRotateStop();
     delay_ms(5000);
-
-    // if (_robotIMUAngle < 900 )
-    // {
-    //     robotRotate(30000,0.5,0,30);
-    //     while (_robotIMUAngle < 900){}
-    //     robotRotateStop();
-    //     robotStop(2);
-    //      delay_ms(100);
-
-    // }
-    if (_robotIMUAngle > 900)
-    {
-        robotRotate(30000,-0.5,0,10);
-        while (_robotIMUAngle > 900){}
-        robotRotateStop();
-        robotStop(2);
-        delay_ms(100);
-
-    }
-    else 
-    {
-        
-    }
 }
 void XuatPhat()
-
 {
     if(NUT_CHUYEN_SAN == 1)
     {
@@ -599,7 +575,7 @@ void XuatPhat()
         robotStop(2);
         robotRotateStop();
     }
-    delay_ms(200);
+    delay_ms(100);
 }
 void di_chuyen_len_bo_bong_thu_3()
 {
@@ -629,11 +605,12 @@ void di_chuyen_len()
 {
     if(bien_nho_bong_trong_silo[0] == 1)
     {
-        for(i = 1; i <= 5; i++)
+        int chon_silo = 0;
+        for(chon_silo = 5; chon_silo >= 1; chon_silo--)
         {
-            if(bien_nho_bong_da_tha_trong_silo[i] != 0 && bien_nho_bong_trong_silo[i] != 3)
+            if(bien_nho_bong_da_tha_trong_silo[chon_silo] != 0 && bien_nho_bong_trong_silo[chon_silo] != 3)
             {
-                silo_so = i;
+                silo_so = chon_silo;
                 break;
             }
         }
@@ -751,7 +728,6 @@ void XuatPhat_1()
 void XuatPhat_2()
 {
     silo_so = 2;
-    
 }
 
 void XuatPhat_3()
