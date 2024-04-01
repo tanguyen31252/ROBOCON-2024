@@ -983,3 +983,51 @@ void test()
 
     di_chuyen_ve();
 }
+
+
+
+///////////////////////////////////////////////// THI ROBOCON ////////////////////////////////////////////////////
+void THI()
+{
+    XuatPhat();
+
+    do_bong_lan_dau_1();
+
+    di_chuyen_len();
+
+    tha_bong();
+
+    di_chuyen_ve();
+
+    while(1)
+    {
+        do_bong();
+
+        di_chuyen_len();
+
+        tha_bong();
+
+        di_chuyen_ve();
+        
+        if(bien_nho_silo_co_2_bong != 0)
+        {
+            di_chuyen_len_bo_bong_thu_3();
+            tha_bong();
+            di_chuyen_ve();
+            bien_nho_silo_co_2_bong = 0;
+        }
+        else
+        {
+            di_chuyen_len();
+        }
+        
+        while(bien_nhan_bong == 0)
+        {
+            nhan_bong_trong_silo();
+            if(bien_nhan_bong == 1)             tha_bong(),di_chuyen_ve();
+            else                                di_chuyen();
+        }
+        bien_nhan_bong = 0;
+    }
+    return 0;
+}
