@@ -1,7 +1,8 @@
 void reset_all()
 {
-    resetIMU();
+    robotResetIMU();
     RESET_ENCODER();
+    vTaskDelay(10);
 }
 void laze_chay_silo(int silo_sap_chay)
 {
@@ -128,11 +129,15 @@ void di_chuyen_ve()
             //     }
             // }
 
-            for(i=0;i<50;i++)
+            if(lazeNgangXanhValue < 200)
             {
-                if(lazeNgangXanhValue < 200)    while(lazeSauValue < 170)   bam_thanh_laze_ngang(0, 50, 0,  450, 250, 2);
-                else                            while(lazeSauValue < 170)   bam_thanh_laze_ngang(0, 50, 0, -450, 250, 2);
+                while(lazeNgangXanhValue < 250){robotRunAngle(700, 70, 0, 0.2),vTaskDelay(10);}
             }
+            else
+            {
+                while(lazeNgangXanhValue > 250){robotRunAngle(-300, 70, 0, 0.2),vTaskDelay(10);}
+            }
+            for(i=0;i<50;i++)   while(lazeSauValue < 170)   bam_thanh_laze_ngang(0, 70, 0,  30, 250, 2);
 
             RESET_ENCODER();
 
@@ -162,10 +167,19 @@ void di_chuyen_ve()
         }
         else
         {
+            if(lazeNgangXanhValue > 20)
+            {
+                while(lazeNgangXanhValue > 20){robotRunAngle(-700, 70, 0, 0.2),vTaskDelay(10);}
+            }
+            for(i=0;i<50;i++)   while(lazeSauValue < 170)   bam_thanh_laze_ngang(0, 70, 0,  30, 250, 2);
 
+            RESET_ENCODER();
+
+            robotRunAngle(0, 50, 0, 0);
+            while(ENCODER_TONG() < 2550){if(wantExit())break;}
         }
     }
-    delay_ms(100);
+    
 }
 
 void duong_di_silo()
@@ -224,9 +238,9 @@ void duong_di_silo()
 
         for(i=0;i<50;i++)
         {
-            if(robotAngle() > 0)    while(robotAngle() > 0)   robotRotateFree(-0.5,0,100);
-            else                    while(robotAngle() < 0)   robotRotateFree( 0.5,0,100);
-            vTaskDelay(10);
+            if(robotAngle() > 0)    while(robotAngle() > 0)   robotRotateFree(-0.5,0,100),vTaskDelay(10);
+            else                    while(robotAngle() < 0)   robotRotateFree( 0.5,0,100),vTaskDelay(10);
+            // vTaskDelay(10);
         }
         robotStop(0);
 
@@ -279,8 +293,13 @@ void di_chuyen()        //viet lai di chuyen --> dung laze de chay
         {
             if(bien_nho_bong_trong_silo[silo_so] == 1 || bien_nho_bong_trong_silo[silo_so] == 3)
             {
-                robotRunAngle(-900, 20, 0, 0);
-                // while(ENCODER_TONG() < do_encoder_silo + 20){}
+                robotRunAngle(1000, 40, 0.2, 0);
+                while(lazeNgangXanhValue < do_laze_silo-44){if(wantExit())break;}
+
+                robotRunAngle(1000, 10, 0.2, 0);
+                while(CB_TU_NHAN_SILO == 1){if(wantExit())break;}
+                robotStop(0);
+
                 silo_so--;
             }     
             if(silo_so == 1)
@@ -292,8 +311,13 @@ void di_chuyen()        //viet lai di chuyen --> dung laze de chay
         {
             if(bien_nho_bong_trong_silo[silo_so] == 1 || bien_nho_bong_trong_silo[silo_so] == 3)
             {
-                robotRunAngle(900, 20, 0, 0);
-                // while(ENCODER_TONG() < do_encoder_silo - 20){}
+                robotRunAngle(-1000, 40, -0.2, 0);
+                while(lazeNgangXanhValue > do_laze_silo+44){if(wantExit())break;}
+                
+                robotRunAngle(-1000, 10, -0.2, 0);
+                while(CB_TU_NHAN_SILO == 1){if(wantExit())break;}
+                robotStop(0);
+
                 silo_so--;
             }
             if(silo_so == 5)
@@ -322,13 +346,12 @@ void di_chuyen()        //viet lai di chuyen --> dung laze de chay
             
             if(bien_nho_bong_trong_silo[silo_so] == 1 || bien_nho_bong_trong_silo[silo_so] == 3)
             {
-                robotRunAngle(960, 20, -10, -0.5);
-                // while(ENCODER_TONG() < do_encoder_silo + 20){}
+                robotRunAngle(1000, 40, -0.2, 0);
+                while(lazeNgangXanhValue < do_laze_silo-44){if(wantExit())break;}
                 
-                robotRunAngle(1100, 5, -10, -0.5);
-                while(CB_TU_NHAN_SILO == 1){}
-                
-                robotStop(2);
+                robotRunAngle(1000, 10, -0.2, 0);
+                while(CB_TU_NHAN_SILO == 1){if(wantExit())break;}
+                robotStop(0);
                 
                 silo_so--;
             }                
@@ -341,13 +364,12 @@ void di_chuyen()        //viet lai di chuyen --> dung laze de chay
         {
             if(bien_nho_bong_trong_silo[silo_so] == 1 || bien_nho_bong_trong_silo[silo_so] == 3)
             {
-                robotRunAngle(-1000, 20, 6, 0);
-                // while(ENCODER_TONG() < do_encoder_silo - 20){}
+                robotRunAngle(-1000, 40, -0.2, 0);
+                while(lazeNgangXanhValue > do_laze_silo+44){if(wantExit())break;}
                 
-                robotRunAngle(-1000, 5, 6, 0);
-                while(CB_TU_NHAN_SILO == 1){}
-                
-                robotStop(2);
+                robotRunAngle(-1000, 10, -0.2, 0);
+                while(CB_TU_NHAN_SILO == 1){if(wantExit())break;}
+                robotStop(0);   
                 
                 silo_so++;
             }  
@@ -540,6 +562,7 @@ void do_bong()
     ROLE_HOT_BONG_BAT;        
     while (1)
     {
+        // while(HT_TRUOC_PHAI == 1 && HT_TRUOC_TRAI == 1 || CB_TU_DUNG_LAY_BANH == 0) robotRunAngle(0,10,0,0);
         while(HT_TRUOC_PHAI == 1 && HT_TRUOC_TRAI == 1)
         {
             robotRunAngle(0, 10, 0, 0);
@@ -550,7 +573,7 @@ void do_bong()
         }
         end = ENCODER_TONG();
         robotRunAngle(1800, 50, 0, 0.2);
-        while(ENCODER_TONG() > end - 200)
+        while(ENCODER_TONG() > end - 300)
         {
             XL_HOT_BONG_BAT_LEN;
             if(wantExit())break;
@@ -580,6 +603,29 @@ void do_bong()
 
         if(bien_do_bong == 1)   break;
     }
+    if(bien_ve_xuat_phat != 3)
+    {
+        for(i=0;i<50;i++)
+        {
+            if(robotAngle() < 900)
+            {
+                while(robotAngle() < 900)
+                {
+                    robotRotateFree(0.5, 0, 100);
+                    vTaskDelay(10);
+                }
+            }
+            else
+            {
+                while(robotAngle() > 900)
+                {
+                    robotRotateFree(-0.5, 0, 100);
+                    vTaskDelay(10);
+                }
+            }
+        }
+        robotStop(0);
+    }
     
 }
 void do_bong_lan_dau_1()
@@ -593,6 +639,7 @@ void do_bong_lan_dau_1()
             while(robotAngle() < 900)
             {
                 robotRotateFree(0.5, 0, 100);
+                vTaskDelay(10);
             }
         }
         else
@@ -600,9 +647,9 @@ void do_bong_lan_dau_1()
             while(robotAngle() > 900)
             {
                 robotRotateFree(-0.5, 0, 100);
+                vTaskDelay(10);
             }
         }
-        vTaskDelay(10);
     }
     robotStop(0);
 }
@@ -702,6 +749,7 @@ void XuatPhat()
                 while(robotAngle() > -900)
                 {
                     robotRotateFree(-0.5, 0, 50);
+                    vTaskDelay(10);
                 }
             }
             else
@@ -709,9 +757,9 @@ void XuatPhat()
                 while(robotAngle() < -900)
                 {
                     robotRotateFree(0.5, 0, 50);
+                    vTaskDelay(10);
                 }
             }
-            vTaskDelay(10);
         }
         robotStop(0);
 
@@ -730,6 +778,7 @@ void XuatPhat()
                 while(robotAngle() > -1800)
                 {
                     robotRotateFree(-0.5, 0, 50);
+                    vTaskDelay(10);
                 }
             }
             else
@@ -737,9 +786,9 @@ void XuatPhat()
                 while(robotAngle() < -1800)
                 {
                     robotRotateFree(0.5, 0, 50);
+                    vTaskDelay(10);
                 }
             }
-            vTaskDelay(10);
         }
         robotRotateStop();
     }
@@ -915,12 +964,9 @@ void XuatPhat_5()
 void test()
 {
     XuatPhat();
-    
-    while(1)
-    {
-    while (CB_BONG_1 == 1 && CB_BONG_2 == 1 && CB_BONG_3 == 1){}
 
-    do_bong_lan_dau_1();
+    // do_bong_lan_dau_1();
+    do_bong();
 
     di_chuyen_len_2();
 
@@ -928,16 +974,12 @@ void test()
 
     di_chuyen_ve();
 
-    do_bong_lan_dau_1();
+    // do_bong_lan_dau_1();
+    do_bong();
 
     di_chuyen_len_1();
 
     tha_bong();
 
     di_chuyen_ve();
-    }
-    if (CB_BONG_1 == 0 && CB_BONG_2 == 0 && CB_BONG_3 == 0)
-    {
-        robotStop(2);
-    }
 }
