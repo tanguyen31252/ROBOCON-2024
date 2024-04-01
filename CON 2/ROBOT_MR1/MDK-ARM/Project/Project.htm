@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Project\Project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Project\Project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060020: Last Updated: Mon Apr 01 18:14:48 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060020: Last Updated: Mon Apr 01 20:35:23 2024
 <BR><P>
 <H3>Maximum Stack Usage =        224 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -832,7 +832,7 @@ Global Symbols
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
 
-<P><STRONG><a name="[be]"></a>HMI_TRAN</STRONG> (Thumb, 1676 bytes, Stack size 128 bytes, main.o(.text))
+<P><STRONG><a name="[be]"></a>HMI_TRAN</STRONG> (Thumb, 1616 bytes, Stack size 128 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 208<LI>Call Chain = HMI_TRAN &rArr; HMI_PUTS &rArr; __2sprintf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_WriteBit
@@ -888,9 +888,8 @@ Global Symbols
 
 <P><STRONG><a name="[18c]"></a>gp_get_mode_uart</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
 
-<P><STRONG><a name="[f3]"></a>wantExit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, main.o(.text))
+<P><STRONG><a name="[f3]"></a>wantExit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen
 <LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
 <LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_ve
@@ -929,7 +928,6 @@ Global Symbols
 
 <P><STRONG><a name="[e4]"></a>robotAngle</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, main.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
 <LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
 <LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_ve
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotAnalytics
@@ -1037,8 +1035,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRotate
 </UL>
-<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
 <LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_ve
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotGamePadControl
 </UL>
@@ -1122,10 +1119,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_ve
 </UL>
 
-<P><STRONG><a name="[e9]"></a>bam_thanh_laze_doc</STRONG> (Thumb, 110 bytes, Stack size 32 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = bam_thanh_laze_doc &rArr; robotRunAngle &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
-</UL>
-<BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRunAngle
+<P><STRONG><a name="[e9]"></a>bam_thanh_laze_doc</STRONG> (Thumb, 110 bytes, Stack size 32 bytes, main.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRunAngle
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
@@ -1169,10 +1164,8 @@ Global Symbols
 
 <P><STRONG><a name="[194]"></a>hah</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
 
-<P><STRONG><a name="[ed]"></a>reset_all</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = reset_all &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; vTaskIncrementTick
-</UL>
-<BR>[Calls]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
+<P><STRONG><a name="[ed]"></a>reset_all</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, main.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;run_read_gyro_uart1
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
 </UL>
@@ -1342,16 +1335,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;taskRobotAnalytics
 </UL>
 
-<P><STRONG><a name="[101]"></a>do_bong</STRONG> (Thumb, 378 bytes, Stack size 40 bytes, main.o(.text))
+<P><STRONG><a name="[101]"></a>do_bong</STRONG> (Thumb, 280 bytes, Stack size 40 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = do_bong &rArr; robotRunAngle &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_WriteBit
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRunAngle
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRotateFree
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotStop
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotAngle
-<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wantExit
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;resetIMU
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
@@ -1360,12 +1350,11 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
 <LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;taskMain
 </UL>
 
-<P><STRONG><a name="[102]"></a>XuatPhat</STRONG> (Thumb, 864 bytes, Stack size 40 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = XuatPhat &rArr; bam_thanh_laze_doc &rArr; robotRunAngle &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
-</UL>
-<BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_WriteBit
+<P><STRONG><a name="[102]"></a>XuatPhat</STRONG> (Thumb, 858 bytes, Stack size 40 bytes, main.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_WriteBit
 <LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reset_all
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bam_thanh_laze_doc
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotRunAngle
@@ -1428,13 +1417,9 @@ Global Symbols
 
 <P><STRONG><a name="[198]"></a>XuatPhat_5</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, main.o(.text), UNUSED)
 
-<P><STRONG><a name="[107]"></a>test</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = test &rArr; XuatPhat &rArr; bam_thanh_laze_doc &rArr; robotRunAngle &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
-</UL>
-<BR>[Calls]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
+<P><STRONG><a name="[107]"></a>test</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, main.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
-</UL>
-<BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;taskMain
 </UL>
 
 <P><STRONG><a name="[5c]"></a>main</STRONG> (Thumb, 58 bytes, Stack size 32 bytes, main.o(.text))
@@ -3495,10 +3480,10 @@ Local Symbols
 <BR>[Address Reference Count : 1]<UL><LI> main.o(.text)
 </UL>
 <P><STRONG><a name="[5f]"></a>taskMain</STRONG> (Thumb, 144 bytes, Stack size 24 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = taskMain &rArr; test &rArr; XuatPhat &rArr; bam_thanh_laze_doc &rArr; robotRunAngle &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
+<BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = taskMain &rArr; UART5_DMA_TX &rArr; USART_Init &rArr; RCC_GetClocksFreq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGenericCreate
-<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do_bong
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotGamePadControl
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;run_read_gyro_uart1
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ENCODER

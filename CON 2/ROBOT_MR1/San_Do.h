@@ -567,9 +567,8 @@ void do_bong()
     while (1)
     {
         robotRunAngle(0,10,0,0);
-        while((HT_DUNG == 1) && CB_TU_DUNG_LAY_BANH == 0){if(bien_do_bong == 1)break;}
+        while(HT_DUNG == 1 && CB_TU_DUNG_LAY_BANH == 0){if(bien_do_bong == 1)break;}
 
-        robotStop(0);
         delay_ms(500);
         if(bien_do_bong == 1)   
         {
@@ -579,43 +578,37 @@ void do_bong()
         {
             RESET_ENCODER();
             robotRunAngle(1800, 20, 0, 0);
-            while(ENCODER_TONG() < 200){}
+            while(ENCODER_TONG() < 1000){}
         }
     }
     if(bien_ve_xuat_phat != 3)
     {
+        resetIMU();
+        RESET_ENCODER();
         end = ENCODER_TONG();
-        robotRunAngle(1800, 50, 0, 0.2);
-        while(ENCODER_TONG() > end - 300)
-        {
-            XL_HOT_BONG_BAT_LEN;
-            if(wantExit())break;
-        }
-        for(i=0;i<50;i++)
-        {
-            if(robotAngle() < -900)
-            {
-                while(robotAngle() < -600)
-                {
-                    robotRotateFree(0.5, 0, 100);
-                    vTaskDelay(10);
-                }
-                while(robotAngle() < -900)
-                {
-                    robotRotateFree(0.5, 0, 50);
-                    vTaskDelay(10);
-                }
-            }
-            else
-            {
-                while(robotAngle() > -900)
-                {
-                    robotRotateFree(-0.5, 0, 50);
-                    vTaskDelay(10);
-                }
-            }
-        }
-        robotStop(0);
+        // robotRunAngle(1800, 20, 0,0);
+        // while(ENCODER_TONG() < 700){}
+
+        // robotRotate(30000,1.5,0,20);
+        // while (_robotIMUAngle < 900){}
+
+        robotRunAngle (-900,20,900,1.5);
+        while (_robotIMUAngle < 900){}
+
+        XL_HOT_BONG_BAT_LEN;
+        RESET_ENCODER();
+        resetIMU();
+        // if (_robotIMUAngle < 900)
+        // {
+        //     robotRotate(30000,0.7,0,10);
+        //     while (_robotIMUAngle < 900){}
+        // }
+        // else if (_robotIMUAngle > 900)
+        // {
+        //      robotRotate(30000,-0.7,0,10);
+        //     while (_robotIMUAngle > 900){}
+        // }
+        robotStop(2);
     }
     
 }
@@ -984,47 +977,47 @@ void test()
 
 
 ///////////////////////////////////////////////// THI ROBOCON ////////////////////////////////////////////////////
-void THI()
-{
-    XuatPhat();
+// void THI()
+// {
+//     XuatPhat();
 
-    do_bong_lan_dau_1();
+//     do_bong();
 
-    di_chuyen_len();
+//     di_chuyen_len();
 
-    tha_bong();
+//     tha_bong();
 
-    di_chuyen_ve();
+//     di_chuyen_ve();
 
-    while(1)
-    {
-        do_bong();
+//     while(1)
+//     {
+//         do_bong();
 
-        di_chuyen_len();
+//         di_chuyen_len();
 
-        tha_bong();
+//         tha_bong();
 
-        di_chuyen_ve();
+//         di_chuyen_ve();
         
-        if(bien_nho_silo_co_2_bong != 0)
-        {
-            di_chuyen_len_bo_bong_thu_3();
-            tha_bong();
-            di_chuyen_ve();
-            bien_nho_silo_co_2_bong = 0;
-        }
-        else
-        {
-            di_chuyen_len();
-        }
+//         if(bien_nho_silo_co_2_bong != 0)
+//         {
+//             di_chuyen_len_bo_bong_thu_3();
+//             tha_bong();
+//             di_chuyen_ve();
+//             bien_nho_silo_co_2_bong = 0;
+//         }
+//         else
+//         {
+//             di_chuyen_len();
+//         }
         
-        while(bien_nhan_bong == 0)
-        {
-            nhan_bong_trong_silo();
-            if(bien_nhan_bong == 1)             tha_bong(),di_chuyen_ve();
-            else                                di_chuyen();
-        }
-        bien_nhan_bong = 0;
-    }
-    return 0;
-}
+//         while(bien_nhan_bong == 0)
+//         {
+//             nhan_bong_trong_silo();
+//             if(bien_nhan_bong == 1)             tha_bong(),di_chuyen_ve();
+//             else                                di_chuyen();
+//         }
+//         bien_nhan_bong = 0;
+//     }
+//     return true;
+// }
