@@ -66,7 +66,7 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 #define	DIA_CHI_START8 									            	DATA_SPEED[28]=255
 #define	ID8 		 													DATA_SPEED[29]=8
 #define Mor_giam_phe_thuan    							                DATA_SPEED[30]=1
-//#define Mor_giam_phe_nghich								                DATA_SPEED[30]=0
+#define Mor_giam_phe_nghich								                DATA_SPEED[30]=0
 #define	Mor_giam_phe		 							        		DATA_SPEED[31]
 
 //=============================ADC DMI======================================//
@@ -134,7 +134,7 @@ extern int _robotIMUAngle;
 char bit_khoa_ham_chay_thay_tuan=0;
 char lan_trong = 0;
 int lazengang = 0, lazedoc = 0, laze_doc_hang_1 = 0, laze_doc_hang_2 = 0, laze_ngang_ve = 0, laze_doc_truot = 0, hang_trong = 1;						//san 1
-int luu_bien_laze_doc = 0, luu_bien_laze_ngang = 0, ban_thoc = 0, ban_lep = 0, goc_xoay_thoc = 0, goc_xoay_lep = 0;										//san 2
+int luu_bien_laze_doc = 0, luu_bien_laze_ngang = 0, ban_thoc = 0, ban_lep = 0, goc_xoay_thoc = 0, goc_xoay_lep = 0, phe_thoc = 0, phe_lep = 0;										//san 2
 
 char san = 1;
 
@@ -166,8 +166,14 @@ int tocdo[2][6]         =               {   //1     //2     //3     //4     //5 
                                             {110,   115,    115,    120,    125,    125},           //ban thoc
                                             {104,   105,    109,    111,    115,    125}            //ban lep
                                         };
+/***************************************************** GIAM AP PHE				*************************************************/
+int giamphe[2][6]		=				{
+											{80,	80,	80,	80,	80,	80},							//phe thoc
+											{80,	80,	80,	80,	80,	80},							//phe lep
+};
 
 /******************************************************	DO GOC XOAY BIEN TRO	***************************************************/
+
 /******************************************************	XOAY BAN THOC			***************************************************/
 int gocxoay_thoc[4][7]	=				{           //1     //2     //3     //4     //5     //6
 /******************************************************	ROBOT BINH THUONG		***************************************************/

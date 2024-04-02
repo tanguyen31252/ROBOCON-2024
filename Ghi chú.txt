@@ -50,3 +50,9 @@ cập nhật công nghệ mới từ thầy Tuấn :))) vửa chạy vừa xoay.
 
 8:30 240402 --Nguyên
 tối qua đã chạy xong!!! --> giờ tinh chỉnh cho tối ưu
+
+9:45 240402 --Nguyên
+BA Sửa code con 1:
++sửa laze sân đỏ 1
++lấy góc xoay thóc và lép
++tốc độ giảm phê tại 6 vị trí

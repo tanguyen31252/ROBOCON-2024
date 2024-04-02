@@ -21,22 +21,21 @@ void laze_san_2()
     {
         if(SAN == 1)
         {
-            if     (LAZENGANG_2[SAN][2] < lazeNgangDoValue && lazeNgangDoValue < LAZENGANG_2[SAN][1])   {ban_thoc = tocdo[0][0], ban_lep = tocdo[1][0], goc_xoay_thoc = gocxoay_thoc[SAN][1],   goc_xoay_lep = gocxoay_lep[SAN][1];}                //vi tri 1
-            else if(LAZENGANG_2[SAN][3] < lazeNgangDoValue && lazeNgangDoValue < LAZENGANG_2[SAN][2])   {ban_thoc = tocdo[0][1], ban_lep = tocdo[1][1], goc_xoay_thoc = gocxoay_thoc[SAN][2],   goc_xoay_lep = gocxoay_lep[SAN][2];}
-            else if(LAZENGANG_2[SAN][4] < lazeNgangDoValue && lazeNgangDoValue < LAZENGANG_2[SAN][3])   {ban_thoc = tocdo[0][2], ban_lep = tocdo[1][2], goc_xoay_thoc = gocxoay_thoc[SAN][3],   goc_xoay_lep = gocxoay_lep[SAN][3];}
-            else if(LAZENGANG_2[SAN][5] < lazeNgangDoValue && lazeNgangDoValue < LAZENGANG_2[SAN][4])   {ban_thoc = tocdo[0][3], ban_lep = tocdo[1][3], goc_xoay_thoc = gocxoay_thoc[SAN][4],   goc_xoay_lep = gocxoay_lep[SAN][4];}
-            else if(LAZENGANG_2[SAN][6] < lazeNgangDoValue && lazeNgangDoValue < LAZENGANG_2[SAN][5])   {ban_thoc = tocdo[0][4], ban_lep = tocdo[1][4], goc_xoay_thoc = gocxoay_thoc[SAN][5],   goc_xoay_lep = gocxoay_lep[SAN][5];}
-            else if(                                          lazeNgangDoValue < LAZENGANG_2[SAN][6])   {ban_thoc = tocdo[0][5], ban_lep = tocdo[1][5], goc_xoay_thoc = gocxoay_thoc[SAN][6],   goc_xoay_lep = gocxoay_lep[SAN][6];}                //vi tri 6
+            if     (LAZENGANG_2[SAN][2] < lazeNgangDoValue && lazeNgangDoValue < LAZENGANG_2[SAN][1])       {ban_thoc = tocdo[0][0], ban_lep = tocdo[1][0], goc_xoay_thoc = gocxoay_thoc[SAN][1], goc_xoay_lep = gocxoay_lep[SAN][1], phe_thoc = giamphe[0][0], phe_lep = giamphe[1][0];}                //vi tri 1
+            else if(LAZENGANG_2[SAN][3] < lazeNgangDoValue && lazeNgangDoValue < LAZENGANG_2[SAN][2])       {ban_thoc = tocdo[0][1], ban_lep = tocdo[1][1], goc_xoay_thoc = gocxoay_thoc[SAN][2], goc_xoay_lep = gocxoay_lep[SAN][2], phe_thoc = giamphe[0][1], phe_lep = giamphe[1][1];}
+            else if(LAZENGANG_2[SAN][4] < lazeNgangDoValue && lazeNgangDoValue < LAZENGANG_2[SAN][3])       {ban_thoc = tocdo[0][2], ban_lep = tocdo[1][2], goc_xoay_thoc = gocxoay_thoc[SAN][3], goc_xoay_lep = gocxoay_lep[SAN][3], phe_thoc = giamphe[0][2], phe_lep = giamphe[1][2];}
+            else if(LAZENGANG_2[SAN][5] < lazeNgangDoValue && lazeNgangDoValue < LAZENGANG_2[SAN][4])       {ban_thoc = tocdo[0][3], ban_lep = tocdo[1][3], goc_xoay_thoc = gocxoay_thoc[SAN][4], goc_xoay_lep = gocxoay_lep[SAN][4], phe_thoc = giamphe[0][3], phe_lep = giamphe[1][3];}
+            else if(LAZENGANG_2[SAN][6] < lazeNgangDoValue && lazeNgangDoValue < LAZENGANG_2[SAN][5])       {ban_thoc = tocdo[0][4], ban_lep = tocdo[1][4], goc_xoay_thoc = gocxoay_thoc[SAN][5], goc_xoay_lep = gocxoay_lep[SAN][5], phe_thoc = giamphe[0][4], phe_lep = giamphe[1][4];}
+            else if(                                          lazeNgangDoValue < LAZENGANG_2[SAN][6])       {ban_thoc = tocdo[0][5], ban_lep = tocdo[1][5], goc_xoay_thoc = gocxoay_thoc[SAN][6], goc_xoay_lep = gocxoay_lep[SAN][6], phe_thoc = giamphe[0][5], phe_lep = giamphe[1][5];}                //vi tri 6
         }
         else
         {
-            if     (LAZENGANG_2[SAN][2] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][1])   {ban_thoc = tocdo[0][0], ban_lep = tocdo[1][0], goc_xoay_thoc = gocxoay_thoc[SAN][1],   goc_xoay_lep = gocxoay_lep[SAN][1];}                //vi tri 1
-            else if(LAZENGANG_2[SAN][3] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][2])   {ban_thoc = tocdo[0][1], ban_lep = tocdo[1][1], goc_xoay_thoc = gocxoay_thoc[SAN][2],   goc_xoay_lep = gocxoay_lep[SAN][2];}
-            else if(LAZENGANG_2[SAN][4] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][3])   {ban_thoc = tocdo[0][2], ban_lep = tocdo[1][2], goc_xoay_thoc = gocxoay_thoc[SAN][3],   goc_xoay_lep = gocxoay_lep[SAN][3];}
-            else if(LAZENGANG_2[SAN][5] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][4])   {ban_thoc = tocdo[0][3], ban_lep = tocdo[1][3], goc_xoay_thoc = gocxoay_thoc[SAN][4],   goc_xoay_lep = gocxoay_lep[SAN][4];}
-            else if(LAZENGANG_2[SAN][6] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][5])   {ban_thoc = tocdo[0][4], ban_lep = tocdo[1][4], goc_xoay_thoc = gocxoay_thoc[SAN][5],   goc_xoay_lep = gocxoay_lep[SAN][5];}
-            else if(                                            lazeNgangXanhValue < LAZENGANG_2[SAN][6])   {ban_thoc = tocdo[0][5], ban_lep = tocdo[1][5], goc_xoay_thoc = gocxoay_thoc[SAN][6],   goc_xoay_lep = gocxoay_lep[SAN][6];}                //vi tri 6
-
+            if     (LAZENGANG_2[SAN][2] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][1])   {ban_thoc = tocdo[0][0], ban_lep = tocdo[1][0], goc_xoay_thoc = gocxoay_thoc[SAN][1], goc_xoay_lep = gocxoay_lep[SAN][1], phe_thoc = giamphe[0][0], phe_lep = giamphe[1][0];}                //vi tri 1
+            else if(LAZENGANG_2[SAN][3] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][2])   {ban_thoc = tocdo[0][1], ban_lep = tocdo[1][1], goc_xoay_thoc = gocxoay_thoc[SAN][2], goc_xoay_lep = gocxoay_lep[SAN][2], phe_thoc = giamphe[0][1], phe_lep = giamphe[1][1];}
+            else if(LAZENGANG_2[SAN][4] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][3])   {ban_thoc = tocdo[0][2], ban_lep = tocdo[1][2], goc_xoay_thoc = gocxoay_thoc[SAN][3], goc_xoay_lep = gocxoay_lep[SAN][3], phe_thoc = giamphe[0][2], phe_lep = giamphe[1][2];}
+            else if(LAZENGANG_2[SAN][5] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][4])   {ban_thoc = tocdo[0][3], ban_lep = tocdo[1][3], goc_xoay_thoc = gocxoay_thoc[SAN][4], goc_xoay_lep = gocxoay_lep[SAN][4], phe_thoc = giamphe[0][3], phe_lep = giamphe[1][3];}
+            else if(LAZENGANG_2[SAN][6] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][5])   {ban_thoc = tocdo[0][4], ban_lep = tocdo[1][4], goc_xoay_thoc = gocxoay_thoc[SAN][5], goc_xoay_lep = gocxoay_lep[SAN][5], phe_thoc = giamphe[0][4], phe_lep = giamphe[1][4];}
+            else if(                                            lazeNgangXanhValue < LAZENGANG_2[SAN][6])   {ban_thoc = tocdo[0][5], ban_lep = tocdo[1][5], goc_xoay_thoc = gocxoay_thoc[SAN][6], goc_xoay_lep = gocxoay_lep[SAN][6], phe_thoc = giamphe[0][5], phe_lep = giamphe[1][5];}                //vi tri 6
         }
     }
 }
@@ -340,7 +339,9 @@ void LayvaBanthoc()
         LAY_BONG_ON;
         HOT_BANH_OFF;
         
-        Mor_giam_phe = 50;
+        Mor_giam_phe = phe_thoc, Mor_giam_phe_thuan;
+        Mor_xoay_trai = ban_thoc, Mor_xoay_trai_thuan;
+        Mor_xoay_phai = ban_thoc, Mor_xoay_phai_thuan;
         
         if(BT_Dia_xoay_value > goc_xoay_thoc)
         {
@@ -355,9 +356,8 @@ void LayvaBanthoc()
             Mor_Dia_xoay = 0;
         }
         else Mor_Dia_xoay = 0;
-        Mor_xoay_trai = ban_thoc, Mor_xoay_trai_thuan;
-        Mor_xoay_phai = ban_thoc, Mor_xoay_phai_thuan;
-        delay_ms(1800);
+
+        delay_ms(2000);
         NAP_DAN_OFF;
         LAY_BONG_OFF;
         HOT_BANH_ON;
@@ -370,6 +370,11 @@ void LayvaBanthoc()
         NAP_DAN_ON;
         LAY_BONG_ON;
         HOT_BANH_OFF;
+        
+        Mor_giam_phe = phe_lep, Mor_giam_phe_nghich;
+        Mor_xoay_trai = ban_lep, Mor_xoay_trai_thuan;
+        Mor_xoay_phai = ban_lep, Mor_xoay_phai_thuan;
+        
         if(BT_Dia_xoay_value > goc_xoay_lep)
         {
             Mor_Dia_xoay = i, Mor_Dia_xoay_phai;
@@ -383,9 +388,8 @@ void LayvaBanthoc()
             Mor_Dia_xoay = 0;
         }
         else Mor_Dia_xoay = 0;
-        Mor_xoay_trai = ban_lep, Mor_xoay_trai_thuan;
-        Mor_xoay_phai = ban_lep, Mor_xoay_phai_thuan;
-        delay_ms(1800);
+
+        delay_ms(2000);
         NAP_DAN_OFF;
         LAY_BONG_OFF;
         HOT_BANH_ON;
@@ -458,12 +462,6 @@ void dieuKhienCoCau(void)
     testBT();
     // testbanhxe();
     LayvaBanthoc();
-    
-    if(!TRIANGLE)
-    {
-        Mor_giam_phe = 50, Mor_giam_phe_thuan;
-    }
-    else Mor_giam_phe = 0;
 
 }
 

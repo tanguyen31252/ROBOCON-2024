@@ -509,21 +509,61 @@ void do_bong()
                 }
             }
         }
+        else if(bien_ve_xuat_phat == 1)
+        {
+            while (1)
+            {
+                if(NUT_CHUYEN_SAN == 1)
+                {
+                    robotRunAngle(-450,10,0,0);
+                    while(HT_DUNG == 1 && CB_TU_DUNG_LAY_BANH == 0){if(bien_do_bong == 1)break;}
+                }
+                else
+                {
+                    robotRunAngle(900, 30, 0, 0);
+                    while(lazeNgangDoValue > 100){if(wantExit())break;}
 
+                    robotRunAngle(450,10,0,0);
+                    while(HT_DUNG == 1 && CB_TU_DUNG_LAY_BANH == 0){if(bien_do_bong == 1)break;}
+                }
+
+                robotStop(0);
+                delay_ms(500);
+
+                if(bien_do_bong == 1)   
+                {
+                    XL_HOT_BONG_BAT_LEN;
+                    break;
+                }
+                else if(bien_cham_tuong == 1)
+                {
+                    RESET_ENCODER();
+                    robotRunAngle(1800, 30, 0, 0);
+                    while(ENCODER_TONG() > 100){}
+                    if(NUT_CHUYEN_SAN == 1)
+                    {
+                        robotRunAngle(-900, 30, 0, 0);
+                        while(ENCODER_TONG() < 1000){if(wantExit()) break;}
+                    }
+                    else
+                    {
+                        robotRunAngle(900, 30, 0, 0);
+                        while(ENCODER_TONG() < 1000){if(wantExit()) break;}
+                    }
+                }
+            }
+        }
         bien_ve_xuat_phat++;
         end = ENCODER_TONG();
         robotRunAngle(1800, 20, 0,0);
         while(ENCODER_TONG() > end - 200){}
-
-        // robotRotate(30000,1.5,0,20);
-        // while (_robotIMUAngle < 900){}
 
         robotRunAngle (-900,50,400, 1);
         while (robotAngle() < 390){}
 
         RESET_ENCODER();
         robotRunAngle (-900,50,400, 1);
-        while (ENCODER_FL() < 100){}
+        while (ENCODER_FL() < 200){}
 
         robotRunAngle (-900,50,900, 1);
         while (robotAngle() < 890){}
