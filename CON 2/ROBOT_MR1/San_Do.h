@@ -133,6 +133,9 @@ void duong_di_silo()
 /****************************************SAN XANH***************************************/
     else    
     {
+        robotRunAngle(-1500,100,0,0);
+        while(ENCODER_TONG() < 1000){}
+
         RESET_ENCODER();
 
         robotRunAngle(1800, 100, 0, 0);
@@ -834,31 +837,6 @@ void XuatPhat_5()
     silo_so = 5;
 }
 
-void test()
-{
-    // XuatPhat();
-
-    // do_bong_lan_dau_1();
-    do_bong();
-
-    di_chuyen_len_5();
-
-    tha_bong();
-
-    di_chuyen_ve();
-
-    // // do_bong_lan_dau_1();
-    // do_bong();
-
-    // di_chuyen_len_1();
-
-    // tha_bong();
-
-    // di_chuyen_ve();
-}
-
-
-
 ///////////////////////////////////////////////// THI ROBOCON ////////////////////////////////////////////////////
 void THI()
 {
@@ -899,4 +877,5 @@ void THI()
         }
         bien_nhan_bong = 0;
     }
+    
 }
