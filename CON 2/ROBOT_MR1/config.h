@@ -65,11 +65,11 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 //#define ADC1_Value6						  					    _ADC1_Value[6]              //laze nhan
 //#define ADC1_Value7										        _ADC1_Value[7]
 
-#define NUT_1						  					    GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_7)
-#define NUT_2										        GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_10)                  
-#define NUT_3										        GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_8)                 
-#define NUT_4						  					    GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_13)
-#define NUT_5										        GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_14)
+// #define NUT_1						  					    GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_7)
+// #define NUT_2										        GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_10)                  
+// #define NUT_3										        GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_8)                 
+// #define NUT_4						  					    GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_13)
+// #define NUT_5										        GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_14)
 
 
 //#define NUT_4						  					    GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_6)
@@ -96,7 +96,7 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 #define CB_TU_NHAN_SILO							GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_5)						//CB_TU_NHAN_SILO				
 #define CB_TU_DUNG_LAY_BANH						GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_10)					//CB DUNG KHONG LAY BONG NUA 
 
-// #define HT_TRUOC_TRAI							GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_13)					//HT_TRAI								0
+#define NUT_START		  					    GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_7)
 #define HT_DUNG									GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_4)						//HT_PHAI								0
 
 #define CB_DUNG_BANG_TAI						GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_12)					//cam bien dung bang tai				1
@@ -137,7 +137,7 @@ extern unsigned char GP_BTN [15];
 extern int _robotIMUAngle;
 
 char bit_khoa_ham_chay_thay_tuan=0;
-int end = 0, bien_cham_tuong = 0,bien_ve_xuat_phat =0;
+int end = 0, bien_cham_tuong = 0, bien_ve_xuat_phat = 3;
 int silo_so = 5, silo_vua_chay = 0, silo_sap_bo = 0;
 char bien_di_chuyen = 0; //0 la trai, 1 la phai
 int bien_day_bong_ra_ngoai = 0, bien_dung_bang_tai = 0;
@@ -1172,7 +1172,7 @@ void HMI_TRAN(vs32 _so_dong) {
 										HMI_DMI("LJOY_LR:",GP_BTN[4],7); 
 										break;
 									case 8:
-										HMI_DMI("bien do bong: ", bien_do_bong,8);
+										HMI_DMI("xuat phat ve: ", bien_ve_xuat_phat,8);
 										break;
 									case 9:
 										HMI_DMI("bien dung bang tai:", bien_dung_bang_tai,9);
@@ -1184,7 +1184,7 @@ void HMI_TRAN(vs32 _so_dong) {
 										HMI_DMI("bien_nhan_bong: ",bien_nhan_bong,11);
 										break;
 									case 12: 
-										HMI_DMI("truong hop: ",bien_chay_cap_thanh,12);
+										HMI_DMI("end: ",end,12);
 										break;
 									case 13: 
 										HMI_DMI("laze ngang xanh: ", lazeNgangXanhValue, 13);

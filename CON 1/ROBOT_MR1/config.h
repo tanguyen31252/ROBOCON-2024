@@ -11,7 +11,9 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 										255,4,0,0,
 										255,5,0,0,
 										255,6,0,0,
-										255,7,0,0
+										255,7,0,0,
+    									255,8,0,0,
+    
 };
 #define 	ADC1_DR_ADDRESS    ((uint32_t)0x4001204C)
 ////////////////////////NHUNG CHAN MAC DINH/////////////////////////////////////////
@@ -60,6 +62,12 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 #define Mor_xoay_phai_thuan    							                DATA_SPEED[26]=1
 //#define Mor_xoay_phai_nghich							                DATA_SPEED[26]=0
 #define	Mor_xoay_phai		 							        		DATA_SPEED[27]
+
+#define	DIA_CHI_START8 									            	DATA_SPEED[28]=255
+#define	ID8 		 													DATA_SPEED[29]=8
+#define Mor_giam_phe_thuan    							                DATA_SPEED[30]=1
+//#define Mor_giam_phe_nghich								                DATA_SPEED[30]=0
+#define	Mor_giam_phe		 							        		DATA_SPEED[31]
 
 //=============================ADC DMI======================================//
 //#define BT_Nang_xoay_ban						  			    		_ADC1_Value[2]
@@ -163,7 +171,7 @@ int tocdo[2][6]         =               {   //1     //2     //3     //4     //5 
 /******************************************************	XOAY BAN THOC			***************************************************/
 int gocxoay_thoc[4][7]	=				{           //1     //2     //3     //4     //5     //6
 /******************************************************	ROBOT BINH THUONG		***************************************************/
-                                            {0,     480,    432,    405,    393,    340,	322},								//san xanh
+                                            {0,     480,    370,    405,    393,    340,	322},								//san xanh
                                             {0,     420,	466,	505,	523,	550,	577}, 								//san do
 /******************************************************	abs(_IMUAngle) > 800	***************************************************/
 											{0,		933,	933,	898,	869,	829,	818},
@@ -1191,7 +1199,7 @@ void HMI_TRAN(vs32 _so_dong) {
 ////										HMI_DMI("BT GOC BAN:",BienTroNangValue,11);	
 ////										break;
 									case 12:
-										HMI_DMI("g.xoay lep:",goc_xoay_lep,12);  						
+										HMI_DMI("giam ap:",Mor_giam_phe,12);  						
 										break;
 									case 13:
 										HMI_DMI("LAZER XANH: ",lazeNgangXanhValue,13);   

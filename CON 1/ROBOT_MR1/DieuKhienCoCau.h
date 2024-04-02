@@ -339,6 +339,9 @@ void LayvaBanthoc()
         NAP_DAN_ON;
         LAY_BONG_ON;
         HOT_BANH_OFF;
+        
+        Mor_giam_phe = 50;
+        
         if(BT_Dia_xoay_value > goc_xoay_thoc)
         {
             Mor_Dia_xoay = i, Mor_Dia_xoay_phai;
@@ -358,7 +361,7 @@ void LayvaBanthoc()
         NAP_DAN_OFF;
         LAY_BONG_OFF;
         HOT_BANH_ON;
-        Mor_xoay_trai = Mor_xoay_phai = 0;
+        Mor_xoay_trai = Mor_xoay_phai = Mor_giam_phe = 0;
     }
     
 //-----------------------------BAN LEP--------------------------------------------------------
@@ -456,6 +459,11 @@ void dieuKhienCoCau(void)
     // testbanhxe();
     LayvaBanthoc();
     
+    if(!TRIANGLE)
+    {
+        Mor_giam_phe = 50, Mor_giam_phe_thuan;
+    }
+    else Mor_giam_phe = 0;
 
 }
 

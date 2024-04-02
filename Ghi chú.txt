@@ -44,3 +44,9 @@ làm xong dò bóng, khi nhắc cây quay --> robot dừng 500ms.
 19:00 240331 --Nguyên
 gần như oke hết
 vẫn còn 1 số lỗi do quay robot --> đang fix.
+
+18:30 240401 --Nguyên
+cập nhật công nghệ mới từ thầy Tuấn :))) vửa chạy vừa xoay.
+
+8:30 240402 --Nguyên
+tối qua đã chạy xong!!! --> giờ tinh chỉnh cho tối ưu
