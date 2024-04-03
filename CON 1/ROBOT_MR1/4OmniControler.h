@@ -21,7 +21,7 @@
 			robotRunAngle(900, 70, 450) Chay Robot huong la ban 900. V� quay dau robot huong 450.
 		}
 
-	//----------------------
+	//----------------------\
 	void robotRotateFree(float rotate, int rotatePoint)
 	void robotRotate(int rotateAngle, float rotate, int rotatePoint)
 	int robotFixAngle()
@@ -393,11 +393,11 @@ void bam_thanh_laze_ngang(float angle, int maxSpeed, float robotAngle, float ang
 	{
 		if(lazeNgangDoValue - laze_stable_ngang > num_stable_change)
 		{
-			robotRunAngle(angle + angle_fix, maxSpeed, robotAngle, 0.2);
+			robotRunAngle(angle + angle_fix, maxSpeed, robotAngle, 0.5);
 		}
 		else if(lazeNgangDoValue - laze_stable_ngang < num_stable_change)
 		{
-			robotRunAngle(angle - angle_fix, maxSpeed, robotAngle, 0.2);
+			robotRunAngle(angle - angle_fix, maxSpeed, robotAngle, 0.5);
 		}
 		else robotRunAngle(angle, maxSpeed, robotAngle, 0.2);
 	}
@@ -405,13 +405,13 @@ void bam_thanh_laze_ngang(float angle, int maxSpeed, float robotAngle, float ang
 	{
 		if(lazeNgangXanhValue - laze_stable_ngang > num_stable_change)
 		{
-			robotRunAngle(angle + angle_fix, maxSpeed, robotAngle, 0.2);
+			robotRunAngle(angle + angle_fix, maxSpeed, robotAngle, 0.5);
 		}
 		else if(lazeNgangXanhValue - laze_stable_ngang < num_stable_change)
 		{
-			robotRunAngle(angle - angle_fix, maxSpeed, robotAngle, 0.2);
+			robotRunAngle(angle - angle_fix, maxSpeed, robotAngle, 0.5);
 		}
-		else robotRunAngle(angle, maxSpeed, robotAngle, 0.2);
+		else robotRunAngle(angle, maxSpeed, robotAngle, 0.5);
 	}
 }
 ////////////////////////////////////////////////////////////////////////////////
