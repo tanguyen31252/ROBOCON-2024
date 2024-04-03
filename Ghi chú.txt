@@ -56,3 +56,7 @@ BA Sửa code con 1:
 +sửa laze sân đỏ 1
 +lấy góc xoay thóc và lép
 +tốc độ giảm phê tại 6 vị trí
+
+20h36 2/4 --baoanh
+
+CON1 coi như xong,hạn chế sửa nhiều nhất có thể !
