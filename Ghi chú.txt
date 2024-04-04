@@ -57,7 +57,6 @@ BA Sửa code con 1:
 +lấy góc xoay thóc và lép
 +tốc độ giảm phê tại 6 vị trí
 
-
 23:52 240403 --Nguyên
 Công nghệ mới của thầy Tuấn
 robotStop(int acc) càng cao thì dừng càng mượt, càng thấp càng bị khựng

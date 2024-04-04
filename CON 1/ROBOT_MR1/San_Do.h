@@ -74,15 +74,15 @@ void quy_trinh_trong_lua_hang_1()
     
     KEP_LUA_13_KEP;
     KEP_LUA_24_KEP;
-    delay_ms(100);
+    delay_ms(100); 
     KEO_LUA_LEN;
     delay_ms(400);
 /****************************************TRONG LUA HANG 1**************************************************/        
 /****************************************SAN DO**************************************************/ 
     if(SAN == 1)
     {
-        for(i=0;i<50;i++)   while(lazeTruocValue > laze_doc_truot+25)        bam_thanh_laze_ngang(0, 80, 0, 100, lazengang, 2);
-        for(i=0;i<50;i++)   while(lazeTruocValue > lazedoc+20)               bam_thanh_laze_ngang(0, 25, 0, 100, lazengang, 2);
+        for(i=0;i<50;i++)   while(lazeTruocValue > laze_doc_truot+30)        bam_thanh_laze_ngang(0, 80, 0, 100, lazengang, 2);
+        for(i=0;i<50;i++)   while(lazeTruocValue > lazedoc+25)               bam_thanh_laze_ngang(0, 25, 0, 100, lazengang, 2);
 
         robotStop(2);
         
@@ -134,14 +134,17 @@ void quy_trinh_trong_lua_hang_1()
     }
 }    
     
-/****************************************TRONG LUA HANG 2**************************************************/            
+/****************************************TRONG LUA HANG 2**************************************************/      
+
+
 void quy_trinh_trong_lua_hang_2()
 {    
     thong_so_laze_ngang_doc();
     
+    ///////////////////////////////////////////// SAN DO////////////////////////////////////////////////////
     if(SAN == 1)
     {   
-        for(i=0;i<50;i++)   while(lazeTruocValue > lazedoc)          bam_thanh_laze_ngang(0, 20, 0, 450, lazengang, 2);
+        for(i=0;i<50;i++)   while(lazeTruocValue > lazedoc+7)          bam_thanh_laze_ngang(0, 20, 0, 450, lazengang, 2);
 
         robotStop(2);
         
@@ -162,9 +165,10 @@ void quy_trinh_trong_lua_hang_2()
             }
         }
     }
+    ////////////////////////////////////////////// SAN XANH/////////////////////////////////////////////////////
     else
     {        
-        for(i=0;i<50;i++)   while(lazeTruocValue > lazedoc+4)          bam_thanh_laze_ngang(0, 20, 0, -400, lazengang, 0);
+        for(i=0;i<50;i++)   while(lazeTruocValue > lazedoc+5)          bam_thanh_laze_ngang(0, 20, 0, -400, lazengang, 0);
 
         robotStop(2);
 
@@ -314,7 +318,7 @@ int XuatPhat(void)
         chuanbicocau();
         
         robotRunAngle(-900, 20, 0, 0);
-        while(lazeNgangXanhValue > 282){if(wantExit()) break; vTaskDelay(1);}  
+        while(lazeNgangXanhValue > 285){if(wantExit()) break; vTaskDelay(1);}  
         
 //        while(lazeNgangValue > 111){if(wantExit()) break; vTaskDelay(1);}  
         

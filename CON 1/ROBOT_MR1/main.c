@@ -60,7 +60,7 @@ static void taskMain(void *pvParameters)
 	Config_pwm_time_t4();//cai dat timer4 o che do dieu xung
 	//Config_pwm_time_t9();//cai dat timer9 o che do RC SEVOR	
 	Config_encoder_timer2_timer3();//doc encoder  timer 2, timer 3, timer 5 ,timer 9
-	Config_encoder_timer1();
+	Config_encoder_timer1(); 
 	//Config_encoder_timer5();
 	//ngat_ngoai();			//chuy�n dung de doc sieu am ket hop timer7, hoac co the dung lam nut nh�n
 	Config_ADC1_DMA();		//su dung  khi doc tin hieu laze hay cac t�n hieu ADC<3,3v	
