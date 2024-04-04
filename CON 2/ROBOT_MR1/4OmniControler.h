@@ -62,8 +62,8 @@ float f05 = 0.5, f1 = 1.0, f2 = 2.0, f4 = 4.0, f5 = 5.0, f6 = 6.0, f10 = 10.0, f
 int i100 = 100, khoangCachGocFix = 200;
 
 //------------ su dung cho ham gia toc bac 1 tuyen tinh--------------
-float _robotY = 50;			//150
-float _robotX = 100;		//50
+float _robotY = 30;			//150
+float _robotX = 85;		//50
 
 int motorLock = 2;
 long motorLockRepeat = 200000;//20000

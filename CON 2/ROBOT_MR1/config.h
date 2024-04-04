@@ -164,7 +164,7 @@ int bien_nho_bong_da_tha_trong_silo[6]={
 };
 int laze_silo[2][6]={	
 										{	0, 302, 230, 159, 84, 13},				//san xanh
-										{	0, 310, 238, 165, 90, 18},				//san do
+										{	0, 310+20, 238+20, 165+20, 90+20, 18+20},				//san do 19h15 4/4
 };
 int bong_trong_silo = 0;
 int bien_nho_silo_co_2_bong = 0, bien_do_bong = 0, bien_chay_cap_thanh = 0;;
