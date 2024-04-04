@@ -62,3 +62,9 @@ Công nghệ mới của thầy Tuấn
 robotStop(int acc) càng cao thì dừng càng mượt, càng thấp càng bị khựng
 
 có code dò line của pháp sư --> hỏiiii
+
+
+15h30 -- Nguyên 
+Xem trục X,Y trong 40mniControler
+Xem robotStop(2),(20),(200)
+Xem dò bóng lúc lên silo bị đứng
