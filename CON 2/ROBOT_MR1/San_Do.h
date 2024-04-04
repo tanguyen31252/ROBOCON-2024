@@ -148,6 +148,7 @@ void duong_di_silo()
             
             robotRun(1050, 10);
             while(CB_TU_NHAN_SILO == 1){if(wantExit())break;}
+
             robotStop(0);
         }
         else
@@ -157,6 +158,7 @@ void duong_di_silo()
 
             robotRun(-1050, 10);
             while(CB_TU_NHAN_SILO == 1){if(wantExit())break;}
+            
             robotStop(0);
         }
     }
@@ -300,40 +302,44 @@ void di_chuyen()        //viet lai di chuyen --> dung laze de chay
 
 void nhan_bong_trong_silo()
 {
-    if(bien_nho_bong_trong_silo[5] == 1 && bien_nho_bong_trong_silo[1] == 1 && bien_nho_bong_trong_silo[2] == 1 && bien_nho_bong_trong_silo[3] == 1 && bien_nho_bong_trong_silo[4] == 1)
+    //khi robot dung moi kiem tra
+    if(robotIsRun() == 1)
     {
-        bien_nho_bong_trong_silo[0]=1;
-    }
-    if(CB_BONG_1 == 1)                                                              //chua co bong thi tha bong roi cho so bong = 1
-    {
-        bien_nhan_bong = 1;
-        
-        bien_nho_bong_trong_silo[silo_so] = 1;
-    }
+        if(bien_nho_bong_trong_silo[5] == 1 && bien_nho_bong_trong_silo[1] == 1 && bien_nho_bong_trong_silo[2] == 1 && bien_nho_bong_trong_silo[3] == 1 && bien_nho_bong_trong_silo[4] == 1)
+        {
+            bien_nho_bong_trong_silo[0]=1;
+        }
+        if(CB_BONG_1 == 1)                                                              //chua co bong thi tha bong roi cho so bong = 1
+        {
+            bien_nhan_bong = 1;
+            
+            bien_nho_bong_trong_silo[silo_so] = 1;
+        }
 
-    else if(CB_BONG_1 == 0 && CB_BONG_2 == 0 && CB_BONG_3 == 0)                     //silo da co 3 bong va bo qua 
-    {
-        bien_nhan_bong = 0;
+        else if(CB_BONG_1 == 0 && CB_BONG_2 == 0 && CB_BONG_3 == 0)                     //silo da co 3 bong va bo qua 
+        {
+            bien_nhan_bong = 0;
+            
+            bien_nho_bong_trong_silo[silo_so] = 3;
+        }
         
-        bien_nho_bong_trong_silo[silo_so] = 3;
-    }
-    
-    else if(CB_BONG_1 == 0 && CB_BONG_2 == 0)                                       //co 2 bong thi tha bong roi cho so bong = 3
-    {
-        bien_nhan_bong = 1;
+        else if(CB_BONG_1 == 0 && CB_BONG_2 == 0)                                       //co 2 bong thi tha bong roi cho so bong = 3
+        {
+            bien_nhan_bong = 1;
+            
+            bien_nho_bong_trong_silo[silo_so] = 3;
+        }
         
-        bien_nho_bong_trong_silo[silo_so] = 3;
-    }
-    
-/*
-    co 1 bong thi kiem tra:
-    - neu tat ca da 1 bong thi tha bong va len so bong 2
-    - neu khong thi di chuyen theo huong da cai
-*/
-    else if(CB_BONG_1 == 0)
-    {
-        if(bien_nho_bong_trong_silo[0] == 1)    bien_nho_bong_trong_silo[silo_so] = 2, bien_nho_silo_co_2_bong = silo_so, bien_nhan_bong = 1;
-        else                                    bien_nhan_bong = 0, bien_nho_bong_trong_silo[silo_so] = 1;
+    /*
+        co 1 bong thi kiem tra:
+        - neu tat ca da 1 bong thi tha bong va len so bong 2
+        - neu khong thi di chuyen theo huong da cai
+    */
+        else if(CB_BONG_1 == 0)
+        {
+            if(bien_nho_bong_trong_silo[0] == 1)    bien_nho_bong_trong_silo[silo_so] = 2, bien_nho_silo_co_2_bong = silo_so, bien_nhan_bong = 1;
+            else                                    bien_nhan_bong = 0, bien_nho_bong_trong_silo[silo_so] = 1;
+        }
     }
 }
 
@@ -569,7 +575,7 @@ void do_bong()
             // while (robotAngle() < -900){}
             while(ENCODER_TONG() < 200);
 
-            robotStop(0);
+            robotStop(20);
         }
         else
         {    

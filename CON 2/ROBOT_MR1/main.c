@@ -52,7 +52,7 @@ static void taskRobotAnalytics(void *pvParameters) {
 		kiem_tra_dung_tuong_trong_Analystics();
 
 		if(bit_khoa_ham_chay_thay_tuan == 0)robotAnalytics();
-		vTaskDelay(5);
+		vTaskDelay(1);
 	}
 }
 static void taskMain(void *pvParameters)

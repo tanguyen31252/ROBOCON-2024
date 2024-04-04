@@ -146,7 +146,7 @@ void robotLock()
 {
 	_lockRobot = 1;
 }
-int robotIsRun()
+int robotIsRun()		//0: chay			//1: dung
 {
 	return (_robotAngle == 30000)? 0: 1;
 }
