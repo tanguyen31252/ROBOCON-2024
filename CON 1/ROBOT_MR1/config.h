@@ -76,9 +76,9 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 
 #define cam_bien_laze_truoc										        _ADC1_Value[7]                  //cb_laze_doc
 //=============================LAZE SAN DO==================================
-#define cam_bien_laze_ngang_do									        _ADC1_Value[6]                  //cb_laze_ngang san do
+#define cam_bien_laze_ngang_do									        _ADC1_Value[6]                  //cb_laze_ngang san do			ben phai
 //=============================LAZE SAN XAN=================================
-#define cam_bien_laze_ngang_xanh								        _ADC1_Value[4]                  //cb_laze_ngang san xanh
+#define cam_bien_laze_ngang_xanh								        _ADC1_Value[4]                  //cb_laze_ngang san xanh		ben trai
 
 ////================================INPUT======================================//
 #define CB_KEP_LUA_4									GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_0)               
@@ -178,7 +178,7 @@ int giamphe[2][6]		=				{
 int gocxoay_thoc[4][7]	=				{           //1     //2     //3     //4     //5     //6
 /******************************************************	ROBOT BINH THUONG		***************************************************/
                                             {0,     480,    370,    405,    393,    340,	322},								//san xanh
-                                            {0,     420,	466,	505,	523,	550,	577}, 								//san do
+                                            {0,     430,	470,	500,	520,	545,	570}, 								//san do
 /******************************************************	abs(_IMUAngle) > 800	***************************************************/
 											{0,		933,	933,	898,	869,	829,	818},
 											{0,		520,	550,	580,	610,	640,	670},

@@ -96,7 +96,8 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 #define CB_TU_NHAN_SILO							GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_5)						//CB_TU_NHAN_SILO				
 #define CB_TU_DUNG_LAY_BANH						GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_10)					//CB DUNG KHONG LAY BONG NUA 
 
-#define NUT_START		  					    GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_7)
+//#define NUT_RETRY								GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_7)						//
+#define NUT_START		  					    GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_7)						//
 #define HT_DUNG									GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_4)						//HT_PHAI								0
 
 #define CB_DUNG_BANG_TAI						GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_12)					//cam bien dung bang tai				1
@@ -124,8 +125,8 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 ///////////////////////KET THUC KHAI BAO  NHUNG CHAN MAC DINH/////////////////////////////////////////
 vs32 	sieu_am, num_over_t1=0, num_over_t2=0, num_over_t3=0, num_over_t4=0, num_over_t5=0, CCR2_Val, HMI_LOOP;
 vs16 	IMU,IMUxoay;
-vu8 	data_tx_gyro, en_gyro, dataTxGyro, enGyro, Bien_vong = 0, Bien_nang = 1, Cap_vong = 0, Keo_loxo = 0, bien_nang_tam = 10; 
-int 	lazeSauValue, lazeNgangDoValue, lazeNgangXanhValue, i=0;
+vu8 	data_tx_gyro, en_gyro, dataTxGyro, enGyro; 
+int 	lazeSauValue, lazeNgangDoValue, lazeNgangXanhValue, i=0, j=0;
 int 	noise, noise1;
 int		BT_Nang_goc_ban_value =0, BT_Dia_xoay_value =0;
 vu16 	_ADC1_Value[8];
@@ -137,7 +138,7 @@ extern unsigned char GP_BTN [15];
 extern int _robotIMUAngle;
 
 char bit_khoa_ham_chay_thay_tuan=0;
-int end = 0, bien_cham_tuong = 0, bien_ve_xuat_phat = 3;
+int end = 0, bien_cham_tuong = 0, bien_ve_xuat_phat = 0;
 int silo_so = 5, silo_vua_chay = 0, silo_sap_bo = 0;
 char bien_di_chuyen = 0; //0 la trai, 1 la phai
 int bien_day_bong_ra_ngoai = 0, bien_dung_bang_tai = 0;
@@ -146,7 +147,7 @@ int random(int minN, int maxN){
 }
 int test_nut = 0;
 int bien_nho_bong_trong_silo[6]			={
-											0,                      //neu ca 5 silo cung bang 1 so thi bien_nho_bong_trong_silo[0] se = so do
+											0,                      //neu ca 5 silo cung bang 1 so thi bien_nho_bong_trong_silo[0] se = 1
 											0,                      //bien_nho_bong_trong_silo[1] == silo_so 1 
 											0,                      //bien_nho_bong_trong_silo[2] == silo_so 2 
 											0,                      //bien_nho_bong_trong_silo[3] == silo_so 3 
@@ -154,7 +155,7 @@ int bien_nho_bong_trong_silo[6]			={
 											0,                      //bien_nho_bong_trong_silo[5] == silo_so 5 
 };
 int bien_nho_bong_da_tha_trong_silo[6]={
-											0,                      //neu ca 5 silo cung bang 1 so thi bien_nho_bong_trong_silo[0] se = so do
+											0,                      //neu ca 5 silo cung bang 1 so thi bien_nho_bong_trong_silo[0] se = 1
 											0,                      //bien_nho_bong_trong_silo[1] == silo_so 1 
 											0,                      //bien_nho_bong_trong_silo[2] == silo_so 2 
 											0,                      //bien_nho_bong_trong_silo[3] == silo_so 3 
@@ -162,8 +163,8 @@ int bien_nho_bong_da_tha_trong_silo[6]={
 											0,                      //bien_nho_bong_trong_silo[5] == silo_so 5 
 };
 int laze_silo[2][6]={	
-										{	0, 302, 230, 159, 84, 13},
-										{	0, 302, 230, 159, 84, 13},
+										{	0, 302, 230, 159, 84, 13},				//san xanh
+										{	0, 310, 238, 165, 90, 18},				//san do
 };
 int bong_trong_silo = 0;
 int bien_nho_silo_co_2_bong = 0, bien_do_bong = 0, bien_chay_cap_thanh = 0;;
@@ -1116,6 +1117,8 @@ void resetIMU(void) {
 	SEND_UART(1,'a');
 	delay_ms(10);
 }
+
+
 void run_read_gyro_uart3(void) { 
 	u32 i;
 	enGyro=0;
@@ -1138,17 +1141,17 @@ void HMI_TRAN(vs32 _so_dong) {
 									_ghep_bit[0]=0;
 									_chu_cac_bit[0]=0;
 							switch (_so_dong) {
-										case 0:
-										if(NUT_CHUYEN_SAN == 0)
-										{
-											GPIO_WriteBit(GPIOC,GPIO_Pin_15,0);
-											HMI_DMI("ROBOT DANG CHAY SAN XANH:   ",	GPIO_ReadOutputDataBit(GPIOC,GPIO_Pin_15),0);
-										}
-										else
-										{
-											GPIO_WriteBit(GPIOC,GPIO_Pin_15,1);
-											HMI_DMI("ROBOT DANG CHAY SAN DO:   ",	GPIO_ReadOutputDataBit(GPIOC,GPIO_Pin_15),0);
-										}		
+									case 0:
+									if(NUT_CHUYEN_SAN == 0)
+									{
+										GPIO_WriteBit(GPIOC,GPIO_Pin_15,0);
+										HMI_DMI("ROBOT DANG CHAY SAN XANH:   ",	GPIO_ReadOutputDataBit(GPIOC,GPIO_Pin_15),0);
+									}
+									else
+									{
+										GPIO_WriteBit(GPIOC,GPIO_Pin_15,1);
+										HMI_DMI("ROBOT DANG CHAY SAN DO:   ",	GPIO_ReadOutputDataBit(GPIOC,GPIO_Pin_15),0);
+									}		
 										break;
 									case 1:
 										HMI_DMI("IMU:", _robotIMUAngle,1);
@@ -1157,37 +1160,37 @@ void HMI_TRAN(vs32 _so_dong) {
 										HMI_DMI("ENCODER_TONG:", ENCODER_TONG(),2);
 										break;
 									case 3:
-										HMI_DMI("laze xanh", lazeNgangXanhValue,3);
+										HMI_DMI("laze do: ", lazeNgangDoValue,3);
 										break;
 									case 4:
-										HMI_DMI("laze do:", lazeNgangDoValue,4);
+										HMI_DMI("laze xanh:", lazeNgangXanhValue,4);
 										break;
 									case 5: 
 										HMI_DMI("laze sau",lazeSauValue,5);
 										break;
 									case 6:
-										HMI_DMI("GAME PAD:",GP_BTN[0],6);
+										HMI_DMI("do laze:",do_laze_silo,6);
 										break;
 									case 7:
 										HMI_DMI("LJOY_LR:",GP_BTN[4],7); 
 										break;
 									case 8:
-										HMI_DMI("xuat phat ve: ", bien_ve_xuat_phat,8);
+										HMI_DMI("i: ", i,8);
 										break;
 									case 9:
-										HMI_DMI("bien dung bang tai:", bien_dung_bang_tai,9);
+										HMI_DMI("j: ", j,9);
 										break;
 									case 10: 
 										HMI_DMI("silo_vua_chay: ",silo_vua_chay,10);
 										break;
 									case 11: 
-										HMI_DMI("bien_nhan_bong: ",bien_nhan_bong,11);
+										HMI_DMI("bien 2 bong: ",bien_nho_silo_co_2_bong,11);
 										break;
 									case 12: 
-										HMI_DMI("end: ",end,12);
+										HMI_DMI("bong trong silo[0]: ",bien_nho_bong_trong_silo[0],12);
 										break;
 									case 13: 
-										HMI_DMI("laze ngang xanh: ", lazeNgangXanhValue, 13);
+										HMI_DMI("bong trong silo_so: ", bien_nho_bong_trong_silo[silo_so], 13);
 										break;
 									case 14: 
 										HMI_DMI("silo_so: ",silo_so,14);
@@ -1204,7 +1207,7 @@ void HMI_TRAN(vs32 _so_dong) {
 										strcat(_chu_cac_bit,_ghep_bit);
 										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_10));					//CB_TU_DUNG_LAY_BANH
 										strcat(_chu_cac_bit,_ghep_bit);
-										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_7));
+										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_7));					//NUT RETRY
 										strcat(_chu_cac_bit,_ghep_bit);
 										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_6));
 										strcat(_chu_cac_bit,_ghep_bit);

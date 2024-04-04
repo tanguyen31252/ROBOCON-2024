@@ -33,7 +33,7 @@ while(1)
 		vTaskDelay(15);
 	}
 }
-static void taskDieuKhienCoCau(void *pvParameters) {	
+static void taskDieuKhienCoCau(void *pvParameters) {
 	while(1) 
 	{	
 			dieuKhienCoCau();
@@ -89,17 +89,18 @@ static void taskMain(void *pvParameters)
 	
 	while(1) 
 	{
-		while(gp_get_mode_uart()  == GP_MODE_ANALOGUE_RED_LED) 
-		{
-			robotGamePadControl();
-			if(!NUT_START)                                      {test_nut = 11,di_chuyen_ve();}
+//		while(gp_get_mode_uart()  == GP_MODE_ANALOGUE_RED_LED) 
+//		{
+//			robotGamePadControl();
+			if(!NUT_START)                                  {test_nut = 11,retry();}
+//            else if(!NUT_RETRY)								{bien_ve_xuat_phat = 999, retry();}
 //			else if(NUT_1 == 1)                             {XuatPhat_1();}
 //			if(NUT_2 == 1)                                  {test_nut = 22;}
 //			if(NUT_3 == 1)                                  {test_nut = 33;}
 //			if(NUT_4 == 0)                                  {test_nut = 44,XuatPhat_4();}
 //			if(NUT_5 == 0)                                  {test_nut = 55,XuatPhat_5();}
 		
-		}
+//		}
 		
 	}
 	

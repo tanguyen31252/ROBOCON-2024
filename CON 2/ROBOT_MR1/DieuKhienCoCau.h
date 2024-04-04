@@ -70,8 +70,7 @@ void ADCValue_Control(void)
     if(lazeTruocCouter++ < 20)	lazeTruoc_SUM += cam_bien_laze_truoc;  
     else
     {
-        lazeSauValue = lazeTruoc_SUM/20
-        ;
+        lazeSauValue = lazeTruoc_SUM/20;
         lazeTruocCouter = 0;
         lazeTruoc_SUM = 0;
     }
