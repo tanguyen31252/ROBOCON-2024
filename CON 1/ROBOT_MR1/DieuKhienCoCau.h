@@ -8,7 +8,7 @@ int san_2_5_d = 410,                san_2_6_d = 460;
 
 void laze_san_2()
 {
-    if(abs(_robotIMUAngle) > 800)
+    if(abs(_robotIMUAngle) > 700)
     {
         if     (LAZEDOC_2[2] > lazeTruocValue && lazeTruocValue > LAZEDOC_2[1])                 {ban_thoc = tocdo[0][0], ban_lep = tocdo[1][0], goc_xoay_thoc = gocxoay_thoc[SAN+2][1], goc_xoay_lep = gocxoay_lep[SAN+2][1];}              //vi tri 1
         else if(LAZEDOC_2[3] > lazeTruocValue && lazeTruocValue > LAZEDOC_2[2])                 {ban_thoc = tocdo[0][1], ban_lep = tocdo[1][1], goc_xoay_thoc = gocxoay_thoc[SAN+2][2], goc_xoay_lep = gocxoay_lep[SAN+2][2];}
@@ -372,7 +372,7 @@ void LayvaBanthoc()
         }
         else Mor_Dia_xoay = 0;
 
-        delay_ms(2000);
+        delay_ms(1000);
         NAP_DAN_OFF;
         LAY_BONG_OFF;
         HOT_BANH_ON;
@@ -405,7 +405,7 @@ void LayvaBanthoc()
         }
         else Mor_Dia_xoay = 0;
 
-        delay_ms(2000);
+        delay_ms(1000);
         NAP_DAN_OFF;
         LAY_BONG_OFF;
         HOT_BANH_ON;

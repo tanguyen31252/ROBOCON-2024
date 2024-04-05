@@ -134,7 +134,7 @@ void duong_di_silo()
         
         while(ENCODER_TONG() < 700 && CB_CAP_THANH == 1){robotRunAngle(1800, 50, 0, 0);}
         
-        while(CB_CAP_THANH == 1){/*robotRunAngle(1800, 20, -robotAngle(), 1.5)*/robotRun(1800, 20);}
+        while(CB_CAP_THANH == 1){robotRun(1800, 20);}
 
         reset_all();
 
