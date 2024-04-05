@@ -106,3 +106,7 @@ tốc độ  10
 19h36 4/4 --BBA
 3 trái đầu thành công,nhớ pull về
 nhớ đọc tốc độ tương ứng robotStop
+
+
+21h48 5/4 --BBA
+hạn chế sửa tối đa góc bắn của CON1 và tập trung vào CON2
