@@ -106,3 +106,7 @@ tốc độ  10
 19h36 4/4 --BBA
 3 trái đầu thành công,nhớ pull về
 nhớ đọc tốc độ tương ứng robotStop
+
+
+22:00 240405 --Nguyên
+thêm được hàm tự xoay lại nòng bắn.
