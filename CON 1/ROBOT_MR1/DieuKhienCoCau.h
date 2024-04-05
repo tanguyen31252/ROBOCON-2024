@@ -40,7 +40,7 @@ void laze_san_2()
     }
 }
 
-void giu_Mam_Xoay()
+void giu_nong_xoay()
 {
     // if(BT_Dia_xoay_value < Min_BT_Xoay - 10 || BT_Dia_xoay_value > Max_BT_Xoay + 10)  {Mor_Dia_xoay = 2; return;}
     // if(abs(BT_Dia_xoay_value - taget_BT_Xoay) > 3)
@@ -52,6 +52,21 @@ void giu_Mam_Xoay()
     //     Mor_Dia_xoay = speed_temp;
     // }
     // else Mor_Dia_xoay = 2;
+    i=100;
+    if(BT_Dia_xoay_value > 400)
+    {
+        Mor_Dia_xoay = i, Mor_Dia_xoay_phai;
+        while(BT_Dia_xoay_value > 400){if(wantExit())break;}
+        Mor_Dia_xoay = 0;
+    }
+    else if(BT_Dia_xoay_value < 400)
+    {
+        Mor_Dia_xoay = i, Mor_Dia_xoay_trai;
+        while(BT_Dia_xoay_value < 400){if(wantExit())break;}
+        Mor_Dia_xoay = 0;
+    }
+    else Mor_Dia_xoay = 0;
+
 }
 //--------------------------- TEST CO CAU ------------------------------------------
 void testDiaxoay() 
@@ -362,6 +377,7 @@ void LayvaBanthoc()
         LAY_BONG_OFF;
         HOT_BANH_ON;
         Mor_xoay_trai = Mor_xoay_phai = Mor_giam_phe = 0;
+        giu_nong_xoay();
     }
     
 //-----------------------------BAN LEP--------------------------------------------------------
@@ -394,6 +410,7 @@ void LayvaBanthoc()
         LAY_BONG_OFF;
         HOT_BANH_ON;
         Mor_xoay_trai = Mor_xoay_phai = Mor_giam_phe = 0;
+        giu_nong_xoay();
     }
 //***********************************************************************************    
 }
