@@ -138,7 +138,7 @@ extern unsigned char GP_BTN [15];
 extern int _robotIMUAngle;
 
 char bit_khoa_ham_chay_thay_tuan=0;
-int end = 0, bien_cham_tuong = 0, bien_ve_xuat_phat = 0;
+int end = 0, bien_cham_tuong = 0, bien_ve_xuat_phat = 2;
 int silo_so = 5, silo_vua_chay = 0, silo_sap_bo = 0;
 char bien_di_chuyen = 0; //0 la trai, 1 la phai
 int bien_day_bong_ra_ngoai = 0, bien_dung_bang_tai = 0;
@@ -162,9 +162,13 @@ int bien_nho_bong_da_tha_trong_silo[6]={
 											0,                      //bien_nho_bong_trong_silo[4] == silo_so 4 
 											0,                      //bien_nho_bong_trong_silo[5] == silo_so 5 
 };
-int laze_silo[2][6]={							//1		//2		//3		//4		//5
-										{	0, 	302,	230,	159,	84,		13},				//san xanh
-										{	0, 	310, 	238,	165,	90,		18},				//san do
+//int laze_silo[2][6]={							//1		//2		//3		//4		//5
+//										{	0, 	302,	230,	159,	84,		13},				//san xanh
+//										{	0, 	310, 	238,	165,	90,		18},				//san do
+//                                    };
+int laze_silo[2][6]={	
+										{	0, 302, 230, 159, 84, 13},				//san xanh
+										{	0, 310+20, 238+20, 165+20, 90+20, 18+20},				//san do 19h15 4/4
 };
 int bong_trong_silo = 0;
 int bien_nho_silo_co_2_bong = 0, bien_do_bong = 0, bien_chay_cap_thanh = 0;;
