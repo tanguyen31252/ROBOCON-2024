@@ -28,7 +28,7 @@ void laze_san_2()
             else if(LAZENGANG_2[SAN][3] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][4])       {vi_tri_laze =4,ban_thoc = tocdo[0][2], ban_lep = tocdo[1][2], goc_xoay_thoc = gocxoay_thoc[SAN][4], goc_xoay_lep = gocxoay_lep[SAN][4], phe_thoc = giamphe[0][2], phe_lep = giamphe[1][2];}
             else if(LAZENGANG_2[SAN][2] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][3])       {vi_tri_laze =3,ban_thoc = tocdo[0][3], ban_lep = tocdo[1][3], goc_xoay_thoc = gocxoay_thoc[SAN][3], goc_xoay_lep = gocxoay_lep[SAN][3], phe_thoc = giamphe[0][3], phe_lep = giamphe[1][3];}
             else if(LAZENGANG_2[SAN][1] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][2])       {vi_tri_laze =2,ban_thoc = tocdo[0][4], ban_lep = tocdo[1][4], goc_xoay_thoc = gocxoay_thoc[SAN][2], goc_xoay_lep = gocxoay_lep[SAN][2], phe_thoc = giamphe[0][4], phe_lep = giamphe[1][4];}
-            else if(                                            lazeNgangDoValue < LAZENGANG_2[SAN][1])       {vi_tri_laze =1,ban_thoc = tocdo[0][5], ban_lep = tocdo[1][5], goc_xoay_thoc = gocxoay_thoc[SAN][1], goc_xoay_lep = gocxoay_lep[SAN][1], phe_thoc = giamphe[0][5], phe_lep = giamphe[1][5];}                //vi tri 6
+            else if(                                            lazeNgangXanhValue < LAZENGANG_2[SAN][1])       {vi_tri_laze =1,ban_thoc = tocdo[0][5], ban_lep = tocdo[1][5], goc_xoay_thoc = gocxoay_thoc[SAN][1], goc_xoay_lep = gocxoay_lep[SAN][1], phe_thoc = giamphe[0][5], phe_lep = giamphe[1][5];}                //vi tri 6
         }
         else
         {
@@ -353,13 +353,13 @@ void LayvaBanthoc()
         if(BT_Dia_xoay_value > goc_xoay_thoc)
         {
             Mor_Dia_xoay = i, Mor_Dia_xoay_phai;
-            while(BT_Dia_xoay_value > goc_xoay_thoc){if(wantExit())break;}
+            while(BT_Dia_xoay_value > goc_xoay_thoc+22){if(wantExit())break;}
             Mor_Dia_xoay = 0;
         }
         else if(BT_Dia_xoay_value < goc_xoay_thoc)
         {
             Mor_Dia_xoay = i, Mor_Dia_xoay_trai;
-            while(BT_Dia_xoay_value < goc_xoay_thoc){if(wantExit())break;}
+            while(BT_Dia_xoay_value < goc_xoay_thoc-22){if(wantExit())break;}
             Mor_Dia_xoay = 0;
         }
         else Mor_Dia_xoay = 0;
@@ -386,13 +386,13 @@ void LayvaBanthoc()
         if(BT_Dia_xoay_value > goc_xoay_lep)
         {
             Mor_Dia_xoay = i, Mor_Dia_xoay_phai;
-            while(BT_Dia_xoay_value > goc_xoay_lep){if(wantExit())break;}
+            while(BT_Dia_xoay_value > goc_xoay_lep+22){if(wantExit())break;}
             Mor_Dia_xoay = 0;
         }
         else if(BT_Dia_xoay_value < goc_xoay_lep)
         {
             Mor_Dia_xoay = i, Mor_Dia_xoay_trai;
-            while(BT_Dia_xoay_value < goc_xoay_lep){if(wantExit())break;}
+            while(BT_Dia_xoay_value < goc_xoay_lep-22){if(wantExit())break;}
             Mor_Dia_xoay = 0;
         }
         else Mor_Dia_xoay = 0;
