@@ -93,7 +93,7 @@ static void taskMain(void *pvParameters)
 		{
 			robotGamePadControl();
 			if(!START)                                  {test_nut = 11,THI();}
-//            else if(!NUT_RETRY)								{bien_ve_xuat_phat = 999, retry();}
+			else if(!NUT_START)							{retry();}
 //			else if(NUT_1 == 1)                             {XuatPhat_1();}
 //			if(NUT_2 == 1)                                  {test_nut = 22;}
 //			if(NUT_3 == 1)                                  {test_nut = 33;}

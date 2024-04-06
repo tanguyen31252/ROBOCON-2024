@@ -393,25 +393,25 @@ void bam_thanh_laze_ngang(float angle, int maxSpeed, float robotAngle, float ang
 	{
 		if(lazeNgangDoValue - laze_stable_ngang > num_stable_change)
 		{
-			robotRunAngle(angle + angle_fix, maxSpeed, robotAngle, 0.5);
+			robotRunAngle(angle + angle_fix, maxSpeed, robotAngle, 1);
 		}
 		else if(lazeNgangDoValue - laze_stable_ngang < num_stable_change)
 		{
-			robotRunAngle(angle - angle_fix, maxSpeed, robotAngle, 0.5);
+			robotRunAngle(angle - angle_fix, maxSpeed, robotAngle, 1);
 		}
-		else robotRunAngle(angle, maxSpeed, robotAngle, 0.2);
+		else robotRunAngle(angle, maxSpeed, robotAngle, 1);
 	}
 	else
 	{
 		if(lazeNgangXanhValue - laze_stable_ngang > num_stable_change)
 		{
-			robotRunAngle(angle + angle_fix, maxSpeed, robotAngle, 0.5);
+			robotRunAngle(angle + angle_fix, maxSpeed, robotAngle, 1);
 		}
 		else if(lazeNgangXanhValue - laze_stable_ngang < num_stable_change)
 		{
-			robotRunAngle(angle - angle_fix, maxSpeed, robotAngle, 0.5);
+			robotRunAngle(angle - angle_fix, maxSpeed, robotAngle, 1);
 		}
-		else robotRunAngle(angle, maxSpeed, robotAngle, 0.5);
+		else robotRunAngle(angle, maxSpeed, robotAngle, 1);
 	}
 }
 ////////////////////////////////////////////////////////////////////////////////
