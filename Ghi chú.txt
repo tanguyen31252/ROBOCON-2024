@@ -108,5 +108,5 @@ tốc độ  10
 nhớ đọc tốc độ tương ứng robotStop
 
 
-21h48 5/4 --BBA
-hạn chế sửa tối đa góc bắn của CON1 và tập trung vào CON2
+22:00 240405 --Nguyên
+đã thêm được hàm tự xoay nòng bắn.

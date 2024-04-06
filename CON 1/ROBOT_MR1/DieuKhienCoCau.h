@@ -6,9 +6,10 @@ int san_2_1_d = 210,                san_2_2_d = 260;
 int san_2_3_d = 310,                san_2_4_d = 360;
 int san_2_5_d = 410,                san_2_6_d = 460;
 
+
 void laze_san_2()
 {
-    if(abs(_robotIMUAngle) > 700)
+    if(abs(_robotIMUAngle) > 650)
     {
         if     (LAZEDOC_2[2] > lazeTruocValue && lazeTruocValue > LAZEDOC_2[1])                 {ban_thoc = tocdo[0][0], ban_lep = tocdo[1][0], goc_xoay_thoc = gocxoay_thoc[SAN+2][1], goc_xoay_lep = gocxoay_lep[SAN+2][1];}              //vi tri 1
         else if(LAZEDOC_2[3] > lazeTruocValue && lazeTruocValue > LAZEDOC_2[2])                 {ban_thoc = tocdo[0][1], ban_lep = tocdo[1][1], goc_xoay_thoc = gocxoay_thoc[SAN+2][2], goc_xoay_lep = gocxoay_lep[SAN+2][2];}
@@ -21,12 +22,13 @@ void laze_san_2()
     {
         if(SAN == 1)
         {
-            if     (LAZENGANG_2[SAN][2] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][1])       {ban_thoc = tocdo[0][0], ban_lep = tocdo[1][0], goc_xoay_thoc = gocxoay_thoc[SAN][1], goc_xoay_lep = gocxoay_lep[SAN][1], phe_thoc = giamphe[0][0], phe_lep = giamphe[1][0];}                //vi tri 1
-            else if(LAZENGANG_2[SAN][3] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][2])       {ban_thoc = tocdo[0][1], ban_lep = tocdo[1][1], goc_xoay_thoc = gocxoay_thoc[SAN][2], goc_xoay_lep = gocxoay_lep[SAN][2], phe_thoc = giamphe[0][1], phe_lep = giamphe[1][1];}
-            else if(LAZENGANG_2[SAN][4] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][3])       {ban_thoc = tocdo[0][2], ban_lep = tocdo[1][2], goc_xoay_thoc = gocxoay_thoc[SAN][3], goc_xoay_lep = gocxoay_lep[SAN][3], phe_thoc = giamphe[0][2], phe_lep = giamphe[1][2];}
-            else if(LAZENGANG_2[SAN][5] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][4])       {ban_thoc = tocdo[0][3], ban_lep = tocdo[1][3], goc_xoay_thoc = gocxoay_thoc[SAN][4], goc_xoay_lep = gocxoay_lep[SAN][4], phe_thoc = giamphe[0][3], phe_lep = giamphe[1][3];}
-            else if(LAZENGANG_2[SAN][6] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][5])       {ban_thoc = tocdo[0][4], ban_lep = tocdo[1][4], goc_xoay_thoc = gocxoay_thoc[SAN][5], goc_xoay_lep = gocxoay_lep[SAN][5], phe_thoc = giamphe[0][4], phe_lep = giamphe[1][4];}
-            else if(                                          lazeNgangDoValue < LAZENGANG_2[SAN][6])       {ban_thoc = tocdo[0][5], ban_lep = tocdo[1][5], goc_xoay_thoc = gocxoay_thoc[SAN][6], goc_xoay_lep = gocxoay_lep[SAN][6], phe_thoc = giamphe[0][5], phe_lep = giamphe[1][5];}                //vi tri 6
+            vi_tri_laze = 0;
+            if     (LAZENGANG_2[SAN][5] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][6])       {vi_tri_laze =6,tocdo[0][0], ban_lep = tocdo[1][0], goc_xoay_thoc = gocxoay_thoc[SAN][6], goc_xoay_lep = gocxoay_lep[SAN][6], phe_thoc = giamphe[0][0], phe_lep = giamphe[1][0];}                //vi tri 1
+            else if(LAZENGANG_2[SAN][4] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][5])       {vi_tri_laze =5,ban_thoc = tocdo[0][1], ban_lep = tocdo[1][1], goc_xoay_thoc = gocxoay_thoc[SAN][5], goc_xoay_lep = gocxoay_lep[SAN][5], phe_thoc = giamphe[0][1], phe_lep = giamphe[1][1];}
+            else if(LAZENGANG_2[SAN][3] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][4])       {vi_tri_laze =4,ban_thoc = tocdo[0][2], ban_lep = tocdo[1][2], goc_xoay_thoc = gocxoay_thoc[SAN][4], goc_xoay_lep = gocxoay_lep[SAN][4], phe_thoc = giamphe[0][2], phe_lep = giamphe[1][2];}
+            else if(LAZENGANG_2[SAN][2] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][3])       {vi_tri_laze =3,ban_thoc = tocdo[0][3], ban_lep = tocdo[1][3], goc_xoay_thoc = gocxoay_thoc[SAN][3], goc_xoay_lep = gocxoay_lep[SAN][3], phe_thoc = giamphe[0][3], phe_lep = giamphe[1][3];}
+            else if(LAZENGANG_2[SAN][1] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][2])       {vi_tri_laze =2,ban_thoc = tocdo[0][4], ban_lep = tocdo[1][4], goc_xoay_thoc = gocxoay_thoc[SAN][2], goc_xoay_lep = gocxoay_lep[SAN][2], phe_thoc = giamphe[0][4], phe_lep = giamphe[1][4];}
+            else if(                                            lazeNgangDoValue < LAZENGANG_2[SAN][1])       {vi_tri_laze =1,ban_thoc = tocdo[0][5], ban_lep = tocdo[1][5], goc_xoay_thoc = gocxoay_thoc[SAN][1], goc_xoay_lep = gocxoay_lep[SAN][1], phe_thoc = giamphe[0][5], phe_lep = giamphe[1][5];}                //vi tri 6
         }
         else
         {
@@ -40,18 +42,23 @@ void laze_san_2()
     }
 }
 
-void giu_Mam_Xoay()
+void giu_nong_xoay()
 {
-    // if(BT_Dia_xoay_value < Min_BT_Xoay - 10 || BT_Dia_xoay_value > Max_BT_Xoay + 10)  {Mor_Dia_xoay = 2; return;}
-    // if(abs(BT_Dia_xoay_value - taget_BT_Xoay) > 3)
-    // {
-    //     if(BT_Dia_xoay_value > taget_BT_Xoay) Mor_Dia_xoay_phai;
-    //     else Mor_Dia_xoay_trai;
-    //     speed_temp = (int)fabs(BT_Dia_xoay_value - taget_BT_Xoay)*max_speed/(Max_BT_Xoay - Min_BT_Xoay);
-    //     if(speed_temp < 35) speed_temp = 35;
-    //     Mor_Dia_xoay = speed_temp;
-    // }
-    // else Mor_Dia_xoay = 2;
+    i=100;
+    if(BT_Dia_xoay_value > 450)
+    {
+        Mor_Dia_xoay = i, Mor_Dia_xoay_phai;
+        while(BT_Dia_xoay_value > 450){if(wantExit())break;}
+        Mor_Dia_xoay = 0;
+    }
+    else if(BT_Dia_xoay_value < 450)
+    {
+        Mor_Dia_xoay = i, Mor_Dia_xoay_trai;
+        while(BT_Dia_xoay_value < 450){if(wantExit())break;}
+        Mor_Dia_xoay = 0;
+    }
+    else Mor_Dia_xoay = 0;
+
 }
 //--------------------------- TEST CO CAU ------------------------------------------
 void testDiaxoay() 
@@ -362,6 +369,7 @@ void LayvaBanthoc()
         LAY_BONG_OFF;
         HOT_BANH_ON;
         Mor_xoay_trai = Mor_xoay_phai = Mor_giam_phe = 0;
+        giu_nong_xoay();
     }
     
 //-----------------------------BAN LEP--------------------------------------------------------
@@ -394,6 +402,7 @@ void LayvaBanthoc()
         LAY_BONG_OFF;
         HOT_BANH_ON;
         Mor_xoay_trai = Mor_xoay_phai = Mor_giam_phe = 0;
+        giu_nong_xoay();
     }
 //***********************************************************************************    
 }

@@ -52,7 +52,7 @@ static void taskRobotAnalytics(void *pvParameters) {
 		kiem_tra_dung_tuong_trong_Analystics();
 
 		if(bit_khoa_ham_chay_thay_tuan == 0)robotAnalytics();
-		vTaskDelay(5);
+		vTaskDelay(1);
 	}
 }
 static void taskMain(void *pvParameters)
@@ -93,7 +93,7 @@ static void taskMain(void *pvParameters)
 		{
 			robotGamePadControl();
 			if(!START)                                  {test_nut = 11,THI();}
-//            else if(!NUT_RETRY)								{bien_ve_xuat_phat = 999, retry();}
+			else if(!NUT_START)							{retry();}
 //			else if(NUT_1 == 1)                             {XuatPhat_1();}
 //			if(NUT_2 == 1)                                  {test_nut = 22;}
 //			if(NUT_3 == 1)                                  {test_nut = 33;}
