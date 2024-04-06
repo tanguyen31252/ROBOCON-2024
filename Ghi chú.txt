@@ -110,3 +110,6 @@ nhớ đọc tốc độ tương ứng robotStop
 
 22:00 240405 --Nguyên
 đã thêm được hàm tự xoay nòng bắn.
+
+21:00 240406 --Nguyên
+đã chạy được sân đỏ của con 2 --> test run.
