@@ -191,15 +191,15 @@ void duong_di_silo()
 
 /**************DANG DUNG CHAN DOC *****************************/
             robotRunAngle(1800, 30, -900, 1.5);
-            while(lazeNgangDoValue < 40){if(wantExit())break;}
+            while(lazeNgangDoValue < 30){if(wantExit())break;}
                         
             robotRunAngle(1800, 30, -900, 1.5);
-            while(lazeNgangDoValue < 120 && lazeNgangDoValue > 40){if(wantExit())break;}
+            while(lazeNgangDoValue < 180 && lazeNgangDoValue > 30){if(wantExit())break;}
             
 /**************DANG DUNG GIUA DOC********************************/
             RESET_ENCODER();
             robotRunAngle(1800, 30, -450, 1.5);
-            while(ENCODER_TONG() < 1221){};
+            while(ENCODER_TONG() < 3000){};
 /**************DANG DUNG DAU DOC********************************/
             RESET_ENCODER();
             robotRunAngle(1800, 50, 0, 2);
@@ -721,7 +721,7 @@ void do_bong()
                         while(ENCODER_TONG() < 2000){robotRunAngle(900, 30, robotFixAngle(),1.5);}
                     }
                 }
-            }
+            } 
         }
         XL_HOT_BONG_BAT_LEN;
     }
