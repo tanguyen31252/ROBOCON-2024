@@ -198,7 +198,7 @@ void duong_di_silo()
             
 /**************DANG DUNG GIUA DOC********************************/
             RESET_ENCODER();
-            robotRunAngle(1800, 30, -1350, 1.5);
+            robotRunAngle(1800, 30, -450, 1.5);
             while(ENCODER_TONG() < 1221){};
 /**************DANG DUNG DAU DOC********************************/
             RESET_ENCODER();
@@ -590,13 +590,14 @@ void do_bong()
                 end = ENCODER_TONG();
                 RESET_ENCODER();
                 robotRunAngle(1800, 70, 0, 0);
-                while(ENCODER_TONG() < end/3){}
+                while(ENCODER_TONG() < end*2/3){}
                 if(NUT_CHUYEN_SAN == 1)
                 {
-                    if(bien_chay_cap_thanh % 3 == 0)
+                    if(bien_chay_cap_thanh % 2 == 0)
                     {
+                        RESET_ENCODER();
                         robotRunAngle(900, 50, 0, 0);
-                        while(lazeNgangDoValue > 20){if(wantExit()) break;}
+                        while(ENCODER_TONG() < 3500){if(wantExit()) break;}
                     }
                     else
                     {
@@ -607,10 +608,11 @@ void do_bong()
                 }
                 else
                 {
-                    if(bien_chay_cap_thanh % 3 == 0)
+                    if(bien_chay_cap_thanh % 2 == 0)
                     {
+                        RESET_ENCODER();
                         robotRunAngle(-900, 50, 0, 0);
-                        while(lazeNgangXanhValue > 20){if(wantExit()) break;}
+                        while(ENCODER_TONG() < 3500){if(wantExit()) break;}
                     }
                     else
                     {
@@ -694,8 +696,16 @@ void do_bong()
 
                 if(NUT_CHUYEN_SAN == 1)
                 {
-                    RESET_ENCODER();
-                    while(ENCODER_TONG() < 2000){robotRunAngle(-900, 30, robotFixAngle(),1.5);}
+                    if(bien_chay_cap_thanh % 3 == 0)
+                    {
+                        robotRunAngle(900, 50, 0, 0);
+                        while(lazeNgangDoValue > 20){if(wantExit()) break;}
+                    }
+                    else
+                    {
+                        RESET_ENCODER();
+                        while(ENCODER_TONG() < 2000){robotRunAngle(-900, 30, robotFixAngle(),1.5);}
+                    }
                 }
                 else
                 {
@@ -709,6 +719,7 @@ void do_bong()
                     {
                         RESET_ENCODER();
                         while(ENCODER_TONG() < 2000){robotRunAngle(900, 30, robotFixAngle(),1.5);}
+                    }
                 }
             }
         }
