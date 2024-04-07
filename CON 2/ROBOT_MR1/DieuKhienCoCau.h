@@ -49,13 +49,13 @@ void robotGamePadControl(void) {
     if(rJoy_LR) robotRotateStop();
     else if((RJOY_LR < 5) && L2)
     {
-        if(robotIsRun()) robotRotateFree(-1.5,0, tocdo);
+        if(robotIsRun()) robotRotateFree(-1.5,0);
         //else robotRotateFree(-tocdoXoay,0);
 				else {bit_khoa_ham_chay_thay_tuan = 1;setMotor(-toc_do_xoay_free,toc_do_xoay_free,-toc_do_xoay_free,toc_do_xoay_free);}
     }
     else if((RJOY_LR > 250) && L2)
     {
-        if(robotIsRun()) robotRotateFree(1.5,0, tocdo);
+        if(robotIsRun()) robotRotateFree(1.5,0);
         //else robotRotateFree(tocdoXoay,0);
 				else {bit_khoa_ham_chay_thay_tuan = 1;setMotor(toc_do_xoay_free,-toc_do_xoay_free,toc_do_xoay_free,-toc_do_xoay_free);}
     }
@@ -75,10 +75,10 @@ void ADCValue_Control(void)
         lazeTruoc_SUM = 0;
     }
 //------------------------
-    if(lazeNgang_Counter_do++ < 20)	lazeNgang_SUM_do += cam_bien_laze_ngang_do;  
+    if(lazeNgang_Counter_do++ < 100)	lazeNgang_SUM_do += cam_bien_laze_ngang_do;  
     else
     {
-        lazeNgangDoValue = lazeNgang_SUM_do/20;
+        lazeNgangDoValue = lazeNgang_SUM_do/100;
         lazeNgang_Counter_do = 0;
         lazeNgang_SUM_do = 0;
     }

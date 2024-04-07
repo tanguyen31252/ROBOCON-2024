@@ -339,13 +339,13 @@ void robotCurve(int angle, int maxSpeed, float curve)
 	}
 }
 //------------------------------------------------------------------------------
-void robotRotate(int rotateAngle, float rotate, int rotatePoint, int maxSpeed)
+void robotRotate(int rotateAngle, float rotate, int rotatePoint)
 {
 	if(_robotRotateAngle != rotateAngle || _robotRotate != rotate || _robotRotatePoint != rotatePoint)
 	{
 		if(_robotAngle == 30000)
 		{
-			_robotRunSpeed = maxSpeed;//99
+			_robotRunSpeed = 99;//99
 			_robotCurrentSpeed = 5;
 
 			if(rotateAngle < 30000){// Quay theo goc no do
@@ -364,11 +364,11 @@ void robotRotate(int rotateAngle, float rotate, int rotatePoint, int maxSpeed)
 	}
 }
 //------------------------------------------------------------------------------
-void robotRotateFree(float rotate, int rotatePoint, int maxSpeed)
+void robotRotateFree(float rotate, int rotatePoint)
 {
 //	if(rotate>0)setMotor(rotate,-rotate,rotate,-rotate);	
 //	else setMotor(-rotate,rotate,-rotate,rotate);	
-	robotRotate(30000, rotate, rotatePoint, maxSpeed);
+	robotRotate(30000, rotate, rotatePoint);
 }
 //------------------------------------------------------------------------------		
 void robotRun(int angle, int maxSpeed)
@@ -383,7 +383,7 @@ void robotRunAngle(float angle, int maxSpeed, float robotAngle, float rotate)
 	{
 			_robotRunAngle = angle;
 			robotCurve(angle - _robotIMUAngle , maxSpeed, 0);
-			robotRotate(robotAngle, (abs(robotAngle - _robotIMUAngle) > 100? (robotAngle > _robotIMUAngle ? rotate: -rotate):(robotAngle - _robotIMUAngle)*0.005), 0, maxSpeed);
+			robotRotate(robotAngle, (abs(robotAngle - _robotIMUAngle) > 100? (robotAngle > _robotIMUAngle ? rotate: -rotate):(robotAngle - _robotIMUAngle)*0.005), 0);
 		}
 }
 //------------------------------------------------------------------------------
@@ -392,6 +392,11 @@ void robotAngleAnalytics(void)
 	if(_robotAngleCounterFix > 1)
 	{
 		if(absI(_robotRotateAngle - _robotIMUAngle) < 6){
+			_robotCurrentSpeed = 0;
+			_robotRunSpeed = 0;
+			_robotRotate = 0;
+
+			calculateMotor(_robotRotate);
 			if(_robotAngleCounterFix++ > 500)
 				{
 						robotStop(0);
