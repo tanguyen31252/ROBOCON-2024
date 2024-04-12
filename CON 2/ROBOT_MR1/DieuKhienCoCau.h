@@ -46,21 +46,36 @@ void robotGamePadControl(void) {
     if(UP && DOWN && RIGHT && LEFT && !rJoy_LR && lJoy_LR  && robotIsRun()) robotStop(5);   
 
     //-------------- Xoay ----------------
+//    if(rJoy_LR) robotRotateStop();
+//    else if((RJOY_LR < 5) && L2)
+//    {
+//        if(robotIsRun()) robotRotateFree(-1.5,0);
+//        //else robotRotateFree(-tocdoXoay,0);
+//				else {bit_khoa_ham_chay_thay_tuan = 1;setMotor(-toc_do_xoay_free,toc_do_xoay_free,-toc_do_xoay_free,toc_do_xoay_free);}
+//    }
+//    else if((RJOY_LR > 250) && L2)
+//    {
+//        if(robotIsRun()) robotRotateFree(1.5,0);
+//        //else robotRotateFree(tocdoXoay,0);
+//				else {bit_khoa_ham_chay_thay_tuan = 1;setMotor(toc_do_xoay_free,-toc_do_xoay_free,toc_do_xoay_free,-toc_do_xoay_free);}
+//    }
+
+//    else setMotor(2,2,2,2);bit_khoa_ham_chay_thay_tuan = 0;robotRotateStop();
     if(rJoy_LR) robotRotateStop();
     else if((RJOY_LR < 5) && L2)
     {
         if(robotIsRun()) robotRotateFree(-1.5,0);
         //else robotRotateFree(-tocdoXoay,0);
-				else {bit_khoa_ham_chay_thay_tuan = 1;setMotor(-toc_do_xoay_free,toc_do_xoay_free,-toc_do_xoay_free,toc_do_xoay_free);}
+				else {bit_khoa_ham_chay_thay_tuan = 1;setMotor(-toc_do_xoay_free,toc_do_xoay_free,-toc_do_xoay_free);}
     }
     else if((RJOY_LR > 250) && L2)
     {
         if(robotIsRun()) robotRotateFree(1.5,0);
         //else robotRotateFree(tocdoXoay,0);
-				else {bit_khoa_ham_chay_thay_tuan = 1;setMotor(toc_do_xoay_free,-toc_do_xoay_free,toc_do_xoay_free,-toc_do_xoay_free);}
+				else {bit_khoa_ham_chay_thay_tuan = 1;setMotor(toc_do_xoay_free,-toc_do_xoay_free,toc_do_xoay_free);}
     }
 
-    else setMotor(2,2,2,2);bit_khoa_ham_chay_thay_tuan = 0;robotRotateStop();
+    else setMotor(2,2,2);bit_khoa_ham_chay_thay_tuan = 0;robotRotateStop();
 	}
 //////-------------------------------------------------------------	
 void ADCValue_Control(void)

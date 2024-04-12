@@ -113,3 +113,6 @@ nhớ đọc tốc độ tương ứng robotStop
 
 21:00 240406 --Nguyên
 đã chạy được sân đỏ của con 2 --> test run.
+
+21:30 240412 --Nguyên
+cập nhật file của đội v-flame: V-FLAME\V-FLAME\V-FLAME

@@ -20,29 +20,50 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 
 ////////////////////// --KHAI BAO DINH NGHIA PWM-- /////////////////////////////////////
 //****************************************** 4 BANH XE ********************************************************
-#define	DIA_CHI_START1 										            DATA_SPEED[0]=255
+// #define	DIA_CHI_START1 										            DATA_SPEED[0]=255
+// #define	ID1 		 													DATA_SPEED[1]=1
+// #define Mor_FrontLeft_back 								                DATA_SPEED[2]=1
+// #define Mor_FrontLeft_next 								                DATA_SPEED[2]=0
+// #define	Mor_FrontLeft 										            DATA_SPEED[3]
+
+// #define	DIA_CHI_START2 										            DATA_SPEED[4]=255
+// #define	ID2 		 													DATA_SPEED[5]=2
+// #define Mor_FrontRight_back						                        DATA_SPEED[6]=0
+// #define Mor_FrontRight_next						                        DATA_SPEED[6]=1
+// #define	Mor_FrontRight		 		 				        		    DATA_SPEED[7]
+
+// #define	DIA_CHI_START3 									            	DATA_SPEED[8]=255
+// #define	ID3 		 													DATA_SPEED[9]=3
+// #define Mor_RearLeft_next						                        DATA_SPEED[10]=0
+// #define Mor_RearLeft_back							            	    DATA_SPEED[10]=1
+// #define	Mor_RearLeft 			 		 				        		DATA_SPEED[11]
+
+// #define	DIA_CHI_START4 										            DATA_SPEED[12]=255
+// #define	ID4 		 													DATA_SPEED[13]=4
+// #define Mor_RearRight_next							                	DATA_SPEED[14]=1
+// #define Mor_RearRight_back							                	DATA_SPEED[14]=0
+// #define	Mor_RearRight		 							        		DATA_SPEED[15]
+
+//****************************************** 3 BANH XE ********************************************************
+#define	DIA_CHI_START1													DATA_SPEED[0]=255
 #define	ID1 		 													DATA_SPEED[1]=1
-#define Mor_FrontLeft_back 								                DATA_SPEED[2]=1
-#define Mor_FrontLeft_next 								                DATA_SPEED[2]=0
-#define	Mor_FrontLeft 										            DATA_SPEED[3]
+#define mor_0h_back														DATA_SPEED[2]=1
+#define mor_0h_next														DATA_SPEED[2]=0
+#define	mor_0h															DATA_SPEED[3]
 
-#define	DIA_CHI_START2 										            DATA_SPEED[4]=255
-#define	ID2 		 													DATA_SPEED[5]=2
-#define Mor_FrontRight_back						                        DATA_SPEED[6]=0
-#define Mor_FrontRight_next						                        DATA_SPEED[6]=1
-#define	Mor_FrontRight		 		 				        		    DATA_SPEED[7]
+#define	DIA_CHI_START2													DATA_SPEED[4]=255
+#define	ID2																DATA_SPEED[5]=2
+#define mor_4h_back														DATA_SPEED[6]=0
+#define mor_4h_next														DATA_SPEED[6]=1
+#define	mor_4h															DATA_SPEED[7]
 
-#define	DIA_CHI_START3 									            	DATA_SPEED[8]=255
-#define	ID3 		 													DATA_SPEED[9]=3
-#define Mor_RearLeft_next						                        DATA_SPEED[10]=0
-#define Mor_RearLeft_back							            	    DATA_SPEED[10]=1
-#define	Mor_RearLeft 			 		 				        		DATA_SPEED[11]
+#define	DIA_CHI_START3													DATA_SPEED[8]=255
+#define	ID3																DATA_SPEED[9]=3
+#define mor_8h_next														DATA_SPEED[10]=0
+#define mor_8h_back														DATA_SPEED[10]=1
+#define	mor_8h															DATA_SPEED[11]
 
-#define	DIA_CHI_START4 										            DATA_SPEED[12]=255
-#define	ID4 		 													DATA_SPEED[13]=4
-#define Mor_RearRight_next							                	DATA_SPEED[14]=1
-#define Mor_RearRight_back							                	DATA_SPEED[14]=0
-#define	Mor_RearRight		 							        		DATA_SPEED[15]
+
 
 /**********************************************DONG CO************************************************/    
 #define	DIA_CHI_START5 										            DATA_SPEED[16]=255
@@ -138,7 +159,7 @@ extern unsigned char GP_BTN [15];
 extern int _robotIMUAngle;
 
 char bit_khoa_ham_chay_thay_tuan=0;
-int end = 0, bien_cham_tuong = 0, bien_ve_xuat_phat = -3;
+int end = 0, bien_cham_tuong = 0, bien_ve_xuat_phat = 0;
 int silo_so = 5, silo_vua_chay = 0, silo_sap_bo = 0;
 char bien_di_chuyen = 0; //0 la vao silo 5, 1 la ra silo 1
 int bien_day_bong_ra_ngoai = 0, bien_dung_bang_tai = 0;

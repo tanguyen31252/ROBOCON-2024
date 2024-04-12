@@ -88,19 +88,19 @@ static void taskMain(void *pvParameters)
 	{
 		while(gp_get_mode_uart()  == GP_MODE_ANALOGUE_RED_LED) 
 		{
-			if(abs(_robotIMUAngle) > 700)
-			{
-				robotGamePadControl_s2();
-			}
-			else 
-			{
+			// if(abs(_robotIMUAngle) > 700)
+			// {
+			// 	robotGamePadControl_s2();
+			// }
+			// else 
+			// {
 				robotGamePadControl_s1();
 				
 				if(!SELECT)                                                                                     retry();			///// RETRY/*else*/ 
 				if(!START && lan_trong == 0)	                                                                XuatPhat();			///// xuat phat
 				else if(!START && (lan_trong == 1 || lan_trong == 2 || lan_trong == 3) && hang_trong == 1)		quy_trinh_trong_lua_hang_1();
 				if(!R1 && !X)                                                                                   trong_lua()/*,delay_ms(200),trong_lua()*/;
-			}
+			// }
 		}
 	}
 }
