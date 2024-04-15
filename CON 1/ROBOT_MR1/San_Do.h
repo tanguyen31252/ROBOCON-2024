@@ -16,6 +16,40 @@ void thong_so_laze_ngang_doc(void)
         else if (lan_trong == 3 && hang_trong == 2)     {lazengang = LAZENGANG_1[SAN][6],  lazedoc = LAZEDOC[hang_trong];}
 }
 
+void thong_so_hang_bong()
+{
+    if(SAN == 1)
+    {
+        for(i=6;i>0;i--)
+        {
+            if(LAZENGANG_2[SAN][i-1] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][i])
+            {
+                if(CB_NHAN_MAU_THOC_GIUA == 0)  bong_mau[0][i-1]=1;
+                if(CB_NHAN_MAU_TIM_GIUA == 0)   bong_mau[0][i-1]=2;
+                
+                if(CB_NHAN_MAU_THOC_SAU == 0)   bong_mau[1][i-1]=1;
+                if(CB_NHAN_MAU_TIM_SAU == 0)    bong_mau[1][i-1]=2;
+
+            }
+        }
+    }
+    else
+    {
+        for(i=0;i<6;i--)
+        {
+            if(LAZENGANG_2[SAN][i+1] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][i])
+            {
+                if(CB_NHAN_MAU_THOC_GIUA == 0)  bong_mau[0][i]=1;
+                if(CB_NHAN_MAU_TIM_GIUA == 0)   bong_mau[0][i]=2;
+                
+                if(CB_NHAN_MAU_THOC_SAU == 0)   bong_mau[1][i]=1;
+                if(CB_NHAN_MAU_TIM_SAU == 0)    bong_mau[1][i]=2;
+
+            }
+        }
+    }
+}
+
 void ve_lay_lua()
 {
     RESET_ENCODER();
@@ -148,23 +182,6 @@ void quy_trinh_trong_lua_hang_2()
         for(i=0;i<50;i++)   while(lazeTruocValue > lazedoc+7)          bam_thanh_laze_ngang(0, 20, 0, 450, lazengang, 2);
 
         robotStop(0);
-        
-        while(_robotIMUAngle != 0)
-        {
-            delay_ms(500);
-            if(_robotIMUAngle < 0)
-            {
-                robotRotate(30000, 0.5, 0, 20);
-                while(_robotIMUAngle < 0){if(wantExit_UP()) break;}
-                robotRotateStop();
-            }
-            else
-            {
-                robotRotate(30000, -0.5, 0, 20);
-                while(_robotIMUAngle > 0){if(wantExit())break;}    
-                robotRotateStop();
-            }
-        }
     }
     ////////////////////////////////////////////// SAN XANH/////////////////////////////////////////////////////
     else
@@ -172,23 +189,6 @@ void quy_trinh_trong_lua_hang_2()
         for(i=0;i<50;i++)   while(lazeTruocValue > lazedoc+5)          bam_thanh_laze_ngang(0, 20, 0, -400, lazengang, 0);
 
         robotStop(0);
-
-        while(_robotIMUAngle != 0)
-        {
-            delay_ms(300);
-            if(_robotIMUAngle < 0)
-            {
-                robotRotate(0, 0.5, 0, 10);
-                while(_robotIMUAngle < 0){if(wantExit_UP()) break;}
-                robotRotateStop();
-            }
-            else
-            {
-                robotRotate(0, -0.5, 0, 10);
-                while(_robotIMUAngle > 0){if(wantExit())break;}    
-                robotRotateStop();
-            }
-        }
     }    
     
 }
@@ -338,4 +338,24 @@ int XuatPhat(void)
         
         lan_trong++;
     }
+}
+
+void THI()
+{
+    XuatPhat();
+
+    while(lan_trong!=3)
+    {
+        quy_trinh_trong_lua_hang_1();
+        delay_ms(500);
+        trong_lua();
+        delay_ms(500);
+        trong_lua();
+    }
+
+    while(1)
+    {
+        
+    }
+
 }

@@ -20,29 +20,50 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 
 ////////////////////// --KHAI BAO DINH NGHIA PWM-- /////////////////////////////////////
 //****************************************** 4 BANH XE ********************************************************
-#define	DIA_CHI_START1 										            DATA_SPEED[0]=255
+// #define	DIA_CHI_START1 										            DATA_SPEED[0]=255
+// #define	ID1 		 													DATA_SPEED[1]=1
+// #define Mor_FrontLeft_back 								                DATA_SPEED[2]=1
+// #define Mor_FrontLeft_next 								                DATA_SPEED[2]=0
+// #define	Mor_FrontLeft 										            DATA_SPEED[3]
+
+// #define	DIA_CHI_START2 										            DATA_SPEED[4]=255
+// #define	ID2 		 													DATA_SPEED[5]=2
+// #define Mor_FrontRight_back						                        DATA_SPEED[6]=0
+// #define Mor_FrontRight_next						                        DATA_SPEED[6]=1
+// #define	Mor_FrontRight		 		 				        		    DATA_SPEED[7]
+
+// #define	DIA_CHI_START3 									            	DATA_SPEED[8]=255
+// #define	ID3 		 													DATA_SPEED[9]=3
+// #define Mor_RearLeft_next						                        DATA_SPEED[10]=0
+// #define Mor_RearLeft_back							            	    DATA_SPEED[10]=1
+// #define	Mor_RearLeft 			 		 				        		DATA_SPEED[11]
+
+// #define	DIA_CHI_START4 										            DATA_SPEED[12]=255
+// #define	ID4 		 													DATA_SPEED[13]=4
+// #define Mor_RearRight_next							                	DATA_SPEED[14]=1
+// #define Mor_RearRight_back							                	DATA_SPEED[14]=0
+// #define	Mor_RearRight		 							        		DATA_SPEED[15]
+
+//****************************************** 3 BANH XE ********************************************************
+#define	DIA_CHI_START1													DATA_SPEED[0]=255
 #define	ID1 		 													DATA_SPEED[1]=1
-#define Mor_FrontLeft_back 								                DATA_SPEED[2]=1
-#define Mor_FrontLeft_next 								                DATA_SPEED[2]=0
-#define	Mor_FrontLeft 										            DATA_SPEED[3]
+#define mor_0h_back														DATA_SPEED[2]=1
+#define mor_0h_next														DATA_SPEED[2]=0
+#define	mor_0h															DATA_SPEED[3]
 
-#define	DIA_CHI_START2 										            DATA_SPEED[4]=255
-#define	ID2 		 													DATA_SPEED[5]=2
-#define Mor_FrontRight_back						                        DATA_SPEED[6]=0
-#define Mor_FrontRight_next						                        DATA_SPEED[6]=1
-#define	Mor_FrontRight		 		 				        		    DATA_SPEED[7]
+#define	DIA_CHI_START2													DATA_SPEED[4]=255
+#define	ID2																DATA_SPEED[5]=2
+#define mor_4h_back														DATA_SPEED[6]=0
+#define mor_4h_next														DATA_SPEED[6]=1
+#define	mor_4h															DATA_SPEED[7]
 
-#define	DIA_CHI_START3 									            	DATA_SPEED[8]=255
-#define	ID3 		 													DATA_SPEED[9]=3
-#define Mor_RearLeft_next						                        DATA_SPEED[10]=0
-#define Mor_RearLeft_back							            	    DATA_SPEED[10]=1
-#define	Mor_RearLeft 			 		 				        		DATA_SPEED[11]
+#define	DIA_CHI_START3													DATA_SPEED[8]=255
+#define	ID3																DATA_SPEED[9]=3
+#define mor_8h_next														DATA_SPEED[10]=0
+#define mor_8h_back														DATA_SPEED[10]=1
+#define	mor_8h															DATA_SPEED[11]
 
-#define	DIA_CHI_START4 										            DATA_SPEED[12]=255
-#define	ID4 		 													DATA_SPEED[13]=4
-#define Mor_RearRight_next							                	DATA_SPEED[14]=1
-#define Mor_RearRight_back							                	DATA_SPEED[14]=0
-#define	Mor_RearRight		 							        		DATA_SPEED[15]
+
 
 /**********************************************DONG CO************************************************/    
 #define	DIA_CHI_START5 										            DATA_SPEED[16]=255
@@ -1186,7 +1207,7 @@ void HMI_TRAN(vs32 _so_dong) {
 										HMI_DMI("FL: ", ENCODER_FL(),9);
 										break;
 									case 10: 
-										HMI_DMI("silo_vua_chay: ",silo_vua_chay,10);
+										HMI_DMI("bien ve xp: ",bien_ve_xuat_phat,10);
 										break;
 									case 11: 
 										HMI_DMI("bong trong silo so: ",bien_nho_bong_trong_silo[silo_so],11);
