@@ -48,6 +48,8 @@ static void taskRobotAnalytics(void *pvParameters) {
 	{ 
 		ADCValue_Control();
 
+		ChangeStatus();
+
 		if(bit_khoa_ham_chay_thay_tuan == 0)robotAnalytics();
 		vTaskDelay(5);
 	}
@@ -70,6 +72,7 @@ static void taskMain(void *pvParameters)
 	UART2_DMA_TX(115200);///DIEU KHIEN DONG CO
 	UART3_DMA_RX(115200);	//usart giao tiep de doc gamepad
 	UART4_DMA_RX(115200);	//SU DUNG DE GIAO TIEP MACH DO LAI
+//	UART6_DMA_RX(115200);	//SU DUNG DE GIAO TIEP MACH DO LAI
 	UART5_DMA_TX(921600);	//GIAO TIEP MAN HINH HMI
 	//if (SysTick_Config(SystemCoreClock / 1000))while (1);// 1ms truyen du lieu usart den cac slever
 	
