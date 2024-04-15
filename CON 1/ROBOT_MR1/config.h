@@ -130,7 +130,7 @@ int 	lazeTruocValue, lazeNgangDoValue, lazeNgangXanhValue, i=0;
 int 	noise, noise1;
 int		BT_Nang_goc_ban_value =0, BT_Dia_xoay_value =0;
 vu16 	_ADC1_Value[8];
-vu8   RX_USART1[15], RX_USART2[15];
+vu8   RX_USART1[15], RX_USART2[15], CB_DO_LINE[1];
 uint8_t MANG_GAME[10];
 
 extern unsigned char GP_BTN [15];
@@ -170,8 +170,8 @@ int LAZENGANG_2[2][7]   =               {           //1     	//2    		 //3     	
 int LAZEDOC_2[7]		=               {	 0,     239,    290,    339,    388,    439,    489};       //dùng cho 2 sân khi trường hợp xếp dọc
 /******************************************************	TOC DO BAN 				**************************************************/
 int tocdo[2][6]         =               {   //1     	//2     	//3     	//4     //5     	//6
-                                            {127,   127,    127,    127,    127,	127} ,      //ban thoc
-                                            {121,   121,    121,    121,    121,    121},         //ban lep
+                                            {127,   127,    127,    127,    127,	127} ,      	//ban thoc
+                                            {121,   121,    121,    121,    121,    121},         	//ban lep
 };
 /***************************************************** GIAM AP PHE				*************************************************/
 int giamphe[2][6]		=				{
@@ -186,7 +186,25 @@ int bong_mau[2][6]		=				{
 											{0,0,0,0,0,0},		//hang 1
 											{0,0,0,0,0,0},		//hang 2
 										};
+//****************************** Khai bao cam bien do line ******************************//
+#define GP_MASK_0				0x01
+#define GP_MASK_1				0x02
+#define GP_MASK_2				0x04
+#define GP_MASK_3				0x08
+#define GP_MASK_4				0x10
+#define GP_MASK_5				0x20
+#define GP_MASK_6				0x40
+#define GP_MASK_7				0x80
 
+#define CB_Line_P1				(CB_DO_LINE[0] & GP_MASK_0)
+#define CB_Line_P2				(CB_DO_LINE[0] & GP_MASK_1)
+#define CB_Line_P3				(CB_DO_LINE[0] & GP_MASK_2)
+#define CB_Line_P4				(CB_DO_LINE[0] & GP_MASK_3)
+
+#define CB_Line_T1				(CB_DO_LINE[0] & GP_MASK_4)
+#define CB_Line_T2				(CB_DO_LINE[0] & GP_MASK_5)
+#define CB_Line_T3				(CB_DO_LINE[0] & GP_MASK_6)
+#define CB_Line_T4				(CB_DO_LINE[0] & GP_MASK_7)
 /******************************************************	DO GOC XOAY BIEN TRO	***************************************************/
 
 /******************************************************	XOAY BAN THOC			***************************************************/
@@ -207,6 +225,8 @@ int gocxoay_lep[4][7]	=				{           //1     //2     //3     //4     //5     /
 											{0,		918,	884,	849,	825,	795,	757},	//sân xanh	
 											{0,		90,	    90,	    90,	    90	,	90,		120},	//sân đỏ
                                         };
+
+                                        
 //////////////////////////chong nhieu encoder////////////////////
 vs32 ENCODER_FL() {
 	vs32 en, enOld = Encoder_FL;
@@ -1063,6 +1083,67 @@ void UART5_DMA_TX(u32 baudrate) {
 	DMA_Cmd(DMA1_Stream7, ENABLE);
 }
 
+void UART6_DMA_RX(u32 baudrate)
+{		
+    DMA_InitTypeDef DMA_InitStructure;
+    NVIC_InitTypeDef NVIC_InitStructure;
+    USART_InitTypeDef USART_InitStructure;
+    GPIO_InitTypeDef GPIO_InitStructure;
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART6, ENABLE);
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA2, ENABLE);
+   /*-------------------------- GPIO Configuration ----------------------------*/
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+   GPIO_Init(GPIOC, &GPIO_InitStructure);
+   /* Connect USART pins to AF */
+   GPIO_PinAFConfig(GPIOC, GPIO_PinSource6, GPIO_AF_USART6);
+   GPIO_PinAFConfig(GPIOC, GPIO_PinSource7, GPIO_AF_USART6);
+
+   USART_InitStructure.USART_BaudRate = baudrate;
+   USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+   USART_InitStructure.USART_StopBits = USART_StopBits_1;
+   USART_InitStructure.USART_Parity = USART_Parity_No;
+   USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None; 
+   USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx; 
+   USART_Init(USART6, &USART_InitStructure); 
+   USART_Cmd(USART6, ENABLE);
+
+   /* Configure the Priority Group to 2 bits */
+   NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
+   /* Enable the UART4 RX DMA Interrupt */
+   NVIC_InitStructure.NVIC_IRQChannel = DMA2_Stream1_IRQn;
+   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3;
+   NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+   NVIC_Init(&NVIC_InitStructure);
+	
+	 DMA_DeInit(DMA2_Stream1);
+   DMA_InitStructure.DMA_Channel = DMA_Channel_5;
+   DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralToMemory; // Receive
+   DMA_InitStructure.DMA_Memory0BaseAddr = (uint32_t)CB_DO_LINE;
+   DMA_InitStructure.DMA_BufferSize = 1;//(uint16_t)sizeof(CB_DO_LINE);
+   DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)&USART6->DR;
+   DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+   DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
+   DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;
+   DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Byte;
+   DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;
+   DMA_InitStructure.DMA_Priority = DMA_Priority_High;
+   DMA_InitStructure.DMA_FIFOMode = DMA_FIFOMode_Enable;
+   DMA_InitStructure.DMA_FIFOThreshold = DMA_FIFOThreshold_Full;
+   DMA_InitStructure.DMA_MemoryBurst = DMA_MemoryBurst_Single;
+   DMA_InitStructure.DMA_PeripheralBurst = DMA_PeripheralBurst_Single; 
+   DMA_Init(DMA2_Stream1, &DMA_InitStructure); 
+   /* Enable DMA Stream Half Transfer and Transfer Complete interrupt */
+   USART_DMACmd(USART6, USART_DMAReq_Rx, ENABLE); // Enable USART Rx DMA Request
+	 DMA_ITConfig(DMA2_Stream1, DMA_IT_TC, ENABLE);  
+   /* Enable the DMA RX Stream */
+   DMA_Cmd(DMA2_Stream1, ENABLE);
+}
 //================================INT=========================================
 void ngat_ngoai(void) {
 	GPIO_InitTypeDef  GPIO_InitStructure;
@@ -1178,14 +1259,6 @@ void HMI_TRAN(vs32 _so_dong) {
 									case 3:
 										HMI_DMI("BT_Xoay:",BT_Dia_xoay_value,3);
 										break;
-//									case 7:
-//										HMI_DMI("GAME PAD:",GP_BTN[0],7);
-//										break;
-//									case 8:
-//										HMI_DMI("LJOY_LR:",GP_BTN[4],8); 
-//										break;
-//#define BT_Nang_goc_ban						  							_ADC1_Value[2]
-//#define BT_Dia_xoay														_ADC1_Value[3]
                                     case 4:
 										HMI_DMI("EN_RL:",ENCODER_FL(),4);
 										break;
@@ -1196,7 +1269,19 @@ void HMI_TRAN(vs32 _so_dong) {
 										HMI_DMI("EN_TONG:",ENCODER_TONG(),6);	
 										break;
                                     case 7:
-										HMI_DMI("lan trong:",lan_trong,7);
+                                        if(!CB_Line_T1)	sprintf(_ghep_bit,"%d",1);	
+                                        else sprintf(_ghep_bit,"%d",0);	
+                                        strcat(_chu_cac_bit,_ghep_bit);
+                                        if(!CB_Line_T2)	sprintf(_ghep_bit,"%d",1);	
+                                        else sprintf(_ghep_bit,"%d",0);	
+                                        strcat(_chu_cac_bit,_ghep_bit);
+                                        if(!CB_Line_T3)	sprintf(_ghep_bit,"%d",1);	
+                                        else sprintf(_ghep_bit,"%d",0);	
+                                        strcat(_chu_cac_bit,_ghep_bit);
+                                        if(!CB_Line_T4)	sprintf(_ghep_bit,"%d",1);	
+                                        else sprintf(_ghep_bit,"%d",0);	
+                                        strcat(_chu_cac_bit,_ghep_bit);									
+										HMI_PUTS("LINE PHAI:",_chu_cac_bit,7);
 										break;
 									case 8:
 										HMI_DMI("hang trong:",hang_trong,8);	
@@ -1210,15 +1295,6 @@ void HMI_TRAN(vs32 _so_dong) {
                                     case 11:
 										HMI_DMI("laze ve: ",laze_ngang_ve,11);	
 										break;
-//									case 9:
-//										HMI_DMI("LJOY_UD:",GP_BTN[5],9);
-//										break;
-//									case 10:
-//										HMI_DMI("RJOY_UD: ",GP_BTN[3],10);
-//										break;
-////									case 11:
-////										HMI_DMI("BT GOC BAN:",BienTroNangValue,11);	
-////										break;
 									case 12:
 										HMI_DMI("vi tri laze:",vi_tri_laze,12);  						
 										break;
