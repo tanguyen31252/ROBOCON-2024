@@ -2,11 +2,11 @@ void bam_thanh_laze_ngang(float angle, int maxSpeed, float robotAngle, float ang
 {
 	if(NUT_CHUYEN_SAN == 1)
 	{
-		if(lazeNgangDoValue - laze_stable_ngang > num_stable_change)
+		if(laze_4H_Value - laze_stable_ngang > num_stable_change)
 		{
 			robotRunAngle(angle + angle_fix, maxSpeed, robotAngle, 0.2);
 		}
-		else if(lazeNgangDoValue - laze_stable_ngang < num_stable_change)
+		else if(laze_4H_Value - laze_stable_ngang < num_stable_change)
 		{
 			robotRunAngle(angle - angle_fix, maxSpeed, robotAngle, 0.2);
 		}
@@ -14,11 +14,11 @@ void bam_thanh_laze_ngang(float angle, int maxSpeed, float robotAngle, float ang
 	}
 	else
 	{
-		if(lazeNgangXanhValue - laze_stable_ngang > num_stable_change)
+		if(laze_8H_Value - laze_stable_ngang > num_stable_change)
 		{
 			robotRunAngle(angle + angle_fix, maxSpeed, robotAngle, 0.2);
 		}
-		else if(lazeNgangXanhValue - laze_stable_ngang < num_stable_change)
+		else if(laze_8H_Value - laze_stable_ngang < num_stable_change)
 		{
 			robotRunAngle(angle - angle_fix, maxSpeed, robotAngle, 0.2);
 		}
@@ -30,11 +30,11 @@ void bam_thanh_laze_doc(float angle, int maxSpeed, float robotAngle, float angle
 {
 	if(NUT_CHUYEN_SAN == 1)
 	{
-		if(lazeSauValue - laze_stable_sau > num_stable_change)
+		if(laze_0H_Value - laze_stable_sau > num_stable_change)
 		{
 			robotRunAngle(angle + angle_fix, maxSpeed, robotAngle, 0.2);
 		}
-		else if(lazeSauValue - laze_stable_sau < num_stable_change)
+		else if(laze_0H_Value - laze_stable_sau < num_stable_change)
 		{
 			robotRunAngle(angle - angle_fix, maxSpeed, robotAngle, 0.2);
 		}
@@ -42,11 +42,11 @@ void bam_thanh_laze_doc(float angle, int maxSpeed, float robotAngle, float angle
 	}
 	else
 	{
-		if(lazeSauValue - laze_stable_sau > num_stable_change)
+		if(laze_0H_Value - laze_stable_sau > num_stable_change)
 		{
 			robotRunAngle(angle + angle_fix, maxSpeed, robotAngle, 0.2);
 		}
-		else if(lazeSauValue - laze_stable_sau < num_stable_change)
+		else if(laze_0H_Value - laze_stable_sau < num_stable_change)
 		{
 			robotRunAngle(angle - angle_fix, maxSpeed, robotAngle, 0.2);
 		}

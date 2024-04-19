@@ -83,11 +83,11 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 #define	Mor_hot_bong													DATA_SPEED[23]
 
 //=============================ADC DMI======================================//
-#define cam_bien_laze_truoc										        _ADC1_Value[7]                  //cb_laze_doc
+#define laze_0h										        			_ADC1_Value[6]                  //cb_laze_doc
 //=============================LAZE SAN DO==================================
-#define cam_bien_laze_ngang_do									        _ADC1_Value[6]                  //cb_laze_ngang san do
+#define laze_4h									        				_ADC1_Value[7]                  //cb_laze_ngang san do
 //=============================LAZE SAN XAN=================================
-#define cam_bien_laze_ngang_xanh								        _ADC1_Value[5]                  //cb_laze_ngang san xanh
+#define laze_8h								        					_ADC1_Value[5]                  //cb_laze_ngang san xanh
 
 //#define ADC1_Value2										        _ADC1_Value[2]
 //#define ADC1_Value3						  					    _ADC1_Value[3]
@@ -158,7 +158,7 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 vs32 	sieu_am, num_over_t1=0, num_over_t2=0, num_over_t3=0, num_over_t4=0, num_over_t5=0, CCR2_Val, HMI_LOOP;
 vs16 	IMU,IMUxoay;
 vu8 	data_tx_gyro, en_gyro, dataTxGyro, enGyro; 
-int 	lazeSauValue, lazeNgangDoValue, lazeNgangXanhValue, i=0, j=0;
+int 	laze_0H_Value, laze_4H_Value, laze_8H_Value, i=0, j=0;
 int 	noise, noise1;
 int		BT_Nang_goc_ban_value =0, BT_Dia_xoay_value =0;
 vu16 	_ADC1_Value[8];
@@ -1209,13 +1209,13 @@ void HMI_TRAN(vs32 _so_dong) {
 										HMI_DMI("ENCODER_TONG:", ENCODER_TONG(),2);
 										break;
 									case 3:
-										HMI_DMI("laze do: ", lazeNgangDoValue,3);
+										HMI_DMI("laze 0h: ", laze_0H_Value,3);
 										break;
 									case 4:
-										HMI_DMI("laze xanh:", lazeNgangXanhValue,4);
+										HMI_DMI("laze 8h:", laze_8H_Value,4);
 										break;
 									case 5: 
-										HMI_DMI("laze sau",lazeSauValue,5);
+										HMI_DMI("laze 4h",laze_4H_Value,5);
 										break;
 									case 6:
 										HMI_DMI("do laze:",do_laze_silo,6);
