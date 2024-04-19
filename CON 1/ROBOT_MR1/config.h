@@ -125,7 +125,7 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 ///////////////////////KET THUC KHAI BAO  NHUNG CHAN MAC DINH/////////////////////////////////////////
 vs32 	sieu_am, num_over_t1=0, num_over_t2=0, num_over_t3=0, num_over_t5=0, num_over_t9=0, CCR2_Val, HMI_LOOP;
 vs16 	IMU,IMUxoay;
-vu8 	data_tx_gyro, en_gyro, dataTxGyro, enGyro, Bien_vong = 0, Bien_nang = 1, Cap_vong = 0, Keo_loxo = 0, bien_nang_tam = 10; 
+vu8 	data_tx_gyro, en_gyro, dataTxGyro, enGyro; 
 int 	lazeTruocValue, lazeNgangDoValue, lazeNgangXanhValue, i=0;
 int 	noise, noise1;
 int		BT_Nang_goc_ban_value =0, BT_Dia_xoay_value =0;
@@ -140,7 +140,7 @@ extern int _robotIMUAngle;
 char bit_khoa_ham_chay_thay_tuan=0,vi_tri_laze = 0;
 char lan_trong = 0;
 int lazengang = 0, lazedoc = 0, laze_doc_hang_1 = 0, laze_doc_hang_2 = 0, laze_ngang_ve = 0, laze_doc_truot = 0, hang_trong = 1;						//san 1
-int luu_bien_laze_doc = 0, luu_bien_laze_ngang = 0, ban_thoc = 0, ban_lep = 0, goc_xoay_thoc = 0, goc_xoay_lep = 0, phe_thoc = 0, phe_lep = 0;										//san 2
+int luu_bien_laze_doc = 0, luu_bien_laze_ngang = 0, ban_thoc = 0, ban_lep = 0, goc_xoay_thoc = 0, goc_xoay_lep = 0, phe_thoc = 0, phe_lep = 0, goc_lech = 0;										//san 2
 
 char san = 1;
 

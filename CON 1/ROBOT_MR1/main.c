@@ -97,7 +97,7 @@ static void taskMain(void *pvParameters)
 			// }
 			// else 
 			// {
-				robotGamePadControl_s1();
+				robotGamePadControl();
 				
 				if(!SELECT)                                                                                     retry();			///// RETRY/*else*/ 
 				if(!START && lan_trong == 0)	                                                                XuatPhat();			///// xuat phat

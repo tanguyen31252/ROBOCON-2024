@@ -162,8 +162,8 @@ int roundF(float num)
 float fixMotorValue(int T)
 {
 	if(T == 0) 			return 0;
-	else 	if(T < 0) return (T*0.3 - 0.5)/_robotCurrentSpeed; // tuy thuoc robot ma co the he so toi thieu la 0.5, 1, 2...
-				else 			return (T*0.3 + 0.5)/_robotCurrentSpeed;
+	else 	if(T < 0) return (T*0.1 - 0.1)/_robotCurrentSpeed; // tuy thuoc robot ma co the he so toi thieu la 0.5, 1, 2...
+				else 			return (T*0.1 + 0.1)/_robotCurrentSpeed;
 }
 //------------------------------------------------------------------------------
 float absF(float num)

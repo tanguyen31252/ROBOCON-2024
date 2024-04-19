@@ -26,14 +26,43 @@ void ChangeStatus()
 	else 			 					P4 = 1;
 }
 
+int tinh_goc_lech()
+{
+	goc_lech = _robotAngle - _robotIMUAngle;
+
+	return goc_lech;
+}
+
+void xoay_thang_line()
+{
+	while(1)
+	{
+		while((CB_Line_P2 != 0 && CB_Line_P3 != 0 && CB_Line_T2 != 0 && CB_Line_T3 != 0) && ENCODER_TONG() < 1050)
+		{
+			if(_robotAngle > _robotIMUAngle)
+			{
+				robotRotateFree(0.5, 0);
+			}
+			else
+			{
+				robotRotateFree(-0.5, 0);
+			}
+		}
+		break;
+	}
+}
+
+
 void chay_thang_line()
 {
-	while(robotIsRun() == 0)			//robot dang chay
-	{
-		while(CB_Line_P2 != 0 && CB_Line_P3 != 0 && CB_Line_T2 != 0 && CB_Line_T3 != 0)
-		{
-			robotRunAngle(900, 20, 0, 0.5);
-			
-		}
-	}
+	// robotRunAngle(900, 20, 0, 0.5);
+	// while(robotIsRun() == 0)			//robot dang chay
+	// {
+	// 	while(CB_Line_P2 != 0 && CB_Line_P3 != 0 && CB_Line_T2 != 0 && CB_Line_T3 != 0)
+	// 	{
+	// 		while(tinh_goc_lech() != 0 && ENCODER_TONG() < 1050){}
+	// 	}
+	// }
+	robotRunAngle(900,20,0,0);
+	while(xoay_thang_line()){}
 }

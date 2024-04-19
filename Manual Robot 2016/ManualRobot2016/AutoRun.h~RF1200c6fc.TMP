@@ -1,0 +1,846 @@
+
+u8  modeAuto = 0, bit_1 = 1, bit_2 = 1, bit_3 = 1;
+int ii=0;
+
+extern unsigned char giu;
+extern unsigned char _accAla;
+extern  u32 CN;
+extern u32 i;
+extern vu32 pwm;
+//==============================================================================
+
+
+//==============================================================================
+//==============================================================================
+
+void tocdo_line(unsigned char d,unsigned char c)
+{
+	 if(d<c)
+            {bit_tang_toc=1;bit_e_speed=1;}
+    else    {bit_tang_toc=0;bit_e_speed=1;}
+
+    speed=d;
+    td_sau=c;
+}
+void tocdochay(unsigned char a,unsigned char b)
+{
+    if(a<b)     {bit_tang_toc=1;bit_e_speed=1;}
+        else        {bit_tang_toc=0;bit_e_speed=1;}
+
+   speed=a,td_sau=b;
+
+}
+																																																													
+
+//void hatay_thoi(void)
+//	{
+//		kepnang_on;
+//		kepthoi_on;
+//		
+//	}
+
+
+void robotGamePadControl(void)
+{
+		char tocdo=100; 
+    if (!L1)   tocdo = 150;    
+    if(!UP && DOWN && LEFT && RIGHT)   			{TD_trai(tocdo), TD_phai(tocdo), TD_truoc(2);}        	  
+    else if(UP && DOWN && LEFT && !RIGHT) 	{TD_trai(40), TD_phai(0), TD_truoc(40);}         
+    else if(UP && !DOWN && LEFT && RIGHT)   {TD_trai(-80), TD_phai(-80), TD_truoc(0);}      
+    else if(UP && DOWN && !LEFT && RIGHT)   {TD_trai(0), TD_phai(40), TD_truoc(-40);}   
+	
+		else if(LJOY_UD < 64 && UP && DOWN && LEFT && RIGHT) 	TD_trai(tocdo), TD_phai(tocdo), TD_truoc(0);
+		else if(LJOY_UD > 192 && UP && DOWN && LEFT && RIGHT)	TD_trai(-80), TD_phai(-80), TD_truoc(0); 
+		else if(LJOY_LR < 64 && UP && DOWN && LEFT && RIGHT) 
+		{
+			
+			TD_truoc(-80 ); TD_phai(-80); TD_trai(80);	
+		}	//trai
+		else if(LJOY_LR > 192 && UP && DOWN && LEFT && RIGHT)
+		{
+			
+			TD_truoc(80); TD_phai(80); TD_trai(-80);			// phai
+		}		
+     else stopRobot(0);
+}	
+
+/*============================================================*/
+/*========================== SAN XANH ==========================*/
+/*============================================================*/
+void xuatphat_xanh(void)
+{    
+	resetIMU();
+	kepthoi_off;
+	resetEncoderDoc();
+	while(abs(encoderDoc())<70)					
+				{				
+					tocdo_line(80,80);	
+					Update_imu();
+					DK_do_duong_imu_ngang_xanh();							
+				}
+				
+				
+				TD_truot_ngang(-200);
+	resetEncoderDoc();
+	while(abs(encoderDoc())<500)					
+				{				
+					tocdo_line(210,210);	
+					Update_imu();
+					DK_do_duong_imu_ngang_xanh();
+								
+				}
+				TD_truot_ngang(3);
+				
+	resetEncoderDoc();
+				
+	while(abs(encoderDoc())<150)					
+				{				
+					tocdo_line(80,80);	
+					Update_imu();
+					DK_do_duong_imu_ngang_xanh();
+						quat(310);		
+				}
+				
+				TD_truoc(-40 ); TD_phai(-40); TD_trai(40);
+				
+				while(b2);
+				stopRobot(2);
+				quat(330);
+				kepnang_on;
+				delay_ms(150);
+				quat(350);
+				delay_ms(150);	
+}
+
+void vungdoi_xanh(void) 
+{
+			resetencoderSau();
+		tocdo_line(110,120);	
+			while(abs(encoderSau())<300)					
+				{				
+					
+					Quet_cam_bien();
+					DK_do_duong();
+					quat(340);
+					nang(60);
+				}
+				resetencoderSau();	
+					TD_truoc(0);
+					
+			while(abs(encoderSau())<1200)								//start
+				{				
+					
+					Quet_cam_bien();
+					DK_do_duong();
+					quat(340);
+						nang(3);
+				}
+				TD_truoc(0);
+				resetencoderSau();	
+				
+			while(abs(encoderSau())<1220)						// xanh 1
+				{				
+						
+					Quet_cam_bien();
+					DK_do_duong();
+					nang(90);
+					quat(333);
+										
+				}
+				TD_truoc(0);
+				resetencoderSau();
+			while(abs(encoderSau())<1155)					// cam 1
+				{  
+					
+					Quet_cam_bien();
+					DK_do_duong();
+					nang(3);
+					quat(330);
+					
+					}
+				TD_truoc(0);
+				resetencoderSau();
+				while(abs(encoderSau())<1600)				// xanh 2
+				{  
+					
+					Quet_cam_bien();
+					DK_do_duong();
+					nang(100);
+					quat(330);
+					
+				}
+				TD_truoc(0);
+				resetencoderSau();
+				while(abs(encoderSau())<1400)				// cam 2
+				{  
+						
+					Quet_cam_bien();
+					DK_do_duong();
+					nang(0);
+					quat(325);
+					
+				}
+				TD_truoc(0);
+				resetencoderSau();
+				tocdo_line(110,120);	
+				while(abs(encoderSau())<1000)				// xanh 3.1
+				{  
+					
+					Quet_cam_bien();
+					DK_do_duong();
+					nang(120);
+					quat(310);
+				}
+				TD_truoc(0);
+				kepthoi_on;
+				resetencoderSau();
+				tocdo_line(80,90);
+				while(abs(encoderSau())<1700)				// xanh 3.2
+				{  
+						
+					Quet_cam_bien();
+					DK_do_duong();
+					nang(3);
+					quat(317);
+				}
+				stopRobot(0);
+				TD_truot_ngang(-150);
+				quat(317);
+				delay_ms(900);
+				quat(335);
+				delay_ms(450);
+				
+				quat(365);
+				
+
+
+				TD_truoc(60);
+				delay_ms(200);
+				TD_truoc(0);
+				quat(380);
+				delay_ms(100);
+
+				
+				TD_truoc(60);
+				delay_ms(100);
+				TD_truoc(0);
+				delay_ms(150);
+				TD_truoc(-60);
+				while(b3);
+					stopRobot(0);
+				quat(280);
+	//			TD_truot_ngang(-130);
+}
+void chay_vao_cot_xanh(void)
+{
+		TD_truot_ngang(-130);
+		resetencoderSau();
+	tocdochay(80,90);
+		while(abs(encoderSau()) < 600)
+			{  
+				
+				Quet_cam_bien();
+				DK_do_duong_san_xanh();
+				//kepcot_on;	
+				
+			}
+			quat(0);
+			resetencoderSau();
+			tocdochay(130,190);
+		while(abs(encoderSau()) < 700)
+			{  
+				//TD_truot_ngang(-130);
+								
+				Quet_cam_bien();
+				DK_do_duong_san_xanh();
+				nang(-100);
+			}
+			
+			resetencoderSau();
+		while(abs(encoderSau()) < 5000)
+			{  
+				//TD_truot_ngang(-130);
+				
+				Quet_cam_bien();
+				DK_do_duong_san_xanh();
+				nang(-100);
+			}
+			resetencoderSau();
+			tocdochay(110,120);
+		while(abs(encoderSau()) < 3200)
+			{  
+				
+				Quet_cam_bien();
+				DK_do_duong_san_xanh_cham();
+				TD_truot_ngang(0);
+			}
+			resetencoderSau();
+			tocdochay(50,50);
+		while(abs(encoderSau()) < 3000)
+			{  
+				
+				Quet_cam_bien();
+				DK_do_duong_san_xanh_cham();
+				TD_truot_ngang(0);
+				
+				if(!cam_bien) break;
+			}
+			nangline_on;
+			taygap_on;
+			kepcot_on;
+			
+			TD_trai(50), TD_phai(48), TD_truoc(2);
+			TD_truot_ngang(-170);
+			delay_ms(200);
+			
+			
+			TD_truot_ngang(3);
+			
+			for(i=0;i<5000;i++){	
+			while(ct_cot_duoi);}
+			stopRobot(0);
+}
+
+/*============================================================*/
+/*==========================code nhanh san xanh ==========================*/
+/*===================================================================*/
+
+void vungdoi_xanh_nhanh(void) 
+{			
+			resetencoderSau();
+			tocdo_line(90,100);	
+			while(abs(encoderSau())<300)					
+				{				
+					
+					Quet_cam_bien();
+					DK_do_duong_nhanh();
+					quat(335);					
+				}
+				resetencoderSau();	
+					tocdo_line(130,140);
+			while(abs(encoderSau())<1200)								//start
+				{				
+						
+					Quet_cam_bien();
+					DK_do_duong_nhanh();
+					quat(345);				
+				}
+				
+				resetencoderSau();
+					tocdo_line(140,170);	
+			while(abs(encoderSau())<1220)						// xanh 1
+				{				
+					
+					Quet_cam_bien();
+					DK_do_duong_nhanh();
+					nang(115);
+					quat(350);
+										
+				}
+				resetencoderSau();
+				
+			while(abs(encoderSau())<1155)					// cam 1
+				{  
+						
+					Quet_cam_bien();
+					DK_do_duong_nhanh();
+					nang(3);
+					quat(360);
+					
+					}
+				tocdo_line(140,150);
+				resetencoderSau();
+					
+				while(abs(encoderSau())<1600)				// xanh 2
+				{  
+						
+					Quet_cam_bien();
+					DK_do_duong_nhanh();
+					nang(105);
+					quat(340);
+					
+				}
+				
+				resetencoderSau();
+				tocdo_line(160,160);
+				while(abs(encoderSau())<1400)				// cam 2
+				{  
+						
+					Quet_cam_bien();
+					DK_do_duong_nhanh();
+					nang(0);
+					quat(333);
+					
+				}
+				
+				resetencoderSau();
+				tocdo_line(140,150);
+				while(abs(encoderSau())<1200)				// xanh 3.1
+				{  
+						
+					Quet_cam_bien();
+					DK_do_duong_nhanh();
+					nang(110);
+					quat(310);
+				}
+				kepthoi_on;
+				resetencoderSau();
+				TD_truot_ngang(-150);
+				tocdo_line(90,100);	
+				while(abs(encoderSau())<1700)				// xanh 3.2
+				{  
+					
+					Quet_cam_bien();
+					DK_do_duong_nhanh();
+					quat(320);
+				}
+				stopRobot(0);
+				
+				quat(320);
+				delay_ms(500);
+				quat(335);
+				delay_ms(500);
+				
+				quat(365);
+				
+
+
+				TD_truoc(70);
+				delay_ms(250);
+				TD_truoc(0);
+				quat(380);
+				delay_ms(150);
+
+				
+				TD_truoc(70);
+				delay_ms(250);
+				TD_truoc(0);
+				delay_ms(150);
+				TD_truoc(-60);
+				while(b3);
+					stopRobot(2);
+				quat(280);
+}
+
+void chay_vao_cot_xanh_nhanh(void)
+{
+		TD_truot_ngang(-130);
+		resetencoderSau();
+	tocdochay(100,140);
+		while(abs(encoderSau()) < 600)
+			{  
+				
+				Quet_cam_bien();
+				DK_do_duong_san_xanh();
+				//kepcot_on;	
+				
+			}
+			quat(0);
+			resetencoderSau();
+			tocdochay(140,220);
+		while(abs(encoderSau()) < 700)
+			{  
+				//TD_truot_ngang(-130);
+								
+				Quet_cam_bien();
+				DK_do_duong_san_xanh();
+				nang(-100);
+			}
+			
+			resetencoderSau();
+		while(abs(encoderSau()) < 5000)
+			{  
+				//TD_truot_ngang(-130);
+				
+				Quet_cam_bien();
+				DK_do_duong_san_xanh();
+				nang(-100);
+			}
+			resetencoderSau();
+			tocdochay(110,120);
+		while(abs(encoderSau()) < 3100)
+			{  
+				
+				Quet_cam_bien();
+				DK_do_duong_san_xanh_cham();
+				TD_truot_ngang(0);
+			}
+			resetencoderSau();
+			tocdochay(50,50);
+		while(abs(encoderSau()) < 3000)
+			{  
+				
+				Quet_cam_bien();
+				DK_do_duong_san_xanh_cham();
+				TD_truot_ngang(0);
+				
+				if(!cam_bien) break;
+			}
+			nangline_on;
+			taygap_on;
+			kepcot_on;
+			
+			TD_trai(50), TD_phai(48), TD_truoc(2);
+			TD_truot_ngang(-170);
+			delay_ms(200);
+			
+			
+			TD_truot_ngang(3);
+			
+			for(i=0;i<5000;i++){	
+			while(ct_cot_duoi);}
+			stopRobot(0);
+}
+
+/*============================================================*/
+/*========================== SAN DO ========================*/
+/*============================================================*/
+
+void xuatphat_do(void)
+{   
+kepthoi_off;
+				
+	resetIMU();
+	resetEncoderDoc();
+	while(abs(encoderDoc())<80)					
+				{				
+					tocdo_line(80,80);	
+					Update_imu();
+					DK_do_duong_imu_ngang_do();
+								
+				}
+			TD_truot_ngang(150);	
+	resetEncoderDoc();
+	while(abs(encoderDoc())<580)					
+				{				
+					tocdo_line(220,220);	
+					Update_imu();
+					DK_do_duong_imu_ngang_do();
+								
+				}
+				
+				TD_truot_ngang(3);
+				resetEncoderDoc();
+				
+				while(abs(encoderDoc())<100)					
+				{				
+					TD_truoc(90); TD_phai(70); TD_trai(-70);
+					quat(310);
+				}
+				
+				TD_truoc(70); TD_phai(40); TD_trai(-40);
+				
+				
+				while(b6);
+				stopRobot(2);
+				quat(330);
+				kepnang_on;
+				delay_ms(150);
+				quat(340);
+				delay_ms(150);
+}
+void vungdoi_do(void) 
+{			
+			resetencoderSau();
+			tocdo_line(110,120);
+			while(abs(encoderSau())<300)					
+				{	
+						
+					Quet_cam_bien();
+					DK_do_duong_do();
+					quat(340);
+					nang(60);				
+				}
+				resetencoderSau();				
+			while(abs(encoderSau())<1200)								//start
+				{				
+					
+					Quet_cam_bien();
+					DK_do_duong_do();
+					quat(330);
+					nang(0);
+				}
+				
+				resetencoderSau();				
+			while(abs(encoderSau())<1220)						// xanh 1
+				{				
+						
+					Quet_cam_bien();
+					DK_do_duong_do();
+					nang(90);
+					quat(333);
+										
+				}
+				resetencoderSau();
+			while(abs(encoderSau())<1200)					// cam 1
+				{  
+					
+					Quet_cam_bien();
+					DK_do_duong_do();
+					nang(3);
+					quat(333);
+					
+					}
+				resetencoderSau();
+						
+				while(abs(encoderSau())<1600)				// xanh 2
+				{  
+					
+					Quet_cam_bien();
+					DK_do_duong_do();
+					nang(90);
+					quat(330);
+					
+				}
+				
+				resetencoderSau();
+					
+				while(abs(encoderSau())<1400)				// cam 2
+				{  
+					
+					Quet_cam_bien();
+					DK_do_duong_do();
+					nang(0);
+					quat(320);
+					
+				}
+				
+				resetencoderSau();
+				
+				while(abs(encoderSau())<1200)				// xanh 3.1
+				{  
+						
+					Quet_cam_bien();
+					DK_do_duong_do();
+					nang(120);
+					quat(310);
+				}
+				kepthoi_on;
+				resetencoderSau();
+				TD_truot_ngang(150);
+				tocdo_line(80,90);	
+				while(abs(encoderSau())<1350)				// xanh 3.2
+				{  
+					
+					Quet_cam_bien();
+					DK_do_duong_do();
+					quat(317);
+				}
+				stopRobot(0);				
+				
+				quat(317);
+				delay_ms(900);
+				quat(335);
+				delay_ms(450);
+				
+				quat(365);
+				//while(ADC_Channel_4<1300);
+				
+				
+				TD_truoc(-60);
+				delay_ms(200);
+				TD_truoc(2);
+				quat(380);
+				delay_ms(100);
+				TD_truoc(-60);
+				delay_ms(100);
+				TD_truoc(2);
+				
+				delay_ms(150);
+				TD_truoc(60);
+				while(b3 | b4);	
+				
+				quat(280);
+}	
+
+//--------------------------- code nhanh -------------------
+void vungdoi_do_nhanh(void) 
+{			
+			resetencoderSau();
+			tocdo_line(90,100);
+			while(abs(encoderSau())<300)					
+				{				
+						
+					Quet_cam_bien();
+					DK_do_duong_do();
+					quat(335);					
+				}
+				resetencoderSau();				
+				tocdo_line(110,120);
+			while(abs(encoderSau())<1200)								//start
+				{				
+						
+					Quet_cam_bien();
+					DK_do_duong_do();
+					quat(345);				
+				}
+				
+				resetencoderSau();	
+				tocdo_line(140,170);				
+			while(abs(encoderSau())<1220)						// xanh 1
+				{				
+						
+					Quet_cam_bien();
+					DK_do_duong_do();
+					nang(115);
+					quat(350);
+										
+				}
+				resetencoderSau();
+				tocdo_line(170,190);
+			while(abs(encoderSau())<1200)					// cam 1
+				{  
+						
+					Quet_cam_bien();
+					DK_do_duong_do();
+					nang(3);
+					quat(360);
+					
+					}
+				resetencoderSau();
+				while(abs(encoderSau())<1600)				// xanh 2
+				{  
+						
+					Quet_cam_bien();
+					DK_do_duong_do();
+					nang(105);
+					quat(340);
+					
+				}
+				
+				resetencoderSau();
+				while(abs(encoderSau())<1400)				// cam 2
+				{  
+						
+					Quet_cam_bien();
+					DK_do_duong_do();
+					nang(0);
+					quat(333);
+					
+				}
+				
+				resetencoderSau();
+				while(abs(encoderSau())<1200)				// xanh 3.1
+				{  
+						
+					Quet_cam_bien();
+					DK_do_duong_do();
+					nang(110);
+					quat(310);
+				}
+				kepthoi_on;
+				resetencoderSau();
+				TD_truot_ngang(150);
+				tocdo_line(90,100);
+				while(abs(encoderSau())<1350)				// xanh 3.2
+				{  
+						
+					Quet_cam_bien();
+					DK_do_duong_do();
+					quat(320);
+				}
+				stopRobot(0);
+				quat(320);
+				delay_ms(900);
+				quat(335);
+				delay_ms(450);
+				
+				quat(365);
+				//while(ADC_Channel_4<1300);
+				
+				
+				TD_truoc(-60);
+				delay_ms(200);
+				TD_truoc(2);
+				quat(380);
+				delay_ms(100);
+				TD_truoc(-60);
+				delay_ms(100);
+				TD_truoc(2);
+				
+				delay_ms(150);
+				TD_truoc(60);
+				while(b3 | b4);	
+				
+				quat(280);
+				
+}	
+void chay_vao_cot_do(void)
+{
+		TD_truot_ngang(140);
+		resetencoderSau();
+	tocdochay(80,90);
+		while(abs(encoderSau()) < 400)
+			{  
+				
+				Quet_cam_bien();
+				DK_do_duong_cot_do();
+				//quat(360);				
+			}
+			
+			resetencoderSau();
+			tocdochay(130,190);	
+			while(abs(encoderSau()) < 1000)
+			{  				
+				TD_truot_ngang(140);
+							
+				Quet_cam_bien();
+				DK_do_duong_cot_do();
+				nang(-70);
+				quat(285);
+			}
+			
+			resetencoderSau();
+			
+		while(abs(encoderSau()) < 5000)
+			{  				
+					
+				Quet_cam_bien();
+				DK_do_duong_cot_do();
+				nang(-100);
+			}
+			
+			resetencoderSau();
+			tocdochay(110,110);
+		while(abs(encoderSau()) < 3500)
+			{  
+				
+				Quet_cam_bien();
+				DK_do_duong_san_do_cham();
+				nang(0);
+			}
+			resetencoderSau();
+			tocdochay(40,40);
+		while(abs(encoderSau()) < 4000)
+			{  
+				
+				Quet_cam_bien();
+				DK_do_duong_san_do_cham();
+				if(!cam_bien) break;
+			}
+			kepcot_on;
+			nangline_on;
+			taygap_on;
+			
+//			TD_truot_ngang(-150);
+//			while(cam_bien);
+			
+			TD_trai(40), TD_phai(40), TD_truoc(2);
+			
+			TD_truot_ngang(190);
+			delay_ms(200);
+			TD_truot_ngang(3);
+			
+			for(i=0;i<5000;i++){	
+			while(ct_cot_duoi);}
+			stopRobot(0);
+			
+}
+
+//------------------------------------------------------------------------------
+//-------------------------------   AUTO RUN   ---------------------------------
+//------------------------------------------------------------------------------
+
+
+
+

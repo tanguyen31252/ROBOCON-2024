@@ -78,7 +78,7 @@ void testRulo()	{
     }
 }
 //--------------------------------------------------------------------------------
-void robotGamePadControl_s1(void) {
+void robotGamePadControl(void) {
     int tocdo = 15, toc_do_xoay_free = 0;
     float	tocdoXoay = 0;
     int rJoy_LR  = (RJOY_LR >= 5 && RJOY_LR <= 250)? 1 : 0; 
@@ -132,59 +132,6 @@ void robotGamePadControl_s1(void) {
     else setMotor(2,2,2,2);bit_khoa_ham_chay_thay_tuan = 0;robotRotateStop();
     }
 
-void robotGamePadControl_s2(void) {
-    int tocdo = 15, toc_do_xoay_free = 0;
-    float	tocdoXoay = 0;
-    int rJoy_LR  = (RJOY_LR >= 5 && RJOY_LR <= 250)? 1 : 0; 
-    int lJoy_LR  = (LJOY_LR >= 5 && LJOY_LR <= 250)? 1 : 0;
-
-    if(UP && DOWN && RIGHT && LEFT && rJoy_LR && lJoy_LR && O) { // Khong dieu khien
-            
-        robotStop(2); //truot banh
-                
-        return;
-    }                
-/*_____________________________//___________________________*/
-
-/********************** TOC DO ****************************/
-/*_____________________________//___________________________*/
-    if(!L1) tocdo = 50, tocdoXoay = 20, toc_do_xoay_free = 20;
-    else if(!L2) tocdo = 10, tocdoXoay = 0.5, toc_do_xoay_free = 7;
-    else tocdo = 30, tocdoXoay = 0.05, toc_do_xoay_free = 10;                    //sua toc_do_xoay_free tu 7 len 10
-                                                                                //sua tocdoXoay tu 0.05 len 5
-    
-    //--------- chay cac huong -----------
-    if	   (!UP && DOWN && RIGHT && LEFT)   robotRun(1800, tocdo);
-    else if(UP && !DOWN && RIGHT && LEFT)   robotRun(0, tocdo);
-    else if(UP && DOWN && !RIGHT && LEFT)   robotRun(-900, tocdo);
-    else if(UP && DOWN && RIGHT && !LEFT)   robotRun(900, tocdo);
-    
-    // else if(!UP && DOWN && !RIGHT && LEFT)  robotRun(450,tocdo);
-    // else if(!UP && DOWN && RIGHT && !LEFT)  robotRun(-450,tocdo);
-    // else if(UP && !DOWN && !RIGHT && LEFT)  robotRun(1350,tocdo);
-    // else if(UP && !DOWN && RIGHT && !LEFT)  robotRun(-1350,tocdo);
-
-    
-    //-------------- Dang chay va Khong chay nua, chi xoay ----------------
-    if(UP && DOWN && RIGHT && LEFT && !rJoy_LR && lJoy_LR  && robotIsRun()) robotStop(5);   
-
-    //-------------- Xoay ----------------
-    if(rJoy_LR) robotRotateStop();
-    else if((RJOY_LR < 5) && L2)
-    {
-        if(robotIsRun()) robotRotateFree(-1.5,0);
-        //else robotRotateFree(-tocdoXoay,0);
-                else {bit_khoa_ham_chay_thay_tuan = 1;setMotor(-toc_do_xoay_free,toc_do_xoay_free,-toc_do_xoay_free,toc_do_xoay_free);}
-    }
-    else if((RJOY_LR > 250) && L2)
-    {
-        if(robotIsRun()) robotRotateFree(1.5,0);
-        //else robotRotateFree(tocdoXoay,0);
-                else {bit_khoa_ham_chay_thay_tuan = 1;setMotor(toc_do_xoay_free,-toc_do_xoay_free,toc_do_xoay_free,-toc_do_xoay_free);}
-    }
-
-    else setMotor(2,2,2,2);bit_khoa_ham_chay_thay_tuan = 0;robotRotateStop();
-}
 //////-------------------------------------------------------------	
 void ADCValue_Control(void)
 {

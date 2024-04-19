@@ -1,0 +1,33 @@
+*** Creating Trace Output File '.\HEX\ManualRobot.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '".\hex\gamepad.o"'
+### List of Objects: adding '".\hex\lcd.o"'
+### List of Objects: adding '".\hex\main.o"'
+### List of Objects: adding '".\hex\stm32f10x_it.o"'
+### List of Objects: adding '".\hex\system_stm32f10x.o"'
+### List of Objects: adding '".\hex\misc.o"'
+### List of Objects: adding '".\hex\stm32f10x_gpio.o"'
+### List of Objects: adding '".\hex\stm32f10x_rcc.o"'
+### List of Objects: adding '".\hex\stm32f10x_sdio.o"'
+### List of Objects: adding '".\hex\stm32f10x_tim.o"'
+### List of Objects: adding '".\hex\stm32f10x_usart.o"'
+### List of Objects: adding '".\hex\stm32f10x_dma.o"'
+### List of Objects: adding '".\hex\core_cm3.o"'
+### List of Objects: adding '".\hex\startup_stm32f10x_hd.o"'
+### List of Objects: adding '".\hex\stm32f10x_adc.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M3 ".\hex\gamepad.o" ".\hex\lcd.o" ".\hex\main.o" ".\hex\stm32f10x_it.o" ".\hex\system_stm32f10x.o" ".\hex\misc.o" ".\hex\stm32f10x_gpio.o" ".\hex\stm32f10x_rcc.o" ".\hex\stm32f10x_sdio.o" ".\hex\stm32f10x_tim.o" ".\hex\stm32f10x_usart.o" ".\hex\stm32f10x_dma.o" ".\hex\core_cm3.o" ".\hex\startup_stm32f10x_hd.o" ".\hex\stm32f10x_adc.o" --library_type=microlib --strict --scatter ".\HEX\ManualRobot.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\LIST\ManualRobot.map" -o ".\HEX\ManualRobot.axf"### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: '.\HEX\ManualRobot.axf'
+### ADS-LD Command File: '.\HEX\ManualRobot.lnp'
+### Checking for dirty Components...
+### Creating CmdFile '.\HEX\ManualRobot.lnp', Handle=0x000007C0
+### Writing '.lnp' file
+### ADS-LD Command file '.\HEX\ManualRobot.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

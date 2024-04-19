@@ -1,0 +1,20 @@
+--cpu Cortex-M3
+".\hex\gamepad.o"
+".\hex\lcd.o"
+".\hex\main.o"
+".\hex\stm32f10x_it.o"
+".\hex\system_stm32f10x.o"
+".\hex\misc.o"
+".\hex\stm32f10x_gpio.o"
+".\hex\stm32f10x_rcc.o"
+".\hex\stm32f10x_sdio.o"
+".\hex\stm32f10x_tim.o"
+".\hex\stm32f10x_usart.o"
+".\hex\stm32f10x_dma.o"
+".\hex\core_cm3.o"
+".\hex\startup_stm32f10x_hd.o"
+".\hex\stm32f10x_adc.o"
+--library_type=microlib --strict --scatter ".\HEX\ManualRobot.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\LIST\ManualRobot.map" -o .\HEX\ManualRobot.axf
