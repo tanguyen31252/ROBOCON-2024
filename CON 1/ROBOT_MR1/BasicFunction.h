@@ -64,5 +64,5 @@ void chay_thang_line()
 	// 	}
 	// }
 	robotRunAngle(900,20,0,0);
-	while(xoay_thang_line()){}
+	while(ENCODER_TONG()<1050){xoay_thang_line();}
 }

@@ -355,68 +355,33 @@ void LayvaBanthoc()
 
 void testbanhxe()	
 {
-    if(abs(_robotIMUAngle) > 800)
+    i = 50;
+    if(!TRIANGLE)
     {
-        if(L1 && !TRIANGLE)
-        {
-            RESET_ENCODER();
-            robotRun(1800, 20);
-            while(ENCODER_TONG() < 50){}
-        }
-        if (L1 && !X)
-        {
-            RESET_ENCODER();
-            robotRun(0, 20);
-            while(ENCODER_TONG() < 50){}
-        }
-        if(L1 && !SQUARE)
-        {
-            RESET_ENCODER();
-            robotRun(900, 20);
-            while(ENCODER_TONG() < 50){}
-        }
-        if (L1 && !O)
-        {
-            RESET_ENCODER();
-            robotRun(-900, 20);
-            while(ENCODER_TONG() < 50){}
-        }
+        Mor_RearLeft = i, Mor_RearLeft_next;
     }
-    else
+    else if(!X)
     {
-        if(L1 && !TRIANGLE)
-        {
-            RESET_ENCODER();
-            robotRun(0, 20);
-            while(ENCODER_TONG() < 50){}
-        }
-        if (L1 && !X)
-        {
-            RESET_ENCODER();
-            robotRun(1800, 20);
-            while(ENCODER_TONG() < 50){}
-        }
-        if(L1 && !SQUARE)
-        {
-            RESET_ENCODER();
-            robotRun(-900, 20);
-            while(ENCODER_TONG() < 50){}
-        }
-        if (L1 && !O)
-        {
-            RESET_ENCODER();
-            robotRun(900, 20);
-            while(ENCODER_TONG() < 50){}
-        }
+        Mor_RearLeft = i, Mor_RearLeft_back;
     }
+    else Mor_RearLeft = 0;
+    if(!SQUARE)
+    {
+        Mor_RearRight = i, Mor_RearRight_next;
+    }
+    else if(!O)
+    {
+        Mor_RearRight = i, Mor_RearRight_back;
+    }
+    else Mor_RearRight = 0;
 }
 
 //--------------------------- DIEU KHIEN CO CAU ---------------------------------------
 void dieuKhienCoCau(void) 
 {
-    testBT();
+    // testBT();
     // testbanhxe();
-    LayvaBanthoc();
+    // LayvaBanthoc();
 
 }
 

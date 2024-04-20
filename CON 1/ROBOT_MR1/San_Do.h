@@ -360,64 +360,64 @@ void THI()
 
 }
 
-char robotLineDetect(unsigned char speed)
-{
-    char vitri = 0;
+// char robotLineDetect(unsigned char speed)
+// {
+//     char vitri = 0;
 
-       do{
-						robotRunAngle(0,20,0,0)                                // toc do chay den line
-						do{
-									if(!cb_TTruoc || !cb_TSau) vitri=1;
-									else if(!cb_PTruoc || !cb_PSau) vitri=2;
-									else vitri=0;
-									if(wantExit()) return 0;
-							}
-						while(vitri==0);
+//        do{
+// 						robotRunAngle(0,20,0,0)                                // toc do chay den line
+// 						do{
+// 									if(!cb_TTruoc || !cb_TSau) vitri=1;
+// 									else if(!cb_PTruoc || !cb_PSau) vitri=2;
+// 									else vitri=0;
+// 									if(wantExit()) return 0;
+// 							}
+// 						while(vitri==0);
 
-									robotStop(0);
-									delay_ms(10);
+// 									robotStop(0);
+// 									delay_ms(10);
 
-									if(!cb_TTruoc || !cb_TSau) vitri=1;
-									else if(!cb_PTruoc || !cb_PSau) vitri=2;
-									else vitri=0;
-									if(wantExit()) return 0;
-				}
-			while(vitri==0);
+// 									if(!cb_TTruoc || !cb_TSau) vitri=1;
+// 									else if(!cb_PTruoc || !cb_PSau) vitri=2;
+// 									else vitri=0;
+// 									if(wantExit()) return 0;
+// 				}
+// 			while(vitri==0);
 
-    if(vitri==2)// ben Trai sai
-    {
-        robotRotate(30000, 0.6, 2);
-        while(cb_TTruoc && cb_TSau) if(wantExit()) return 0;
-    }
-    else // ben Phai sai
-    {
-        robotRotate(-30000, 0.6, 1);
-        while(cb_PTruoc && cb_PSau)if(wantExit()) return 0;
-    }
+//     if(vitri==2)// ben Trai sai
+//     {
+//         robotRotate(30000, 0.6, 2);
+//         while(cb_TTruoc && cb_TSau) if(wantExit()) return 0;
+//     }
+//     else // ben Phai sai
+//     {
+//         robotRotate(-30000, 0.6, 1);
+//         while(cb_PTruoc && cb_PSau)if(wantExit()) return 0;
+//     }
 
-    robotStop(0);
-    return 1;
-}
+//     robotStop(0);
+//     return 1;
+// }
 
-void EX()
-    {
-        while (1)
-        {
-            robotRunAngle(0,20,0,0);
-            if ((CB_Line_T1 == 0 && CB_Line_T2 == 0) && (CB_Line_T3 == 1 && CB_Line_T4 == 1 )) 
-            {
-                robotRunAngle(-500,20,0,0);
-                while (CB_Line_T2 == 0 && CB_Line_T3 == 0){}
-            }
-            else if ((CB_Line_T1 == 1 && CB_Line_T2 == 1) && (CB_Line_T3 == 0 && CB_Line_T4 == 0))
-            {
-                robotRunAngle(500,20,0,0);
-                while (CB_Line_T2 == 0 && CB_Line_T3){}
-            }
-        }
+// void EX()
+//     {
+//         while (1)
+//         {
+//             robotRunAngle(0,20,0,0);
+//             if ((CB_Line_T1 == 0 && CB_Line_T2 == 0) && (CB_Line_T3 == 1 && CB_Line_T4 == 1 )) 
+//             {
+//                 robotRunAngle(-500,20,0,0);
+//                 while (CB_Line_T2 == 0 && CB_Line_T3 == 0){}
+//             }
+//             else if ((CB_Line_T1 == 1 && CB_Line_T2 == 1) && (CB_Line_T3 == 0 && CB_Line_T4 == 0))
+//             {
+//                 robotRunAngle(500,20,0,0);
+//                 while (CB_Line_T2 == 0 && CB_Line_T3){}
+//             }
+//         }
 
         
-    }
+//     }
 
     /* 
     
