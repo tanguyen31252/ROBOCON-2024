@@ -367,18 +367,23 @@ void robotAngleAnalytics(void)
 {
 	if(_robotAngleCounterFix > 1)
 	{
-		if(absI(_robotRotateAngle - _robotIMUAngle) < 4){
-			if(_robotAngleCounterFix++ > 1000)
+		if(absI(_robotRotateAngle - _robotIMUAngle) < 6){
+			_robotCurrentSpeed = 0;
+			_robotRunSpeed = 0;
+			_robotRotate = 0;
+
+			calculateMotor(_robotRotate);
+			if(_robotAngleCounterFix++ > 500)
 				{
 						robotStop(0);
 						return;
 				}
 		}else{
 				
-					if(_robotAngleCounterFix > 500){
+					if(_robotAngleCounterFix > 250){
 						_robotRunSpeed = 5;
 						_robotCurrentSpeed = 5;
-						_robotAngleCounterFix = 501;
+						_robotAngleCounterFix = 251;
 					}else{
 						_robotRunSpeed = 5;
 						_robotCurrentSpeed = 5;
