@@ -63,8 +63,8 @@ float fHeSoChinhHuong = 0.1, f05 = 0.5, f1 = 1.0, f2 = 2.0, f4 = 4.0, f5 = 5.0, 
 int i100 = 100, khoangCachGocFix = 200;
 
 //------------ su dung cho ham gia toc bac 1 tuyen tinh--------------
-float _robotY = 30;
-float _robotX = 180;
+float _robotY = 60;
+float _robotX = 120;
 
 int _lockRobot = 0;
 int motorLock = 2;
@@ -162,8 +162,8 @@ int roundF(float num)
 float fixMotorValue(int T)
 {
 	if(T == 0) 			return 0;
-	else 	if(T < 0) return (T*0.1 - 0.1)/_robotCurrentSpeed; // tuy thuoc robot ma co the he so toi thieu la 0.5, 1, 2...
-				else 			return (T*0.1 + 0.1)/_robotCurrentSpeed;
+	else 	if(T < 0) return (T*0.3 - 0.1)/_robotCurrentSpeed; // tuy thuoc robot ma co the he so toi thieu la 0.5, 1, 2...
+				else 			return (T*0.3 + 0.1)/_robotCurrentSpeed;
 }
 //------------------------------------------------------------------------------
 float absF(float num)
@@ -224,9 +224,9 @@ void calculateMotor(float rotate)
 		{
 			angle = (float)(_robotAngle - (_robotIMUAngle - _robotIMUInit) - _robotRotate * f30)/f10;
 			
-			_robotRun0h = -sin(radian *  angle        ) - _robotCurve;
-			_robotRun4h =  sin(radian * (angle + f60) ) - _robotCurve;
-			_robotRun8h = -sin(radian * (angle + f120));
+			_robotRun0h = -sin(radian *  angle        ) * 2 - _robotCurve;
+			_robotRun4h =  sin(radian * (angle + f60) ) * 2- _robotCurve;
+			_robotRun8h = -sin(radian * (angle + f120)) * 2;
 		}
 		//----------------------------------------------
 		if(rotate){

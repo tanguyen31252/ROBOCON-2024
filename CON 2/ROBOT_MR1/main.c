@@ -97,7 +97,7 @@ static void taskMain(void *pvParameters)
 			// }
 			// else mor_0h = 0;
 			robotGamePadControl();
-			if(!START)	test();
+			if(!START)	THI();
 			// if(!START)                                  {test_nut = 11,THI();}
 			// else if(!NUT_START)							{test_nut = 22,retry();}
 //			else if(NUT_1 == 1)                             {XuatPhat_1();}
