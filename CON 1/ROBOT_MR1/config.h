@@ -1296,7 +1296,7 @@ void HMI_TRAN(vs32 _so_dong) {
 										HMI_DMI("laze ve: ",laze_ngang_ve,11);	
 										break;
 									case 12:
-										HMI_DMI("vi tri laze:",vi_tri_laze,12);  						
+										HMI_DMI("LJOY_UD:",GP_BTN[5],12);  						
 										break;
 									case 13:
 										HMI_DMI("LAZER XANH: ",lazeNgangXanhValue,13);   
@@ -1340,7 +1340,7 @@ void HMI_TRAN(vs32 _so_dong) {
 										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_13));		
 										strcat(_chu_cac_bit,_ghep_bit);		
 										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_14));
-    								strcat(_chu_cac_bit,_ghep_bit);
+    									strcat(_chu_cac_bit,_ghep_bit);
 										HMI_PUTS("I:",_chu_cac_bit,16);
 										break;								
 									case 17:

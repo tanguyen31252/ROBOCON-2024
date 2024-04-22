@@ -355,32 +355,34 @@ void LayvaBanthoc()
 
 void testbanhxe()	
 {
-    i = 50;
-    if(!TRIANGLE)
-    {
-        Mor_RearLeft = i, Mor_RearLeft_next;
-    }
-    else if(!X)
-    {
-        Mor_RearLeft = i, Mor_RearLeft_back;
-    }
-    else Mor_RearLeft = 0;
-    if(!SQUARE)
-    {
-        Mor_RearRight = i, Mor_RearRight_next;
-    }
-    else if(!O)
-    {
-        Mor_RearRight = i, Mor_RearRight_back;
-    }
-    else Mor_RearRight = 0;
+    i = 100;
+    // if(!TRIANGLE)
+    // {
+    //     Mor_RearLeft = i, Mor_RearLeft_next;
+    // }
+    // else if(!X)
+    // {
+    //     Mor_RearLeft = i, Mor_RearLeft_back;
+    // }
+    // else Mor_RearLeft = 0;
+    // if(!SQUARE)
+    // {
+    //     Mor_FrontRight = i, Mor_FrontRight_next;
+    //     Mor_FrontLeft = i, Mor_FrontLeft_next;
+    // }
+    // else if(!O)
+    // {
+    //     Mor_FrontRight = i, Mor_FrontRight_back;
+    //     Mor_FrontLeft = i, Mor_FrontLeft_back;
+    // }
+    // else Mor_FrontRight = Mor_FrontLeft = 0;
 }
 
 //--------------------------- DIEU KHIEN CO CAU ---------------------------------------
 void dieuKhienCoCau(void) 
 {
     // testBT();
-    // testbanhxe();
+    testbanhxe();
     // LayvaBanthoc();
 
 }
