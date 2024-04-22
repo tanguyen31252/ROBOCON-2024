@@ -225,7 +225,7 @@ void calculateMotor(float rotate)
 			angle = (float)(_robotAngle - (_robotIMUAngle - _robotIMUInit) - _robotRotate * f30)/f10;
 			
 			_robotRun0h = -sin(radian *  angle        ) * 2 - _robotCurve;
-			_robotRun4h =  sin(radian * (angle + f60) ) * 2- _robotCurve;
+			_robotRun4h =  sin(radian * (angle + f60) ) * 2 - _robotCurve;
 			_robotRun8h = -sin(radian * (angle + f120)) * 2;
 		}
 		//----------------------------------------------

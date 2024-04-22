@@ -157,7 +157,7 @@ static void taskMain(void *pvParameters)
 		if(NUT_1 ==  0)  		
 		{
 			if(MauSan == 1){// 1: san xanh; 2: san do
-				//XUAT_PHAT_SAN_XANH();
+				XUAT_PHAT_SAN_XANH();
 				while(1){
 					TimBongTuDo(MauSan);	
 					ThaBong_Xanh();

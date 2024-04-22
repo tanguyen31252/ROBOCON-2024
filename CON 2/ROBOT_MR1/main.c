@@ -89,15 +89,11 @@ static void taskMain(void *pvParameters)
 	
 	while(1) 
 	{
-		// while(gp_get_mode_uart()  == GP_MODE_ANALOGUE_RED_LED) 
-		// {
-			// if(!UP)
-			// {
-			// 	mor_0h = 30, mor_0h_next;
-			// }
-			// else mor_0h = 0;
-			// robotGamePadControl();
-			if(!NUT_START)	THI();
+		XL_NONG_HA_BAT;
+		while(gp_get_mode_uart()  == GP_MODE_ANALOGUE_RED_LED) 
+		{
+			robotGamePadControl();
+			if(!START)	THI();
 			if(!NUT_RETRY)	retry();
 			// if(!START)                                  {test_nut = 11,THI();}
 			// else if(!NUT_START)							{test_nut = 22,retry();}
@@ -107,7 +103,7 @@ static void taskMain(void *pvParameters)
 //			if(NUT_4 == 0)                                  {test_nut = 44,XuatPhat_4();}
 //			if(NUT_5 == 0)                                  {test_nut = 55,XuatPhat_5();}
 		
-		// }
+		}
 		
 	}
 }
