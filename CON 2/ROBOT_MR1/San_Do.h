@@ -448,6 +448,7 @@ void do_bong_trong_Analytics()
         Mor_nong = 254;
         while(1)
         {
+            while (cb)
             if (CB_NHAN_DO_TREN == 0 || CB_NHAN_XANH_TREN == 0)
             {
                 break;
