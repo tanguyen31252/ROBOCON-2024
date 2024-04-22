@@ -167,8 +167,8 @@ void dieuKhienCoCau(void)
     // test_xl();
     if(!X)
     {
-        Mor_hot_bong = Bang_tai = Mor_nong = 254;
-        Mor_hot_bong_vao, Bang_tai_thuan, Mor_nong_ra;
+        // Mor_hot_bong = Bang_tai = Mor_nong = 254;
+        // Mor_hot_bong_vao, Bang_tai_thuan, Mor_nong_ra;
     }
-    else Mor_hot_bong = Bang_tai = Mor_nong = 0;
+    // else Mor_hot_bong = Bang_tai = Mor_nong = 0;
 }

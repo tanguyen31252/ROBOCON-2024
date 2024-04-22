@@ -120,3 +120,23 @@ cập nhật file của đội v-flame: V-FLAME\V-FLAME\V-FLAME
 
 23:46 240419
 update con 2 mới xong!!!
+
+
+20h06 22/4
+có cảm biến mới ngay chỗ cảm biến màu nòng ra
+code mù: tha_bong của giáo Tài
+
+    while (CB_BONG_NONG_RA == 0)
+    {
+    Mor_nong = 254;
+    Bang_tai = 254;
+    delay_ms(1000);
+    Mor_nong = Bang_tai = 0;
+    
+    bien_nho_bong_da_tha_trong_silo[silo_so]++;
+    }
+    reset_all();
+
+CB_BONG_NONG_RA là cảm biến mới gắn ở nòng ra gần cảm biến màu,
+thầy Tài kêu là khi mà cảm biến màu nhận thì dừng r lên silo thả bóng,còn cảm biến đó dùng để khi mà cảm biến nhận thì mor băng tải
+ và mor nòng ra chạy cho đến khi cảm biến đó không nhận
