@@ -419,30 +419,65 @@ void EX()
         
     }
 
-    /* 
-    
-    
-    
-    CÁC TRƯỜNG HỢP LỆCH LINE
+void LEN_SAN_2()
+//////////////////////////SAN DO//////////////////////////
+{
+    reset_all();
+    if (SAN == 1)
+    {
+        robotFixAngle();
+        robotRunAngle(900,20,0,0);
+        while(lazeNgangDoValue < 380){};
 
-    **************ĐI THẲNG 
+        robotRunAngle(900,20,0,0);
+        while (CB_Line_P1 == 0 && CB_Line_P2 == 0 && CB_Line_P3 == 0 && CB_Line_P4 == 0){};
 
-    T2 và T3 = 0
+        robotStop(0);
 
-    **************LUI
+        robotRunAngle(1800,20,0,0);
+        while(lazeTruocValue > 200){};
 
-    T2 và T3 = 0
+        RESET_ENCODER();
 
-    **************QUA TRÁI
+        robotRunAngle(900,20,0,0);
+        while (CB_Line_P1 == 0 && CB_Line_P2 == 0 && CB_Line_P3 == 0 && CB_Line_P4 ==0){};
 
-    T1,T2,T3,T4 = 0
+        while (CB_Line_P1 == 0 && CB_Line_P2 == 0 && CB_Line_P3 == 0 && CB_Line_P4 ==0)
+        {
+            robotRunAngle(0,20,0,0);
+            if (lazeTruocValue > 120)
+        {
+            break;
+        }
+        };
+    }
 
-    **************QUA PHẢI
+    else 
+    {
+        robotFixAngle();
+        robotRunAngle(900,20,0,0);
+        while(lazeNgangDoValue < 380){};
 
-    T1,T2,T3,T4 = 0
+        robotRunAngle(900,20,0,0);
+        while (CB_Line_T1 == 0 && CB_Line_T2 == 0 && CB_Line_T3 == 0 && CB_Line_T4 == 0){};
 
+        robotStop(0);
 
+        robotRunAngle(1800,20,0,0);
+        while(lazeTruocValue > 200){};
 
+        RESET_ENCODER();
 
+        robotRunAngle(900,20,0,0);
+        while (CB_Line_T1 == 0 && CB_Line_T2 == 0 && CB_Line_T3 == 0 && CB_Line_T4 ==0){};
 
-    */
+        while (CB_Line_T1 == 0 && CB_Line_T2 == 0 && CB_Line_T3 == 0 && CB_Line_T4 ==0)
+        {
+            robotRunAngle(0,20,0,0);
+            if (lazeTruocValue > 120)
+        {
+            break;
+        }
+        };
+    }
+}
