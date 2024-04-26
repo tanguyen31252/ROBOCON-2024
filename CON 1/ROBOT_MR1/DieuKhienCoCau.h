@@ -22,21 +22,21 @@ void laze_san_2()
     {
         if(SAN == 1)
         {
-            if     (LAZENGANG_2[SAN][5] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][6])       {vi_tri_laze =6,tocdo[0][0], ban_lep = tocdo[1][0], goc_xoay_thoc = gocxoay_thoc[SAN][6], goc_xoay_lep = gocxoay_lep[SAN][6], phe_thoc = giamphe[0][0], phe_lep = giamphe[1][0];}                //vi tri 1
-            else if(LAZENGANG_2[SAN][4] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][5])       {vi_tri_laze =5,ban_thoc = tocdo[0][1], ban_lep = tocdo[1][1], goc_xoay_thoc = gocxoay_thoc[SAN][5], goc_xoay_lep = gocxoay_lep[SAN][5], phe_thoc = giamphe[0][1], phe_lep = giamphe[1][1];}
-            else if(LAZENGANG_2[SAN][3] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][4])       {vi_tri_laze =4,ban_thoc = tocdo[0][2], ban_lep = tocdo[1][2], goc_xoay_thoc = gocxoay_thoc[SAN][4], goc_xoay_lep = gocxoay_lep[SAN][4], phe_thoc = giamphe[0][2], phe_lep = giamphe[1][2];}
-            else if(LAZENGANG_2[SAN][2] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][3])       {vi_tri_laze =3,ban_thoc = tocdo[0][3], ban_lep = tocdo[1][3], goc_xoay_thoc = gocxoay_thoc[SAN][3], goc_xoay_lep = gocxoay_lep[SAN][3], phe_thoc = giamphe[0][3], phe_lep = giamphe[1][3];}
-            else if(LAZENGANG_2[SAN][1] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][2])       {vi_tri_laze =2,ban_thoc = tocdo[0][4], ban_lep = tocdo[1][4], goc_xoay_thoc = gocxoay_thoc[SAN][2], goc_xoay_lep = gocxoay_lep[SAN][2], phe_thoc = giamphe[0][4], phe_lep = giamphe[1][4];}
-            else if(                                            lazeNgangXanhValue < LAZENGANG_2[SAN][1])       {vi_tri_laze =1,ban_thoc = tocdo[0][5], ban_lep = tocdo[1][5], goc_xoay_thoc = gocxoay_thoc[SAN][1], goc_xoay_lep = gocxoay_lep[SAN][1], phe_thoc = giamphe[0][5], phe_lep = giamphe[1][5];}                //vi tri 6
+            if     (LAZENGANG_2[SAN][5] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][6])       {vi_tri_laze =6,tocdo[0][0], ban_lep = tocdo[1][0], goc_xoay_thoc = gocxoay_thoc[SAN][6], goc_xoay_lep = gocxoay_lep[SAN][6], phe_thoc = giamphe[0][0], phe_lep = giamphe[1][0];}                //vi tri 1
+            else if(LAZENGANG_2[SAN][4] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][5])       {vi_tri_laze =5,ban_thoc = tocdo[0][1], ban_lep = tocdo[1][1], goc_xoay_thoc = gocxoay_thoc[SAN][5], goc_xoay_lep = gocxoay_lep[SAN][5], phe_thoc = giamphe[0][1], phe_lep = giamphe[1][1];}
+            else if(LAZENGANG_2[SAN][3] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][4])       {vi_tri_laze =4,ban_thoc = tocdo[0][2], ban_lep = tocdo[1][2], goc_xoay_thoc = gocxoay_thoc[SAN][4], goc_xoay_lep = gocxoay_lep[SAN][4], phe_thoc = giamphe[0][2], phe_lep = giamphe[1][2];}
+            else if(LAZENGANG_2[SAN][2] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][3])       {vi_tri_laze =3,ban_thoc = tocdo[0][3], ban_lep = tocdo[1][3], goc_xoay_thoc = gocxoay_thoc[SAN][3], goc_xoay_lep = gocxoay_lep[SAN][3], phe_thoc = giamphe[0][3], phe_lep = giamphe[1][3];}
+            else if(LAZENGANG_2[SAN][1] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][2])       {vi_tri_laze =2,ban_thoc = tocdo[0][4], ban_lep = tocdo[1][4], goc_xoay_thoc = gocxoay_thoc[SAN][2], goc_xoay_lep = gocxoay_lep[SAN][2], phe_thoc = giamphe[0][4], phe_lep = giamphe[1][4];}
+            else if(                                            lazePhaiValue < LAZENGANG_2[SAN][1])       {vi_tri_laze =1,ban_thoc = tocdo[0][5], ban_lep = tocdo[1][5], goc_xoay_thoc = gocxoay_thoc[SAN][1], goc_xoay_lep = gocxoay_lep[SAN][1], phe_thoc = giamphe[0][5], phe_lep = giamphe[1][5];}                //vi tri 6
         }
         else
         {
-            if     (LAZENGANG_2[SAN][2] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][1])       {ban_thoc = tocdo[0][0], ban_lep = tocdo[1][0], goc_xoay_thoc = gocxoay_thoc[SAN][1], goc_xoay_lep = gocxoay_lep[SAN][1], phe_thoc = giamphe[0][0], phe_lep = giamphe[1][0];}                //vi tri 1
-            else if(LAZENGANG_2[SAN][3] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][2])       {ban_thoc = tocdo[0][1], ban_lep = tocdo[1][1], goc_xoay_thoc = gocxoay_thoc[SAN][2], goc_xoay_lep = gocxoay_lep[SAN][2], phe_thoc = giamphe[0][1], phe_lep = giamphe[1][1];}
-            else if(LAZENGANG_2[SAN][4] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][3])       {ban_thoc = tocdo[0][2], ban_lep = tocdo[1][2], goc_xoay_thoc = gocxoay_thoc[SAN][3], goc_xoay_lep = gocxoay_lep[SAN][3], phe_thoc = giamphe[0][2], phe_lep = giamphe[1][2];}
-            else if(LAZENGANG_2[SAN][5] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][4])       {ban_thoc = tocdo[0][3], ban_lep = tocdo[1][3], goc_xoay_thoc = gocxoay_thoc[SAN][4], goc_xoay_lep = gocxoay_lep[SAN][4], phe_thoc = giamphe[0][3], phe_lep = giamphe[1][3];}
-            else if(LAZENGANG_2[SAN][6] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][5])       {ban_thoc = tocdo[0][4], ban_lep = tocdo[1][4], goc_xoay_thoc = gocxoay_thoc[SAN][5], goc_xoay_lep = gocxoay_lep[SAN][5], phe_thoc = giamphe[0][4], phe_lep = giamphe[1][4];}
-            else if(                                            lazeNgangXanhValue < LAZENGANG_2[SAN][6])       {ban_thoc = tocdo[0][5], ban_lep = tocdo[1][5], goc_xoay_thoc = gocxoay_thoc[SAN][6], goc_xoay_lep = gocxoay_lep[SAN][6], phe_thoc = giamphe[0][5], phe_lep = giamphe[1][5];}                //vi tri 6
+            if     (LAZENGANG_2[SAN][2] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][1])       {ban_thoc = tocdo[0][0], ban_lep = tocdo[1][0], goc_xoay_thoc = gocxoay_thoc[SAN][1], goc_xoay_lep = gocxoay_lep[SAN][1], phe_thoc = giamphe[0][0], phe_lep = giamphe[1][0];}                //vi tri 1
+            else if(LAZENGANG_2[SAN][3] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][2])       {ban_thoc = tocdo[0][1], ban_lep = tocdo[1][1], goc_xoay_thoc = gocxoay_thoc[SAN][2], goc_xoay_lep = gocxoay_lep[SAN][2], phe_thoc = giamphe[0][1], phe_lep = giamphe[1][1];}
+            else if(LAZENGANG_2[SAN][4] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][3])       {ban_thoc = tocdo[0][2], ban_lep = tocdo[1][2], goc_xoay_thoc = gocxoay_thoc[SAN][3], goc_xoay_lep = gocxoay_lep[SAN][3], phe_thoc = giamphe[0][2], phe_lep = giamphe[1][2];}
+            else if(LAZENGANG_2[SAN][5] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][4])       {ban_thoc = tocdo[0][3], ban_lep = tocdo[1][3], goc_xoay_thoc = gocxoay_thoc[SAN][4], goc_xoay_lep = gocxoay_lep[SAN][4], phe_thoc = giamphe[0][3], phe_lep = giamphe[1][3];}
+            else if(LAZENGANG_2[SAN][6] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][5])       {ban_thoc = tocdo[0][4], ban_lep = tocdo[1][4], goc_xoay_thoc = gocxoay_thoc[SAN][5], goc_xoay_lep = gocxoay_lep[SAN][5], phe_thoc = giamphe[0][4], phe_lep = giamphe[1][4];}
+            else if(                                            lazePhaiValue < LAZENGANG_2[SAN][6])       {ban_thoc = tocdo[0][5], ban_lep = tocdo[1][5], goc_xoay_thoc = gocxoay_thoc[SAN][6], goc_xoay_lep = gocxoay_lep[SAN][6], phe_thoc = giamphe[0][5], phe_lep = giamphe[1][5];}                //vi tri 6
         }
     }
 }
@@ -135,47 +135,42 @@ void robotGamePadControl(void) {
 //////-------------------------------------------------------------	
 void ADCValue_Control(void)
 {
-    static unsigned int lazeTruocCouter =0, lazeTruoc_SUM =0, lazeNgang_Counter_do =0, lazeNgang_SUM_do =0, BienTroGocBanThoc_Couter =0, BienTroGocBanThoc_SUM =0, BT_Dia_xoay_Couter =0, BT_Dia_xoay_SUM =0, lazeNgang_Counter_xanh =0,lazeNgang_SUM_xanh =0;
+    static unsigned int lazeTruocCouter = 0, lazeTruoc_SUM  = 0;
+    static unsigned int lazeTraiCounter = 0, lazeTrai_SUM   = 0;
+    static unsigned int lazePhaiCounter = 0, lazePhai_SUM   = 0;
+    static unsigned int lazeSauCounter  = 0, lazeSau_SUM    = 0;
 //------------------------	
     if(lazeTruocCouter++ < 100)	lazeTruoc_SUM += cam_bien_laze_truoc;  
     else
     {
-        lazeTruocValue = lazeTruoc_SUM/100
-        ;
+        lazeTruocValue = lazeTruoc_SUM/100;
         lazeTruocCouter = 0;
         lazeTruoc_SUM = 0;
     }
 //------------------------
-    if(lazeNgang_Counter_do++ < 50)	lazeNgang_SUM_do += cam_bien_laze_ngang_do;  
+    if(lazeTraiCounter++ < 50)	lazeTrai_SUM += cam_bien_laze_trai;  
     else
     {
-        lazeNgangDoValue = lazeNgang_SUM_do/50;
-        lazeNgang_Counter_do = 0;
-        lazeNgang_SUM_do = 0;
+        lazeTraiValue = lazeTrai_SUM/50;
+        lazeTraiCounter = 0;
+        lazeTrai_SUM = 0;
     }
 //------------------------
-    if(lazeNgang_Counter_xanh++ < 50)	lazeNgang_SUM_xanh += cam_bien_laze_ngang_xanh;  
+    if(lazePhaiCounter++ < 50)	lazePhai_SUM += cam_bien_laze_phai;  
     else
     {
-        lazeNgangXanhValue = lazeNgang_SUM_xanh/50;
-        lazeNgang_Counter_xanh = 0;
-        lazeNgang_SUM_xanh = 0;
+        lazePhaiValue = lazePhai_SUM/50;
+        lazePhaiCounter = 0;
+        lazePhai_SUM = 0;
     }
+
 //------------------------
-//    if(BienTroGocBanThoc_Couter++ < 50)	BienTroGocBanThoc_SUM += BT_Nang_xoay_ban;  
-//    else
-//    {
-//        BT_Nang_goc_ban_value = BienTroGocBanThoc_SUM/50;
-//        BienTroGocBanThoc_Couter = 0;
-//        BienTroGocBanThoc_SUM = 0;
-//    }
-//-------------------------	
-    if(BT_Dia_xoay_Couter++ < 50)	BT_Dia_xoay_SUM += BT_Dia_xoay;
+    if(lazeSauCounter++ < 50)	lazeSau_SUM += cam_bien_laze_sau;  
     else
-{
-        BT_Dia_xoay_value = BT_Dia_xoay_SUM/50;
-        BT_Dia_xoay_Couter = 0;
-        BT_Dia_xoay_SUM = 0;
+    {
+        lazeSauValue = lazeSau_SUM/50;
+        lazeSauCounter = 0;
+        lazeSau_SUM = 0;
     }
 }
 
@@ -188,80 +183,20 @@ void test_cylinder(void)
 }
 
 //--------------------------- TEST CO CAU LAY VA BAN THOC --------------------------------------- L1 ---------------------------------------
-void tesLayvaBanthoc(void) {
-    if(!L1 & !TRIANGLE) 
-    {	
-        bien_xl_hot_banh = ~bien_xl_hot_banh; 
-        while(!L1 & !TRIANGLE)  vTaskDelay(1);									
-    }
-    if(bien_xl_hot_banh == 0)			        HOT_BANH_OFF;
-    else										HOT_BANH_ON;
-//-------------------------------------------------------------------------------------
-    if(!L1 & !O)
-    {
-        bien_xl_nap_dan = ~bien_xl_nap_dan;                                             //OK
-        while(!L1 & !O)  vTaskDelay(1);									
-    }
-    if(bien_xl_nap_dan == 0)			        NAP_DAN_OFF;
-    else						        		NAP_DAN_ON;
-////***********************************************************************************
-    if(!L1 & !SQUARE) 	
-    {
-        bien_xl_lay_bong = ~bien_xl_lay_bong; 
-        while(!L1 & !SQUARE)  vTaskDelay(1);									
-    }
-    if(bien_xl_lay_bong == 0)				    LAY_BONG_OFF;
-    else									    LAY_BONG_ON;
-//***********************************************************************************    
-    if(!L1 & !X) 
-    {	
-        bien_xoay_dong_co_nong_ban = ~bien_xoay_dong_co_nong_ban;
-        while(!L1 & !X)  vTaskDelay(1);									
-    }
-    if(bien_xoay_dong_co_nong_ban == 0)		                Mor_xoay_phai = Mor_xoay_trai = 0;	
-    else
-    {
-//											Mor_xoay_phai = 250, Mor_xoay_phai_thuan;
-                                            Mor_xoay_trai = 150, Mor_xoay_trai_thuan;
-    }
+void tesLayvaBanthoc(void) 
+{
+    
 }
 
 //--------------------------- TEST CO CAU LAY LUA --------------------------------------- L2 ---------------------------------------
 void testLaylua(void) 
 {
-//***********************************************************************************
-    if(!L2 & !TRIANGLE)                                                                             
-    {	
-        KEP_LUA_13_KEP;
-        KEP_LUA_24_KEP;
-    }
-//***********************************************************************************
-    if(!L2 & !SQUARE)                                                                         
-    {
-        KEP_LUA_13_NHA;
-    }
-//***********************************************************************************
-    if(!L2 & !O)
-    {
-        KEP_LUA_24_NHA;
-    }
-//***********************************************************************************
-    if(!L2 & !X) 
-    {	
-        bien_xl_keo_lua = ~bien_xl_keo_lua; 
-        while(!L2 & !SQUARE)  vTaskDelay(1);									
-    }
-    if(bien_xl_keo_lua == 0)				    KEO_LUA_XUONG;
-    else										KEO_LUA_LEN;
     
 }
 
 void testBT()
 {
-    i = 100;
-    if(L1 && !O)                   Mor_Dia_xoay = i, Mor_Dia_xoay_phai;
-    else if(L1 && !SQUARE)         Mor_Dia_xoay = i, Mor_Dia_xoay_trai;
-    else                           Mor_Dia_xoay = 0;
+    
 }
 
 void testcambien()
@@ -270,112 +205,106 @@ void testcambien()
 }
 void chuanbicocau()
 {
-    TAY_GAP_XUONG;
-    KEO_LUA_XUONG;
+    
 }
 
 
 void LayvaBanthoc()
 {
-    i = 100;
-    laze_san_2();
-    if(!L1 & !TRIANGLE) 
-    {
-        HOT_BANH_ON;
-        KEO_LUA_LEN;
-        TAY_GAP_LEN;
-    }
-//-----------------------------BAN THOC--------------------------------------------------------
-    if(!L1 & !SQUARE)
-    {
-        NAP_DAN_ON;
-        LAY_BONG_ON;
-        HOT_BANH_OFF;
+//     i = 100;
+//     laze_san_2();
+//     if(!L1 & !TRIANGLE) 
+//     {
+//         HOT_BANH_ON;
+//         KEO_LUA_LEN;
+//         TAY_GAP_LEN;
+//     }
+// //-----------------------------BAN THOC--------------------------------------------------------
+//     if(!L1 & !SQUARE)
+//     {
+//         NAP_DAN_ON;
+//         LAY_BONG_ON;
+//         HOT_BANH_OFF;
         
-        Mor_giam_phe = phe_thoc, Mor_giam_phe_thuan;
-        Mor_xoay_trai = ban_thoc, Mor_xoay_trai_thuan;
-        Mor_xoay_phai = ban_thoc, Mor_xoay_phai_thuan;
+//         Mor_giam_phe = phe_thoc, Mor_giam_phe_thuan;
+//         Mor_xoay_trai = ban_thoc, Mor_xoay_trai_thuan;
+//         Mor_xoay_phai = ban_thoc, Mor_xoay_phai_thuan;
         
-        if(BT_Dia_xoay_value > goc_xoay_thoc)
-        {
-            Mor_Dia_xoay = i, Mor_Dia_xoay_phai;
-            while(BT_Dia_xoay_value > goc_xoay_thoc+22){if(wantExit())break;}
-            Mor_Dia_xoay = 0;
-        }
-        else if(BT_Dia_xoay_value < goc_xoay_thoc)
-        {
-            Mor_Dia_xoay = i, Mor_Dia_xoay_trai;
-            while(BT_Dia_xoay_value < goc_xoay_thoc-22){if(wantExit())break;}
-            Mor_Dia_xoay = 0;
-        }
-        else Mor_Dia_xoay = 0;
+//         if(BT_Dia_xoay_value > goc_xoay_thoc)
+//         {
+//             Mor_Dia_xoay = i, Mor_Dia_xoay_phai;
+//             while(BT_Dia_xoay_value > goc_xoay_thoc+22){if(wantExit())break;}
+//             Mor_Dia_xoay = 0;
+//         }
+//         else if(BT_Dia_xoay_value < goc_xoay_thoc)
+//         {
+//             Mor_Dia_xoay = i, Mor_Dia_xoay_trai;
+//             while(BT_Dia_xoay_value < goc_xoay_thoc-22){if(wantExit())break;}
+//             Mor_Dia_xoay = 0;
+//         }
+//         else Mor_Dia_xoay = 0;
 
-        delay_ms(1000);
-        NAP_DAN_OFF;
-        LAY_BONG_OFF;
-        HOT_BANH_ON;
-        Mor_xoay_trai = Mor_xoay_phai = Mor_giam_phe = 0;
-        giu_nong_xoay();
-    }
+//         delay_ms(1000);
+//         NAP_DAN_OFF;
+//         LAY_BONG_OFF;
+//         HOT_BANH_ON;
+//         Mor_xoay_trai = Mor_xoay_phai = Mor_giam_phe = 0;
+//         giu_nong_xoay();
+//     }
     
-//-----------------------------BAN LEP--------------------------------------------------------
-    if(!L1 & !O) 	
-    {
-        NAP_DAN_ON;
-        LAY_BONG_ON;
-        HOT_BANH_OFF;
+// //-----------------------------BAN LEP--------------------------------------------------------
+//     if(!L1 & !O) 	
+//     {
+//         NAP_DAN_ON;
+//         LAY_BONG_ON;
+//         HOT_BANH_OFF;
         
-        Mor_giam_phe = phe_lep, Mor_giam_phe_nghich;
-        Mor_xoay_trai = ban_lep, Mor_xoay_trai_thuan;
-        Mor_xoay_phai = ban_lep, Mor_xoay_phai_thuan;
+//         Mor_giam_phe = phe_lep, Mor_giam_phe_nghich;
+//         Mor_xoay_trai = ban_lep, Mor_xoay_trai_thuan;
+//         Mor_xoay_phai = ban_lep, Mor_xoay_phai_thuan;
         
-        if(BT_Dia_xoay_value > goc_xoay_lep)
-        {
-            Mor_Dia_xoay = i, Mor_Dia_xoay_phai;
-            while(BT_Dia_xoay_value > goc_xoay_lep+22){if(wantExit())break;}
-            Mor_Dia_xoay = 0;
-        }
-        else if(BT_Dia_xoay_value < goc_xoay_lep)
-        {
-            Mor_Dia_xoay = i, Mor_Dia_xoay_trai;
-            while(BT_Dia_xoay_value < goc_xoay_lep-22){if(wantExit())break;}
-            Mor_Dia_xoay = 0;
-        }
-        else Mor_Dia_xoay = 0;
+//         if(BT_Dia_xoay_value > goc_xoay_lep)
+//         {
+//             Mor_Dia_xoay = i, Mor_Dia_xoay_phai;
+//             while(BT_Dia_xoay_value > goc_xoay_lep+22){if(wantExit())break;}
+//             Mor_Dia_xoay = 0;
+//         }
+//         else if(BT_Dia_xoay_value < goc_xoay_lep)
+//         {
+//             Mor_Dia_xoay = i, Mor_Dia_xoay_trai;
+//             while(BT_Dia_xoay_value < goc_xoay_lep-22){if(wantExit())break;}
+//             Mor_Dia_xoay = 0;
+//         }
+//         else Mor_Dia_xoay = 0;
 
-        delay_ms(1000);
-        NAP_DAN_OFF;
-        LAY_BONG_OFF;
-        HOT_BANH_ON;
-        Mor_xoay_trai = Mor_xoay_phai = Mor_giam_phe = 0;
-        giu_nong_xoay();
-    }
-//***********************************************************************************    
+//         delay_ms(1000);
+//         NAP_DAN_OFF;
+//         LAY_BONG_OFF;
+//         HOT_BANH_ON;
+//         Mor_xoay_trai = Mor_xoay_phai = Mor_giam_phe = 0;
+//         giu_nong_xoay();
+//     }
+// //***********************************************************************************    
 }
 
 void testbanhxe()	
 {
-    i = 100;
-    // if(!TRIANGLE)
-    // {
-    //     Mor_RearLeft = i, Mor_RearLeft_next;
-    // }
-    // else if(!X)
-    // {
-    //     Mor_RearLeft = i, Mor_RearLeft_back;
-    // }
-    // else Mor_RearLeft = 0;
-    // if(!SQUARE)
-    // {
-    //     Mor_FrontRight = i, Mor_FrontRight_next;
-    //     Mor_FrontLeft = i, Mor_FrontLeft_next;
-    // }
-    // else if(!O)
-    // {
-    //     Mor_FrontRight = i, Mor_FrontRight_back;
-    //     Mor_FrontLeft = i, Mor_FrontLeft_back;
-    // }
-    // else Mor_FrontRight = Mor_FrontLeft = 0;
+    if(!TRIANGLE)
+    {
+        XL_DAY_LUA_BAT;
+    }
+    else if(!X)
+    {
+        XL_DAY_LUA_TAT;
+    }
+    else if(!SQUARE)
+    {
+        XL_THA_LUA_BAT;
+    }
+    else if(!O)
+    {
+        XL_THA_LUA_TAT;
+    }
 }
 
 //--------------------------- DIEU KHIEN CO CAU ---------------------------------------

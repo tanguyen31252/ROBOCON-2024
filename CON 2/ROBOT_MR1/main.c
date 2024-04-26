@@ -93,8 +93,8 @@ static void taskMain(void *pvParameters)
 		while(gp_get_mode_uart()  == GP_MODE_ANALOGUE_RED_LED) 
 		{
 			robotGamePadControl();
-			if(!START)	THI();
-			if(!NUT_RETRY)	retry();
+			if(!START)										THI();
+			if(!NUT_RETRY)									retry();
 			// if(!START)                                  {test_nut = 11,THI();}
 			// else if(!NUT_START)							{test_nut = 22,retry();}
 //			else if(NUT_1 == 1)                             {XuatPhat_1();}
