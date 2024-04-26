@@ -172,8 +172,8 @@ int roundF(float num)
 float fixMotorValue(int T)
 {
 	if(T == 0) 			return 0;
-	else if(T < 0)      return (T*0.3 - 0.1)/_robotCurrentSpeed; // tuy thuoc robot ma co the he so toi thieu la 0.5, 1, 2...
-	else 			    return (T*0.3 + 0.1)/_robotCurrentSpeed;
+	else if(T < 0)      return (T*0.5 - 0.1)/_robotCurrentSpeed; // tuy thuoc robot ma co the he so toi thieu la 0.5, 1, 2...
+	else 			    return (T*0.5 + 0.1)/_robotCurrentSpeed;
 }
 //------------------------------------------------------------------------------
 float absF(float num)
@@ -237,8 +237,8 @@ void calculateMotor(float rotate)
 		angle = (float)(_robotAngle - (_robotIMUAngle - _robotIMUInit));// - _robotRotate * f30);		
 		angle = radian * (angle/f10 + f45);
 
-		_robotRunRR = sinf(angle)*2;
-		_robotRunRL = cosf(angle)*2;
+		_robotRunRR = sinf(angle)*6;
+		_robotRunRL = cosf(angle)*6;
 
 		_robotRunFL = _robotRunRR + _robotCurve;
 		_robotRunFR = _robotRunRL - _robotCurve;
@@ -391,11 +391,11 @@ void bam_thanh_laze_ngang(float angle, int maxSpeed, float robotAngle, float ang
 {
 	if(SAN == 1)
 	{
-		if(lazeNgangDoValue - laze_stable_ngang > num_stable_change)
+		if(lazeTraiValue - laze_stable_ngang > num_stable_change)
 		{
 			robotRunAngle(angle + angle_fix, maxSpeed, robotAngle, 1);
 		}
-		else if(lazeNgangDoValue - laze_stable_ngang < num_stable_change)
+		else if(lazeTraiValue - laze_stable_ngang < num_stable_change)
 		{
 			robotRunAngle(angle - angle_fix, maxSpeed, robotAngle, 1);
 		}
@@ -403,11 +403,11 @@ void bam_thanh_laze_ngang(float angle, int maxSpeed, float robotAngle, float ang
 	}
 	else
 	{
-		if(lazeNgangXanhValue - laze_stable_ngang > num_stable_change)
+		if(lazePhaiValue - laze_stable_ngang > num_stable_change)
 		{
 			robotRunAngle(angle + angle_fix, maxSpeed, robotAngle, 1);
 		}
-		else if(lazeNgangXanhValue - laze_stable_ngang < num_stable_change)
+		else if(lazePhaiValue - laze_stable_ngang < num_stable_change)
 		{
 			robotRunAngle(angle - angle_fix, maxSpeed, robotAngle, 1);
 		}

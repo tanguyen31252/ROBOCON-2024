@@ -123,9 +123,9 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 #define CB_BONG_2								GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_10)					//CB_BONG_2								0
 #define CB_BONG_3								GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_7)						//CB_BONG_3								0
 
-#define CB_TU_NHAN_SILO							GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_6)						//CB_TU_NHAN_SILO						
-#define CB_TU_DUNG_LAY_BANH						GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_12)					//CB DUNG KHONG LAY BONG NUA			
-#define CB_BONG_NONG_RA							GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_15)					//CB_BONG_NONG_RA						
+#define CB_TU_NHAN_SILO							GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_6)						//CB_TU_NHAN_SILO						0
+#define CB_TU_DUNG_LAY_BANH						GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_12)					//CB DUNG KHONG LAY BONG NUA			0
+#define CB_BONG_NONG_RA							GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_15)					//CB_BONG_NONG_RA						0
 
 #define NUT_RETRY								GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_13)					//
 #define NUT_START		  					    GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_5)						//

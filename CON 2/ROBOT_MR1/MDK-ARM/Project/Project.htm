@@ -3,7 +3,11 @@
 <title>Static Call Graph - [.\Project\Project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Project\Project.axf</H1><HR>
+<<<<<<< HEAD
 <BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060020: Last Updated: Mon Apr 22 20:53:41 2024
+=======
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060020: Last Updated: Thu Apr 25 11:37:09 2024
+>>>>>>> 6bf2be58800e9024c5bb08012f9efcb901f6d8d2
 <BR><P>
 <H3>Maximum Stack Usage =        424 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1186,7 +1190,6 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhatRetry
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XuatPhat
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_ve
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tha_bong
 </UL>
 
 <P><STRONG><a name="[ef]"></a>laze_chay_silo</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, main.o(.text))
@@ -1198,18 +1201,17 @@ Global Symbols
 <LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;duong_di_silo
 </UL>
 
-<P><STRONG><a name="[f0]"></a>tha_bong</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = tha_bong &rArr; reset_all &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; vTaskIncrementTick
+<P><STRONG><a name="[f0]"></a>tha_bong</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = tha_bong &rArr; delay_ms
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reset_all
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
 <BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;THI
 <LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;retry
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
 </UL>
 
-<P><STRONG><a name="[f1]"></a>di_chuyen_ve</STRONG> (Thumb, 430 bytes, Stack size 32 bytes, main.o(.text))
+<P><STRONG><a name="[f1]"></a>di_chuyen_ve</STRONG> (Thumb, 438 bytes, Stack size 32 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 368<LI>Call Chain = di_chuyen_ve &rArr; bam_thanh_laze_ngang &rArr; robotRunAngle &rArr; robotRotate &rArr; calculateMotor &rArr; __hardfp_sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dsub &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
@@ -1228,7 +1230,7 @@ Global Symbols
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quy_trinh_lua_bong_up_silo
 </UL>
 
-<P><STRONG><a name="[f2]"></a>duong_di_silo</STRONG> (Thumb, 568 bytes, Stack size 32 bytes, main.o(.text))
+<P><STRONG><a name="[f2]"></a>duong_di_silo</STRONG> (Thumb, 572 bytes, Stack size 32 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 336<LI>Call Chain = duong_di_silo &rArr; robotRunAngle &rArr; robotRotate &rArr; calculateMotor &rArr; __hardfp_sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dsub &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
@@ -1337,8 +1339,13 @@ Global Symbols
 <LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;di_chuyen_len_bo_bong_thu_3
 </UL>
 
+<<<<<<< HEAD
 <P><STRONG><a name="[fc]"></a>do_bong_trong_Analytics</STRONG> (Thumb, 180 bytes, Stack size 32 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = do_bong_trong_Analytics &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; vTaskIncrementTick
+=======
+<P><STRONG><a name="[fc]"></a>do_bong_trong_Analytics</STRONG> (Thumb, 148 bytes, Stack size 24 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = do_bong_trong_Analytics &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; vTaskIncrementTick
+>>>>>>> 6bf2be58800e9024c5bb08012f9efcb901f6d8d2
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_WriteBit

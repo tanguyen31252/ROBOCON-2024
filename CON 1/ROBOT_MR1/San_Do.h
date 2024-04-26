@@ -22,7 +22,7 @@ void thong_so_hang_bong()
     {
         for(i=6;i>0;i--)
         {
-            if(LAZENGANG_2[SAN][i-1] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][i])
+            if(LAZENGANG_2[SAN][i-1] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][i])
             {
                 if(CB_NHAN_MAU_THOC_GIUA == 0)  bong_mau[0][i-1]=1;
                 if(CB_NHAN_MAU_TIM_GIUA == 0)   bong_mau[0][i-1]=2;
@@ -37,7 +37,7 @@ void thong_so_hang_bong()
     {
         for(i=0;i<6;i--)
         {
-            if(LAZENGANG_2[SAN][i+1] < lazeNgangXanhValue && lazeNgangXanhValue < LAZENGANG_2[SAN][i])
+            if(LAZENGANG_2[SAN][i+1] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][i])
             {
                 if(CB_NHAN_MAU_THOC_GIUA == 0)  bong_mau[0][i]=1;
                 if(CB_NHAN_MAU_TIM_GIUA == 0)   bong_mau[0][i]=2;
@@ -59,20 +59,20 @@ void ve_lay_lua()
         while(ENCODER_TONG() < 6) {if(wantExit()) break; vTaskDelay(1);}
 
         robotRunAngle(900, 25, 0, 0);	 
-        while(lazeNgangDoValue > laze_ngang_ve){if(wantExit()) break; vTaskDelay(1);}
+        while(lazeTraiValue > laze_ngang_ve){if(wantExit()) break; vTaskDelay(1);}
         
         for(i=0;i<50;i++)   while(lazeTruocValue < laze_doc_truot-20)       bam_thanh_laze_ngang(1800, 80, 0, -50, laze_ngang_ve, 2);
         for(i=0;i<50;i++)   while(lazeTruocValue < 310)                     bam_thanh_laze_ngang(1800, 20, 0, -50, laze_ngang_ve, 2);
                     
-        if(lazeNgangDoValue < laze_ngang_ve)
+        if(lazeTraiValue < laze_ngang_ve)
         {
             robotRunAngle(-900, 10, 0, 0);
-            while(CB_KEP_LUA_1 == 1 || CB_KEP_LUA_4 == 1){if(wantExit()) break; vTaskDelay(1);}
+            while(CB_LUA_TREN == 1 || CB_LUA_DUOI == 1){if(wantExit()) break; vTaskDelay(1);}
         }
-        if(lazeNgangDoValue > laze_ngang_ve)
+        if(lazeTraiValue > laze_ngang_ve)
         {
             robotRunAngle(900, 10, 0, 0);
-            while(CB_KEP_LUA_1 == 1 || CB_KEP_LUA_4 == 1){if(wantExit()) break; vTaskDelay(1);}
+            while(CB_LUA_TREN == 1 || CB_LUA_DUOI == 1){if(wantExit()) break; vTaskDelay(1);}
         }
     }
     else
@@ -81,20 +81,20 @@ void ve_lay_lua()
         while(ENCODER_TONG() < 6) {if(wantExit()) break; vTaskDelay(1);}
 
         robotRunAngle(-900, 25, 0, 0);
-        while(lazeNgangXanhValue > laze_ngang_ve){if(wantExit()) break; vTaskDelay(1);}
+        while(lazePhaiValue > laze_ngang_ve){if(wantExit()) break; vTaskDelay(1);}
         
         for(i=0;i<50;i++)   while(lazeTruocValue < laze_doc_truot-20)       bam_thanh_laze_ngang(1800, 80, 0, -50, laze_ngang_ve, 2);
         for(i=0;i<50;i++)   while(lazeTruocValue < 310)                     bam_thanh_laze_ngang(1800, 20, 0, -50, laze_ngang_ve, 2);
         
-        if(lazeNgangXanhValue < laze_ngang_ve)
+        if(lazePhaiValue < laze_ngang_ve)
         {
             robotRunAngle(900, 10, 0, 0);
-            while(CB_KEP_LUA_1 == 1 || CB_KEP_LUA_4 == 1){if(wantExit()) break; vTaskDelay(1);}
+            while(CB_LUA_TREN == 1 || CB_LUA_DUOI == 1){if(wantExit()) break; vTaskDelay(1);}
         }
-        if(lazeNgangXanhValue > laze_ngang_ve)
+        if(lazePhaiValue > laze_ngang_ve)
         {
             robotRunAngle(-900, 10, 0, 0);
-            while(CB_KEP_LUA_1 == 1 || CB_KEP_LUA_4 == 1){if(wantExit()) break; vTaskDelay(1);}
+            while(CB_LUA_TREN == 1 || CB_LUA_DUOI == 1){if(wantExit()) break; vTaskDelay(1);}
         }
     }
 }
@@ -107,10 +107,7 @@ void quy_trinh_trong_lua_hang_1()
     reset_all();
     delay_ms(100);
 
-    KEP_LUA_13_KEP;
-    KEP_LUA_24_KEP;
     delay_ms(100); 
-    KEO_LUA_LEN;
     delay_ms(400);
 /****************************************TRONG LUA HANG 1**************************************************/        
 /****************************************SAN DO**************************************************/ 
@@ -120,25 +117,6 @@ void quy_trinh_trong_lua_hang_1()
         for(i=0;i<50;i++)   while(lazeTruocValue > lazedoc+25)               bam_thanh_laze_ngang(0, 25, 0, 100, lazengang, 2);
 
         robotStop(20);
-        
-        KEO_LUA_XUONG;
-        
-        // while(_robotIMUAngle != 0)
-        // {
-        //     delay_ms(500);
-        //     if(_robotIMUAngle < 0)
-        //     {
-        //         robotRotate(30000, 0.5, 0, 20);
-        //         while(_robotIMUAngle < 0){if(wantExit_UP()) break;}
-        //         robotRotateStop();
-        //     }
-        //     else
-        //     {
-        //         robotRotate(30000, -0.5, 0, 20);
-        //         while(_robotIMUAngle > 0){if(wantExit())break;}    
-        //         robotRotateStop();
-        //     }
-        // }
     }
 /****************************************SAN XANH**************************************************/ 
     else
@@ -147,25 +125,6 @@ void quy_trinh_trong_lua_hang_1()
         for(i=0;i<50;i++)   while(lazeTruocValue > lazedoc+25)               bam_thanh_laze_ngang(0, 25, 0, -100, lazengang, 2);
         
         robotStop(20);
-
-        KEO_LUA_XUONG;
-        
-        // while(_robotIMUAngle != 0)
-        // {
-        //     delay_ms(500);
-        //     if(_robotIMUAngle < 0)
-        //     {
-        //         robotRotate(30000, 0.5, 0, 20);
-        //         while(_robotIMUAngle < 0){if(wantExit_UP()) break;}
-        //         robotRotateStop();
-        //     }
-        //     else
-        //     {
-        //         robotRotate(30000, -0.5, 0, 20);
-        //         while(_robotIMUAngle > 0){if(wantExit())break;}    
-        //         robotRotateStop();
-        //     }
-        // }
     }
 }    
     
@@ -199,14 +158,13 @@ void trong_lua()
     {
         if(hang_trong == 1)         
         {
-            KEP_LUA_13_NHA;
+            // KEP_LUA_13_NHA;
             hang_trong = 2;
             quy_trinh_trong_lua_hang_2();
         }
         else
         {
             thong_so_laze_ngang_doc();
-            KEP_LUA_24_NHA;
             if(lan_trong !=3)
             {
                 ve_lay_lua();
@@ -215,9 +173,6 @@ void trong_lua()
             }
             else
             {
-                HOT_BANH_ON;
-                KEO_LUA_LEN;
-                TAY_GAP_LEN;
             }
         }
     }
@@ -226,7 +181,7 @@ void trong_lua()
         if(hang_trong == 2)
         {
             thong_so_laze_ngang_doc();
-            KEP_LUA_13_NHA;
+            // KEP_LUA_13_NHA;
             if(lan_trong !=3)
             {
                 ve_lay_lua();
@@ -235,14 +190,10 @@ void trong_lua()
             }
             else
             {
-                HOT_BANH_ON;
-                KEO_LUA_LEN;
-                TAY_GAP_LEN;
             }            
         }
         else 
         {
-            KEP_LUA_24_NHA;
             hang_trong = 2;
             quy_trinh_trong_lua_hang_2();
         }
@@ -261,12 +212,12 @@ void retry (void)
     if(SAN == 1)
     {
         robotRunAngle(900, 15, 0,0);
-        while(CB_KEP_LUA_1 == 1 || CB_KEP_LUA_4 == 1) {if(wantExit()) break; vTaskDelay(1);}
+        while(CB_LUA_TREN == 1 || CB_LUA_DUOI == 1) {if(wantExit()) break; vTaskDelay(1);}
     }
     else
     {
         robotRunAngle(-900, 15, 0,0);
-        while(CB_KEP_LUA_1 == 1 || CB_KEP_LUA_4 == 1) {if(wantExit()) break; vTaskDelay(1);}
+        while(CB_LUA_TREN == 1 || CB_LUA_DUOI == 1) {if(wantExit()) break; vTaskDelay(1);}
     }
     
     lan_trong++;
@@ -289,20 +240,20 @@ int XuatPhat(void)
         chuanbicocau();
         
         robotRunAngle(900, 25, 0, 0);
-        while(lazeNgangDoValue > 277) {if(wantExit()) break;  vTaskDelay(1);}                                         //de y cai nay
+        while(lazeTraiValue > 277) {if(wantExit()) break;  vTaskDelay(1);}                                         //de y cai nay
                 
         robotRunAngle(1800, 13, 0, 0);
         while(lazeTruocValue < 312){if(wantExit()) break; vTaskDelay(1);}  
         
-        if(lazeNgangDoValue < 268)                                                                                    //de y cai nay
+        if(lazeTraiValue < 268)                                                                                    //de y cai nay
         {
             robotRunAngle(-900, 10, 0, 0);
-            while(CB_KEP_LUA_1 == 1 || CB_KEP_LUA_4 == 1){if(wantExit()) break; vTaskDelay(1);}
+            while(CB_LUA_TREN == 1 || CB_LUA_DUOI == 1){if(wantExit()) break; vTaskDelay(1);}
         }
-        else if(lazeNgangDoValue > 275)                                                                               //de y cai nay
+        else if(lazeTraiValue > 275)                                                                               //de y cai nay
         {
             robotRunAngle(900, 10, 0, 0);
-            while(CB_KEP_LUA_1 == 1 || CB_KEP_LUA_4 == 1){if(wantExit()) break; vTaskDelay(1);}
+            while(CB_LUA_TREN == 1 || CB_LUA_DUOI == 1){if(wantExit()) break; vTaskDelay(1);}
         }
         
         lan_trong++;
@@ -318,22 +269,22 @@ int XuatPhat(void)
         chuanbicocau();
         
         robotRunAngle(-900, 20, 0, 0.5);
-        while(lazeNgangXanhValue > 285){if(wantExit()) break; vTaskDelay(1);}  
+        while(lazePhaiValue > 285){if(wantExit()) break; vTaskDelay(1);}  
         
         robotRunAngle(1800, 15, 0, 0.5);
         while(lazeTruocValue < 315){if(wantExit()) break; vTaskDelay(1);}  
         
-        if(lazeNgangXanhValue < 276)
+        if(lazePhaiValue < 276)
         {
             // robotRunAngle(900, 10, 0, 0);
             robotRun(950, 10);
-            while(CB_KEP_LUA_1 == 1 || CB_KEP_LUA_4 == 1){if(wantExit()) break; vTaskDelay(1);}
+            while(CB_LUA_TREN == 1 || CB_LUA_DUOI == 1){if(wantExit()) break; vTaskDelay(1);}
         }
-        else if(lazeNgangXanhValue > 281)
+        else if(lazePhaiValue > 281)
         {
             // robotRunAngle(-900, 10, 0, 0);
             robotRun(-950, 10);
-            while(CB_KEP_LUA_1 == 1 || CB_KEP_LUA_4 == 1){if(wantExit()) break; vTaskDelay(1);}
+            while(CB_LUA_TREN == 1 || CB_LUA_DUOI == 1){if(wantExit()) break; vTaskDelay(1);}
         }
         
         lan_trong++;
@@ -427,7 +378,7 @@ void LEN_SAN_2()
     {
         robotFixAngle();
         robotRunAngle(900,20,0,0);
-        while(lazeNgangDoValue < 380){};
+        while(lazeTraiValue < 380){};
 
         robotRunAngle(900,20,0,0);
         while (CB_Line_P1 == 0 && CB_Line_P2 == 0 && CB_Line_P3 == 0 && CB_Line_P4 == 0){};
@@ -456,7 +407,7 @@ void LEN_SAN_2()
     {
         robotFixAngle();
         robotRunAngle(900,20,0,0);
-        while(lazeNgangDoValue < 380){};
+        while(lazeTraiValue < 380){};
 
         robotRunAngle(900,20,0,0);
         while (CB_Line_T1 == 0 && CB_Line_T2 == 0 && CB_Line_T3 == 0 && CB_Line_T4 == 0){};
