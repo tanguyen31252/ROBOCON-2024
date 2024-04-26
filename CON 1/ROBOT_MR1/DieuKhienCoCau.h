@@ -22,12 +22,12 @@ void laze_san_2()
     {
         if(SAN == 1)
         {
-            if     (LAZENGANG_2[SAN][5] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][6])       {vi_tri_laze =6,tocdo[0][0], ban_lep = tocdo[1][0], goc_xoay_thoc = gocxoay_thoc[SAN][6], goc_xoay_lep = gocxoay_lep[SAN][6], phe_thoc = giamphe[0][0], phe_lep = giamphe[1][0];}                //vi tri 1
+            if     (LAZENGANG_2[SAN][5] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][6])       {vi_tri_laze =6,ban_thoc = tocdo[0][0], ban_lep = tocdo[1][0], goc_xoay_thoc = gocxoay_thoc[SAN][6], goc_xoay_lep = gocxoay_lep[SAN][6], phe_thoc = giamphe[0][0], phe_lep = giamphe[1][0];}                //vi tri 1
             else if(LAZENGANG_2[SAN][4] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][5])       {vi_tri_laze =5,ban_thoc = tocdo[0][1], ban_lep = tocdo[1][1], goc_xoay_thoc = gocxoay_thoc[SAN][5], goc_xoay_lep = gocxoay_lep[SAN][5], phe_thoc = giamphe[0][1], phe_lep = giamphe[1][1];}
             else if(LAZENGANG_2[SAN][3] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][4])       {vi_tri_laze =4,ban_thoc = tocdo[0][2], ban_lep = tocdo[1][2], goc_xoay_thoc = gocxoay_thoc[SAN][4], goc_xoay_lep = gocxoay_lep[SAN][4], phe_thoc = giamphe[0][2], phe_lep = giamphe[1][2];}
             else if(LAZENGANG_2[SAN][2] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][3])       {vi_tri_laze =3,ban_thoc = tocdo[0][3], ban_lep = tocdo[1][3], goc_xoay_thoc = gocxoay_thoc[SAN][3], goc_xoay_lep = gocxoay_lep[SAN][3], phe_thoc = giamphe[0][3], phe_lep = giamphe[1][3];}
             else if(LAZENGANG_2[SAN][1] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][2])       {vi_tri_laze =2,ban_thoc = tocdo[0][4], ban_lep = tocdo[1][4], goc_xoay_thoc = gocxoay_thoc[SAN][2], goc_xoay_lep = gocxoay_lep[SAN][2], phe_thoc = giamphe[0][4], phe_lep = giamphe[1][4];}
-            else if(                                            lazePhaiValue < LAZENGANG_2[SAN][1])       {vi_tri_laze =1,ban_thoc = tocdo[0][5], ban_lep = tocdo[1][5], goc_xoay_thoc = gocxoay_thoc[SAN][1], goc_xoay_lep = gocxoay_lep[SAN][1], phe_thoc = giamphe[0][5], phe_lep = giamphe[1][5];}                //vi tri 6
+            else if(                                       lazePhaiValue < LAZENGANG_2[SAN][1])       {vi_tri_laze =1,ban_thoc = tocdo[0][5], ban_lep = tocdo[1][5], goc_xoay_thoc = gocxoay_thoc[SAN][1], goc_xoay_lep = gocxoay_lep[SAN][1], phe_thoc = giamphe[0][5], phe_lep = giamphe[1][5];}                //vi tri 6
         }
         else
         {
@@ -36,27 +36,27 @@ void laze_san_2()
             else if(LAZENGANG_2[SAN][4] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][3])       {ban_thoc = tocdo[0][2], ban_lep = tocdo[1][2], goc_xoay_thoc = gocxoay_thoc[SAN][3], goc_xoay_lep = gocxoay_lep[SAN][3], phe_thoc = giamphe[0][2], phe_lep = giamphe[1][2];}
             else if(LAZENGANG_2[SAN][5] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][4])       {ban_thoc = tocdo[0][3], ban_lep = tocdo[1][3], goc_xoay_thoc = gocxoay_thoc[SAN][4], goc_xoay_lep = gocxoay_lep[SAN][4], phe_thoc = giamphe[0][3], phe_lep = giamphe[1][3];}
             else if(LAZENGANG_2[SAN][6] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][5])       {ban_thoc = tocdo[0][4], ban_lep = tocdo[1][4], goc_xoay_thoc = gocxoay_thoc[SAN][5], goc_xoay_lep = gocxoay_lep[SAN][5], phe_thoc = giamphe[0][4], phe_lep = giamphe[1][4];}
-            else if(                                            lazePhaiValue < LAZENGANG_2[SAN][6])       {ban_thoc = tocdo[0][5], ban_lep = tocdo[1][5], goc_xoay_thoc = gocxoay_thoc[SAN][6], goc_xoay_lep = gocxoay_lep[SAN][6], phe_thoc = giamphe[0][5], phe_lep = giamphe[1][5];}                //vi tri 6
+            else if(                                       lazePhaiValue < LAZENGANG_2[SAN][6])       {ban_thoc = tocdo[0][5], ban_lep = tocdo[1][5], goc_xoay_thoc = gocxoay_thoc[SAN][6], goc_xoay_lep = gocxoay_lep[SAN][6], phe_thoc = giamphe[0][5], phe_lep = giamphe[1][5];}                //vi tri 6
         }
     }
 }
 
 void giu_nong_xoay()
 {
-    i=100;
-    if(BT_Dia_xoay_value > 450)
-    {
-        Mor_Dia_xoay = i, Mor_Dia_xoay_phai;
-        while(BT_Dia_xoay_value > 450){if(wantExit())break;}
-        Mor_Dia_xoay = 0;
-    }
-    else if(BT_Dia_xoay_value < 450)
-    {
-        Mor_Dia_xoay = i, Mor_Dia_xoay_trai;
-        while(BT_Dia_xoay_value < 450){if(wantExit())break;}
-        Mor_Dia_xoay = 0;
-    }
-    else Mor_Dia_xoay = 0;
+    // i=100;
+    // if(BT_Dia_xoay_value > 450)
+    // {
+    //     Mor_Dia_xoay = i, Mor_Dia_xoay_phai;
+    //     while(BT_Dia_xoay_value > 450){if(wantExit())break;}
+    //     Mor_Dia_xoay = 0;
+    // }
+    // else if(BT_Dia_xoay_value < 450)
+    // {
+    //     Mor_Dia_xoay = i, Mor_Dia_xoay_trai;
+    //     while(BT_Dia_xoay_value < 450){if(wantExit())break;}
+    //     Mor_Dia_xoay = 0;
+    // }
+    // else Mor_Dia_xoay = 0;
 
 }
 //--------------------------- TEST CO CAU ------------------------------------------
@@ -64,19 +64,6 @@ void testDiaxoay()
 {
 }
 
-void testRulo()	{
-    if(!SELECT) 
-    {	
-        bien_xoay_dong_co_nong_ban = ~bien_xoay_dong_co_nong_ban;
-        while(!SELECT)  vTaskDelay(1);									
-    }
-    if(bien_xoay_dong_co_nong_ban == 0)		                Mor_xoay_phai = Mor_xoay_trai = 0;	
-    else
-    {
-                                            Mor_xoay_phai = 254, Mor_xoay_phai_thuan;
-                                            Mor_xoay_trai = 254, Mor_xoay_trai_thuan;
-    }
-}
 //--------------------------------------------------------------------------------
 void robotGamePadControl(void) {
     int tocdo = 15, toc_do_xoay_free = 0;
@@ -289,22 +276,22 @@ void LayvaBanthoc()
 
 void testbanhxe()	
 {
+    i = 100;
     if(!TRIANGLE)
     {
-        XL_DAY_LUA_BAT;
+        Mor_Rulo_Duoi = i+50, Mor_Rulo_Duoi_thuan;
+        Mor_Rulo_Tren = i-80, Mor_Rulo_Tren_thuan;
     }
     else if(!X)
     {
-        XL_DAY_LUA_TAT;
     }
     else if(!SQUARE)
     {
-        XL_THA_LUA_BAT;
     }
     else if(!O)
     {
-        XL_THA_LUA_TAT;
     }
+    else Mor_Rulo_Duoi = Mor_Rulo_Tren = 0;
 }
 
 //--------------------------- DIEU KHIEN CO CAU ---------------------------------------

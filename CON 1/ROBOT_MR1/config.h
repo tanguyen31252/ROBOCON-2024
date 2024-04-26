@@ -47,15 +47,15 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 /**********************************************DONG CO************************************************/    
 #define	DIA_CHI_START5 									            	DATA_SPEED[16]=255
 #define	ID5 		 													DATA_SPEED[17]=5
-#define Mor_Dia_xoay_trai									            DATA_SPEED[18]=1
-#define Mor_Dia_xoay_phai									            DATA_SPEED[18]=0
-#define	Mor_Dia_xoay 		 								           	DATA_SPEED[19]
+#define Mor_Rulo_Tren_thuan									            DATA_SPEED[18]=0
+// #define Mor_Rulo_Tren_nghich									            DATA_SPEED[18]=1
+#define	Mor_Rulo_Tren 		 								           	DATA_SPEED[19]
 
 #define	DIA_CHI_START6 									            	DATA_SPEED[20]=255
 #define	ID6 		 													DATA_SPEED[21]=6
-#define Mor_xoay_trai_thuan 		    				                DATA_SPEED[22]=0
-//#define Mor_xoay_trai_nghich							                DATA_SPEED[22]=1
-#define	Mor_xoay_trai		 							        		DATA_SPEED[23]
+#define Mor_Rulo_Duoi_thuan 		    				                DATA_SPEED[22]=0
+// #define Mor_xoay_trai_nghich							                DATA_SPEED[22]=1
+#define	Mor_Rulo_Duoi		 							        		DATA_SPEED[23]
 
 #define	DIA_CHI_START7 									            	DATA_SPEED[24]=255
 #define	ID7 		 													DATA_SPEED[25]=7
