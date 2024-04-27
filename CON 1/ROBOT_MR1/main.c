@@ -99,11 +99,11 @@ static void taskMain(void *pvParameters)
 			// {
 				robotGamePadControl();
 				
-				// if(!SELECT)                                                                                     retry();			///// RETRY/*else*/ 
-				// if(!START && lan_trong == 0)	                                                                XuatPhat();			///// xuat phat
-				// else if(!START && (lan_trong == 1 || lan_trong == 2 || lan_trong == 3) && hang_trong == 1)		quy_trinh_trong_lua_hang_1();
-				// if(!R1 && !X)                       															                                                          trong_lua()/*,delay_ms(200),trong_lua()*/;
-				// if(!L2 && !TRIANGLE)  																			(LEN_SAN_2);
+				if(!SELECT)                                                                                     retry();			///// RETRY/*else*/ 
+				if(!START && lan_trong == 0)	                                                                XuatPhat();			///// xuat phat
+				else if(!START && (lan_trong == 1 || lan_trong == 2 || lan_trong == 3) && hang_trong == 1)		quy_trinh_trong_lua_hang_1();
+				if(!R1 && !X)                       															trong_lua()/*,delay_ms(200),trong_lua()*/;
+				if(!L2 && !TRIANGLE)  																			(LEN_SAN_2);
 			// }
 		}
 	}
