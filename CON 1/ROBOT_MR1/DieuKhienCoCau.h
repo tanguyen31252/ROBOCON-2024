@@ -192,7 +192,9 @@ void testcambien()
 }
 void chuanbicocau()
 {
-    
+    XL_DAY_BAT;
+    XL_KEP_LUA_DUOI_NHA;
+    XL_KEP_LUA_TREN_NHA;
 }
 
 

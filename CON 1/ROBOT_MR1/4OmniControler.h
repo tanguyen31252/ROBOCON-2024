@@ -237,8 +237,8 @@ void calculateMotor(float rotate)
 		angle = (float)(_robotAngle - (_robotIMUAngle - _robotIMUInit));// - _robotRotate * f30);		
 		angle = radian * (angle/f10 + f45);
 
-		_robotRunRR = sinf(angle)*6;
-		_robotRunRL = cosf(angle)*6;
+		_robotRunRR = sinf(angle)*4;
+		_robotRunRL = cosf(angle)*4;
 
 		_robotRunFL = _robotRunRR + _robotCurve;
 		_robotRunFR = _robotRunRL - _robotCurve;
@@ -387,33 +387,19 @@ void robotRunAngle(float angle, int maxSpeed, float robotAngle, float rotate)
 		}
 }
 //----------------------------CHAY BAM THANH BANG LAZE--------------------------
-void bam_thanh_laze_ngang(float angle, int maxSpeed, float robotAngle, float angle_fix, int laze_stable_ngang, int num_stable_change)
+void bam_thanh_laze_ngang(float angle, int maxSpeed, float robotAngle, float angle_fix, int laze_stable_ngang, int num_stable_change, int dung_laze_nao)
 {
-	if(SAN == 1)
+	if(dung_laze_nao - laze_stable_ngang > num_stable_change)
 	{
-		if(lazeTraiValue - laze_stable_ngang > num_stable_change)
-		{
-			robotRunAngle(angle + angle_fix, maxSpeed, robotAngle, 1);
-		}
-		else if(lazeTraiValue - laze_stable_ngang < num_stable_change)
-		{
-			robotRunAngle(angle - angle_fix, maxSpeed, robotAngle, 1);
-		}
-		else robotRunAngle(angle, maxSpeed, robotAngle, 1);
+		robotRunAngle(angle + angle_fix, maxSpeed, robotAngle, 1);
 	}
-	else
+	else if(dung_laze_nao - laze_stable_ngang < num_stable_change)
 	{
-		if(lazePhaiValue - laze_stable_ngang > num_stable_change)
-		{
-			robotRunAngle(angle + angle_fix, maxSpeed, robotAngle, 1);
-		}
-		else if(lazePhaiValue - laze_stable_ngang < num_stable_change)
-		{
-			robotRunAngle(angle - angle_fix, maxSpeed, robotAngle, 1);
-		}
-		else robotRunAngle(angle, maxSpeed, robotAngle, 1);
+		robotRunAngle(angle - angle_fix, maxSpeed, robotAngle, 1);
 	}
+	else robotRunAngle(angle, maxSpeed, robotAngle, 1);
 }
+
 ////////////////////////////////////////////////////////////////////////////////
 void bam_thanh_laze_truoc(float angle, int maxSpeed, float robotAngle, float angle_fix, int laze_stable_truoc, int num_stable_change)
 {
