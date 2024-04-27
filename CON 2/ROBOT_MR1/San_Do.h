@@ -42,7 +42,7 @@ void di_chuyen_ve()
         {
             while(laze_8H_Value > 250){robotRunAngle(-1250, 30, 0, 0.5),vTaskDelay(10);}
         }
-        for(i=0;i<50;i++)   while(laze_0H_Value < 190)   bam_thanh_laze_ngang(1800, 30, 0, 1, 30, 270, 2);
+        for(i=0;i<50;i++)   while(laze_0H_Value < 190)   bam_thanh_laze_ngang(1800, 30, 0, 1, 30, 270, 2, laze_8H_Value);
 
         RESET_ENCODER();
         robotRunAngle(1800, 50, 0, 2);
@@ -70,7 +70,7 @@ void di_chuyen_ve()
         {
             while(laze_4H_Value > 250){robotRunAngle(1250, 30, 0, 0.5),vTaskDelay(10);}
         }
-        for(i=0;i<50;i++)   while(laze_0H_Value < 190)   bam_thanh_laze_ngang(1800, 30, 0, 1, 30, 270, 2);
+        for(i=0;i<50;i++)   while(laze_0H_Value < 190)   bam_thanh_laze_ngang(1800, 30, 0, 1, 30, 270, 2, laze_4H_Value);
 
         RESET_ENCODER();
         robotRunAngle(1800, 50, 0, 2);
@@ -579,7 +579,7 @@ void XuatPhat()
         robotStop(0);
 
         // for(i=0;i<50;i++)   
-        bam_thanh_laze_doc(900, 50, 0, 2, 50, 35, 0);
+        bam_thanh_laze_doc(900, 50, 0, 2, 50, 35, 0, laze_0H_Value);
         while(laze_8H_Value < 350){if(wantExit())break;}
 
         // for(i=0;i<50;i++)   while(laze_4H_Value < 385)   bam_thanh_laze_doc(-900, 30, 0, -50, 30, 0);
@@ -648,7 +648,7 @@ void XuatPhat()
         robotStop(0);
 
         // for(i=0;i<50;i++)   
-        bam_thanh_laze_doc(-900, 50, 0, 2, -50, 35, 0);
+        bam_thanh_laze_doc(-900, 50, 0, 2, -50, 35, 0, laze_0H_Value);
         while(laze_4H_Value < 350){if(wantExit())break;}
 
         // for(i=0;i<50;i++)   while(laze_4H_Value < 385)   bam_thanh_laze_doc(-900, 30, 0, -50, 30, 0);
@@ -856,9 +856,9 @@ void XuatPhatRetry()
 
         robotStop(0);
 
-        for(i=0;i<50;i++)   while(laze_8H_Value < 250)   bam_thanh_laze_doc(900, 40, 0, 1, 50, 30, 0);
+        for(i=0;i<50;i++)   while(laze_8H_Value < 250)   bam_thanh_laze_doc(900, 40, 0, 1, 50, 30, 0, laze_0H_Value);
 
-        for(i=0;i<50;i++)   while(laze_8H_Value < 385)   bam_thanh_laze_doc(900, 30, 0, 1, 50, 30, 0);
+        for(i=0;i<50;i++)   while(laze_8H_Value < 385)   bam_thanh_laze_doc(900, 30, 0, 1, 50, 30, 0, laze_0H_Value);
 
         robotStop(0);
         // delay_ms(500);
@@ -896,9 +896,9 @@ void XuatPhatRetry()
 
         robotStop(0);
 
-        for(i=0;i<50;i++)   while(laze_4H_Value < 250)   bam_thanh_laze_doc(-900, 40, 0, 1, 50, 30, 0);
+        for(i=0;i<50;i++)   while(laze_4H_Value < 250)   bam_thanh_laze_doc(-900, 40, 0, 1, 50, 30, 0, laze_0H_Value);
 
-        for(i=0;i<50;i++)   while(laze_4H_Value < 385)   bam_thanh_laze_doc(-900, 30, 0, 1, 50, 30, 0);
+        for(i=0;i<50;i++)   while(laze_4H_Value < 385)   bam_thanh_laze_doc(-900, 30, 0, 1, 50, 30, 0, laze_0H_Value);
 
         robotStop(0);
         // delay_ms(500);

@@ -12,17 +12,17 @@ void bam_thanh_laze_ngang(float angle, int maxSpeed, float robotAngle, float rot
 	else robotRunAngle(angle, maxSpeed, robotAngle, rototate);
 }
 ////////////////////////////////////////////////////////////////////////////////
-void bam_thanh_laze_truoc(float angle, int maxSpeed, float robotAngle, float angle_fix, int laze_stable_truoc, int num_stable_change)
+void bam_thanh_laze_doc(float angle, int maxSpeed, float robotAngle, float rototate, float angle_fix, int laze_stable_doc, int num_stable_change, int dung_laze_nao)
 {
-	if(lazeTruocValue - laze_stable_truoc > num_stable_change)
+	if(dung_laze_nao - laze_stable_doc > num_stable_change)
 	{
-		robotRunAngle(angle - angle_fix, maxSpeed, robotAngle, 0.2);
+		robotRunAngle(angle + angle_fix, maxSpeed, robotAngle, rototate);
 	}
-	else if(lazeTruocValue - laze_stable_truoc < num_stable_change)
+	else if(dung_laze_nao - laze_stable_doc < num_stable_change)
 	{
-		robotRunAngle(angle + angle_fix, maxSpeed, robotAngle, 0.2);
+		robotRunAngle(angle - angle_fix, maxSpeed, robotAngle, rototate);
 	}
-	else robotRunAngle(angle, maxSpeed, robotAngle, 0.2);
+	else robotRunAngle(angle, maxSpeed, robotAngle, rototate);
 }
 
 int T1,T2,T3,T4,P1,P2,P3,P4;
