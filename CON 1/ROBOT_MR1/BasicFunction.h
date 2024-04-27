@@ -37,9 +37,9 @@ void xoay_thang_line()
 {
 	while(1)
 	{
-		while((CB_Line_P2 != 0 && CB_Line_P3 != 0 && CB_Line_T2 != 0 && CB_Line_T3 != 0) && ENCODER_TONG() < 1050)
+		while((CB_Line_P2 != 0 || CB_Line_P3 != 0 && CB_Line_T2 != 0 || CB_Line_T3 != 0) && ENCODER_TONG() < 1050)
 		{
-			if(_robotAngle > _robotIMUAngle)
+			if()
 			{
 				robotRotateFree(0.5, 0);
 			}

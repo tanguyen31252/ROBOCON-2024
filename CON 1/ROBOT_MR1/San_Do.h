@@ -366,8 +366,6 @@ void THI()
 //                 while (CB_Line_T2 == 0 && CB_Line_T3){}
 //             }
 //         }
-
-        
 //     }
 
 void LEN_SAN_2()

@@ -169,10 +169,11 @@ extern unsigned char GP_BTN [15];
 extern int _robotIMUAngle;
 
 char bit_khoa_ham_chay_thay_tuan=0;
-int end = 0, bien_cham_tuong = 0, bien_ve_xuat_phat = -30;
+int en = 0, bien_cham_tuong = 0, bien_ve_xuat_phat = -30;
 int silo_so = 5, silo_vua_chay = 0, silo_sap_bo = 0;
 char bien_di_chuyen = 0; //0 la vao silo 5, 1 la ra silo 1
 int bien_day_bong_ra_ngoai = 0, bien_dung_bang_tai = 0;
+char doc_man_hinh = 0;
 
 int random(int minN, int maxN){
 	return minN + rand() % (maxN + 1 - minN);
@@ -1182,12 +1183,15 @@ void run_read_gyro_uart3(void) {
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //---------------------------- TRUYEN DU LIEU VAO MANG-----------------------------
 void HMI_TRAN(vs32 _so_dong) {
-		char*camera="11111111111111111111110111111111";
+		// char*camera="11111111111111111111111111111111";
+		// char*camera="11111111111111111111110111111111";
 									vs32 _i,_chua_cac_bit=0;
 									char _ghep_bit[40];
 									char _chu_cac_bit[40];
 									_ghep_bit[0]=0;
 									_chu_cac_bit[0]=0;
+		if(doc_man_hinh==0)
+		{
 							switch (_so_dong) {
 									case 0:
 									if(NUT_CHUYEN_SAN == 0)
@@ -1248,7 +1252,6 @@ void HMI_TRAN(vs32 _so_dong) {
 										break;
 									case 16:
 									//	hien thi phan ngo vao
-                                    
 										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_0));						//dang co van de
 										// strcat(_chu_cac_bit,_ghep_bit);
 										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_14));						//CB_NHAN_XANH_TREN				0
@@ -1284,6 +1287,9 @@ void HMI_TRAN(vs32 _so_dong) {
 										HMI_PUTS("I:",_chu_cac_bit,16);
 										break;								
 									case 17:
+										HMI_DMI("bien da tha 1: ",bien_nho_bong_da_tha_trong_silo[silo_so],17);
+										break;
+									case 18:
 									// hien thi phan ngo ra
 										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOB,GPIO_Pin_15));		//ok
 										strcat(_chu_cac_bit,_ghep_bit);
@@ -1317,9 +1323,136 @@ void HMI_TRAN(vs32 _so_dong) {
 										strcat(_chu_cac_bit,_ghep_bit);
 										sprintf(_ghep_bit,"%d",GPIO_ReadOutputDataBit(GPIOB,GPIO_Pin_6));	
 										strcat(_chu_cac_bit,_ghep_bit);
-										HMI_PUTS("O:",_chu_cac_bit,17);
+										HMI_PUTS("O:",_chu_cac_bit,18);
 										break;	
 						}
+		}
+		else if(doc_man_hinh == 1)
+		{
+									switch (_so_dong) 
+									{
+										case 0:
+											gui_chu("MAN HINH 2!",0);
+											break;
+										case 1:
+											gui_chu("1",1);
+											break;
+										case 2:
+											gui_chu("2",2);
+											break;
+										case 3:
+											gui_chu("2",3);
+											break;
+										case 4:
+											gui_chu("4",4);
+											break;
+										case 5:
+											gui_chu("5",5);
+											break;
+										case 6:
+											gui_chu("6",6);
+											break;
+										case 7:
+											gui_chu("7",7);
+											break;
+										case 8:
+											gui_chu("8",8);
+											break;
+										case 9:
+											gui_chu("9",9);
+											break;
+										case 10:
+											gui_chu("10",10);
+											break;
+										case 11:
+											gui_chu("11",11);
+											break;
+										case 12:
+											gui_chu("12",12);
+											break;
+										case 13:
+											gui_chu("13",13);
+											break;
+										case 14:
+											gui_chu("14",14);
+											break;
+										case 15:
+											gui_chu("15",15);
+											break;
+										case 16:
+											gui_chu("16",16);
+											break;
+										case 17:
+											gui_chu("17",17);
+											break;
+										case 18:
+											gui_chu("18",18);
+											break;
+									}
+		}
+		else if(doc_man_hinh == 2)
+		{
+			switch (_so_dong) 
+									{
+										case 0:
+											gui_chu("MAN HINH 3!",0);
+											break;
+										case 1:
+											gui_chu("1",1);
+											break;
+										case 2:
+											gui_chu("2",2);
+											break;
+										case 3:
+											gui_chu("2",3);
+											break;
+										case 4:
+											gui_chu("4",4);
+											break;
+										case 5:
+											gui_chu("5",5);
+											break;
+										case 6:
+											gui_chu("6",6);
+											break;
+										case 7:
+											gui_chu("7",7);
+											break;
+										case 8:
+											gui_chu("8",8);
+											break;
+										case 9:
+											gui_chu("9",9);
+											break;
+										case 10:
+											gui_chu("10",10);
+											break;
+										case 11:
+											gui_chu("11",11);
+											break;
+										case 12:
+											gui_chu("12",12);
+											break;
+										case 13:
+											gui_chu("13",13);
+											break;
+										case 14:
+											gui_chu("14",14);
+											break;
+										case 15:
+											gui_chu("15",15);
+											break;
+										case 16:
+											gui_chu("16",16);
+											break;
+										case 17:
+											gui_chu("17",17);
+											break;
+										case 18:
+											gui_chu("18",18);
+											break;
+									}
+		}
 }
 
 //////////////////////////

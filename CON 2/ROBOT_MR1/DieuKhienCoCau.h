@@ -164,11 +164,12 @@ void testbanhxe()
 //--------------------------- DIEU KHIEN CO CAU ---------------------------------------
 void dieuKhienCoCau(void) 
 {
-    // test_xl();
-    if(!X)
+    if(!NUT_START)
     {
-        // Mor_hot_bong = Bang_tai = Mor_nong = 254;
-        // Mor_hot_bong_vao, Bang_tai_thuan, Mor_nong_ra;
+        // if(doc_man_hinh == 1) doc_man_hinh = 0, delay_ms(200);
+
+        // else if(doc_man_hinh == 0) doc_man_hinh = 1, delay_ms(200);
+        if(doc_man_hinh == 2)   doc_man_hinh = 0,delay_ms(200);
+        else                    doc_man_hinh++,delay_ms(200);
     }
-    // else Mor_hot_bong = Bang_tai = Mor_nong = 0;
 }
