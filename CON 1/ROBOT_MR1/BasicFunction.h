@@ -35,21 +35,21 @@ int tinh_goc_lech()
 
 void xoay_thang_line()
 {
-	while(1)
-	{
-		while((CB_Line_P2 != 0 && CB_Line_P3 != 0 && CB_Line_T2 != 0 && CB_Line_T3 != 0) && ENCODER_TONG() < 1050)
-		{
-			if(_robotAngle > _robotIMUAngle)
-			{
-				robotRotateFree(0.5, 0);
-			}
-			else
-			{
-				robotRotateFree(-0.5, 0);
-			}
-		}
-		break;
-	}
+	// while(1)
+	// {
+	// 	while((CB_Line_P2 != 0 || CB_Line_P3 != 0 && CB_Line_T2 != 0 || CB_Line_T3 != 0) && ENCODER_TONG() < 1050)
+	// 	{
+	// 		if()
+	// 		{
+	// 			robotRotateFree(0.5, 0);
+	// 		}
+	// 		else
+	// 		{
+	// 			robotRotateFree(-0.5, 0);
+	// 		}
+	// 	}
+	// 	break;
+	// }
 }
 
 

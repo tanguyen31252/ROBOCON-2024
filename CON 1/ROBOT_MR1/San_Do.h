@@ -62,8 +62,8 @@ void ve_lay_lua()
         robotRunAngle(-900, 25, 0, 0);
         while(lazePhaiValue > laze_ngang_ve){if(wantExit()) break; vTaskDelay(1);}
         
-        for(i=0;i<50;i++)   while(lazeSauValue < laze_doc_truot-20)       bam_thanh_laze_ngang(0, 80, 0, -50, laze_ngang_ve, 2);
-        for(i=0;i<50;i++)   while(lazeSauValue < 310)                     bam_thanh_laze_ngang(0, 20, 0, -50, laze_ngang_ve, 2);
+//        for(i=0;i<50;i++)   while(lazeSauValue < laze_doc_truot-20)       bam_thanh_laze_ngang(0, 80, 0, -50, laze_ngang_ve, 2);
+//        for(i=0;i<50;i++)   while(lazeSauValue < 310)                     bam_thanh_laze_ngang(0, 20, 0, -50, laze_ngang_ve, 2);
         
         if(lazeTruocValue < laze_ngang_ve)
         {
@@ -85,8 +85,8 @@ void ve_lay_lua()
         robotRunAngle(900, 25, 0, 0);
         while(lazePhaiValue > laze_ngang_ve){if(wantExit()) break; vTaskDelay(1);}
         
-        for(i=0;i<50;i++)   while(lazeSauValue < laze_doc_truot-20)       bam_thanh_laze_ngang(1800, 80, 0, -50, laze_ngang_ve, 2);
-        for(i=0;i<50;i++)   while(lazeSauValue < 310)                     bam_thanh_laze_ngang(1800, 20, 0, -50, laze_ngang_ve, 2);
+//        for(i=0;i<50;i++)   while(lazeSauValue < laze_doc_truot-20)       bam_thanh_laze_ngang(1800, 80, 0, -50, laze_ngang_ve, 2);
+//        for(i=0;i<50;i++)   while(lazeSauValue < 310)                     bam_thanh_laze_ngang(1800, 20, 0, -50, laze_ngang_ve, 2);
         
         if(lazeTruocValue < laze_ngang_ve)
         {
@@ -114,16 +114,16 @@ void quy_trinh_trong_lua_hang_1()
 /****************************************SAN DO**************************************************/ 
     if(SAN == 1)
     {
-        for(i=0;i<50;i++)   while(lazeTraiValue > laze_doc_truot+30)        bam_thanh_laze_ngang(0, 80, 0, 100, lazengang, 2);
-        for(i=0;i<50;i++)   while(lazeTraiValue > lazedoc+25)               bam_thanh_laze_ngang(0, 25, 0, 100, lazengang, 2);
+//        for(i=0;i<50;i++)   while(lazeTraiValue > laze_doc_truot+30)        bam_thanh_laze_ngang(0, 80, 0, 100, lazengang, 2);
+//        for(i=0;i<50;i++)   while(lazeTraiValue > lazedoc+25)               bam_thanh_laze_ngang(0, 25, 0, 100, lazengang, 2);
 
         robotStop(20);
     }
 /****************************************SAN XANH**************************************************/ 
     else
     {
-        for(i=0;i<50;i++)   while(lazePhaiValue > laze_doc_truot+30)        bam_thanh_laze_ngang(0, 80, 0, -100, lazengang, 2);
-        for(i=0;i<50;i++)   while(lazePhaiValue > lazedoc+25)               bam_thanh_laze_ngang(0, 25, 0, -100, lazengang, 2);
+//        for(i=0;i<50;i++)   while(lazePhaiValue > laze_doc_truot+30)        bam_thanh_laze_ngang(0, 80, 0, -100, lazengang, 2);
+//        for(i=0;i<50;i++)   while(lazePhaiValue > lazedoc+25)               bam_thanh_laze_ngang(0, 25, 0, -100, lazengang, 2);
         
         robotStop(20);
     }
@@ -139,14 +139,14 @@ void quy_trinh_trong_lua_hang_2()
     ///////////////////////////////////////////// SAN DO////////////////////////////////////////////////////
     if(SAN == 1)
     {   
-        for(i=0;i<50;i++)   while(lazeTraiValue > lazedoc+7)          bam_thanh_laze_ngang(0, 20, 0, 450, lazengang, 2);
+//        for(i=0;i<50;i++)   while(lazeTraiValue > lazedoc+7)          bam_thanh_laze_ngang(0, 20, 0, 450, lazengang, 2);
 
         robotStop(0);
     }
     ////////////////////////////////////////////// SAN XANH/////////////////////////////////////////////////////
     else
     {        
-        for(i=0;i<50;i++)   while(lazePhaiValue > lazedoc+5)          bam_thanh_laze_ngang(0, 20, 0, -400, lazengang, 0);
+//        for(i=0;i<50;i++)   while(lazePhaiValue > lazedoc+5)          bam_thanh_laze_ngang(0, 20, 0, -400, lazengang, 0);
 
         robotStop(0);
     }    
@@ -265,34 +265,40 @@ int XuatPhat(void)
     }
     else
     {       
-        robotRunAngle(450, 50, 0, 0.5);
-        while(ENCODER_TONG() < 1000) {if(wantExit()) break;  vTaskDelay(1);}
+        robotRunAngle(450, 30, 0, 2);
+        while(ENCODER_TONG() < 700) {if(wantExit()) break;  vTaskDelay(1);}
         
-        robotRunAngle(450, 20, 0, 0.5);
-        while(lazePhaiValue > 313) {if(wantExit()) break;  vTaskDelay(1);}
+        // robotRunAngle(-200, 30, 0, 2);
+        // while(lazePhaiValue < 300) {if(wantExit()) break;  vTaskDelay(1);}  bam_thanh_laze_ngang(-200,30,0,0)
         
+        for(i = 0; i < 50 ; i++) 
+        {
+            bam_thanh_laze_ngang (0,30,0,5,300,0,lazePhaiValue); 
+            while(lazeTruocValue > 150){if(wantExit()) break;  vTaskDelay(1);} 
+        }
+
         chuanbicocau();
         
-        robotRunAngle(0,50, 0, 0.5);
-        while(lazeTruocValue < 150){if(wantExit()) break; vTaskDelay(1);}  
+        // robotRunAngle(-150,30, 0, 2);
+        // while(lazeTruocValue > 150){if(wantExit()) break; vTaskDelay(1);}  
         
-        robotRunAngle(-450, 20, 0, 0.5);
-        while(lazeTruocValue < 150){if(wantExit()) break; vTaskDelay(1);}  
+        robotRunAngle(-900, 15, 0, 2);
+        while(lazeTruocValue < 300 ){if(wantExit()) break; vTaskDelay(1);}  
         
-        if(lazeTruocValue < 105)
-        {
-            // robotRunAngle(900, 10, 0, 0);
-            robotRun(0, 10);
-            while(CB_LUA_TREN == 1 || CB_LUA_DUOI == 1){if(wantExit()) break; vTaskDelay(1);}
-        }
-        else if(lazeTruocValue > 95)
-        {
-            // robotRunAngle(-900, 10, 0, 0);
-            robotRun(1800, 10);
-            while(CB_LUA_TREN == 1 || CB_LUA_DUOI == 1){if(wantExit()) break; vTaskDelay(1);}
-        }
+        // if(lazeTruocValue > 105)
+        // {
+        //     // robotRunAngle(900, 10, 0, 0);
+        //     robotRun(0, 10);
+        //     while(CB_LUA_TREN == 1 || CB_LUA_DUOI == 1){if(wantExit()) break; vTaskDelay(1);}
+        // }
+        // else if(lazeTruocValue < 95)
+        // {
+        //     // robotRunAngle(-900, 10, 0, 0);
+        //     robotRun(1800, 10);
+        //     while(CB_LUA_TREN == 1 || CB_LUA_DUOI == 1){if(wantExit()) break; vTaskDelay(1);}
+        // }
         
-        lan_trong++;
+        // lan_trong++;
     }
 }
 
@@ -371,8 +377,6 @@ void THI()
 //                 while (CB_Line_T2 == 0 && CB_Line_T3){}
 //             }
 //         }
-
-        
 //     }
 
 void LEN_SAN_2()

@@ -1,0 +1,489 @@
+//==============================================================================
+//==============================================================================
+//==============================================================================
+void lcdViewer(void);
+
+char robotLineDetect()
+{
+    char vitri=0;
+
+       do{
+           robotRun(0,5,0);                                // toc do chay den line
+        do{
+            if(!cb_TTruoc || !cb_TSau) vitri=1;
+            else if(!cb_PTruoc || !cb_PSau) vitri=2;
+            else vitri=0;
+            if(wantExit()) return 0;
+        }while(vitri==0);
+
+        robotStop(0);
+        delay_ms(10);
+
+        if(!cb_TTruoc || !cb_TSau) vitri=1;
+        else if(!cb_PTruoc || !cb_PSau) vitri=2;
+        else vitri=0;
+        if(wantExit()) return 0;
+    }
+    while(vitri==0);
+
+    if(vitri==2)// ben Trai sai
+    {
+        robotRotate(30000, 1, 2);
+        while(cb_TTruoc && cb_TSau) if(wantExit()) return 0;
+    }
+    else // ben Phai sai
+    {
+        robotRotate(-30000, 1, 1);
+        while(cb_PTruoc && cb_PSau)if(wantExit()) return 0;
+    }
+
+    robotStop(0);
+    return 1;
+}
+//==============================================================================
+//==============================================================================
+//==============================================================================
+//==============================================================================
+void robotLineRun(int angle, char maxSP, float hesoTraiDat)
+{
+    int k;
+	float hesoXoay=0.3;
+
+    if(angle>0){ k= -1;}
+    else { k=1;}
+
+	if(colorSensorLeft && colorSensorRight)// dang o dung vi tri, chay theo Line
+	{
+        robotRotateStop();
+		robotRun(angle, maxSP , k*hesoTraiDat);
+	}
+	else{
+		if(!colorSensorLeft && colorSensorRight)// ben Trai sai
+		{
+			if(lastSensorLeft >= 0){
+				robotRun(angle + k*30, maxSP , k*hesoTraiDat);
+				robotRotate(30000 , hesoXoay, 2);
+			}
+			else{
+		        robotRun(angle - k*30, maxSP , k*hesoTraiDat);
+				robotRotate(30000, -hesoXoay, 2);
+			}
+		}
+		else if(colorSensorLeft && !colorSensorRight)// ben Phai sai
+			{
+    			if(lastSensorRight >= 0){
+		        	robotRun(angle + k*30, maxSP , k*hesoTraiDat);
+					robotRotate(30000, -hesoXoay, 1);
+			    }else{
+		        	robotRun(angle - k*30, maxSP , k*hesoTraiDat);
+    				robotRotate(30000, hesoXoay, 1);
+    			}
+			}
+			else // Ca hai dieu sai
+			{
+				if(lastSensorLeft >= 0 && lastSensorRight >= 0){ // 2 Dang o ngoai
+					robotRotateStop();
+					robotRun(angle + k*80, maxSP, k*0.7);
+				}else if(lastSensorLeft < 0 && lastSensorRight < 0){ // 2 Dang o trong
+					robotRotateStop();
+					robotRun(angle - k*80, maxSP, k*0.7);
+					// 1 trong 1 ngoai
+				}else if(lastSensorLeft >= 0) 	robotRotate(30000, 0.5, 0);
+
+   			    else 						robotRotate(30000, -0.5, 0);
+			}
+	}
+}
+
+//__________________________________________________________________
+//________________________ AUTO BEN XANH ___________________________
+//__________________________________________________________________
+
+void auto_run_blue()
+{
+    char tocdoxoay, heso;
+    encoder_doc = 0;
+while(1)
+    {
+        mor_Nang=150,mor_Nang_next;
+        if(!cb_NC_UP){mor_Nang=0;break;}
+    }      
+    lcdViewer();
+    robotRun(0,20,0);
+    while(abs(encoder_doc) <1000)      if(wantExit()) return;      
+    
+    robotRun(450 - _robotIMUAngle,20,0);
+    robotRotate(-400,2,0);      
+  
+    while(abs(_robotIMUAngle)<200)      if(wantExit()) return;
+    
+    robotRun(450 - _robotIMUAngle,20,0);
+    robotRotate(-650,2,0); 
+            
+    while(abs(_robotIMUAngle)<500)      if(wantExit()) return; 
+    
+    robotRun(600 - _robotIMUAngle,20,0);
+    robotRotate(-850,2,0); 
+            
+    while(abs(_robotIMUAngle)<800)      if(wantExit()) return;
+    robotRotateStop();  
+    encoder_ngang=0;
+    robotRun(900,20,0);
+    XYLANH2_ON,XYLANH3_ON;     
+    while(encoder_ngang <3500)    if(wantExit()) return;
+    !robotLineDetect();   
+                                
+     while((cb_quang_left||cb_quang_right))
+    {lcdViewer();robotLineRun(900, 10, 1.35);  if(wantExit()) return;}
+     
+    while(!(cb_quang_left||cb_quang_right))
+    {
+    lcdViewer();
+    robotStop(0);
+    delay_ms(200);break;
+    if(wantExit()) return;}
+}
+
+//__________________________ auto_xoay _________________________//
+//______________________________________________________________//
+
+ void xoay_bap_benh()
+{
+unsigned char ii;
+// xoay bap benh 3 cai
+encoder_ngang=0;for(ii=0;ii<3;ii++){!robotLineDetect();} if(wantExit()) return; 
+while(abs(encoder_ngang<9500))
+    {   
+        lcdViewer();
+        robotLineRun(900, 20, 1.35);       if(wantExit()) return;
+    }     
+    while((cb_quang_left||cb_quang_right))
+    {
+    lcdViewer();
+    robotLineRun(900, 10, 1.35);           if(wantExit()) return; 
+    }
+        while((!cb_quang_left||!cb_quang_right))
+        {
+        lcdViewer();robotStop(0);
+        delay_ms(300);           if(wantExit()) return;     
+        seesaw(3);
+            break;
+        }           
+  
+//__________________________________________________________________________//
+
+  
+// xoay bat robot    
+for(ii=0;ii<3;ii++){!robotLineDetect();} 
+while(abs(encoder_ngang)>1500)
+    {   
+        lcdViewer();
+        robotLineRun(-900, 20, 1.4);            if(wantExit()) return;
+    }   
+    while((cb_quang_left||cb_quang_right))
+        {   
+            lcdViewer();
+            robotLineRun(-900, 10, 1.4);        if(wantExit()) return;       
+        } 
+         while(!(cb_quang_left||cb_quang_right))
+         { 
+         lcdViewer(); 
+         robotStop(0);
+         mor_Nang=200,mor_Nang_back;   
+         XYLANH2_OFF,XYLANH3_OFF;
+         if(!cb_NC_DOWN){mor_Nang=0;break;}     if(wantExit()) return;     
+         }
+    robotStop(0);
+}
+
+//_____________________________ XOAY TO XICH DU XANH ___________________________
+
+//_____________________________ XOAY TO XICH DU XANH ___________________________
+
+void xoay_to_xich_du_blue()
+{   
+    lcdViewer();
+    encoder_ngang = 0; 
+    Off_Xylinder();
+    robotRun( 400 -_robotIMUAngle,20,0); 
+    while(abs(encoder_ngang) <600)      if(wantExit()) return;         
+    robotRun(300 -_robotIMUAngle,20,0);
+    robotRotate(900,2.3,0);       
+    while(_robotIMUAngle < 850)         if(wantExit()) return;  
+    
+    robotRun(0 -_robotIMUAngle,10,0);  
+    robotRotate(900,0.5,0);
+      
+    while(getADC(1)>70)                 if(wantExit()) return;   
+    encoder_ngang=0;                                   
+    
+    while(abs(encoder_ngang)<800)       if(wantExit()) return;
+    encoder_doc=0;
+    robotStop(0);     
+    while(abs(encoder_doc)<2000)         
+    { 
+    robotRun(900 -_robotIMUAngle,10,0);  
+    if(wantExit()) return;
+    if(!cb_cheo_left)
+    { 
+    robotStop(0); 
+    while(1)
+    {
+        mor_Nang=150,mor_Nang_next;
+        if(!cb_NC_UP){mor_Nang=0;break;}
+    }  
+    delay_ms(500); 
+    XYLANH1_ON,XYLANH2_ON,XYLANH3_ON;
+    break;
+    }
+    }                 
+} 
+
+//______________________________________________________________
+//________________________ XOAY TO COT _________________________
+//______________________________________________________________
+void auto_to_cot()
+{   
+    lcdViewer();
+    encoder_ngang = 0;
+    Off_Xylinder();
+    robotRun(-1350 -_robotIMUAngle,20,0);
+    robotRotate(2,-2.3,0);  
+    while(abs(encoder_ngang)<1200)          if(wantExit()) return;
+    encoder_ngang = 0;            
+    robotRun(-900 -_robotIMUAngle,20,0);
+    robotRotate(1,1,0); 
+    while(getADC(0)>100||getADC(1)>100)     if(wantExit()) return; 
+    encoder_ngang = 0;    
+    while(abs(encoder_ngang)<3000)          if(wantExit()) return;  
+    encoder_ngang=0;
+     while(abs(encoder_ngang)<2000)          if(wantExit()) return;  
+    encoder_ngang=0;
+    robotRun(-900 -_robotIMUAngle,20,0);
+    robotRotate(-200,-1,0); 
+    while(abs(encoder_ngang)<2500)             if(wantExit()) return;  
+    !robotLineDetect();   
+    robotRotateStop(); 
+    delay_ms(600);  
+    encoder_ngang = 0;
+    robotLineRun(-900,10, 1.42);
+    while(abs(encoder_ngang)<3300)           if(wantExit()) return; 
+    robotStop(0);
+             
+} 
+
+
+//______________________________________________________________
+//________________________ XOAY TO CAU THANG _________________________
+//______________________________________________________________
+void auto_cau_thang()
+{   
+    lcdViewer();
+    encoder_ngang = 0;
+    Off_Xylinder();
+    robotRun(1145 -_robotIMUAngle,20,0);
+    robotRotate(-1,-2.3,0);          
+    while(abs(encoder_ngang)<600)          if(wantExit()) return; 
+    robotRun(900 -_robotIMUAngle,20,0);
+    robotRotate(0,-1,0);  
+    encoder_ngang = 0;
+    while(abs(encoder_ngang)<9000)          if(wantExit()) return;
+    robotRun(900 -_robotIMUAngle,5,0);
+    robotRotate(0,-1,0);   
+    while(getADC(0)>50||getADC(1)>50)     if(wantExit()) return; 
+    !robotLineDetect();   
+    robotStop(0);    
+} 
+
+//__________________________________________________________________
+//________________________ AUTO BEN DO ___________________________
+//__________________________________________________________________
+
+void auto_run_red()
+{
+    char tocdoxoay, heso;
+    encoder_doc = 0;
+while(1)
+    {
+        mor_Nang=150,mor_Nang_next;
+        if(!cb_NC_UP){mor_Nang=0;break;}
+    }      
+    lcdViewer();
+    robotRun(0,20,0);
+    while(abs(encoder_doc) <1200)      if(wantExit()) return;      
+    
+    robotRun(-460 - _robotIMUAngle,20,0);
+    robotRotate(400,2,0);      
+    while(abs(_robotIMUAngle)<350)      if(wantExit()) return;      
+    robotRotate(600,2,0); 
+    while(abs(_robotIMUAngle)<550)      if(wantExit()) return;                               
+    robotRun(-480 - _robotIMUAngle,20,0);
+    robotRotate(900,1,0);         
+    while(abs(_robotIMUAngle)<850)      if(wantExit()) return;
+    robotRotateStop(); 
+    encoder_ngang=0; 
+    robotRun(-900,20,0);
+    XYLANH2_ON,XYLANH3_ON;   
+    while(abs(encoder_ngang) <3800)     if(wantExit()) return;
+    !robotLineDetect();     
+                                
+     while((cb_quang_left||cb_quang_right))
+    {lcdViewer();robotLineRun(-900, 10, 1.4);  if(wantExit()) return;}
+     
+    while(!(cb_quang_left||cb_quang_right))
+    {
+    lcdViewer();
+    robotStop(0);
+    delay_ms(200);break;
+    if(wantExit()) return;}
+}
+
+//__________________________ auto_xoay _________________________//
+//______________________________________________________________//
+
+ void xoay_bap_benh_red()
+{
+unsigned char ii;
+// xoay bap benh 3 cai
+encoder_ngang=0;for(ii=0;ii<3;ii++){!robotLineDetect();} if(wantExit()) return; 
+while(abs(encoder_ngang)<9500)
+    {   
+        lcdViewer();
+        robotLineRun(-900, 20, 1.4);       if(wantExit()) return;
+    }     
+    while((cb_quang_left||cb_quang_right))
+    {
+    lcdViewer();
+    robotLineRun(-900, 10, 1.4);           if(wantExit()) return; 
+    }
+        while((!cb_quang_left||!cb_quang_right))
+        {
+        lcdViewer();robotStop(0);
+        delay_ms(300);           if(wantExit()) return;     
+        seesaw(3);
+            break;
+        }           
+  
+//__________________________________________________________________________//
+
+  
+// xoay bat robot    
+for(ii=0;ii<3;ii++){!robotLineDetect();} 
+while(abs(encoder_ngang)>1500)
+    {   
+        lcdViewer();
+        robotLineRun(900, 20, 1.35);            if(wantExit()) return;
+    }   
+    while((cb_quang_left||cb_quang_right))
+        {   
+            lcdViewer();
+            robotLineRun(900, 10, 1.35);        if(wantExit()) return;       
+        } 
+         while(!(cb_quang_left||cb_quang_right))
+         { 
+         lcdViewer(); 
+         robotStop(0);
+         mor_Nang=200,mor_Nang_back;   
+         XYLANH2_OFF,XYLANH3_OFF;
+         if(!cb_NC_DOWN){mor_Nang=0;break;}   
+         if(wantExit()) return;     
+         }
+    robotStop(0);
+}
+
+//_____________________________ XOAY TO XICH DU XANH ___________________________
+
+//_____________________________ XOAY TO XICH DU XANH ___________________________
+
+void xoay_to_xich_du_red()
+{   
+    lcdViewer();
+    encoder_ngang = 0; 
+    Off_Xylinder();
+    robotRun( -400 -_robotIMUAngle,20,0); 
+    while(abs(encoder_ngang) <600)      if(wantExit()) return;         
+    robotRun(-320 -_robotIMUAngle,20,0);
+    robotRotate(-900,-2.3,0);       
+    while(_robotIMUAngle > -850)         if(wantExit()) return;  
+    
+    robotRun(0 -_robotIMUAngle,10,0);  
+    robotRotate(-900,0.5,0);
+      
+    while(getADC(0)>110)                 if(wantExit()) return;   
+    encoder_ngang=0;                                   
+    
+    while(abs(encoder_ngang)<800)       if(wantExit()) return;
+    encoder_doc=0;
+    robotStop(0);     
+    while(abs(encoder_doc)<2000)         
+    { 
+    robotRun(-900 -_robotIMUAngle,10,0);  
+    if(wantExit()) return;
+    if(!cb_cheo_right)
+    { 
+    robotStop(0); 
+    while(1)
+    {
+        mor_Nang=150,mor_Nang_next;
+        if(!cb_NC_UP){mor_Nang=0;break;}
+    }  
+    XYLANH1_ON,XYLANH2_ON,XYLANH3_ON;
+    break;
+    }
+    }                 
+} 
+
+//______________________________________________________________
+//________________________ XOAY TO COT _________________________
+//______________________________________________________________
+void auto_to_cot_red()
+{   
+    lcdViewer();
+    encoder_ngang = 0;
+    Off_Xylinder();
+    robotRun(1350 -_robotIMUAngle,20,0);
+    robotRotate(-1,2.3,0);  
+    while(abs(encoder_ngang)<1400)          if(wantExit()) return;
+    encoder_ngang = 0;            
+    robotRun(900 -_robotIMUAngle,20,0);
+    robotRotate(-1,1,0); 
+    while(getADC(0)>100||getADC(1)>100)     if(wantExit()) return; 
+    encoder_ngang = 0;    
+    while(abs(encoder_ngang)<3000)          if(wantExit()) return;  
+    encoder_ngang=0;
+    robotRun(900 -_robotIMUAngle,20,0);
+    robotRotate(250,1,0); 
+    while(abs(encoder_ngang)<3600)             if(wantExit()) return;  
+    !robotLineDetect();   
+    robotRotateStop(); 
+    delay_ms(600);  
+    encoder_ngang = 0;
+    robotLineRun(900,10, 1.4);
+    while(abs(encoder_ngang)<3300)           if(wantExit()) return; 
+    robotStop(0);
+             
+} 
+
+
+//______________________________________________________________
+//________________________ XOAY TO CAU THANG _________________________
+//______________________________________________________________
+void auto_cau_thang_red()
+{   
+    lcdViewer();
+    encoder_ngang = 0;
+    Off_Xylinder();
+    robotRun(-1145 -_robotIMUAngle,20,0);
+    robotRotate(1,2.3,0);          
+    while(abs(encoder_ngang)<800)          if(wantExit()) return; 
+    robotRun(-900 -_robotIMUAngle,20,0);
+    robotRotate(0,1,0);  
+    encoder_ngang = 0;
+    while(abs(encoder_ngang)<9000)          if(wantExit()) return;
+    robotRun(-900 -_robotIMUAngle,5,0);
+    robotRotate(0,1,0);   
+    while(getADC(0)>60||getADC(1)>60)     if(wantExit()) return; 
+    !robotLineDetect();   
+    robotStop(0);    
+} 
+

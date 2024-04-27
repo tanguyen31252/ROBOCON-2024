@@ -9,7 +9,7 @@
 char buf[50],ky_tu[40],ky_tu_1[40],ky_tu_2[40],ky_tu_3[40];
 uint8_t Buffer_HMI[50];
 vs32 bien_hmi;
-void HMI_ky_tu(char *_buf1)		  //×Ö·û´®·¢ËÍº¯Êý
+void HMI_ky_tu(char *_buf1)		  //ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½
 {
 //	char Buffer_HMI[]="0";
 	int _i=0,_k;
@@ -24,7 +24,7 @@ void HMI_ky_tu(char *_buf1)		  //×Ö·û´®·¢ËÍº¯Êý
 	
 	for(_i=0;_i<_k;_i++){
 			
-       Buffer_HMI[_i]=_buf1[_i];
+	Buffer_HMI[_i]=_buf1[_i];
 	}
 	
 
@@ -33,38 +33,38 @@ DMA_Cmd(DMA1_Stream7, ENABLE);
 //}	
 	
 ///////////////
-void HMISends(char *buf1)		  //×Ö·û´®·¢ËÍº¯Êý
+void HMISends(char *buf1)		  //ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½
 {
 	u8 hmi=0;
 	while(1)
 	{
-	 if(buf1[hmi]!=0)
-	 	{
-			USART_SendData(UART5,buf1[hmi]);  //·¢ËÍÒ»¸ö×Ö½Ú
+	if(buf1[hmi]!=0)
+		{
+			USART_SendData(UART5,buf1[hmi]);  //ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö½ï¿½
 		//	delay_ms(5);
-			while(USART_GetFlagStatus(UART5,USART_FLAG_TXE)==RESET){};//µÈ´ý·¢ËÍ½áÊø
+			while(USART_GetFlagStatus(UART5,USART_FLAG_TXE)==RESET){};//ï¿½È´ï¿½ï¿½ï¿½ï¿½Í½ï¿½ï¿½ï¿½
 			//goto main;
-		 	hmi++;
+			hmi++;
 		}
-	 else 
-	 return ;
+	else 
+	return ;
 
 		}
 	}
-void HMISendb(u8 k)		         //×Ö½Ú·¢ËÍº¯Êý
+void HMISendb(u8 k)		         //ï¿½Ö½Ú·ï¿½ï¿½Íºï¿½ï¿½ï¿½
 {		 
 	u8 hmi;
-	 for(hmi=0;hmi<3;hmi++)
-	 {
-	 if(k!=0)
-	 	{
-			USART_SendData(UART5,k);  //·¢ËÍÒ»¸ö×Ö½Ú
-			while(USART_GetFlagStatus(UART5,USART_FLAG_TXE)==RESET){};//µÈ´ý·¢ËÍ½áÊø
+	for(hmi=0;hmi<3;hmi++)
+	{
+	if(k!=0)
+		{
+			USART_SendData(UART5,k);  //ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö½ï¿½
+			while(USART_GetFlagStatus(UART5,USART_FLAG_TXE)==RESET){};//ï¿½È´ï¿½ï¿½ï¿½ï¿½Í½ï¿½ï¿½ï¿½
 		}
-	 else 
-	 return ;
+	else 
+	return ;
 
-	 } 
+	} 
 } 
 
 /////////////////////////////////
@@ -215,30 +215,30 @@ void HMI_PUT_j(tham_so){
 	char 	ky_tu_4[]="\"";
 	char	ky_tu[]="j";	
 
-for(i=0;i<50;i++){
+	for(i=0;i<50;i++){
 		ky_tu_2[i]=0;
 		ky_tu_1[i]=0;
 		buf[i]=0;	
-}
-buf[0]=10;
-buf[1]=255;
-buf[2]=255;
-buf[3]=255;
-sprintf(ky_tu_1,"%d",0);
-strcat (ky_tu,ky_tu_1);
-strcat(buf,ky_tu);        ///// 0t1  //nhan duoc chuoi
-strcat(buf,ky_tu_3);	    ///// chuoi buf nhan duoc .txt=
+	}
+	buf[0]=10;
+	buf[1]=255;
+	buf[2]=255;
+	buf[3]=255;
+	sprintf(ky_tu_1,"%d",0);
+	strcat (ky_tu,ky_tu_1);
+	strcat(buf,ky_tu);        ///// 0t1  //nhan duoc chuoi
+	strcat(buf,ky_tu_3);	    ///// chuoi buf nhan duoc .txt=
 
-sprintf(ky_tu_1,"%d",tham_so);
-strcat(buf,ky_tu_1);
-//strcat(buf,ky_tu_4);         
-ky_tu_2[0]=0xff;
-ky_tu_2[1]=0xff;
-ky_tu_2[2]=0xff;
-ky_tu_2[3]=0;
-ky_tu_2[4]=0;
-strcat(buf,ky_tu_2);
-HMI_ky_tu(buf);
+	sprintf(ky_tu_1,"%d",tham_so);
+	strcat(buf,ky_tu_1);
+	//strcat(buf,ky_tu_4);         
+	ky_tu_2[0]=0xff;
+	ky_tu_2[1]=0xff;
+	ky_tu_2[2]=0xff;
+	ky_tu_2[3]=0;
+	ky_tu_2[4]=0;
+	strcat(buf,ky_tu_2);
+	HMI_ky_tu(buf);
 
 }
 
