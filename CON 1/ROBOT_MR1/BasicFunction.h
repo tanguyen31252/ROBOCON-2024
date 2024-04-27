@@ -1,3 +1,30 @@
+//----------------------------CHAY BAM THANH BANG LAZE--------------------------
+void bam_thanh_laze_ngang(float angle, int maxSpeed, float robotAngle, float rototate, float angle_fix, int laze_stable_ngang, int num_stable_change, int dung_laze_nao)
+{
+	if(dung_laze_nao - laze_stable_ngang > num_stable_change)
+	{
+		robotRunAngle(angle + angle_fix, maxSpeed, robotAngle, rototate);
+	}
+	else if(dung_laze_nao - laze_stable_ngang < num_stable_change)
+	{
+		robotRunAngle(angle - angle_fix, maxSpeed, robotAngle, rototate);
+	}
+	else robotRunAngle(angle, maxSpeed, robotAngle, rototate);
+}
+////////////////////////////////////////////////////////////////////////////////
+void bam_thanh_laze_truoc(float angle, int maxSpeed, float robotAngle, float angle_fix, int laze_stable_truoc, int num_stable_change)
+{
+	if(lazeTruocValue - laze_stable_truoc > num_stable_change)
+	{
+		robotRunAngle(angle - angle_fix, maxSpeed, robotAngle, 0.2);
+	}
+	else if(lazeTruocValue - laze_stable_truoc < num_stable_change)
+	{
+		robotRunAngle(angle + angle_fix, maxSpeed, robotAngle, 0.2);
+	}
+	else robotRunAngle(angle, maxSpeed, robotAngle, 0.2);
+}
+
 int T1,T2,T3,T4,P1,P2,P3,P4;
 void ChangeStatus()
 {

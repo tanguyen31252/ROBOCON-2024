@@ -386,33 +386,7 @@ void robotRunAngle(float angle, int maxSpeed, float robotAngle, float rotate)
 			robotRotate(robotAngle, (abs(robotAngle - _robotIMUAngle) > 100? (robotAngle > _robotIMUAngle ? rotate: -rotate):(robotAngle - _robotIMUAngle)*0.005), 0);
 		}
 }
-//----------------------------CHAY BAM THANH BANG LAZE--------------------------
-void bam_thanh_laze_ngang(float angle, int maxSpeed, float robotAngle, float angle_fix, int laze_stable_ngang, int num_stable_change, int dung_laze_nao)
-{
-	if(dung_laze_nao - laze_stable_ngang > num_stable_change)
-	{
-		robotRunAngle(angle + angle_fix, maxSpeed, robotAngle, 1);
-	}
-	else if(dung_laze_nao - laze_stable_ngang < num_stable_change)
-	{
-		robotRunAngle(angle - angle_fix, maxSpeed, robotAngle, 1);
-	}
-	else robotRunAngle(angle, maxSpeed, robotAngle, 1);
-}
 
-////////////////////////////////////////////////////////////////////////////////
-void bam_thanh_laze_truoc(float angle, int maxSpeed, float robotAngle, float angle_fix, int laze_stable_truoc, int num_stable_change)
-{
-	if(lazeTruocValue - laze_stable_truoc > num_stable_change)
-	{
-		robotRunAngle(angle - angle_fix, maxSpeed, robotAngle, 0.2);
-	}
-	else if(lazeTruocValue - laze_stable_truoc < num_stable_change)
-	{
-		robotRunAngle(angle + angle_fix, maxSpeed, robotAngle, 0.2);
-	}
-	else robotRunAngle(angle, maxSpeed, robotAngle, 0.2);
-}
 //------------------------------------------------------------------------------
 void robotAngleAnalytics(void)
 {

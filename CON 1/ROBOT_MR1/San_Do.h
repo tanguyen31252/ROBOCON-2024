@@ -273,7 +273,7 @@ int XuatPhat(void)
         
         for(i = 0; i < 50 ; i++) 
         {
-            bam_thanh_laze_ngang (0,30,0,5,300,0,lazePhaiValue); 
+            bam_thanh_laze_ngang (0, 30, 0, 2, 50, 300, 0, lazePhaiValue); 
             while(lazeTruocValue > 150){if(wantExit()) break;  vTaskDelay(1);} 
         }
 
