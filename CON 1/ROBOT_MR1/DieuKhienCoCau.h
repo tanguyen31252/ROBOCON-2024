@@ -281,17 +281,28 @@ void testbanhxe()
     i = 100;
     if(!TRIANGLE)
     {
-        Mor_Rulo_Duoi = i+50, Mor_Rulo_Duoi_thuan;
-        Mor_Rulo_Tren = i-80, Mor_Rulo_Tren_thuan;
+        XL_DAY_LUA_BAT;
     }
     else if(!X)
     {
+        XL_DAY_LUA_TAT;
     }
     else if(!SQUARE)
     {
+        XL_THA_LUA_BAT;
+        XL_DAY_LUA_TAT;
+        for (i =0 ; i < 100;i++)
+        {
+            while (CB_NANG_HA_LUA == 1)
+            {
+
+            }
+        }   
+        XL_THA_LUA_TAT;
     }
     else if(!O)
     {
+        
     }
     else Mor_Rulo_Duoi = Mor_Rulo_Tren = 0;
 }
