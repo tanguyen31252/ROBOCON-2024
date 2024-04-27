@@ -269,7 +269,7 @@ void robotLineRun_clockwise111(int angle, int maxSP)
 				{
 					lcd_printInt(3,10,3);
 					robotCurve(angle + k*40, maxSP , k*hesoXoayVo);// Dang o ngoai
-			  }
+			  	}
 				else
 				{
 					lcd_printInt(3,10,4);

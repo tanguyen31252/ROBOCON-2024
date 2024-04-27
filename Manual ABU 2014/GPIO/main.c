@@ -46,13 +46,13 @@ int main(void)
 	run_read_gyro_uart1();
 	
 	lcd_Init();
-  lcd_Clear();
+	lcd_Clear();
 
 while (1)
 {	
 	gp_update_btn();
 	lcdViewer();
-  robotStop(0);  
+	obotStop(0);  
 	Nang_truc();
 	Truot_ngang();
 	flash_bit=1;
@@ -84,7 +84,6 @@ while (1)
 										else goc = 900, tocdo = 30; 							// 905 , 20 , 1.26 // 880,50,1.32
                     robotLineRun(goc,tocdo);
                 }
-				
 			Auto_program_analoge();
 		}
 }

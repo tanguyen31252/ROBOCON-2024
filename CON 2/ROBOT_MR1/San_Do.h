@@ -970,6 +970,41 @@ void retry()
 void THI()
 {
     XuatPhat();
+
+    do_bong();
+
+    di_chuyen_len_5();
+
+    kiem_tra_di_chuyen();
+
+    tha_bong();
+
+    di_chuyen_ve();
+
+    while(1)
+    {
+        do_bong();
+
+        if(bien_nho_silo_co_2_bong != 0)
+        {
+            di_chuyen_len_bo_bong_thu_3();
+            kiem_tra_di_chuyen();
+            tha_bong();
+            di_chuyen_ve();
+            bien_nho_silo_co_2_bong = 0;
+        }
+        else
+        {
+            di_chuyen_len();
+
+            kiem_tra_di_chuyen();
+        
+            tha_bong();
+            
+            di_chuyen_ve();
+        }
+        bien_nhan_bong = 0;
+    }
 }
 
 
