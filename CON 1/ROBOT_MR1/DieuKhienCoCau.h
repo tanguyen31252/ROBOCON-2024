@@ -600,3 +600,37 @@ void robotLineRunRight(vu8 speed)
     else if (CB_LINE_PHAI >= 1)
         robotCurve(900, speed, 0.05 * abs(CB_LINE_TRAI));
 }
+void line_qua_trai()
+{
+  do_line(-20);
+  vtaskDelay(1);
+}
+void line_qua_phai
+{
+  do_line(20);
+  vTaskDelay(1);
+}
+void ban_bong_dung_line()
+{
+  do
+  { 
+    line_qua_trai();
+    while(lazeTraiValue > 40 && lazePhaiValue > 270)
+    {
+      if(CB_BONG_MAU_PHAI == 0 && CB_BONG_MAU_PHAI == 0)
+        {
+          robotStop(0);
+        }
+      robotStop(0);
+    }
+    line_qua_phai();
+    while(lazePhaiValue > 40 && lazeTraiValue > 270) 
+    {
+       if(CB_BONG_MAU_PHAI == 0 && CB_BONG_MAU_PHAI == 0)
+        {
+          robotStop(0);
+        }
+       robotStop(0);
+    }
+  }
+}
