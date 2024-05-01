@@ -36,47 +36,14 @@ void thong_so_laze_ngang_doc(void)
 }
 void thong_so_laze_ngang_doc_san_xanh()
 {
-        if      (lan_trong == 1 && hang_trong == 1)     {lazengang = LAZENGANG_1[SAN][1],  lazedoc = LAZEDOC[hang_trong],                                   laze_doc_truot = LAZEDOC[3];}
-        else if (lan_trong == 1 && hang_trong == 2)     {lazengang = LAZENGANG_1[SAN][2],  lazedoc = LAZEDOC[hang_trong], laze_ngang_ve = LAZE_VE[SAN][0],  laze_doc_truot = LAZEDOC[4];}
+        if      (lan_trong == 1 && hang_trong == 1)     {lazengang = LAZENGANG_1[SAN][1];}
+        else if (lan_trong == 1 && hang_trong == 2)     {lazengang = LAZENGANG_1[SAN][2],laze_ngang_ve = LAZE_VE[SAN][0];}
         
-        if      (lan_trong == 2 && hang_trong == 1)     {lazengang = LAZENGANG_1[SAN][3],  lazedoc = LAZEDOC[hang_trong],                                   laze_doc_truot = LAZEDOC[3];}
-        else if (lan_trong == 2 && hang_trong == 2)     {lazengang = LAZENGANG_1[SAN][4],  lazedoc = LAZEDOC[hang_trong], laze_ngang_ve = LAZE_VE[SAN][1],  laze_doc_truot = LAZEDOC[4];}    
+        if      (lan_trong == 2 && hang_trong == 1)     {lazengang = LAZENGANG_1[SAN][3];}
+        else if (lan_trong == 2 && hang_trong == 2)     {lazengang = LAZENGANG_1[SAN][4],laze_ngang_ve = LAZE_VE[SAN][1];}    
         
-        if      (lan_trong == 3 && hang_trong == 1)     {lazengang = LAZENGANG_1[SAN][5],  lazedoc = LAZEDOC[hang_trong],                                   laze_doc_truot = LAZEDOC[3];}
-        else if (lan_trong == 3 && hang_trong == 2)     {lazengang = LAZENGANG_1[SAN][6],  lazedoc = LAZEDOC[hang_trong];}
-}
-void thong_so_hang_bong()
-{
-    // if(SAN == 1)
-    // {
-    //     for(i=6;i>0;i--)
-    //     {
-    //         if(LAZENGANG_2[SAN][i-1] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][i])
-    //         {
-    //             if(CB_NHAN_MAU_THOC_GIUA == 0)  bong_mau[0][i-1]=1;
-    //             if(CB_NHAN_MAU_TIM_GIUA == 0)   bong_mau[0][i-1]=2;
-
-    //             if(CB_NHAN_MAU_THOC_SAU == 0)   bong_mau[1][i-1]=1;
-    //             if(CB_NHAN_MAU_TIM_SAU == 0)    bong_mau[1][i-1]=2;
-
-    //         }
-    //     }
-    // }
-    // else
-    // {
-    //     for(i=0;i<6;i--)
-    //     {
-    //         if(LAZENGANG_2[SAN][i+1] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][i])
-    //         {
-    //             if(CB_NHAN_MAU_THOC_GIUA == 0)  bong_mau[0][i]=1;
-    //             if(CB_NHAN_MAU_TIM_GIUA == 0)   bong_mau[0][i]=2;
-
-    //             if(CB_NHAN_MAU_THOC_SAU == 0)   bong_mau[1][i]=1;
-    //             if(CB_NHAN_MAU_TIM_SAU == 0)    bong_mau[1][i]=2;
-
-    //         }
-    //     }
-    // }
+        if      (lan_trong == 3 && hang_trong == 1)     {lazengang = LAZENGANG_1[SAN][5];}
+        else if (lan_trong == 3 && hang_trong == 2)     {lazengang = LAZENGANG_1[SAN][6];}
 }
 
 void LEN_SAN_2()
