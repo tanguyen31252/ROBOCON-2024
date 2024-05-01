@@ -605,7 +605,7 @@ void trong_lua()
         }
         else
         {
-            delay_ms(500);
+            delay_ms(350);
             XL_KEP_LUA_TREN_KEP;
             XL_THA_LUA_TAT;
             XL_DAY_LUA_TAT;
@@ -637,6 +637,7 @@ void trong_lua()
         }
         else
         {
+            delay_ms(350);
             XL_KEP_LUA_TREN_KEP;
             XL_THA_LUA_TAT;
             XL_DAY_LUA_TAT;

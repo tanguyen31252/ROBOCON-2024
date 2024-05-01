@@ -39,27 +39,27 @@ void laze_san_2()
     {
         if (SAN == 1)
         {
-            if (LAZENGANG_2[SAN][5] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][6])
+            if (LAZENGANG_2[SAN][5] < lazeTraiValue && lazeTraiValue < LAZENGANG_2[SAN][6])
             {
-                vi_tri_laze = 6, phe_thoc = giamphe[0][0], phe_lep = giamphe[1][0];
+                vi_tri_laze = 6, 
             } // vi tri 1
-            else if (LAZENGANG_2[SAN][4] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][5])
+            else if (LAZENGANG_2[SAN][4] < lazeTraiValue && lazeTraiValue < LAZENGANG_2[SAN][5])
             {
                 vi_tri_laze = 5, ban_thoc = tocdo[0][1], ban_lep = tocdo[1][1], goc_xoay_thoc = gocxoay_thoc[SAN][5], goc_xoay_lep = gocxoay_lep[SAN][5], phe_thoc = giamphe[0][1], phe_lep = giamphe[1][1];
             }
-            else if (LAZENGANG_2[SAN][3] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][4])
+            else if (LAZENGANG_2[SAN][3] < lazeTraiValue && lazeTraiValue < LAZENGANG_2[SAN][4])
             {
                 vi_tri_laze = 4, ban_thoc = tocdo[0][2], ban_lep = tocdo[1][2], goc_xoay_thoc = gocxoay_thoc[SAN][4], goc_xoay_lep = gocxoay_lep[SAN][4], phe_thoc = giamphe[0][2], phe_lep = giamphe[1][2];
             }
-            else if (LAZENGANG_2[SAN][2] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][3])
+            else if (LAZENGANG_2[SAN][2] < lazeTraiValue && lazeTraiValue < LAZENGANG_2[SAN][3])
             {
                 vi_tri_laze = 3, ban_thoc = tocdo[0][3], ban_lep = tocdo[1][3], goc_xoay_thoc = gocxoay_thoc[SAN][3], goc_xoay_lep = gocxoay_lep[SAN][3], phe_thoc = giamphe[0][3], phe_lep = giamphe[1][3];
             }
-            else if (LAZENGANG_2[SAN][1] < lazePhaiValue && lazePhaiValue < LAZENGANG_2[SAN][2])
+            else if (LAZENGANG_2[SAN][1] < lazeTraiValue && lazeTraiValue < LAZENGANG_2[SAN][2])
             {
                 vi_tri_laze = 2, ban_thoc = tocdo[0][4], ban_lep = tocdo[1][4], goc_xoay_thoc = gocxoay_thoc[SAN][2], goc_xoay_lep = gocxoay_lep[SAN][2], phe_thoc = giamphe[0][4], phe_lep = giamphe[1][4];
             }
-            else if (lazePhaiValue < LAZENGANG_2[SAN][1])
+            else if (lazeTraiValue < LAZENGANG_2[SAN][1])
             {
                 vi_tri_laze = 1, ban_thoc = tocdo[0][5], ban_lep = tocdo[1][5], goc_xoay_thoc = gocxoay_thoc[SAN][1], goc_xoay_lep = gocxoay_lep[SAN][1], phe_thoc = giamphe[0][5], phe_lep = giamphe[1][5];
             } // vi tri 6
@@ -296,7 +296,6 @@ void dieuKhienCoCau(void)
     }
 }
 
-
 void giu_nong_xoay()
 {
     // i=100;
@@ -468,15 +467,58 @@ void line_ban_bong()
     {
         if ((CB_BONG_GIUA_PHAI == 1 && CB_BONG_GIUA_TRAI == 1 && CB_BONG_SAU_PHAI == 1 && CB_BONG_SAU_TRAI == 1) && lazePhaiValue > 50)
         {
-            do_line(-20);
+            do_line(-10);
             vTaskDelay(1);
             while (CB_BONG_GIUA_PHAI == 0 && CB_BONG_GIUA_TRAI == 0 && CB_BONG_SAU_PHAI == 0 && CB_BONG_SAU_TRAI == 0)
             {
-                if (lazeTraiValue > bong_mau[SAN][0])
+                if (robotAngle > goc_xoay_thoc)
                 {
-                    robotRotate(-800, 1.2, 0);
+                    robotRotate(-900,2,0);
+                    while (robotAngle > goc_xoay_thoc)
+                    {
+                        if (wantExit())
+                            break;
+                    }
+                }
+                else
+                {
+                    robotRotate(900,2,0);
+                    while (robotAngle < goc_xoay_thoc)
+                    {
+                        if (wantExit())
+                            break;
+                    }
                 }
             }
+        }
+        else if ((CB_BONG_GIUA_PHAI == 1 && CB_BONG_GIUA_TRAI == 1 && CB_BONG_SAU_PHAI == 1 && CB_BONG_SAU_TRAI == 1) && lazePhaiValue < 500)
+        {
+            do_line(10);
+            vTaskDelay(1);
+            while (CB_BONG_GIUA_PHAI == 0 && CB_BONG_GIUA_TRAI == 0 && CB_BONG_SAU_PHAI == 0 && CB_BONG_SAU_TRAI == 0)
+            {
+                if (robotAngle > goc_xoay_thoc)
+                {
+                    robotRotate(-900,2,0);
+                    while (robotAngle > goc_xoay_thoc)
+                    {
+                        if (wantExit())
+                            break;
+                    }
+                }
+                else
+                {
+                    robotRotate(900,2,0);
+                    while (robotAngle < goc_xoay_thoc)
+                    {
+                        if (wantExit())
+                            break;
+                    }
+                }
+            }
+        }
+        else
+        {
         }
     }
     robotStop(0);
