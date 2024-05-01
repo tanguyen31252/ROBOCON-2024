@@ -159,12 +159,21 @@ void testtaygap(void)
 }
 void testbanhxe()
 {
-            
+    if(!TRIANGLE)
+    {
+        XL_NONG_HA_BAT;
+        // XL_TR_NONG_HA_TAT;
+    }
+    if(!X)
+    {
+        XL_NONG_HA_TAT;
+        // XL_TR_NONG_HA_BAT;
+    }
 }
 //--------------------------- DIEU KHIEN CO CAU ---------------------------------------
 void dieuKhienCoCau(void) 
 {
-    if(!NUT_START)
+    if(!NUT_RETRY)
     {
         // if(doc_man_hinh == 1) doc_man_hinh = 0, delay_ms(200);
 
@@ -172,4 +181,5 @@ void dieuKhienCoCau(void)
         if(doc_man_hinh == 2)   doc_man_hinh = 0,delay_ms(200);
         else                    doc_man_hinh++,delay_ms(200);
     }
+    testbanhxe();
 }
