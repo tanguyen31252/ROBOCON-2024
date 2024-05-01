@@ -213,7 +213,7 @@ static void taskMain(void *pvParameters)
   			ThaBong_Xanh();
 //			Ve_gap_bong_xanh();
 
-			// Chay_Bo_Bong(ViTriLazeThaBong[4]);
+			Chay_Bo_Bong(ViTriLazeThaBong[4]);
 			// Tha_Bong_Vao_Silo(ViTriLazeThaBong[4]);
 //			 GAP_BONG();
 

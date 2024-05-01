@@ -560,7 +560,7 @@ void Chay_Bo_Bong(int Lazer_Siolo)
 		if(MauSan == 1){// 1: san xanh; 2: san do
 			while(lazeSauValue > 210)
 			{
-				if(lazeSauValue > 2320) Bam_thanh_laser_trai(50,0,Lazer_Siolo,2);
+				if(lazeSauValue > 230) Bam_thanh_laser_trai(50,0,Lazer_Siolo,2);
 				else Bam_thanh_laser_trai(20,0,Lazer_Siolo,10);
 			}
 			while(CB_CHAM_THANH == 1)	Bam_thanh_laser_trai(7,0,Lazer_Siolo,2);
