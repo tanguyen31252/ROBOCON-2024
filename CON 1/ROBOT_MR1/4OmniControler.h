@@ -22,6 +22,8 @@
 		}
 
 	//----------------------\
+
+
 	void robotRotateFree(float rotate, int rotatePoint)
 	void robotRotate(int rotateAngle, float rotate, int rotatePoint)
 	int robotFixAngle()
@@ -352,7 +354,7 @@ void robotRotate(int rotateAngle, float rotate, int rotatePoint)
 							_robotAngleCounterFix = 1;
 							if((rotate > 0 && _robotIMUAngle > rotateAngle) || (rotate < 0 && _robotIMUAngle < rotateAngle )) rotate = - rotate;        
 						}
-				}
+		}
 
 		_robotRotateAngle = rotateAngle;
 		_robotRotatePoint = rotatePoint;
