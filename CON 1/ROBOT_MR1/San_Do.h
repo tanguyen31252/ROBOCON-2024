@@ -34,19 +34,6 @@ void thong_so_laze_ngang_doc(void)
         laze_trong = LAZE_THANH_TRONG[SAN][lan_trong];
     }
 }
-<<<<<<< Updated upstream
-void thong_so_laze_ngang_doc_san_xanh()
-{
-        if      (lan_trong == 1 && hang_trong == 1)     {lazengang = LAZENGANG_1[SAN][1];}
-        else if (lan_trong == 1 && hang_trong == 2)     {lazengang = LAZENGANG_1[SAN][2],laze_ngang_ve = LAZE_VE[SAN][0];}
-        
-        if      (lan_trong == 2 && hang_trong == 1)     {lazengang = LAZENGANG_1[SAN][3];}
-        else if (lan_trong == 2 && hang_trong == 2)     {lazengang = LAZENGANG_1[SAN][4],laze_ngang_ve = LAZE_VE[SAN][1];}    
-        
-        if      (lan_trong == 3 && hang_trong == 1)     {lazengang = LAZENGANG_1[SAN][5];}
-        else if (lan_trong == 3 && hang_trong == 2)     {lazengang = LAZENGANG_1[SAN][6];}
-}
-=======
 // void thong_so_laze_ngang_doc_san_xanh()
 // {
 //         if      (lan_trong == 1 && hang_trong == 1)     {lazengang = LAZENGANG_1[SAN][1];}
@@ -58,7 +45,6 @@ void thong_so_laze_ngang_doc_san_xanh()
 //         if      (lan_trong == 3 && hang_trong == 1)     {lazengang = LAZENGANG_1[SAN][5];}
 //         else if (lan_trong == 3 && hang_trong == 2)     {lazengang = LAZENGANG_1[SAN][6];}
 // }
->>>>>>> Stashed changes
 
 void LEN_SAN_2()
 //////////////////////////SAN DO//////////////////////////
@@ -786,6 +772,28 @@ void THI()
 
 void ban_bong()
 {
-    // while (CB_Line_T2 == 0 && CB_Line_T3 == 0)
-    
+     // bắn bóng trước
+        else if (!L2 & !O)
+        {
+            XL_LAY_BONG_1_DONG;
+            delay_ms(500);
+            XL_THUC_XUONG;
+            delay_ms(500);
+            XL_THUC_LEN;
+            delay_ms(500);
+            XL_LAY_BONG_1_DONG;
+            delay_ms(500);
+            XL_LAY_BONG_2_MO;
+            delay_ms(500);
+            Mor_Rulo_Duoi = toc_xoay;
+            Mor_Rulo_Tren = ap_phe;
+            XL_KEP_BONG_NHA;
+            delay_ms(700);
+            XL_LAY_BONG_2_DONG;
+            XL_LAY_BONG_1_DONG;
+            delay_ms(1300);
+            Mor_Rulo_Duoi = 0;
+            Mor_Rulo_Tren = 0;
+            XL_KEP_BONG_KEP;
+        }   
 }

@@ -199,29 +199,21 @@ short int XOAY_DE[2][7]   =        			{		//1			//2			//3			//4			//5			//6
 										//0: khong co bong 
 										//1: bong thoc
 										//2: bong lep (tim)
-<<<<<<< HEAD
 
-#define rices_top_1 (RX_UART1[1] & 0x01)
-#define rices_top_2 (RX_UART1669[1] & 0x02)
-#define rices_top_3 (RX_UART1[1] & 0x04)
-#define rices_top_4 (RX_UART1[1] & 0x08)
-#define rices_top_5 (RX_UART1[1] & 0x10)
-#define rices_top_6 (RX_UART1[1] & 0x20)
+// #define rices_top_1 (RX_UART1[1] & 0x01)
+// #define rices_top_2 (RX_UART1669[1] & 0x02)
+// #define rices_top_3 (RX_UART1[1] & 0x04)
+// #define rices_top_4 (RX_UART1[1] & 0x08)
+// #define rices_top_5 (RX_UART1[1] & 0x10)
+// #define rices_top_6 (RX_UART1[1] & 0x20)
 	
-#define rices_botom_6 (RX_UART1[1] & 0x40)
-#define rices_botom_5 (RX_UART1[1] & 0x80)
-#define rices_botom_4 (RX_UART1[2] & 0x01)
-#define rices_botom_3 (RX_UART1[2] & 0x02)
-#define rices_botom_2 (RX_UART1[2] & 0x04)
-#define rices_botom_1 (RX_UART1[2] & 0x08)
+// #define rices_botom_6 (RX_UART1[1] & 0x40)
+// #define rices_botom_5 (RX_UART1[1] & 0x80)
+// #define rices_botom_4 (RX_UART1[2] & 0x01)
+// #define rices_botom_3 (RX_UART1[2] & 0x02)
+// #define rices_botom_2 (RX_UART1[2] & 0x04)
+// #define rices_botom_1 (RX_UART1[2] & 0x08)
 
-=======
-int bong_mau[2][7]		=				{
-											{0,		295+20,		245+20,		195+20,		145+20,		95+20,		48+20,},         //san xanh
-                                            {0,     180+20,		232+20,		282+20,		332+20,		382+20,		431+20},          	//san do
-											
-										};
->>>>>>> 21fd08013554322167b7389d599085e1876d1a84
 //****************************** Khai bao cam bien do line ******************************//
 #define GP_MASK_0				0x01
 #define GP_MASK_1				0x02
@@ -1313,38 +1305,38 @@ void HMI_TRAN(vs32 _so_dong) {
 										HMI_PUTS("LINE: ",_chu_cac_bit,7);
 										break;
 									case 8:
-										if(rices_top_1)	sprintf(_ghep_bit,"%d",0);	
-                                        else sprintf(_ghep_bit,"%d",1);	
-                                        strcat(_chu_cac_bit,_ghep_bit);
-                                        if(rices_top_2)	sprintf(_ghep_bit,"%d",0);	
-                                        else sprintf(_ghep_bit,"%d",1);	
-                                        strcat(_chu_cac_bit,_ghep_bit);
-                                        if(rices_top_3)	sprintf(_ghep_bit,"%d",0);	
-                                        else sprintf(_ghep_bit,"%d",1);	
-                                        strcat(_chu_cac_bit,_ghep_bit);
-                                        if(rices_top_4)	sprintf(_ghep_bit,"%d ",0);	
-                                        else sprintf(_ghep_bit,"%d ",1);
-                                        strcat(_chu_cac_bit,_ghep_bit);
-                                        if(rices_top_5)	sprintf(_ghep_bit,"%d ",0);	
-                                        else sprintf(_ghep_bit,"%d ",1);
-                                        strcat(_chu_cac_bit,_ghep_bit);
-                                        if(rices_top_6)	sprintf(_ghep_bit,"%d ",0);	
-                                        else sprintf(_ghep_bit,"%d ",1);
-                                        strcat(_chu_cac_bit,_ghep_bit);
+										// if(rices_top_1)	sprintf(_ghep_bit,"%d",0);	
+                                        // else sprintf(_ghep_bit,"%d",1);	
+                                        // strcat(_chu_cac_bit,_ghep_bit);
+                                        // if(rices_top_2)	sprintf(_ghep_bit,"%d",0);	
+                                        // else sprintf(_ghep_bit,"%d",1);	
+                                        // strcat(_chu_cac_bit,_ghep_bit);
+                                        // if(rices_top_3)	sprintf(_ghep_bit,"%d",0);	
+                                        // else sprintf(_ghep_bit,"%d",1);	
+                                        // strcat(_chu_cac_bit,_ghep_bit);
+                                        // if(rices_top_4)	sprintf(_ghep_bit,"%d ",0);	
+                                        // else sprintf(_ghep_bit,"%d ",1);
+                                        // strcat(_chu_cac_bit,_ghep_bit);
+                                        // if(rices_top_5)	sprintf(_ghep_bit,"%d ",0);	
+                                        // else sprintf(_ghep_bit,"%d ",1);
+                                        // strcat(_chu_cac_bit,_ghep_bit);
+                                        // if(rices_top_6)	sprintf(_ghep_bit,"%d ",0);	
+                                        // else sprintf(_ghep_bit,"%d ",1);
+                                        // strcat(_chu_cac_bit,_ghep_bit);
 
-										if(!CB_Line_P1)	sprintf(_ghep_bit,"%d",0);	
-                                        else sprintf(_ghep_bit,"%d",1);	
-                                        strcat(_chu_cac_bit,_ghep_bit);
-                                        if(!CB_Line_P2)	sprintf(_ghep_bit,"%d",0);	
-                                        else sprintf(_ghep_bit,"%d",1);	
-                                        strcat(_chu_cac_bit,_ghep_bit);
-                                        if(!CB_Line_P3)	sprintf(_ghep_bit,"%d",0);	
-                                        else sprintf(_ghep_bit,"%d",1);	
-                                        strcat(_chu_cac_bit,_ghep_bit);
-                                        if(!CB_Line_P4)	sprintf(_ghep_bit,"%d",0);	
-                                        else sprintf(_ghep_bit,"%d",1);	
-                                        strcat(_chu_cac_bit,_ghep_bit);
-										HMI_PUTS("BONG: ",_chu_cac_bit,7);
+										// if(!CB_Line_P1)	sprintf(_ghep_bit,"%d",0);	
+                                        // else sprintf(_ghep_bit,"%d",1);	
+                                        // strcat(_chu_cac_bit,_ghep_bit);
+                                        // if(!CB_Line_P2)	sprintf(_ghep_bit,"%d",0);	
+                                        // else sprintf(_ghep_bit,"%d",1);	
+                                        // strcat(_chu_cac_bit,_ghep_bit);
+                                        // if(!CB_Line_P3)	sprintf(_ghep_bit,"%d",0);	
+                                        // else sprintf(_ghep_bit,"%d",1);	
+                                        // strcat(_chu_cac_bit,_ghep_bit);
+                                        // if(!CB_Line_P4)	sprintf(_ghep_bit,"%d",0);	
+                                        // else sprintf(_ghep_bit,"%d",1);	
+                                        // strcat(_chu_cac_bit,_ghep_bit);
+										// HMI_PUTS("BONG: ",_chu_cac_bit,7);
 										break;
                                     case 9:
 										HMI_DMI("laze doc: ",lazeSauValue,9);
