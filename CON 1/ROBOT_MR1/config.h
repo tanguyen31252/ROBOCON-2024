@@ -161,6 +161,8 @@ vu8 LINE_TRAI[4],LINE_PHAI[4];
 vu8 CB_LINE_TRAI,CB_LINE_PHAI;
 char san = 1;
 
+bool check_bong=false,cb_giua_change=false,cb_sau_change=false;
+
 int LAZENGANG_1[2][7]   =               {    
                                             {0,     292,    265,    190,    167,    93,     67},                                //san xanh
                                             {0,     283,    258,    186,    160,    90,     64}                                	//san do
@@ -197,6 +199,7 @@ short int XOAY_DE[2][7]   =        			{		//1			//2			//3			//4			//5			//6
 										//0: khong co bong 
 										//1: bong thoc
 										//2: bong lep (tim)
+<<<<<<< HEAD
 
 #define rices_top_1 (RX_UART1[1] & 0x01)
 #define rices_top_2 (RX_UART1669[1] & 0x02)
@@ -212,6 +215,13 @@ short int XOAY_DE[2][7]   =        			{		//1			//2			//3			//4			//5			//6
 #define rices_botom_2 (RX_UART1[2] & 0x04)
 #define rices_botom_1 (RX_UART1[2] & 0x08)
 
+=======
+int bong_mau[2][7]		=				{
+											{0,		295+20,		245+20,		195+20,		145+20,		95+20,		48+20,},         //san xanh
+                                            {0,     180+20,		232+20,		282+20,		332+20,		382+20,		431+20},          	//san do
+											
+										};
+>>>>>>> 21fd08013554322167b7389d599085e1876d1a84
 //****************************** Khai bao cam bien do line ******************************//
 #define GP_MASK_0				0x01
 #define GP_MASK_1				0x02

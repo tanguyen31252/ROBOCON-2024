@@ -68,6 +68,7 @@ void do_line(int speed)
             robotRotateStop(0);
     }
 }
+
 void dieuKhienCoCau(void)
 {
     int toc_xoay = 200;
@@ -75,6 +76,28 @@ void dieuKhienCoCau(void)
     san = 2;
     while (san == 2)
     {
+       
+       if(!SQUARE){
+        do_line(-20);
+        vTaskDelay(1);
+        
+       }
+
+       if(!O){
+         do_line(20);
+        vTaskDelay(1);
+       }
+        // if(!SQUARE)
+        // {
+        //     do_line(-10);
+        //     vTaskDelay(1);
+        // }
+        // else if(!O)
+        // {
+        //     do_line(
+        //         10);
+        //     vTaskDelay(1);
+        // }
         // thong_so_hang_bong();
         // lấy bóng sau
         // if (!R1 & !SQUARE)
@@ -257,9 +280,10 @@ void dieuKhienCoCau(void)
         //         }
         //     }
         // }
+        if (wantExit())
+            break;
     }
 }
-
 
 void giu_nong_xoay()
 {
@@ -413,10 +437,75 @@ void testLaylua(void)
 {
 }
 
+<<<<<<< HEAD
 void line_ban_bong()
 {
     
 }
+=======
+// void line_ban_bong()
+// {
+//     for (noise = 0; noise < 50; noise++)
+//     {
+//         if ((CB_BONG_GIUA_PHAI == 1 && CB_BONG_GIUA_TRAI == 1 && CB_BONG_SAU_PHAI == 1 && CB_BONG_SAU_TRAI == 1) && lazePhaiValue > 50)
+//         {
+//             do_line(-10);
+//             vTaskDelay(1);
+//             while (CB_BONG_GIUA_PHAI == 0 && CB_BONG_GIUA_TRAI == 0 && CB_BONG_SAU_PHAI == 0 && CB_BONG_SAU_TRAI == 0)
+//             {
+//                 if (robotAngle > goc_xoay_thoc)
+//                 {
+//                     robotRotate(-900,2,0);
+//                     while (robotAngle > goc_xoay_thoc)
+//                     {
+//                         if (wantExit())
+//                             break;
+//                     }
+//                 }
+//                 else
+//                 {
+//                     robotRotate(900,2,0);
+//                     while (robotAngle < goc_xoay_thoc)
+//                     {
+//                         if (wantExit())
+//                             break;
+//                     }
+//                 }
+//             }
+//         }
+//         else if ((CB_BONG_GIUA_PHAI == 1 && CB_BONG_GIUA_TRAI == 1 && CB_BONG_SAU_PHAI == 1 && CB_BONG_SAU_TRAI == 1) && lazePhaiValue < 500)
+//         {
+//             do_line(10);
+//             vTaskDelay(1);
+//             while (CB_BONG_GIUA_PHAI == 0 && CB_BONG_GIUA_TRAI == 0 && CB_BONG_SAU_PHAI == 0 && CB_BONG_SAU_TRAI == 0)
+//             {
+//                 if (robotAngle > goc_xoay_thoc)
+//                 {
+//                     robotRotate(-900,2,0);
+//                     while (robotAngle > goc_xoay_thoc)
+//                     {
+//                         if (wantExit())
+//                             break;
+//                     }
+//                 }
+//                 else
+//                 {
+//                     robotRotate(900,2,0);
+//                     while (robotAngle < goc_xoay_thoc)
+//                     {
+//                         if (wantExit())
+//                             break;
+//                     }
+//                 }
+//             }
+//         }
+//         else
+//         {
+//         }
+//     }
+//     robotStop(0);
+// }
+>>>>>>> 21fd08013554322167b7389d599085e1876d1a84
 
 void testcambien()
 {
@@ -509,79 +598,113 @@ void testbanhxe()
 }
 
 // //********************************* doc cam bien line **************************************8
-void Doc_cb_line(void)
-{
-    if (!CB_Line_P1 && CB_Line_P2 && CB_Line_P3 && CB_Line_P4)
-        CB_LINE_PHAI = 3;
-    else if (!CB_Line_P1 && !CB_Line_P2 && CB_Line_P3 && CB_Line_P4)
-        CB_LINE_PHAI = 2;
-    else if (CB_Line_P1 && !CB_Line_P2 && CB_Line_P3 && CB_Line_P4)
-        CB_LINE_PHAI = 1;
+// void Doc_cb_line(void)
+// {
+//     if (!CB_Line_P1 && CB_Line_P2 && CB_Line_P3 && CB_Line_P4)
+//         CB_LINE_PHAI = 3;
+//     else if (!CB_Line_P1 && !CB_Line_P2 && CB_Line_P3 && CB_Line_P4)
+//         CB_LINE_PHAI = 2;
+//     else if (CB_Line_P1 && !CB_Line_P2 && CB_Line_P3 && CB_Line_P4)
+//         CB_LINE_PHAI = 1;
 
-    else if (CB_Line_P1 && !CB_Line_P2 && !CB_Line_P3 && CB_Line_P4)
-        CB_LINE_PHAI = 0;
+//     else if (CB_Line_P1 && !CB_Line_P2 && !CB_Line_P3 && CB_Line_P4)
+//         CB_LINE_PHAI = 0;
 
-    else if (CB_Line_P1 && CB_Line_P2 && !CB_Line_P3 && CB_Line_P4)
-        CB_LINE_PHAI = -1;
-    else if (CB_Line_P1 && CB_Line_P2 && !CB_Line_P3 && !CB_Line_P4)
-        CB_LINE_PHAI = -2;
-    else if (CB_Line_P1 && CB_Line_P2 && CB_Line_P3 && !CB_Line_P4)
-        CB_LINE_PHAI = -3;
+//     else if (CB_Line_P1 && CB_Line_P2 && !CB_Line_P3 && CB_Line_P4)
+//         CB_LINE_PHAI = -1;
+//     else if (CB_Line_P1 && CB_Line_P2 && !CB_Line_P3 && !CB_Line_P4)
+//         CB_LINE_PHAI = -2;
+//     else if (CB_Line_P1 && CB_Line_P2 && CB_Line_P3 && !CB_Line_P4)
+//         CB_LINE_PHAI = -3;
 
-    if (!CB_Line_T1 && CB_Line_T2 && CB_Line_T3 && CB_Line_T4)
-        CB_LINE_TRAI = 3;
-    else if (!CB_Line_T1 && !CB_Line_T2 && CB_Line_T3 && CB_Line_T4)
-        CB_LINE_TRAI = 2;
-    else if (CB_Line_T1 && !CB_Line_T2 && CB_Line_T3 && CB_Line_T4)
-        CB_LINE_TRAI = 1;
-    else if (CB_Line_T1 && !CB_Line_T2 && !CB_Line_T3 && CB_Line_T4)
-        CB_LINE_TRAI = 0;
-    else if (CB_Line_T1 && CB_Line_T2 && !CB_Line_T3 && CB_Line_T4)
-        CB_LINE_TRAI = -1;
-    else if (CB_Line_T1 && CB_Line_T2 && !CB_Line_T3 && !CB_Line_T4)
-        CB_LINE_TRAI = -2;
-    else if (CB_Line_T1 && CB_Line_T2 && CB_Line_T3 && !CB_Line_T4)
-        CB_LINE_TRAI = -3;
-}
+//     if (!CB_Line_T1 && CB_Line_T2 && CB_Line_T3 && CB_Line_T4)
+//         CB_LINE_TRAI = 3;
+//     else if (!CB_Line_T1 && !CB_Line_T2 && CB_Line_T3 && CB_Line_T4)
+//         CB_LINE_TRAI = 2;
+//     else if (CB_Line_T1 && !CB_Line_T2 && CB_Line_T3 && CB_Line_T4)
+//         CB_LINE_TRAI = 1;
+//     else if (CB_Line_T1 && !CB_Line_T2 && !CB_Line_T3 && CB_Line_T4)
+//         CB_LINE_TRAI = 0;
+//     else if (CB_Line_T1 && CB_Line_T2 && !CB_Line_T3 && CB_Line_T4)
+//         CB_LINE_TRAI = -1;
+//     else if (CB_Line_T1 && CB_Line_T2 && !CB_Line_T3 && !CB_Line_T4)
+//         CB_LINE_TRAI = -2;
+//     else if (CB_Line_T1 && CB_Line_T2 && CB_Line_T3 && !CB_Line_T4)
+//         CB_LINE_TRAI = -3;
+// }
 
-void robotLineRunLeft(vu8 speed)
-{
-    if (CB_LINE_TRAI > -1 && CB_LINE_TRAI < 1 && CB_LINE_PHAI > -1 && CB_LINE_PHAI < 1)
-        robotRun(-900, speed);
-    else if (CB_LINE_TRAI <= -1)
-        robotCurve(-900 - 20 * abs(CB_LINE_TRAI), speed, -0.05 * abs(CB_LINE_TRAI));
-    else if (CB_LINE_TRAI >= 1)
-        robotCurve(-900 + 20 * abs(CB_LINE_TRAI), speed, 0.05 * abs(CB_LINE_TRAI));
-    else if (CB_LINE_PHAI <= -1)
-        robotCurve(-900 - 20 * abs(CB_LINE_TRAI), speed, -0.05 * abs(CB_LINE_TRAI));
-    else if (CB_LINE_PHAI >= 1)
-        robotCurve(-900 + 20 * abs(CB_LINE_TRAI), speed, 0.05 * abs(CB_LINE_TRAI));
-}
+// void robotLineRunLeft(vu8 speed)
+// {
+//     if (CB_LINE_TRAI > -1 && CB_LINE_TRAI < 1 && CB_LINE_PHAI > -1 && CB_LINE_PHAI < 1)
+//         robotRun(-900, speed);
+//     else if (CB_LINE_TRAI <= -1)
+//         robotCurve(-900 - 20 * abs(CB_LINE_TRAI), speed, -0.05 * abs(CB_LINE_TRAI));
+//     else if (CB_LINE_TRAI >= 1)
+//         robotCurve(-900 + 20 * abs(CB_LINE_TRAI), speed, 0.05 * abs(CB_LINE_TRAI));
+//     else if (CB_LINE_PHAI <= -1)
+//         robotCurve(-900 - 20 * abs(CB_LINE_TRAI), speed, -0.05 * abs(CB_LINE_TRAI));
+//     else if (CB_LINE_PHAI >= 1)
+//         robotCurve(-900 + 20 * abs(CB_LINE_TRAI), speed, 0.05 * abs(CB_LINE_TRAI));
+// }
 
-void robotLineRunRight(vu8 speed)
+// void robotLineRunRight(vu8 speed)
 
-{
-    if (CB_LINE_TRAI >= -1 && CB_LINE_TRAI <= 1 && CB_LINE_PHAI >= -1 && CB_LINE_PHAI <= 1)
-        robotRun(900, speed);
+// {
+//     if (CB_LINE_TRAI >= -1 && CB_LINE_TRAI <= 1 && CB_LINE_PHAI >= -1 && CB_LINE_PHAI <= 1)
+//         robotRun(900, speed);
 
-    // else if (CB_LINE_TRAI <= -1)
-    // 	robotCurve(900 + 20 * abs(CB_LINE_PHAI), speed, 0.05 * abs(CB_LINE_PHAI));
-    // else if (CB_LINE_TRAI >= 1)
-    // 	robotCurve(900 - 20 * abs(CB_LINE_PHAI), speed, -0.05 * abs(CB_LINE_PHAI));
-    // else if (CB_LINE_PHAI <= -1)
-    // 	robotCurve(900 - 20 * abs(CB_LINE_PHAI), speed, -0.05 * abs(CB_LINE_PHAI));
-    // else if (CB_LINE_PHAI >= 1)
-    // 	robotCurve(900 - 20 * abs(CB_LINE_PHAI), speed, 0.05 * abs(CB_LINE_PHAI));
+//     // else if (CB_LINE_TRAI <= -1)
+//     // 	robotCurve(900 + 20 * abs(CB_LINE_PHAI), speed, 0.05 * abs(CB_LINE_PHAI));
+//     // else if (CB_LINE_TRAI >= 1)
+//     // 	robotCurve(900 - 20 * abs(CB_LINE_PHAI), speed, -0.05 * abs(CB_LINE_PHAI));
+//     // else if (CB_LINE_PHAI <= -1)
+//     // 	robotCurve(900 - 20 * abs(CB_LINE_PHAI), speed, -0.05 * abs(CB_LINE_PHAI));
+//     // else if (CB_LINE_PHAI >= 1)
+//     // 	robotCurve(900 - 20 * abs(CB_LINE_PHAI), speed, 0.05 * abs(CB_LINE_PHAI));
 
-    else if (CB_LINE_TRAI <= -1)
-        robotCurve(900, speed, -0.05 * abs(CB_LINE_PHAI));
+//     else if (CB_LINE_TRAI <= -1)
+//         robotCurve(900, speed, -0.05 * abs(CB_LINE_PHAI));
 
-    else if (CB_LINE_TRAI >= 1)
-        robotCurve(900, speed, 0.05 * abs(CB_LINE_PHAI));
+//     else if (CB_LINE_TRAI >= 1)
+//         robotCurve(900, speed, 0.05 * abs(CB_LINE_PHAI));
 
-    else if (CB_LINE_PHAI <= -1)
-        robotCurve(900, speed, 0.05 * abs(CB_LINE_PHAI));
+//     else if (CB_LINE_PHAI <= -1)
+//         robotCurve(900, speed, 0.05 * abs(CB_LINE_PHAI));
 
     else if (CB_LINE_PHAI >= 1)
         robotCurve(900, speed, 0.05 * abs(CB_LINE_TRAI));
+}
+void line_qua_trai()
+{
+  do_line(-20);
+  vtaskDelay(1);
+}
+void line_qua_phai
+{
+  do_line(20);
+  vTaskDelay(1);
+}
+void ban_bong_dung_line()
+{
+  do
+  { 
+    line_qua_trai();
+    while(lazeTraiValue > 40 && lazePhaiValue > 270)
+    {
+      if(CB_BONG_MAU_PHAI == 0 && CB_BONG_MAU_PHAI == 0)
+        {
+          robotStop(0);
+        }
+      robotStop(0);
+    }
+    line_qua_phai();
+    while(lazePhaiValue > 40 && lazeTraiValue > 270) 
+    {
+       if(CB_BONG_MAU_PHAI == 0 && CB_BONG_MAU_PHAI == 0)
+        {
+          robotStop(0);
+        }
+       robotStop(0);
+    }
+  }
 }
