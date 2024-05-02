@@ -160,7 +160,6 @@ void USART_SendSTRING(void)
 	//------------------------------------------
 
 	USART_SendData(USART3, (uint16_t)MauSan);
-	vTaskDelay(10);
 	// USART_SendData(USART3, (uint16_t)RobotMode); // 1- lay bong tai kho; 2- lay bong tu do; 5-quan sat ro bong
 	// vTaskDelay(10);
 	// USART_SendData(USART3, (uint16_t)Servo_Cam / 100);

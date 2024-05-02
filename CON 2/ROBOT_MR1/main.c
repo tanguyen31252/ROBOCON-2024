@@ -20,8 +20,10 @@
 #include "DieuKhienCoCau.h"
 //#include "ROBOTRUN.h"
 #include "BasicFunction.h"
-#include "San_Xanh.h"
 #include "San_Do.h"
+#include "San_Xanh.h"
+
+
 
 static void taskGyro(void *pvParameters)
 {
@@ -37,36 +39,47 @@ while(1)
 static void taskDieuKhienCoCau(void *pvParameters) {
 	while(1) 
 	{	
-			dieuKhienCoCau();
-			
+			ADCValue_Control();
 			vTaskDelay(10);
 	}
 }
-static void taskRobotAnalytics_uart(void *pvParameters)
+
+static void taskRobotAnalytics_uart_get(void *pvParameters)
 {	
 	while(1) 
 	{
 		// TAM_X = GP_BTN[0];
+		// SILO_THA_BONG = GP_BTN[2];
+		
 		vi_tri_lech = GP_BTN[1];
+		vTaskDelay(7);
+	}
+}
+
+static void taskRobotAnalytics_uart_send(void *pvParameters)
+{	
+	while(1) 
+	{
+		// TAM_X = GP_BTN[0];
 		// SILO_THA_BONG = GP_BTN[2];
 		
 		USART_SendSTRING();
-		vTaskDelay(7);
+		delay_ms(1000);
 	}
 }
 static void taskRobotAnalytics(void *pvParameters) {	
 	while(1) 
 	{ 
-		dung_ct();
+		// dung_ct();
 		
-		ADCValue_Control();
+		
 
-		do_bong_trong_Analytics();
+		// do_bong_trong_Analytics();
 
-		kiem_tra_dung_tuong_trong_Analystics();
+		// kiem_tra_dung_tuong_trong_Analystics();
 
-		if(bit_khoa_ham_chay_thay_tuan == 0)robotAnalytics();
-		vTaskDelay(1);
+		robotAnalytics();
+		vTaskDelay(10);
 	}
 }
 static void taskMain(void *pvParameters)
@@ -101,7 +114,9 @@ static void taskMain(void *pvParameters)
 	//-----------------------------------
 	xTaskCreate(taskRobotAnalytics, (signed char*)"taskRobotAnalytics", 256, NULL, 0, NULL);
 	xTaskCreate(taskDieuKhienCoCau, (signed char*)"taskDieuKhienCoCau", 256, NULL, 0, NULL);
-	xTaskCreate(taskRobotAnalytics_uart, (signed char*)"taskRobotAnalytics_uart", 256, NULL, 0, NULL);
+
+	xTaskCreate(taskRobotAnalytics_uart_send, (signed char*)"taskRobotAnalytics_uart_send", 256, NULL, 0, NULL);
+
 	
 
 
@@ -114,8 +129,16 @@ static void taskMain(void *pvParameters)
 		// 		robotGamePadControl();
 				// if(!START)										test();
 				if(!NUT_START)									bai=1,bai1();
-				if(!NUT_RETRY)									bai=2,bai2();
-			// if(!NUT_RETRY)									retry();
+				// if(!NUT_RETRY)									bai=2,bai2();
+			if(!NUT_RETRY){
+				if(NUT_CHUYEN_SAN) //san do
+				{
+					restartDo();
+				}
+				else restartXanh();
+
+			}						
+			if(!NUT_VANG)	{kiem_tra_cap_thanh();robotStop(0);}	//retry();
 			// if(!START)                                  {test_nut = 11,THI();}
 			// else if(!NUT_START)							{test_nut = 22,retry();}
 //			else if(NUT_1 == 1)                             {XuatPhat_1();}

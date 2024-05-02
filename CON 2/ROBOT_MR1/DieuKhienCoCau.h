@@ -84,26 +84,26 @@ void ADCValue_Control(void)
 {
     static unsigned int lazeTruocCouter =0, laze0H_SUM =0, lazeNgang_Counter_do =0, laze4H_SUM =0, BienTroGocBanThoc_Couter =0, BienTroGocBanThoc_SUM =0, BT_Dia_xoay_Couter =0, BT_Dia_xoay_SUM =0, lazeNgang_Counter_xanh =0,laze8H_SUM =0;
 //------------------------	
-    if(lazeTruocCouter++ < 50)	laze0H_SUM += laze_0h;  
+    if(lazeTruocCouter++ < 150)	laze0H_SUM += laze_0h;  
     else
     {
-        laze_0H_Value = laze0H_SUM/50;
+        laze_0H_Value = laze0H_SUM/150;
         lazeTruocCouter = 0;
         laze0H_SUM = 0;
     }
 //------------------------
-    if(lazeNgang_Counter_do++ < 50)	laze4H_SUM += laze_4h;  
+    if(lazeNgang_Counter_do++ < 150)	laze4H_SUM += laze_4h;  
     else
     {
-        laze_4H_Value = laze4H_SUM/50;
+        laze_4H_Value = laze4H_SUM/150;
         lazeNgang_Counter_do = 0;
         laze4H_SUM = 0;
     }
 //------------------------
-    if(lazeNgang_Counter_xanh++ < 50)	laze8H_SUM += laze_8h;  
+    if(lazeNgang_Counter_xanh++ < 150)	laze8H_SUM += laze_8h;  
     else
     {
-        laze_8H_Value = laze8H_SUM/50;
+        laze_8H_Value = laze8H_SUM/150;
         lazeNgang_Counter_xanh = 0;
         laze8H_SUM = 0;
     }
@@ -173,13 +173,14 @@ void testbanhxe()
 //--------------------------- DIEU KHIEN CO CAU ---------------------------------------
 void dieuKhienCoCau(void) 
 {
-    if(!NUT_RETRY)
-    {
-        // if(doc_man_hinh == 1) doc_man_hinh = 0, delay_ms(200);
+    return;
+    // if(!NUT_RETRY)
+    // {
+    //     // if(doc_man_hinh == 1) doc_man_hinh = 0, delay_ms(200);
 
-        // else if(doc_man_hinh == 0) doc_man_hinh = 1, delay_ms(200);
-        if(doc_man_hinh == 2)   doc_man_hinh = 0,delay_ms(200);
-        else                    doc_man_hinh++,delay_ms(200);
-    }
-    testbanhxe();
+    //     // else if(doc_man_hinh == 0) doc_man_hinh = 1, delay_ms(200);
+    //     if(doc_man_hinh == 2)   doc_man_hinh = 0,delay_ms(200);
+    //     else                    doc_man_hinh++,delay_ms(200);
+    // }
+    // testbanhxe();
 }
