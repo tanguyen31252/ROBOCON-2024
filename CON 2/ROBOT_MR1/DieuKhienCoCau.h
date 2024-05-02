@@ -1,5 +1,5 @@
 //*****************************8 bien toan cuc *************************************
-char vi_tri = 0, Cbnv = 0, Cbnn = 0, Resetnangvong = 0;
+char Cbnv = 0, Cbnn = 0, Resetnangvong = 0;
 char bien_xl_hot_banh, bien_xl_nap_dan, bien_xl_kep_lua_13, bien_xl_lay_bong, bien_xl_kep_lua_24, bien_xl_tay_gap, bien_xl_keo_lua, bien_xoay_dong_co_nong_ban;
 
 /********************************ENCODER SILO 5 4 3 2 1 TU TRONG RA HUONG LEN****************************************************/
@@ -84,26 +84,26 @@ void ADCValue_Control(void)
 {
     static unsigned int lazeTruocCouter =0, laze0H_SUM =0, lazeNgang_Counter_do =0, laze4H_SUM =0, BienTroGocBanThoc_Couter =0, BienTroGocBanThoc_SUM =0, BT_Dia_xoay_Couter =0, BT_Dia_xoay_SUM =0, lazeNgang_Counter_xanh =0,laze8H_SUM =0;
 //------------------------	
-    if(lazeTruocCouter++ < 20)	laze0H_SUM += laze_0h;  
+    if(lazeTruocCouter++ < 50)	laze0H_SUM += laze_0h;  
     else
     {
-        laze_0H_Value = laze0H_SUM/20;
+        laze_0H_Value = laze0H_SUM/50;
         lazeTruocCouter = 0;
         laze0H_SUM = 0;
     }
 //------------------------
-    if(lazeNgang_Counter_do++ < 100)	laze4H_SUM += laze_4h;  
+    if(lazeNgang_Counter_do++ < 50)	laze4H_SUM += laze_4h;  
     else
     {
-        laze_4H_Value = laze4H_SUM/100;
+        laze_4H_Value = laze4H_SUM/50;
         lazeNgang_Counter_do = 0;
         laze4H_SUM = 0;
     }
 //------------------------
-    if(lazeNgang_Counter_xanh++ < 20)	laze8H_SUM += laze_8h;  
+    if(lazeNgang_Counter_xanh++ < 50)	laze8H_SUM += laze_8h;  
     else
     {
-        laze_8H_Value = laze8H_SUM/20;
+        laze_8H_Value = laze8H_SUM/50;
         lazeNgang_Counter_xanh = 0;
         laze8H_SUM = 0;
     }

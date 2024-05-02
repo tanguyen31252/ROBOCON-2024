@@ -42,9 +42,23 @@ static void taskDieuKhienCoCau(void *pvParameters) {
 			vTaskDelay(10);
 	}
 }
+static void taskRobotAnalytics_uart(void *pvParameters)
+{	
+	while(1) 
+	{
+		// TAM_X = GP_BTN[0];
+		vi_tri_lech = GP_BTN[1];
+		// SILO_THA_BONG = GP_BTN[2];
+		
+		USART_SendSTRING();
+		vTaskDelay(7);
+	}
+}
 static void taskRobotAnalytics(void *pvParameters) {	
 	while(1) 
 	{ 
+		dung_ct();
+		
 		ADCValue_Control();
 
 		do_bong_trong_Analytics();
@@ -72,7 +86,7 @@ static void taskMain(void *pvParameters)
 	UART1_DMA_RX(115200);	//usart giao tiep voi laban
 	UART2_DMA_TX(115200);   ///DIEU KHIEN DONG CO
 	UART3_DMA_RX(115200);	//usart giao tiep de doc gamepad
-//	UART4_DMA_RX(115200);	//SU DUNG DE GIAO TIEP MACH DO LAI
+	UART4_DMA_RX(115200);	//SU DUNG DE GIAO TIEP MACH DO LAI
 	UART5_DMA_TX(921600);	//GIAO TIEP MAN HINH HMI
 	//if (SysTick_Config(SystemCoreClock / 1000))while (1);// 1ms truyen du lieu usart den cac slever
 	
@@ -87,13 +101,18 @@ static void taskMain(void *pvParameters)
 	//-----------------------------------
 	xTaskCreate(taskRobotAnalytics, (signed char*)"taskRobotAnalytics", 256, NULL, 0, NULL);
 	xTaskCreate(taskDieuKhienCoCau, (signed char*)"taskDieuKhienCoCau", 256, NULL, 0, NULL);
+	xTaskCreate(taskRobotAnalytics_uart, (signed char*)"taskRobotAnalytics_uart", 256, NULL, 0, NULL);
 	
+
+
 	while(1) 
-	{
+	{	
+		if(GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_15) == 1)	MauSan = 2; // Do		
+		else												MauSan = 1; // Xanh
 		// while(gp_get_mode_uart()  == GP_MODE_ANALOGUE_RED_LED) 
 		// {
-				// robotGamePadControl();
-				if(!START)										bai=2,bai2();
+		// 		robotGamePadControl();
+				// if(!START)										test();
 				if(!NUT_START)									bai=1,bai1();
 				if(!NUT_RETRY)									bai=2,bai2();
 			// if(!NUT_RETRY)									retry();

@@ -415,22 +415,7 @@ void testLaylua(void)
 
 void line_ban_bong()
 {
-    for (noise = 0; noise < 50; noise++)
-    {
-        if ((CB_BONG_GIUA_PHAI == 1 && CB_BONG_GIUA_TRAI == 1 && CB_BONG_SAU_PHAI == 1 && CB_BONG_SAU_TRAI == 1) && lazePhaiValue > 50)
-        {
-            do_line(-20);
-            vTaskDelay(1);
-            while (CB_BONG_GIUA_PHAI == 0 && CB_BONG_GIUA_TRAI == 0 && CB_BONG_SAU_PHAI == 0 && CB_BONG_SAU_TRAI == 0)
-            {
-                if (lazeTraiValue > bong_mau[SAN][0])
-                {
-                    robotRotate(-800, 1.2, 0);
-                }
-            }
-        }
-    }
-    robotStop(0);
+    
 }
 
 void testcambien()

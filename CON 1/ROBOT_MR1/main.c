@@ -38,9 +38,6 @@ static void taskDieuKhienCoCau(void *pvParameters)
 {
 	while (1)
 	{
-		// giu_line();
-		//Doc_cb_line();
-		//robotLineRunRight(5);
 		dieuKhienCoCau();
 
 		vTaskDelay(10);
@@ -75,7 +72,7 @@ static void taskMain(void *pvParameters)
 	UART1_DMA_RX(115200); // usart giao tiep voi laban
 	UART2_DMA_TX(115200); /// DIEU KHIEN DONG CO
 	UART3_DMA_RX(115200); // usart giao tiep de doc gamepad
-	// UART4_DMA_RX(115200);	//SU DUNG DE GIAO TIEP MACH DO LAI
+	UART4_DMA_RX(115200);	//SU DUNG DE GIAO TIEP 12 NUT LUA
 	UART6_DMA_RX(115200); // SU DUNG DE GIAO TIEP MACH DO LAI
 	UART5_DMA_TX(921600); // GIAO TIEP MAN HINH HMI
 	// if (SysTick_Config(SystemCoreClock / 1000))while (1);// 1ms truyen du lieu usart den cac slever

@@ -119,7 +119,7 @@ static void taskMain(void *pvParameters)
 	
 	Home = 1;
 	
-	if(GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_1)) MauSan = 1; // Xanh		
+	if(GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_15)) MauSan = 1; // Xanh		
 	else	MauSan = 2; // Do
 	
 	Servo_Cam = 1500;//Goc nhin tong quat: 800; 			//cam nhin xuong,1700 				chay len san 3: 870									so cu:1600
@@ -138,7 +138,7 @@ static void taskMain(void *pvParameters)
 	if(MauSan == 1){
 			// lay lazer silo san xanh
 			ViTriLazeThaBong[0] = 315;
-			ViTriLazeThaBong[1] = 244;
+			ViTriLazeThaB ong[1] = 244;
 			ViTriLazeThaBong[2] = 170;
 			ViTriLazeThaBong[3] = 93;
 			ViTriLazeThaBong[4] = 20;
