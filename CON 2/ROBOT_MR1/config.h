@@ -240,7 +240,8 @@ int bien_nho_silo_co_2_bong = 0, bien_do_bong = 0, bien_chay_cap_thanh = 3;
 char bien_nhan_bong = 0;
 int do_laze_silo = 0;
 
-
+int list_lazer_silo_xanh[5] = {313,237,165,93,21};
+int list_lazer_silo_do[5] = {320,245,175,100,25};
 //////////////////////////chong nhieu encoder////////////////////
 vs32 ENCODER_0H()
 {
@@ -1311,7 +1312,7 @@ void HMI_TRAN(vs32 _so_dong)
 			HMI_DMI("do laze:", do_laze_silo, 6);
 			break;
 		case 7:
-			HMI_DMI("LJOY_LR:", GP_BTN[4], 7);
+			HMI_DMI("CBT_LAY_BANH:", CB_TU_DUNG_LAY_BANH, 7);
 			break;
 		case 8:
 			HMI_DMI("0h: ", ENCODER_0H(), 8);
@@ -1323,7 +1324,7 @@ void HMI_TRAN(vs32 _so_dong)
 			HMI_DMI("bien ve xp: ", bien_ve_xuat_phat, 10);
 			break;
 		case 11:
-			HMI_DMI("bong trong silo so: ", bien_nho_bong_trong_silo[silo_so], 11);
+			HMI_DMI("lech_bong: ", GP_BTN[1], 11);
 			break;
 		case 12:
 			HMI_DMI("bong trong silo[0]: ", bien_nho_bong_trong_silo[0], 12);
@@ -1332,10 +1333,10 @@ void HMI_TRAN(vs32 _so_dong)
 			HMI_DMI("bong trong silo_so: ", bien_nho_bong_trong_silo[silo_so], 13);
 			break;
 		case 14:
-			HMI_DMI("silo_so: ", silo_so, 14);
+			HMI_DMI("phai: ", CB_CAP_THANH_PHAI, 14);
 			break;
 		case 15:
-			HMI_DMI("bien da tha: ", bien_nho_bong_da_tha_trong_silo[silo_so], 15);
+			HMI_DMI("trai: ", CB_CAP_THANH_TRAI,15);
 			break;
 		case 16:
 			//	hien thi phan ngo vao
@@ -1343,16 +1344,16 @@ void HMI_TRAN(vs32 _so_dong)
 			// strcat(_chu_cac_bit,_ghep_bit);
 			// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_14));						//CB_NHAN_XANH_TREN				0
 			// strcat(_chu_cac_bit,_ghep_bit);
-			// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_1));						//CB_CAP_THANH_TRAI				0
-			// strcat(_chu_cac_bit,_ghep_bit);
-			// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_13));					//CB_CAP_THANH_PHAI				0
-			// strcat(_chu_cac_bit,_ghep_bit);
+			sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_1));						//CB_CAP_THANH_TRAI				0
+			strcat(_chu_cac_bit,_ghep_bit);
+			sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_13));					//CB_CAP_THANH_PHAI				0
+			strcat(_chu_cac_bit,_ghep_bit);
 			// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_2));						//CB_NHAN_DO_TREN				0
 			// strcat(_chu_cac_bit,_ghep_bit);
 			// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_15));
 			// strcat(_chu_cac_bit,_ghep_bit);
-			sprintf(_ghep_bit, "%d", GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_3)); // CB_TU_DUNG_THANH				0
-			strcat(_chu_cac_bit, _ghep_bit);
+			// sprintf(_ghep_bit, "%d", GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_3)); // CB_TU_DUNG_THANH				0
+			// strcat(_chu_cac_bit, _ghep_bit);
 			// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_14));						//NUT_XANH						1
 			// strcat(_chu_cac_bit,_ghep_bit);
 			// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_4));						//NUT_VANG						0
@@ -1487,16 +1488,16 @@ void HMI_TRAN(vs32 _so_dong)
 			HMI_DMI("do_laze_silo: ", do_laze_silo, 11);
 			break;
 		case 12:
-			// HMI_DMI("tam x: ", TAM_X, 12);
+			HMI_DMI("Mau San: ", NUT_CHUYEN_SAN, 12);
 			break;
 		case 13:
-			HMI_DMI("vi_tri_lech y: ", vi_tri_lech, 13);
+			HMI_DMI("vi_tri_lech y: ", GP_BTN[1], 13);
 			break;
 		case 14:
 			// HMI_DMI("silo bo bong: ", SILO_THA_BONG, 14);
 			break;
 		case 15:
-			gui_chu("15", 15);
+			gui_chu("Mau", 15);
 			break;
 		case 16:
 			gui_chu("16", 16);
