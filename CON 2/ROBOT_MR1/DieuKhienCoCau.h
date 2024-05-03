@@ -2,12 +2,6 @@
 char Cbnv = 0, Cbnn = 0, Resetnangvong = 0;
 char bien_xl_hot_banh, bien_xl_nap_dan, bien_xl_kep_lua_13, bien_xl_lay_bong, bien_xl_kep_lua_24, bien_xl_tay_gap, bien_xl_keo_lua, bien_xoay_dong_co_nong_ban;
 
-/********************************ENCODER SILO 5 4 3 2 1 TU TRONG RA HUONG LEN****************************************************/
-int silo_5 = 14, silo_4 = 40, silo_3 = 80, silo_2 = 120, silo_1 = 160;
-
-
-
-
 //--------------------------------------------------------------------------------
 void robotGamePadControl(void) {
     int tocdo = 15, toc_do_xoay_free = 0;

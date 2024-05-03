@@ -166,12 +166,12 @@ vu8		RX_USART1[15], RX_USART2[15];
 uint8_t MANG_GAME[10];
 
 extern unsigned char GP_BTN [15];
-
+//28, 100,175, 247, 318
 extern int _robotIMUAngle;
 
 char bit_khoa_ham_chay_thay_tuan=0;
 int en = 0, bien_cham_tuong = 0, bien_ve_xuat_phat = -30;
-int silo_so = 3, silo_vua_chay = 0, silo_sap_bo = 0;
+int silo_so = 5, silo_vua_chay = 0, silo_sap_bo = 0;
 char bien_di_chuyen = 0;	//0 la vao silo 5, 1 la ra silo 1
 char vi_tri_lech = 0; 		//11: lech trai,	22: trung tam,	33: lech phai,	44: khong tim thay hoac mat tin hieu
 char bai = 0;				//1: chay silo 1,2,3	//2: chay silo 3,4,5

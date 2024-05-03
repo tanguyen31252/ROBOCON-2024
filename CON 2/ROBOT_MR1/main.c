@@ -48,9 +48,6 @@ static void taskRobotAnalytics_uart_get(void *pvParameters)
 {	
 	while(1) 
 	{
-		// TAM_X = GP_BTN[0];
-		// SILO_THA_BONG = GP_BTN[2];
-		
 		vi_tri_lech = GP_BTN[1];
 		vTaskDelay(7);
 	}
@@ -60,9 +57,6 @@ static void taskRobotAnalytics_uart_send(void *pvParameters)
 {	
 	while(1) 
 	{
-		// TAM_X = GP_BTN[0];
-		// SILO_THA_BONG = GP_BTN[2];
-		
 		USART_SendSTRING();
 		delay_ms(1000);
 	}
@@ -71,12 +65,10 @@ static void taskRobotAnalytics(void *pvParameters) {
 	while(1) 
 	{ 
 		// dung_ct();
-		
-		
 
-		// do_bong_trong_Analytics();
+		do_bong_trong_Analytics();
 
-		// kiem_tra_dung_tuong_trong_Analystics();
+		kiem_tra_dung_tuong_trong_Analystics();
 
 		robotAnalytics();
 		vTaskDelay(10);
@@ -128,7 +120,7 @@ static void taskMain(void *pvParameters)
 		// {
 		// 		robotGamePadControl();
 				// if(!START)										test();
-				if(!NUT_START)									bai=1,bai1();
+				if(!NUT_START)									bai=2,bai2();
 				// if(!NUT_RETRY)									bai=2,bai2();
 			if(!NUT_RETRY){
 				if(NUT_CHUYEN_SAN) //san do
