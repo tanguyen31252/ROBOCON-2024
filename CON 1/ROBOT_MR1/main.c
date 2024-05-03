@@ -39,9 +39,11 @@ static void taskDieuKhienCoCau(void *pvParameters)
 	while (1)
 	{
 		// giu_line();
-		//Doc_cb_line();
-		//robotLineRunRight(5);
+		// Doc_cb_line();
+		// robotLineRunRight(5);
 		dieuKhienCoCau();
+
+		// LayvaBanvaXoay();
 
 		vTaskDelay(10);
 	}
@@ -50,11 +52,8 @@ static void taskRobotAnalytics(void *pvParameters)
 {
 	while (1)
 	{
-
 		ADCValue_Control();
-
-		if (bit_khoa_ham_chay_thay_tuan == 0)
-			robotAnalytics();
+		robotAnalytics();
 		vTaskDelay(5);
 	}
 }
@@ -87,7 +86,8 @@ static void taskMain(void *pvParameters)
 
 	XL_THUC_XUONG;
 	XL_THA_LUA_BAT;
-	XL_KEP_BONG_NHA;
+	XL_KEP_BONG_KEP;
+	XL_DAY_LUA_TAT;
 	// delay_ms(2000);
 	//---- reset he thong ve vi tri ban dau
 
@@ -110,21 +110,40 @@ static void taskMain(void *pvParameters)
 			if (!SELECT)
 				retry(); ///// RETRY/*else*/
 			if (!START && lan_trong == 0)
-				THI(); ///// xuat phat
+				XuatPhat(); ///// xuat phat
 			else if (!START && (lan_trong == 1 || lan_trong == 2 || lan_trong == 3) && hang_trong == 1)
-				quy_trinh_trong_lua_hang_1();			
-			if (!R1 && !X)
-				trong_lua() /*,delay_ms(200),trong_lua()*/;
-			if (!L2 && !TRIANGLE)
-				LEN_SAN_2();
-			
-			// if(!L2 && !SQUARE)
-			// 	lay_bong_truoc();
+				quy_trinh_trong_lua_hang_1();
+			if (!X && !R1)
+				trong_lua();
+			// if (!L1)
+			// {
+			// 	if (SAN == 1)
+			// 	{
+			// 		line_trai();
+			// 	}
+			// 	else 
+			// 	{
+			// 		line_trai_xanh();
+			// 	}
 			// }
+			// if (!R1)
+			// 	if (SAN == 1)
+			// 	{
+			// 		line_phai();
+			// 	}
+			// 	else 
+			// 	{
+			// 		line_phai_xanh();
+			// 	}
+			// if (!SQUARE)
+			// 	LaySau_Xoay_Ban();
+			// if (!O)
+			// 	LayTruoc_Xoay_Ban();
+			// if(!TRIANGLE)
+			// 	ban();
 		}
 	}
 }
-
 int main(void)
 {
 	xTaskCreate(taskMain, (signed char *)"taskMain", 256, NULL, 0, NULL);

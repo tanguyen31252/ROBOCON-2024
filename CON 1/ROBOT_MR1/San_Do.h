@@ -34,31 +34,178 @@ void thong_so_laze_ngang_doc(void)
         laze_trong = LAZE_THANH_TRONG[SAN][lan_trong];
     }
 }
-<<<<<<< Updated upstream
-void thong_so_laze_ngang_doc_san_xanh()
+void LayTruoc_Xoay_Ban()
 {
-        if      (lan_trong == 1 && hang_trong == 1)     {lazengang = LAZENGANG_1[SAN][1];}
-        else if (lan_trong == 1 && hang_trong == 2)     {lazengang = LAZENGANG_1[SAN][2],laze_ngang_ve = LAZE_VE[SAN][0];}
-        
-        if      (lan_trong == 2 && hang_trong == 1)     {lazengang = LAZENGANG_1[SAN][3];}
-        else if (lan_trong == 2 && hang_trong == 2)     {lazengang = LAZENGANG_1[SAN][4],laze_ngang_ve = LAZE_VE[SAN][1];}    
-        
-        if      (lan_trong == 3 && hang_trong == 1)     {lazengang = LAZENGANG_1[SAN][5];}
-        else if (lan_trong == 3 && hang_trong == 2)     {lazengang = LAZENGANG_1[SAN][6];}
+    laze_san_2();
+    robotRotate(goc_xoay_de, 0.5, 0);
+    while (robotFixAngle())
+    {
+        vTaskDelay(1);
+    }
+    bantruoc();
 }
-=======
-// void thong_so_laze_ngang_doc_san_xanh()
+void LaySau_Xoay_Ban()
+{
+    laze_san_2();
+    XL_LAY_BONG_1_MO;
+    XL_LAY_BONG_2_MO;
+    delay_ms(1000);
+    XL_THUC_XUONG;
+    delay_ms(500);
+    XL_KEP_BONG_KEP;
+    delay_ms(500);
+    XL_THUC_LEN;
+    delay_ms(500);
+    XL_LAY_BONG_1_DONG;
+    XL_LAY_BONG_2_DONG;
+    robotRotate(goc_xoay_de, 0.5, 0);
+    while (robotFixAngle())
+    {
+        vTaskDelay(1);
+    }
+    bansau();
+}
+void line_phai()
+{
+
+    vi_tri_laze++;
+    laze_san_2();
+    while (lazePhaiValue > laze_trong + 15)
+    {
+        do_line(10);
+        if (wantExit())
+            break;
+        vTaskDelay(1);
+    }
+    while (CB_BONG_SAU_TRAI == 0 && CB_BONG_SAU_TRAI == 0)
+    {
+        do_line(10);
+        if (wantExit())
+            break;
+        vTaskDelay(1);
+    }
+    RESET_ENCODER();
+    while (ENCODER_TONG() < 100)
+    {
+        do_line(5);
+        if (wantExit())
+            break;
+        vTaskDelay(1);
+    }
+}
+
+void line_trai()
+{
+    vi_tri_laze--;
+    laze_san_2();
+    while (lazePhaiValue < laze_trong - 10)
+    {
+        do_line(-10);
+        if (wantExit())
+            break;
+        vTaskDelay(1);
+    }
+    while (CB_BONG_SAU_TRAI == 0 && CB_BONG_SAU_TRAI == 0)
+    {
+        do_line(-10);
+        if (wantExit())
+            break;
+        vTaskDelay(1);
+    }
+    RESET_ENCODER();
+    while (ENCODER_TONG() < 100)
+    {
+        do_line(-5);
+        if (wantExit())
+            break;
+        vTaskDelay(1);
+    }
+}
+
+void line_phai_xanh()
+{
+
+    vi_tri_laze--;
+    laze_san_2();
+    while (lazeTraiValue < laze_trong + 15)
+    {
+        do_line(10);
+        if (wantExit())
+            break;
+        vTaskDelay(1);
+    }
+    while (CB_BONG_SAU_TRAI == 0 && CB_BONG_SAU_TRAI == 0)
+    {
+        do_line(10);
+        if (wantExit())
+            break;
+        vTaskDelay(1);
+    }
+    RESET_ENCODER();
+    while (ENCODER_TONG() < 100)
+    {
+        do_line(5);
+        if (wantExit())
+            break;
+        vTaskDelay(1);
+    }
+}
+
+void line_trai_xanh()
+{
+    vi_tri_laze++;
+    laze_san_2();
+    while (lazeTraiValue > laze_trong + 15)
+    {
+        do_line(-10);
+        if (wantExit())
+            break;
+        vTaskDelay(1);
+    }
+    while (CB_BONG_SAU_PHAI == 0 && CB_BONG_SAU_PHAI == 0)
+    {
+        do_line(-10);
+        if (wantExit())
+            break;
+        vTaskDelay(1);
+    }
+    RESET_ENCODER();
+    while (ENCODER_TONG() < 100)
+    {
+        do_line(-5);
+        if (wantExit())
+            break;
+        vTaskDelay(1);
+    }
+}
+
+// void laze_san_2()
 // {
-//         if      (lan_trong == 1 && hang_trong == 1)     {lazengang = LAZENGANG_1[SAN][1];}
-//         else if (lan_trong == 1 && hang_trong == 2)     {lazengang = LAZENGANG_1[SAN][2],laze_ngang_ve = LAZE_VE[SAN][0];}
-        
-//         if      (lan_trong == 2 && hang_trong == 1)     {lazengang = LAZENGANG_1[SAN][3];}
-//         else if (lan_trong == 2 && hang_trong == 2)     {lazengang = LAZENGANG_1[SAN][4],laze_ngang_ve = LAZE_VE[SAN][1];}    
-        
-//         if      (lan_trong == 3 && hang_trong == 1)     {lazengang = LAZENGANG_1[SAN][5];}
-//         else if (lan_trong == 3 && hang_trong == 2)     {lazengang = LAZENGANG_1[SAN][6];}
+//     if (vi_tri_laze == 1)
+//     {
+//         laze_ngoai = LAZE_THANH_NGOAI_2[SAN][vi_tri_laze], laze_trong = LAZE_THANH_TRONG_2[SAN][vi_tri_laze], goc_xoay_de = XOAY_DE[SAN][vi_tri_laze];
+//     }
+//     if (vi_tri_laze == 2)
+//     {
+//         laze_ngoai = LAZE_THANH_NGOAI_2[SAN][vi_tri_laze], laze_trong = LAZE_THANH_TRONG_2[SAN][vi_tri_laze], goc_xoay_de = XOAY_DE[SAN][vi_tri_laze];
+//     }
+//     if (vi_tri_laze == 3)
+//     {
+//         laze_ngoai = LAZE_THANH_NGOAI_2[SAN][vi_tri_laze], laze_trong = LAZE_THANH_TRONG_2[SAN][vi_tri_laze], goc_xoay_de = XOAY_DE[SAN][vi_tri_laze];
+//     }
+//     if (vi_tri_laze == 4)
+//     {
+//         laze_ngoai = LAZE_THANH_NGOAI_2[SAN][vi_tri_laze], laze_trong = LAZE_THANH_TRONG_2[SAN][vi_tri_laze], goc_xoay_de = XOAY_DE[SAN][vi_tri_laze];
+//     }
+//     if (vi_tri_laze == 5)
+//     {
+//         laze_ngoai = LAZE_THANH_NGOAI_2[SAN][vi_tri_laze], laze_trong = LAZE_THANH_TRONG_2[SAN][vi_tri_laze], goc_xoay_de = XOAY_DE[SAN][vi_tri_laze];
+//     }
+//     if (vi_tri_laze == 6)
+//     {
+//         laze_ngoai = LAZE_THANH_NGOAI_2[SAN][vi_tri_laze], laze_trong = LAZE_THANH_TRONG_2[SAN][vi_tri_laze], goc_xoay_de = XOAY_DE[SAN][vi_tri_laze];
+//     }
 // }
->>>>>>> Stashed changes
 
 void LEN_SAN_2()
 //////////////////////////SAN DO//////////////////////////
@@ -137,15 +284,15 @@ void LEN_SAN_2()
 
         for (noise = 0; noise < 50; noise++)
         {
-            while (lazeTraiValue < 310)
+            while (lazeTraiValue < 190)
             {
-                bam_thanh_laze_doc(900, 10, 0, 2, 50, 120, 0, lazeTraiValue);
+                bam_thanh_laze_doc(900, 10, 0, 2, 100, 88, 0, lazeTruocValue);
                 if (wantExit())
                     break;
                 vTaskDelay(1);
             }
         }
-        san = 2;
+        san++;
     }
 
     else
@@ -221,28 +368,12 @@ void LEN_SAN_2()
 
         for (noise = 0; noise < 50; noise++)
         {
-            while (lazePhaiValue < 600)
+            while (lazePhaiValue < 190)
             {
-                bam_thanh_laze_doc(-900, 10, 0, 2, 50, 120, 1, lazeTraiValue);
+                bam_thanh_laze_doc(-900, 10, 0, 2, 50, 120, 1, lazeTruocValue);
             }
         }
-
-        // robotRunAngle(900,15,900,0);
-        // while (lazeTruocValue > 110){if(wantExit()) break; vTaskDelay(1);}
-        // XL_DAY_LUA_BAT;
-
-        // resetIMU();
-        // RESET_ENCODER();
-        // robotRunAngle(900,10,0,2);
-        // while (ENCODER_TONG() < 300){if(wantExit()) break; vTaskDelay(1);}
-
-        // robotRunAngle(-900,20,0,2);
-        // while(lazePhaiValue < 150){if(wantExit()) break; vTaskDelay(1);}
-
-        // delay_ms(50);
-
-        // XL_DAY_LUA_TAT;
-        san = 2;
+        san++;
     }
 }
 
@@ -262,9 +393,9 @@ void ve_lay_lua()
                 break;
             vTaskDelay(1);
         }
-
+        robotStop(0);
         robotRunAngle(1800, 20, 0, 0);
-        while (lazeSauValue > laze_ngang_ve + 10)
+        while (lazeSauValue > laze_ngang_ve)
         {
             if (wantExit())
                 break;
@@ -285,10 +416,10 @@ void ve_lay_lua()
                 bam_thanh_laze_ngang(-900, 30, 0, 2, -50, laze_ngang_ve, 0, lazeSauValue);
             }
         }
-
+        robotStop(0);
         for (noise = 0; noise < 50; noise++)
         {
-            while (lazePhaiValue < 306)
+            while (lazePhaiValue < 305)
             {
                 if (wantExit())
                     break;
@@ -296,49 +427,22 @@ void ve_lay_lua()
                 bam_thanh_laze_ngang(-900, 5, 0, 2, -50, laze_ngang_ve, 0, lazeSauValue);
             }
         }
-        // RESET_ENCODER();
-        // robotRunAngle(-850, 5, 0, 2);
-        // while (ENCODER_TONG() < 120)
-        // {
-        // }
-
-        // RESET_ENCODER();
-        // robotRunAngle(-900, 5, 0, 2);
-        // while (ENCODER_TONG() < 300)
-        // {
-        //     if (wantExit())
-        //         break;
-        //     vTaskDelay(1);
-        // }
-
-        // if (lazeSauValue > laze_ngang_ve + 4)
-        // {
-        //     robotRunAngle(1800, 5, 0, 2);
-        //     while (CB_LUA_TREN == 1 || CB_LUA_DUOI == 1)
-        //     {
-        //         if (wantExit())
-        //             break;
-        //         vTaskDelay(1);
-        //     }
-        // }
-        // if (lazeSauValue < laze_ngang_ve + 4)
-        // {
-        //     robotRunAngle(0, 5, 0, 2);
-        //     while (CB_LUA_TREN == 1 || CB_LUA_DUOI == 1)
-        //     {
-        //         if (wantExit())
-        //             break;
-        //         vTaskDelay(1);
-        //     }
-        // }
+        robotStop(0);
+        RESET_ENCODER();
+        robotRunAngle(-900, 4, 0, 2);
+        while (ENCODER_TONG() < 20)
+        {
+            robotStop(0);
+        }
+        robotStop(0);
 
         while (CB_LUA_TREN == 1 && CB_LUA_DUOI == 1)
         {
-            if (lazeSauValue > laze_ngang_ve + 4)
+            if (lazeSauValue > laze_ngang_ve)
             {
                 robotRunAngle(1800, 5, 0, 2);
             }
-            if (lazeSauValue < laze_ngang_ve + 4)
+            if (lazeSauValue < laze_ngang_ve)
             {
                 robotRunAngle(0, 5, 0, 2);
             }
@@ -361,14 +465,16 @@ void ve_lay_lua()
                 break;
             vTaskDelay(1);
         }
+        robotStop(0);
 
-        robotRunAngle(1800, 25, 0, 0);
-        while (lazeTruocValue < laze_ngang_ve - 30)
+        robotRunAngle(0, 25, 0, 0);
+        while (lazeTruocValue > laze_ngang_ve)
         {
             if (wantExit())
                 break;
             vTaskDelay(1);
         }
+        robotStop(0);
 
         for (i = 0; i < 50; i++)
         {
@@ -377,45 +483,59 @@ void ve_lay_lua()
                 if (wantExit())
                     break;
                 vTaskDelay(1);
-                bam_thanh_laze_ngang(-900, 30, 0, 2, -130, laze_ngang_ve, 0, lazeSauValue);
+                bam_thanh_laze_ngang(-900, 30, 0, 2, 130, laze_ngang_ve, 0, lazeTruocValue);
             }
         }
+        robotStop(0);
         chuanbicocau();
-        RESET_ENCODER();
-        robotRunAngle(-850, 10, 0, 2);
-        while (ENCODER_TONG() < 400)
+        // RESET_ENCODER();
+        // robotRunAngle(-850, 10, 0, 2);
+        // while (ENCODER_TONG() < 400)
+        // {
+        // }
+
+        // RESET_ENCODER();
+        // robotRunAngle(-850, 5, 0, 2);
+        // while (ENCODER_TONG() < 120)
+        // {
+        //     if (wantExit())
+        //         break;
+        //     vTaskDelay(1);
+        // }
+
+        for (noise = 0; noise < 50; noise++)
         {
+            while (lazePhaiValue < 305)
+            {
+                if (wantExit())
+                    break;
+                bam_thanh_laze_ngang(-900, 10, 0, 2, 150, laze_ngang_ve, 0, lazeTruocValue);
+                vTaskDelay(1);
+            }
         }
+        robotStop(0);
 
         RESET_ENCODER();
-        robotRunAngle(-850, 5, 0, 2);
-        while (ENCODER_TONG() < 120)
+        robotRunAngle(-900, 4, 0, 2);
+        while (ENCODER_TONG() < 20)
         {
+            robotStop(0);
+        }
+
+        while (CB_LUA_TREN == 1 && CB_LUA_DUOI == 1)
+        {
+            if (lazeTruocValue > laze_ngang_ve)
+            {
+                robotRunAngle(1800, 5, 0, 2);
+            }
+            if (lazeTruocValue < laze_ngang_ve)
+            {
+                robotRunAngle(0, 5, 0, 2);
+            }
             if (wantExit())
                 break;
-            vTaskDelay(1);
         }
-
-        if (lazeTruocValue < laze_ngang_ve + 4)
-        {
-            robotRunAngle(1800, 9, 0, 2);
-            while (CB_LUA_TREN == 1 || CB_LUA_DUOI == 1)
-            {
-                if (wantExit())
-                    break;
-                vTaskDelay(1);
-            }
-        }
-        if (lazeTruocValue > laze_ngang_ve + 4)
-        {
-            robotRunAngle(0, 9, 0, 2);
-            while (CB_LUA_TREN == 1 || CB_LUA_DUOI == 1)
-            {
-                if (wantExit())
-                    break;
-                vTaskDelay(1);
-            }
-        }
+        robotStop(0);
     }
 }
 
@@ -423,12 +543,12 @@ void quy_trinh_trong_lua_hang_1()
 {
     /****************************************LEN TRONG LUA*************************************************/
     thong_so_laze_ngang_doc();
-    RESET_ENCODER();
-    robotRunAngle(-850, 5, 0, 2);
-    while (ENCODER_TONG() < 30)
-    {
-    }
-    robotStop(0);
+    // RESET_ENCODER();
+    // robotRunAngle(-900, 5, 0, 2);
+    // while (ENCODER_TONG() < 15)
+    // {
+    // }
+    // robotStop(0);
     XL_THA_LUA_TAT;
     XL_KEP_LUA_TREN_KEP;
     XL_KEP_LUA_DUOI_KEP;
@@ -448,32 +568,6 @@ void quy_trinh_trong_lua_hang_1()
     /****************************************SAN DO**************************************************/
     if (SAN == 1)
     {
-        // for (i = 0; i < 50; i++)
-        //     while (lazePhaiValue > 180)
-        //         bam_thanh_laze_doc(900, 40, 0, 2, -130, laze_ngoai, 0, lazeTruocValue);
-
-        // for (i = 0; i < 50; i++)
-        //     while (lazePhaiValue > 150)
-        //         bam_thanh_laze_doc(900, 30, 0, 2, -130, laze_ngoai, 0, lazeTruocValue);
-
-        // for (i = 0; i < 50; i++)
-        //     while (lazePhaiValue > 125)
-        //         bam_thanh_laze_doc(900, 20, 0, 2, -130, laze_ngoai, 0, lazeTruocValue);
-
-        // for (i = 0; i < 50; i++)
-        //     while (lazePhaiValue > 110)
-        //         bam_thanh_laze_doc(900, 10, 0, 2, -130, laze_ngoai, 0, lazeTruocValue);
-        // robotStop(0);
-
-        // for (i = 0; i < 50; i++)
-        // {
-        //     while (CB_NANG_HA_LUA_DUOI == 1)
-        //     {
-        //         XL_THA_LUA_BAT;
-        //     }
-        // }
-        // XL_DAY_LUA_TAT;
-        // XL_THA_LUA_TAT;
         for (i = 0; i < 50; i++)
             while (lazePhaiValue > 180)
                 bam_thanh_laze_doc(900, 40, 0, 2, 150, laze_trong, 0, lazeSauValue);
@@ -489,9 +583,9 @@ void quy_trinh_trong_lua_hang_1()
         for (i = 0; i < 50; i++)
             while (lazePhaiValue > 120)
                 bam_thanh_laze_doc(900, 10, 0, 2, 150, laze_trong, 0, lazeSauValue);
-
+        robotStop(0);
         for (i = 0; i < 50; i++)
-            while (lazePhaiValue > 103)
+            while (lazePhaiValue > 104)
                 bam_thanh_laze_doc(900, 5, 0, 2, 150, laze_trong, 0, lazeSauValue);
         robotStop(0);
 
@@ -508,25 +602,25 @@ void quy_trinh_trong_lua_hang_1()
     /****************************************SAN XANH**************************************************/
     else
     {
-    for (i = 0; i < 50; i++)
+        for (i = 0; i < 50; i++)
             while (lazePhaiValue > 180)
-                bam_thanh_laze_doc(900, 40, 0, 2, 150, laze_trong, 0, lazeTruocValue);
+                bam_thanh_laze_doc(900, 40, 0, 2, -150, laze_trong, 0, lazeTruocValue);
 
         for (i = 0; i < 50; i++)
             while (lazePhaiValue > 150)
-                bam_thanh_laze_doc(900, 30, 0, 2, 150, laze_trong, 0, lazeTruocValue);
+                bam_thanh_laze_doc(900, 30, 0, 2, -150, laze_trong, 0, lazeTruocValue);
 
         for (i = 0; i < 50; i++)
             while (lazePhaiValue > 125)
-                bam_thanh_laze_doc(900, 20, 0, 2, 150, laze_trong, 0, lazeTruocValue);
+                bam_thanh_laze_doc(900, 20, 0, 2, -150, laze_trong, 0, lazeTruocValue);
 
         for (i = 0; i < 50; i++)
             while (lazePhaiValue > 120)
-                bam_thanh_laze_doc(900, 10, 0, 2, 150, laze_trong, 0, lazeTruocValue);
-
+                bam_thanh_laze_doc(900, 10, 0, 2, -150, laze_trong, 0, lazeTruocValue);
+        robotStop(0);
         for (i = 0; i < 50; i++)
             while (lazePhaiValue > 103)
-                bam_thanh_laze_doc(900, 5, 0, 2, 150, laze_trong, 0, lazeTruocValue);
+                bam_thanh_laze_doc(900, 5, 0, 2, -150, laze_trong, 0, lazeTruocValue);
         robotStop(0);
 
         for (i = 0; i < 50; i++)
@@ -551,22 +645,21 @@ void quy_trinh_trong_lua_hang_2()
         for (i = 0; i < 50; i++)
             while (lazePhaiValue > 70)
                 bam_thanh_laze_doc(900, 10, 0, 2, 80, laze_trong, 0, lazeSauValue);
-
+        robotStop(0);
         for (i = 0; i < 50; i++)
             while (lazePhaiValue > 56)
                 bam_thanh_laze_doc(900, 5, 0, 2, 150, laze_trong, 0, lazeSauValue);
-
         robotStop(0);
     }
     else
     {
         for (i = 0; i < 50; i++)
             while (lazePhaiValue > 70)
-                bam_thanh_laze_doc(900, 10, 0, 2, 80, laze_trong, 0, lazeTruocValue);
-
+                bam_thanh_laze_doc(900, 10, 0, 2, -80, laze_trong, 0, lazeTruocValue);
+        robotStop(0);
         for (i = 0; i < 50; i++)
             while (lazePhaiValue > 56)
-                bam_thanh_laze_doc(900, 5, 0, 2, 150, laze_trong, 0, lazeTruocValue);
+                bam_thanh_laze_doc(900, 5, 0, 2, -150, laze_trong, 0, lazeTruocValue);
         robotStop(0);
     }
 }
@@ -576,7 +669,7 @@ void trong_lua()
     {
         if (hang_trong == 2)
         {
-            delay_ms(500);
+            // delay_ms(500);
             thong_so_laze_ngang_doc();
 
             XL_KEP_LUA_TREN_NHA;
@@ -594,7 +687,7 @@ void trong_lua()
         }
         else
         {
-            delay_ms(350);
+            // delay_ms(350);
             XL_KEP_LUA_TREN_KEP;
             XL_THA_LUA_TAT;
             XL_DAY_LUA_TAT;
@@ -626,7 +719,7 @@ void trong_lua()
         }
         else
         {
-            delay_ms(350);
+            // delay_ms(350);
             XL_KEP_LUA_TREN_KEP;
             XL_THA_LUA_TAT;
             XL_DAY_LUA_TAT;
@@ -646,16 +739,10 @@ void retry(void)
 
     /****************************************DI CHUYEN LAY LUA TIEP THEO*************************************************/
     thong_so_laze_ngang_doc();
-    for(i = 0;i< 500;i++)
-    {
-        if((!R1 & !X) == 1) 
-        {
-            
-        }
-    }
+
     if (SAN == 1)
     {
-        robotRunAngle(900, 15, 0, 0);
+        robotRunAngle(-900, 5, 0, 0);
         while (CB_LUA_TREN == 1 || CB_LUA_DUOI == 1)
         {
             if (wantExit())
@@ -665,7 +752,7 @@ void retry(void)
     }
     else
     {
-        robotRunAngle(-900, 15, 0, 0);
+        robotRunAngle(-900, 5, 0, 0);
         while (CB_LUA_TREN == 1 || CB_LUA_DUOI == 1)
         {
             if (wantExit())
@@ -673,6 +760,7 @@ void retry(void)
             vTaskDelay(1);
         }
     }
+    robotStop(0);
 
     lan_trong++;
     hang_trong = 1;
@@ -688,12 +776,12 @@ int XuatPhat(void)
         robotRunAngle(1350, 35, 0, 2);
         while (lazePhaiValue > 310)
         {
+            chuanbicocau();
             if (wantExit())
                 break;
             vTaskDelay(1);
         }
-
-        chuanbicocau();
+        robotStop(0);
 
         for (i = 0; i < 50; i++)
         {
@@ -702,66 +790,103 @@ int XuatPhat(void)
                 if (wantExit())
                     break;
                 vTaskDelay(1);
-                bam_thanh_laze_ngang(1800, 20, 0, 2, -50, 306, 2, lazePhaiValue);
+                bam_thanh_laze_ngang(1800, 20, 0, 2, -50, 305, 2, lazePhaiValue);
             }
         }
-
-        while (CB_LUA_TREN == 1 || CB_LUA_DUOI == 1)
+        robotStop(0);
+        for (i = 0; i < 50; i++)
         {
-            if (lazeSauValue > 271)
+            while (CB_LUA_TREN == 1 && CB_LUA_DUOI == 1)
             {
-                bam_thanh_laze_ngang(1800, 5, 0, 2, -100, 306, 2, lazePhaiValue);
+                if (wantExit())
+                    break;
+                vTaskDelay(1);
+                bam_thanh_laze_ngang(-900, 5, 0, 2, -50, 285, 2, lazeSauValue);
             }
-            if (lazeSauValue < 264)
-            {
-                bam_thanh_laze_ngang(0, 5, 0, 2, 100, 306, 2, lazePhaiValue);
-            }
-            if (wantExit())
-                break;
         }
+        robotStop(0);
+
+        // RESET_ENCODER();
+        // robotRunAngle(-900, 4, 0, 2);
+        // while (ENCODER_TONG() < 17)
+        // {
+        // }
+        // robotStop(0);
+
+        // while (CB_LUA_TREN == 1 && CB_LUA_DUOI == 1)
+        // {
+        //     if (lazeSauValue > 270)
+        //     {
+        //         bam_thanh_laze_ngang(1800, 5, 0, 2, -100, 305, 2, lazePhaiValue);
+        //     }
+        //     if (lazeSauValue < 267)
+        //     {
+        //         bam_thanh_laze_ngang(0, 5, 0, 2, 100, 305, 2, lazePhaiValue);
+        //     }
+        //     if (wantExit())
+        //         break;
+        // }
         lan_trong++;
-        delay_ms(70);
+        // delay_ms(70);
 
         robotStop(0);
     }
     else
     {
-        robotRunAngle(300, 35, 0, 2);
-        while (lazePhaiValue > 310)
+        robotRunAngle(450, 40, 0, 2);
+        while (ENCODER_TONG() < 00)
         {
+            chuanbicocau();
             if (wantExit())
                 break;
             vTaskDelay(1);
         }
-
-        chuanbicocau();
+        robotStop(0);
 
         for (i = 0; i < 50; i++)
         {
-            while (lazeTruocValue > 285)
+            while (CB_LUA_TREN == 1 || CB_LUA_DUOI == 1)
             {
                 if (wantExit())
                     break;
                 vTaskDelay(1);
-                bam_thanh_laze_ngang(1800, 20, 0, 2, -50, 306, 2, lazePhaiValue);
+                bam_thanh_laze_ngang(0, 20, 0, 2, 50, 310, 2, lazePhaiValue);
             }
         }
+        // robotStop(0);
+        // for (i = 0; i < 50; i++)
+        // {
+        //     while (lazePhaiValue < 305)
+        //     {
+        //         if (wantExit())
+        //             break;
+        //         vTaskDelay(1);
+        //         bam_thanh_laze_ngang(-900, 5, 0, 2, -50, 285, 2, lazeTruocValue);
+        //     }
+        // }
+        robotStop(0);
 
-        while (CB_LUA_TREN == 1 || CB_LUA_DUOI == 1)
+        RESET_ENCODER();
+        // robotRunAngle(-900, 4, 0, 2);
+        // while (ENCODER_TONG() < 20)
+        // {
+        //     if (wantExit())
+        //         break;
+        // }
+        // robotStop(0);
+
+        if (lazeTruocValue < 2)
         {
-            if (lazeTruocValue > 271)
-            {
-                bam_thanh_laze_ngang(1800, 5, 0, 2, -100, 306, 2, lazePhaiValue);
-            }
-            if (lazeTruocValue < 264)
-            {
-                bam_thanh_laze_ngang(0, 5, 0, 2, 100, 306, 2, lazePhaiValue);
-            }
-            if (wantExit())
-                break;
+            bam_thanh_laze_ngang(1800, 5, 0, 2, -100, 305, 2, lazePhaiValue);
+            while(lazeTruocValue < 290){if(wantExit())break;}
+        }
+        if (lazeTruocValue > 290 + 4)
+        {
+            bam_thanh_laze_ngang(0, 5, 0, 2, 100, 305, 2, lazePhaiValue);
+            while(lazeTruocValue > 290){if(wantExit())break;}
         }
         lan_trong++;
-        delay_ms(70);
+        // delay_ms(70);
 
         robotStop(0);
     }
@@ -772,20 +897,13 @@ void THI()
     XuatPhat();
     do
     {
-        delay_ms(500);
+        // delay_ms(500);
         quy_trinh_trong_lua_hang_1();
         trong_lua();
-        delay_ms(500);
         trong_lua();
         if (wantExit())
             break;
         vTaskDelay(1);
     } while (lan_trong != 4);
     // muốn chạy tự động cần cài thêm delay vào các bước
-}
-
-void ban_bong()
-{
-    // while (CB_Line_T2 == 0 && CB_Line_T3 == 0)
-    
 }
