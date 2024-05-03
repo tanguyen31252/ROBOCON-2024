@@ -53,5 +53,5 @@
 .\project\main.o: ..\FreeRTOSV7.3.0\FreeRTOS\Source\include\list.h
 .\project\main.o: ..\DieuKhienCoCau.h
 .\project\main.o: ..\BasicFunction.h
-.\project\main.o: ..\San_Xanh.h
 .\project\main.o: ..\San_Do.h
+.\project\main.o: ..\San_Xanh.h

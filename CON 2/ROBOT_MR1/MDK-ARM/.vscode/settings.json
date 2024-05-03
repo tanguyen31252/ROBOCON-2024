@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "3omnicontroler.h": "c"
+        "3omnicontroler.h": "c",
+        "san_xanh.h": "c"
     }
 }

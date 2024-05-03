@@ -11,6 +11,7 @@ void bam_thanh_laze_ngang(float angle, int maxSpeed, float robotAngle, float rot
 	}
 	else robotRunAngle(angle, maxSpeed, robotAngle, rototate);
 }
+
 ////////////////////////////////////////////////////////////////////////////////
 void bam_thanh_laze_doc(float angle, int maxSpeed, float robotAngle, float rototate, float angle_fix, int laze_stable_doc, int num_stable_change, int dung_laze_nao)
 {

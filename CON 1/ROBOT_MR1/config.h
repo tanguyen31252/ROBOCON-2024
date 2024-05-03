@@ -101,11 +101,11 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 #define SAN												GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_1)
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx OUTPUT xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
-#define XL_LAY_BONG_1_MO				   				GPIO_WriteBit(GPIOB,GPIO_Pin_7,1)       
-#define XL_LAY_BONG_1_DONG			   				 	GPIO_WriteBit(GPIOB,GPIO_Pin_7,0)
+#define XL_LAY_BONG_GIUA_MO				   				GPIO_WriteBit(GPIOB,GPIO_Pin_7,1)       
+#define XL_LAY_BONG_GIUA_DONG			   				 	GPIO_WriteBit(GPIOB,GPIO_Pin_7,0)
 
-#define XL_LAY_BONG_2_MO			   					GPIO_WriteBit(GPIOC,GPIO_Pin_8,0)      
-#define XL_LAY_BONG_2_DONG 			   					GPIO_WriteBit(GPIOC,GPIO_Pin_8,1)
+#define XL_LAY_BONG_SAU_MO			   					GPIO_WriteBit(GPIOC,GPIO_Pin_8,0)      
+#define XL_LAY_BONG_SAU_DONG 			   					GPIO_WriteBit(GPIOC,GPIO_Pin_8,1)
 
 #define XL_KEP_BONG_KEP	    						    GPIO_WriteBit(GPIOB,GPIO_Pin_6,0)      
 #define XL_KEP_BONG_NHA		    						GPIO_WriteBit(GPIOB,GPIO_Pin_6,1)
@@ -154,7 +154,7 @@ char bit_khoa_ham_chay_thay_tuan=0;
 char lan_trong = 0, hang_trong = 1, vi_tri_laze = 1;
 int goc_chay, lech_huong,lech_huong_xoay = 0,goc_xoay_de = 0,laze_thanh_ngoai = 0, laze_thanh_trong =0;
 float goc_xoay = 0;
-short int laze_ngoai = 0, laze_trong = 0, laze_ngang_ve = 0, lazengang = 0;
+short int laze_ngoai = 0, laze_trong = 0, laze_ngang_ve = 0, lazengang = 0, goc_xoay_de = 0, toc_do_ban = 0;
 // int luu_bien_laze_doc = 0, luu_bien_laze_ngang = 0, ban_thoc = 0, ban_lep = 0, goc_xoay_thoc = 0, goc_xoay_lep = 0, phe_thoc = 0, phe_lep = 0, goc_lech = 0;	,vi_tri_laze = 0									//san 2
 vu8 LINE_TRAI[4],LINE_PHAI[4];
 
@@ -174,13 +174,13 @@ int LAZE_THANH_NGOAI[2][4]   =          {
 										};
 
 int LAZE_THANH_TRONG[2][4]	=			{
-											{0,		277,	178,	77},									//San xanh
-											{0,		280,	182,	87}										//Sân đỏ
+											{0,		278,	177,	78},									//San xanh
+											{0,		280,	182,	83}										//Sân đỏ
 										};
 
 int LAZE_VE[2][2]       =               {
-                                            {192,   92},																		//san xanh
-											{170,	70}																			//san do
+                                            {190,   90},																		//san xanh
+											{170-2,	70-2}																			//san do
                                         };
 /******************************************************	SAN 2					***************************************************/
 /******************************************************	NGANG SAN 2				**************************************************/			//VT1 tinh tu doc di len
@@ -189,32 +189,36 @@ int LAZE_THANH_TRONG_2[2][7]   =        {           //1     	//2    		 //3     	
                                             {0,     310,		265,		215,		169,		121,		71},          	//san do
                                         }; 
 int LAZE_THANH_NGOAI_2[2][7]   =        {           //1     	//2    		 //3     	//4     	//5     	//6    
-                                            {0,		316,		267,		222,		171,		126,		75},         //san xanh
+                                            {0,		208,		257,		305,		354,		402,		450,},         //san xanh
                                             {0,     208,		257,		305,		354,		402,		450},          	//san do
                                         }; 
-int XOAY_DE[2][7]   =        			{			//1			//2			//3			//4			//5			//6    
-                                            {0,		100-10,		120-10,		195-10,		400-10,		430-10,		440-10,},         //san xanh
-                                            {0,     -100-10,		-120-10,		-195-10,		-400-10,		-430-10,		-440-10,},          	//san do
-                                        };
 
-int TOC_DO_BAN[2][7]	=		{
-													//1		//2		//3		//4		//5		//6
-											{0,		175,	175,	175,	188,	188,	188}, //San xanh
-										
-											{0,		175,	175,	175,	188,	188,	188},//San do
-
+int TOC_DO_BAN[2][7]			=		{
+											{0,		175,		175,		175,		188,		188,		188},
+											{0,		175,		175,		175,		188,		188,		188}
 };
 
-int BAN_BANH_12_NUT[2][7]	=	{
-											{0,		0,		0,		0,		0,		0,		0},
-											{0,		0,		0,		0,		0,		0,		0},
+short int XOAY_DE[2][7]   =        			{		//1			//2			//3			//4			//5			//6    
+                                            {0,		295+20,		245+20,		195+20,		145+20,		95+20,		48+20,},         //san xanh
+                                            {0,     100,		0,			-50,		-50,		-100,		-150},          	//san do
+                                        }; 
+										//0: khong co bong 
+										//1: bong thoc
+										//2: bong lep (tim)
 
-};
-// short int XOAY_DE[2][7]   =        			{		//1			//2			//3			//4			//5			//6    
-// 	{0,		295+20,		245+20,		195+20,		145+20,		95+20,		48+20,},         //san xanh
-// 	{0,     100,		0,			-50,		-50,		-100,		-150},          	//san do
-// }; 
-
+// #define rices_top_1 (RX_UART1[1] & 0x01)
+// #define rices_top_2 (RX_UART1669[1] & 0x02)
+// #define rices_top_3 (RX_UART1[1] & 0x04)
+// #define rices_top_4 (RX_UART1[1] & 0x08)
+// #define rices_top_5 (RX_UART1[1] & 0x10)
+// #define rices_top_6 (RX_UART1[1] & 0x20)
+	
+// #define rices_botom_6 (RX_UART1[1] & 0x40)
+// #define rices_botom_5 (RX_UART1[1] & 0x80)
+// #define rices_botom_4 (RX_UART1[2] & 0x01)
+// #define rices_botom_3 (RX_UART1[2] & 0x02)
+// #define rices_botom_2 (RX_UART1[2] & 0x04)
+// #define rices_botom_1 (RX_UART1[2] & 0x08)
 
 //****************************** Khai bao cam bien do line ******************************//
 #define GP_MASK_0				0x01
@@ -1290,8 +1294,8 @@ void HMI_TRAN(vs32 _so_dong) {
                                         strcat(_chu_cac_bit,_ghep_bit);
                                         if(!CB_Line_T4)	sprintf(_ghep_bit,"%d ",0);	
                                         else sprintf(_ghep_bit,"%d ",1);
-
                                         strcat(_chu_cac_bit,_ghep_bit);
+
 										if(!CB_Line_P1)	sprintf(_ghep_bit,"%d",0);	
                                         else sprintf(_ghep_bit,"%d",1);	
                                         strcat(_chu_cac_bit,_ghep_bit);
@@ -1307,7 +1311,39 @@ void HMI_TRAN(vs32 _so_dong) {
 										HMI_PUTS("LINE: ",_chu_cac_bit,7);
 										break;
 									case 8:
-										HMI_DMI(" san: ",san,8);	
+										HMI_DMI("vi tri laze", vi_tri_laze, 8);
+										// if(rices_top_1)	sprintf(_ghep_bit,"%d",0);	
+                                        // else sprintf(_ghep_bit,"%d",1);	
+                                        // strcat(_chu_cac_bit,_ghep_bit);
+                                        // if(rices_top_2)	sprintf(_ghep_bit,"%d",0);	
+                                        // else sprintf(_ghep_bit,"%d",1);	
+                                        // strcat(_chu_cac_bit,_ghep_bit);
+                                        // if(rices_top_3)	sprintf(_ghep_bit,"%d",0);	
+                                        // else sprintf(_ghep_bit,"%d",1);	
+                                        // strcat(_chu_cac_bit,_ghep_bit);
+                                        // if(rices_top_4)	sprintf(_ghep_bit,"%d ",0);	
+                                        // else sprintf(_ghep_bit,"%d ",1);
+                                        // strcat(_chu_cac_bit,_ghep_bit);
+                                        // if(rices_top_5)	sprintf(_ghep_bit,"%d ",0);	
+                                        // else sprintf(_ghep_bit,"%d ",1);
+                                        // strcat(_chu_cac_bit,_ghep_bit);
+                                        // if(rices_top_6)	sprintf(_ghep_bit,"%d ",0);	
+                                        // else sprintf(_ghep_bit,"%d ",1);
+                                        // strcat(_chu_cac_bit,_ghep_bit);
+
+										// if(!CB_Line_P1)	sprintf(_ghep_bit,"%d",0);	
+                                        // else sprintf(_ghep_bit,"%d",1);	
+                                        // strcat(_chu_cac_bit,_ghep_bit);
+                                        // if(!CB_Line_P2)	sprintf(_ghep_bit,"%d",0);	
+                                        // else sprintf(_ghep_bit,"%d",1);	
+                                        // strcat(_chu_cac_bit,_ghep_bit);
+                                        // if(!CB_Line_P3)	sprintf(_ghep_bit,"%d",0);	
+                                        // else sprintf(_ghep_bit,"%d",1);	
+                                        // strcat(_chu_cac_bit,_ghep_bit);
+                                        // if(!CB_Line_P4)	sprintf(_ghep_bit,"%d",0);	
+                                        // else sprintf(_ghep_bit,"%d",1);	
+                                        // strcat(_chu_cac_bit,_ghep_bit);
+										// HMI_PUTS("BONG: ",_chu_cac_bit,7);
 										break;
                                     case 9:
 										HMI_DMI("laze thanh trong: ",laze_thanh_ngoai,9);
