@@ -316,21 +316,7 @@ void LayvaBan()
         XL_THUC_LEN;
         delay_ms(300);
         XL_LAY_BONG_SAU_MO;
-        robotRotate(goc_xoay_de,1.2,0);
-        while(_robotAngle < goc_xoay_de){if(wantExit())break;}
-        XL_LAY_BONG_SAU_DONG;
-        XL_LAY_BONG_GIUA_DONG;
-        Mor_Rulo_Duoi = toc_do_ban;
-        Mor_Rulo_Tren = ap_phe;
-        delay_ms(700);
-        XL_KEP_BONG_NHA;
-        delay_ms(500);
-        XL_KEP_BONG_KEP;
-        delay_ms(100);
-        XL_LAY_BONG_SAU_MO;
-        Mor_Rulo_Duoi = 0;
-        Mor_Rulo_Tren = 0;
-        robotFixAngle();
+
     }
     if(!X && R1)
     {
@@ -345,8 +331,9 @@ void LayvaBan()
         delay_ms(400);
         XL_LAY_BONG_SAU_MO;
         XL_LAY_BONG_GIUA_DONG; 
-        robotRotate(goc_xoay_de,1.2,0);
-        while(_robotAngle < goc_xoay_de){if(wantExit())break;}
+    }
+     if(!SQUARE && R1)
+    {
         XL_LAY_BONG_SAU_DONG;
         XL_LAY_BONG_GIUA_DONG;
         Mor_Rulo_Duoi = toc_do_ban;
@@ -359,25 +346,9 @@ void LayvaBan()
         XL_LAY_BONG_SAU_MO;
         Mor_Rulo_Duoi = 0;
         Mor_Rulo_Tren = 0;
-        robotFixAngle();
+        // robotRotate(0, 0.5, 0);
+        // while(robotFixAngle()){if(wantExit())break;}
     }
-    //  if(!SQUARE && R1)
-    // {
-    //     XL_LAY_BONG_SAU_DONG;
-    //     XL_LAY_BONG_GIUA_DONG;
-    //     Mor_Rulo_Duoi = toc_do_ban;
-    //     Mor_Rulo_Tren = ap_phe;
-    //     delay_ms(700);
-    //     XL_KEP_BONG_NHA;
-    //     delay_ms(500);
-    //     XL_KEP_BONG_KEP;
-    //     delay_ms(100);
-    //     XL_LAY_BONG_SAU_MO;
-    //     Mor_Rulo_Duoi = 0;
-    //     Mor_Rulo_Tren = 0;
-    //     // robotRotate(0, 0.5, 0);
-    //     // while(robotFixAngle()){if(wantExit())break;}
-    // }
     if(!R2)
     {
         XL_DAY_LUA_BAT;
