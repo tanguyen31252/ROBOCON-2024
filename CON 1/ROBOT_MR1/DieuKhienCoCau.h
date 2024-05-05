@@ -125,6 +125,8 @@ void testDiaxoay()
 {
 }
 
+
+
 //--------------------------------------------------------------------------------
 void robotGamePadControl(void)
 {
@@ -147,9 +149,9 @@ void robotGamePadControl(void)
     if (!L1)
         tocdo = 50, tocdoXoay = 20, toc_do_xoay_free = 20;
     else if (!L2)
-        tocdo = 10, tocdoXoay = 0.5, toc_do_xoay_free = 7;
+        tocdo = 5, tocdoXoay = 0.5, toc_do_xoay_free = 7;
     else
-        tocdo = 30, tocdoXoay = 0.05, toc_do_xoay_free = 10; // sua toc_do_xoay_free tu 7 len 10
+        tocdo = 15, tocdoXoay = 0.05, toc_do_xoay_free = 12; // sua toc_do_xoay_free tu 7 len 10
                                                              // sua tocdoXoay tu 0.05 len 5
 
     //--------- chay cac huong -----------

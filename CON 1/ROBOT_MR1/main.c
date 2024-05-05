@@ -40,6 +40,8 @@ static void taskDieuKhienCoCau(void *pvParameters)
 	{
 		dieuKhienCoCau();
 
+		// LayvaBanvaXoay();
+
 		vTaskDelay(10);
 	}
 }
@@ -91,7 +93,8 @@ static void taskMain(void *pvParameters)
 
 	XL_THUC_XUONG;
 	XL_THA_LUA_BAT;
-	XL_KEP_BONG_NHA;
+	XL_KEP_BONG_KEP;
+	XL_DAY_LUA_TAT;
 	// delay_ms(2000);
 	//---- reset he thong ve vi tri ban dau
 
@@ -123,7 +126,6 @@ static void taskMain(void *pvParameters)
 		}
 	}
 }
-
 int main(void)
 {
 	xTaskCreate(taskMain, (signed char *)"taskMain", 256, NULL, 0, NULL);

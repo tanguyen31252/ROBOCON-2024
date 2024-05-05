@@ -139,7 +139,7 @@ vs32 	sieu_am, num_over_t1=0, num_over_t2=0, num_over_t3=0, num_over_t5=0, num_o
 vs16 	IMU,IMUxoay;
 vu8 	data_tx_gyro, en_gyro, dataTxGyro, enGyro; 
 int 	lazeTruocValue, lazeTraiValue, lazePhaiValue, lazeSauValue, i=0;
-int 	noise;
+int 	noise,toc_do_ban,trai_thu;
 int		BT_Nang_goc_ban_value =0, BT_Dia_xoay_value =0;
 vu16 	_ADC1_Value[8];
 vu8   RX_USART1[15], RX_USART2[15], CB_DO_LINE[1];
@@ -152,7 +152,7 @@ extern int _robotIMUAngle;
 
 char bit_khoa_ham_chay_thay_tuan=0;
 char lan_trong = 0, hang_trong = 1, vi_tri_laze = 1;
-int goc_chay, lech_huong,lech_huong_xoay = 0;
+int goc_chay, lech_huong,lech_huong_xoay = 0,goc_xoay_de = 0,laze_thanh_ngoai = 0, laze_thanh_trong =0;
 float goc_xoay = 0;
 short int laze_ngoai = 0, laze_trong = 0, laze_ngang_ve = 0, lazengang = 0, goc_xoay_de = 0, toc_do_ban = 0;
 // int luu_bien_laze_doc = 0, luu_bien_laze_ngang = 0, ban_thoc = 0, ban_lep = 0, goc_xoay_thoc = 0, goc_xoay_lep = 0, phe_thoc = 0, phe_lep = 0, goc_lech = 0;	,vi_tri_laze = 0									//san 2
@@ -165,7 +165,7 @@ bool check_bong=false,cb_giua_change=false,cb_sau_change=false;
 
 int LAZENGANG_1[2][7]   =               {    
                                             {0,     292,    265,    190,    167,    93,     67},                                //san xanh
-                                            {0,     283,    258,    186,    160,    90,     64}                                	//san do
+                                            {0,     285,    260,    188,    162,    92,     66}                                	//san do
 										};
 
 int LAZE_THANH_NGOAI[2][4]   =          {   
@@ -185,7 +185,7 @@ int LAZE_VE[2][2]       =               {
 /******************************************************	SAN 2					***************************************************/
 /******************************************************	NGANG SAN 2				**************************************************/			//VT1 tinh tu doc di len
 int LAZE_THANH_TRONG_2[2][7]   =        {           //1     	//2    		 //3     	//4     	//5     	//6    
-                                            {0,		295+20,		245+20,		195+20,		145+20,		95+20,		48+20,},         //san xanh
+                                            {0,		316,		267,		222,		171,		126,		75},         //san xanh
                                             {0,     310,		265,		215,		169,		121,		71},          	//san do
                                         }; 
 int LAZE_THANH_NGOAI_2[2][7]   =        {           //1     	//2    		 //3     	//4     	//5     	//6    
@@ -1267,16 +1267,16 @@ void HMI_TRAN(vs32 _so_dong) {
 										HMI_DMI("IMU:", _robotIMUAngle,1);
 										break;
 									case 2:
-										HMI_DMI("lan trong",lan_trong,2);
+										HMI_DMI("Laze Truoc: ",lazeTruocValue,2);
 										break;
 									case 3:
-										HMI_DMI("laze ve:", lan_trong,3);
+										HMI_DMI("Laze Sau: ", lazeSauValue,3);
 										break;
                                     case 4:
-										HMI_DMI("EN_RL:",ENCODER_FL(),4);
+										HMI_DMI("Laze Trai: ",lazeTraiValue,4);
 										break;
 									case 5:
-										HMI_DMI("EN_FR:",ENCODER_FR(),5);
+										HMI_DMI("Laze Phai: ",lazePhaiValue,5);
 									
 										break;
 									case 6:
@@ -1346,22 +1346,22 @@ void HMI_TRAN(vs32 _so_dong) {
 										// HMI_PUTS("BONG: ",_chu_cac_bit,7);
 										break;
                                     case 9:
-										HMI_DMI("laze doc: ",lazeSauValue,9);
+										HMI_DMI("laze thanh trong: ",laze_thanh_ngoai,9);
 										break;
 									case 10:
-										HMI_DMI("sau: ",lazeSauValue,10);	
+										HMI_DMI("lan trong: ",lan_trong,10);	
 										break;
                                     case 11:
-										HMI_DMI("laze ve: ",laze_ngang_ve,11);	
+										HMI_DMI("LJ_LR: ",GP_BTN[4],11);	
 										break;
 									case 12:
-										HMI_DMI("line phai: ",CB_LINE_PHAI,12);  						
+										HMI_DMI("laze thanh ngoai ",laze_thanh_ngoai,12);  						
 										break;
 									case 13:
-										HMI_DMI("LAZER phai: ",lazePhaiValue,13);   
+										HMI_DMI("vi tri laze ",vi_tri_laze,13);   
 										break;
                                     case 14:
-                                        HMI_DMI("LAZER TRUOC:",lazeTruocValue,14);
+                                        HMI_DMI("LAZER :",lazeTruocValue,14);
                                         break;
 									case 15:
 										HMI_DMI("LAZER trai: ",lazeTraiValue,15);

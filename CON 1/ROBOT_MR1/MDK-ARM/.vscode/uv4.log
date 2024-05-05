@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *** Using Compiler 'V5.06 (build 20)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Project'
 compiling main.c...
@@ -6,3 +7,8 @@ Program Size: Code=34108 RO-data=456 RW-data=676 ZI-data=11844
 FromELF: creating hex file...
 ".\Project\Project.axf" - 0 Error(s), 0 Warning(s).
 Build Time Elapsed:  00:00:02
+=======
+Load "c:\\Users\\BaoAnhBui\\Documents\\GitHub\\New folder\\ROBOCON-2024\\CON 1\\ROBOT_MR1\\MDK-ARM\\Project\\Project.axf" 
+Erase Done.Programming Done.Verify OK.Application running ...
+Flash Load finished at 20:24:39
+>>>>>>> 4bc89f0a645a9fc87f662251fb9a1b280a1cdadf
