@@ -139,7 +139,7 @@ vs32 	sieu_am, num_over_t1=0, num_over_t2=0, num_over_t3=0, num_over_t5=0, num_o
 vs16 	IMU,IMUxoay;
 vu8 	data_tx_gyro, en_gyro, dataTxGyro, enGyro; 
 int 	lazeTruocValue, lazeTraiValue, lazePhaiValue, lazeSauValue, i=0;
-int 	noise,toc_do_ban,trai_thu;
+int 	noise,trai_thu;
 int		BT_Nang_goc_ban_value =0, BT_Dia_xoay_value =0;
 vu16 	_ADC1_Value[8];
 vu8   RX_USART1[15], RX_USART2[15], CB_DO_LINE[1];
@@ -152,9 +152,10 @@ extern int _robotIMUAngle;
 
 char bit_khoa_ham_chay_thay_tuan=0;
 char lan_trong = 0, hang_trong = 1, vi_tri_laze = 1;
-int goc_chay, lech_huong,lech_huong_xoay = 0,goc_xoay_de = 0,laze_thanh_ngoai = 0, laze_thanh_trong =0;
+int goc_chay, lech_huong,lech_huong_xoay = 0,laze_thanh_ngoai = 0, laze_thanh_trong =0, ap_phe = 0;
 float goc_xoay = 0;
 short int laze_ngoai = 0, laze_trong = 0, laze_ngang_ve = 0, lazengang = 0, goc_xoay_de = 0, toc_do_ban = 0;
+
 // int luu_bien_laze_doc = 0, luu_bien_laze_ngang = 0, ban_thoc = 0, ban_lep = 0, goc_xoay_thoc = 0, goc_xoay_lep = 0, phe_thoc = 0, phe_lep = 0, goc_lech = 0;	,vi_tri_laze = 0									//san 2
 vu8 LINE_TRAI[4],LINE_PHAI[4];
 
@@ -193,19 +194,19 @@ int LAZE_THANH_NGOAI_2[2][7]   =        {           //1     	//2    		 //3     	
                                             {0,     208,		257,		305,		354,		402,		450},          	//san do
                                         }; 
 
-int TOC_DO_BAN[2][7]			=		{
-											{0,		175,		175,		175,		188,		188,		188},
-											{0,		175,		175,		175,		188,		188,		188}
+short int TOC_DO_BAN[2][7]			=		{
+											{0,		155,		155,		155,		170,		170,		170},
+											{0,		155,		155,		155,		170,		170,		170}
 };
 
 short int XOAY_DE[2][7]   =        			{		//1			//2			//3			//4			//5			//6    
-                                            {0,		295+20,		245+20,		195+20,		145+20,		95+20,		48+20,},         //san xanh
-                                            {0,     100,		0,			-50,		-50,		-100,		-150},          	//san do
+                                            {0,		50,			75,			100,		350,		425,		475},         //san xanh
+                                            {0,     -50,		-75,		-100,		-350,		-425,		-475},          	//san do
                                         }; 
-										//0: khong co bong 
-										//1: bong thoc
-										//2: bong lep (tim)
-
+int AP_PHE[2][7]		=					{		//1			//2			//3			//4			//5			//6    
+                                            {0,		45,			45,			45,			65,			65,			70},         //san xanh
+                                            {0,     45,			45,			45,			65,			65,			70},          	//san do
+                                        }; 
 // #define rices_top_1 (RX_UART1[1] & 0x01)
 // #define rices_top_2 (RX_UART1669[1] & 0x02)
 // #define rices_top_3 (RX_UART1[1] & 0x04)
@@ -1355,16 +1356,16 @@ void HMI_TRAN(vs32 _so_dong) {
 										HMI_DMI("LJ_LR: ",GP_BTN[4],11);	
 										break;
 									case 12:
-										HMI_DMI("laze thanh ngoai ",laze_thanh_ngoai,12);  						
+										HMI_DMI("goc xoay  ",goc_xoay_de,12);  						
 										break;
 									case 13:
-										HMI_DMI("vi tri laze ",vi_tri_laze,13);   
+										HMI_DMI("toc do ban ",toc_do_ban,13);   
 										break;
                                     case 14:
-                                        HMI_DMI("LAZER :",lazeTruocValue,14);
+                                        HMI_DMI("san :",san,14);
                                         break;
 									case 15:
-										HMI_DMI("LAZER trai: ",lazeTraiValue,15);
+										HMI_DMI("ap phe ",ap_phe,15);
 										break;
 									case 16:
 									//	hien thi phan ngo vao

@@ -113,7 +113,7 @@ static void taskMain(void *pvParameters)
 				if (!SELECT)
 					retry(); ///// RETRY/*else*/
 				if (!START && lan_trong == 0)
-					san = 2;// XuatPhat(); ///// xuat phat
+					XuatPhat(); ///// xuat phat
 				else if (!START && (lan_trong == 1 || lan_trong == 2 || lan_trong == 3) && hang_trong == 1)
 					quy_trinh_trong_lua_hang_1();
 				if (!R1 && !X)
