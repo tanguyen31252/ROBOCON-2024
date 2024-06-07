@@ -98,16 +98,19 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 #define CB_NHAN_MAU_THOC_SAU							GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_12)
 #define CB_NHAN_MAU_TIM_SAU								GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_13)
 
+#define CB_BONG_RA										GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_13)
+#define CB_NHAT_BONG									GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_14)
+
 #define SAN												GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_1)
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx OUTPUT xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
 #define XL_LAY_BONG_GIUA_MO				   				GPIO_WriteBit(GPIOB,GPIO_Pin_7,1)       
-#define XL_LAY_BONG_GIUA_DONG			   				 	GPIO_WriteBit(GPIOB,GPIO_Pin_7,0)
+#define XL_LAY_BONG_GIUA_DONG			   			 	GPIO_WriteBit(GPIOB,GPIO_Pin_7,0)
 
 #define XL_LAY_BONG_SAU_MO			   					GPIO_WriteBit(GPIOC,GPIO_Pin_8,0)      
-#define XL_LAY_BONG_SAU_DONG 			   					GPIO_WriteBit(GPIOC,GPIO_Pin_8,1)
+#define XL_LAY_BONG_SAU_DONG 			   				GPIO_WriteBit(GPIOC,GPIO_Pin_8,1)
 
-#define XL_KEP_BONG_KEP	    						    GPIO_WriteBit(GPIOB,GPIO_Pin_6,0)      
+#define XL_KEP_BONG_KEP	    						    GPIO_WriteBit(GPIOB,GPIO_Pin_6,0)     
 #define XL_KEP_BONG_NHA		    						GPIO_WriteBit(GPIOB,GPIO_Pin_6,1)
 
 #define XL_THUC_LEN 		    						GPIO_WriteBit(GPIOC,GPIO_Pin_9,1)      
@@ -128,6 +131,9 @@ vu8 DATA_SPEED[60]={                    255,1,0,0,		// Speed = 255, ID=1, Drirec
 #define XL_THA_LUA_BAT			   			            GPIO_WriteBit(GPIOD,GPIO_Pin_11,1)
 #define XL_THA_LUA_TAT		                     		GPIO_WriteBit(GPIOD,GPIO_Pin_11,0)
 
+#define XL_CHONG_BAT									GPIO_WriteBit(GPIOB,GPIO_Pin_15,0)
+#define XL_CHONG_TAT									GPIO_WriteBit(GPIOB,GPIO_Pin_15,1)
+
 //=============================ENCODER======================================
 #define Encoder_FR				(vs32)((num_over_t1<<16) | TIM_GetCounter(TIM1))/100
 #define Encoder_FL				(vs32)((num_over_t2<<16) | TIM_GetCounter(TIM2))/100
@@ -140,7 +146,6 @@ vs16 	IMU,IMUxoay;
 vu8 	data_tx_gyro, en_gyro, dataTxGyro, enGyro; 
 int 	lazeTruocValue, lazeTraiValue, lazePhaiValue, lazeSauValue, i=0;
 int 	noise,trai_thu;
-int		BT_Nang_goc_ban_value =0, BT_Dia_xoay_value =0;
 vu16 	_ADC1_Value[8];
 vu8   RX_USART1[15], RX_USART2[15], CB_DO_LINE[1];
 uint8_t MANG_GAME[10];
@@ -151,18 +156,17 @@ extern unsigned char GP_BTN [15];
 extern int _robotIMUAngle;
 
 char bit_khoa_ham_chay_thay_tuan=0;
-char lan_trong = 0, hang_trong = 1, vi_tri_laze = 1;
-int goc_chay, lech_huong,lech_huong_xoay = 0,laze_thanh_ngoai = 0, laze_thanh_trong =0, ap_phe = 0;
+char lan_trong = 0, hang_trong = 1, vi_tri_can_toi = 0, vi_tri_hien_tai = 0;
+int goc_chay, lech_huong, lech_huong_xoay = 0, ap_phe = 0;
 float goc_xoay = 0;
 short int laze_ngoai = 0, laze_trong = 0, laze_ngang_ve = 0, lazengang = 0, goc_xoay_de = 0, toc_do_ban = 0;
 
-// int luu_bien_laze_doc = 0, luu_bien_laze_ngang = 0, ban_thoc = 0, ban_lep = 0, goc_xoay_thoc = 0, goc_xoay_lep = 0, phe_thoc = 0, phe_lep = 0, goc_lech = 0;	,vi_tri_laze = 0									//san 2
 vu8 LINE_TRAI[4],LINE_PHAI[4];
 
 vu8 CB_LINE_TRAI,CB_LINE_PHAI;
 char san = 1;
 
-bool check_bong=false,cb_giua_change=false,cb_sau_change=false;
+// bool check_bong=false,cb_giua_change=false,cb_sau_change=false;
 
 int LAZENGANG_1[2][7]   =               {    
                                             {0,     292,    265,    190,    167,    93,     67},                                //san xanh
@@ -175,38 +179,39 @@ int LAZE_THANH_NGOAI[2][4]   =          {
 										};
 
 int LAZE_THANH_TRONG[2][4]	=			{
-											{0,		278,	177,	78},									//San xanh
+											{0,		278,	178,	79},									//San xanh
 											{0,		280,	182,	83}										//Sân đỏ
 										};
 
 int LAZE_VE[2][2]       =               {
-                                            {190,   90},																		//san xanh
+                                            {188,   88},																			//san xanh
 											{170-2,	70-2}																			//san do
                                         };
 /******************************************************	SAN 2					***************************************************/
 /******************************************************	NGANG SAN 2				**************************************************/			//VT1 tinh tu doc di len
 int LAZE_THANH_TRONG_2[2][7]   =        {           //1     	//2    		 //3     	//4     	//5     	//6    
-                                            {0,		316,		267,		222,		171,		126,		75},         //san xanh
-                                            {0,     310,		265,		215,		169,		121,		71},          	//san do
+                                            {0,		316,		267,		222,		171,		126,		75},				//san xanh
+                                            {0,     310,		265,		215,		169,		121,		71},				//san do
                                         }; 
 int LAZE_THANH_NGOAI_2[2][7]   =        {           //1     	//2    		 //3     	//4     	//5     	//6    
-                                            {0,		208,		257,		305,		354,		402,		450,},         //san xanh
-                                            {0,     208,		257,		305,		354,		402,		450},          	//san do
+                                            {0,		200,		250,		299,		347,		396,		443},				//san xanh
+                                            {0,     209,		258,		306,		354,		403,		450},				//san do
                                         }; 
 
-short int TOC_DO_BAN[2][7]			=		{
-											{0,		155,		155,		155,		170,		170,		170},
-											{0,		155,		155,		155,		170,		170,		170}
+short int TOC_DO_BAN[2][7]		=		{
+											{0,		200,		200,		200,		200,		200,		220},
+											{0,		200,		200,		200,		200,		200,		220}
 };
+int AP_PHE[2][7]				=		{			//1			//2			//3			//4			//5			//6    
+                                            {0,		5,			5,			5,			5,			5,			5},					//san xanh
+                                            {0,     5,			5,			5,			5,			5,			5},					//san do
+                                        }; 
 
-short int XOAY_DE[2][7]   =        			{		//1			//2			//3			//4			//5			//6    
-                                            {0,		50,			75,			100,		350,		425,		475},         //san xanh
-                                            {0,     -50,		-75,		-100,		-350,		-425,		-475},          	//san do
-                                        }; 
-int AP_PHE[2][7]		=					{		//1			//2			//3			//4			//5			//6    
-                                            {0,		45,			45,			45,			65,			65,			70},         //san xanh
-                                            {0,     45,			45,			45,			65,			65,			70},          	//san do
-                                        }; 
+
+short int XOAY_DE[2][7]   		=		{			//1			//2			//3			//4			//5			//6    
+                                            {0,		150,		300,		300,		350,		400,		450},				//san xanh
+                                            {0,		-150,		-300,		-300,		-350,		-400,		-450}				//san do
+                                        };
 // #define rices_top_1 (RX_UART1[1] & 0x01)
 // #define rices_top_2 (RX_UART1669[1] & 0x02)
 // #define rices_top_3 (RX_UART1[1] & 0x04)
@@ -240,6 +245,9 @@ int AP_PHE[2][7]		=					{		//1			//2			//3			//4			//5			//6
 #define CB_Line_P2				(CB_DO_LINE[0] & GP_MASK_6)
 #define CB_Line_P3				(CB_DO_LINE[0] & GP_MASK_5)
 #define CB_Line_P4				(CB_DO_LINE[0] & GP_MASK_4)
+
+int td = 0;
+
 
 //////////////////////////chong nhieu encoder////////////////////
 vs32 ENCODER_FL() {
@@ -331,14 +339,14 @@ void Config_in_mode(void) {
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 	
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15 | GPIO_Pin_2 | GPIO_Pin_1;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2 | GPIO_Pin_1;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_Init(GPIOB, &GPIO_InitStructure);
 	
 	
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2 ;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13 | GPIO_Pin_14;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
@@ -1312,7 +1320,7 @@ void HMI_TRAN(vs32 _so_dong) {
 										HMI_PUTS("LINE: ",_chu_cac_bit,7);
 										break;
 									case 8:
-										HMI_DMI("vi tri laze", vi_tri_laze, 8);
+										HMI_DMI("vi tri laze", vi_tri_can_toi, 8);
 										// if(rices_top_1)	sprintf(_ghep_bit,"%d",0);	
                                         // else sprintf(_ghep_bit,"%d",1);	
                                         // strcat(_chu_cac_bit,_ghep_bit);
@@ -1347,7 +1355,7 @@ void HMI_TRAN(vs32 _so_dong) {
 										// HMI_PUTS("BONG: ",_chu_cac_bit,7);
 										break;
                                     case 9:
-										HMI_DMI("laze thanh trong: ",laze_thanh_ngoai,9);
+										HMI_DMI("vi_tri_hien_tai: ",vi_tri_hien_tai,9);
 										break;
 									case 10:
 										HMI_DMI("lan trong: ",lan_trong,10);	
@@ -1371,30 +1379,30 @@ void HMI_TRAN(vs32 _so_dong) {
 									//	hien thi phan ngo vao
 										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_0));			//CB_NANG_HA_LUA		0
 										// strcat(_chu_cac_bit,_ghep_bit);
-										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_14));
-										// strcat(_chu_cac_bit,_ghep_bit);	
+										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_13));			//CB_BONG_RA
+										// strcat(_chu_cac_bit,_ghep_bit);
 										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_1));			//CB_LUA_DUOI			0
 										// strcat(_chu_cac_bit,_ghep_bit);
-										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_13));						
-										// strcat(_chu_cac_bit,_ghep_bit);
+										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_14));
+										strcat(_chu_cac_bit,_ghep_bit);	
 										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_2));			//CB_LUA_TREN			0
 										// strcat(_chu_cac_bit,_ghep_bit);
-										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_15));			//CB_BONG_SAU_TRAI		0
-										strcat(_chu_cac_bit,_ghep_bit);
+										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_15));			//CB_BONG_SAU_TRAI		0
+										// strcat(_chu_cac_bit,_ghep_bit);
 										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_3));		
 										// strcat(_chu_cac_bit,_ghep_bit);
 										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_14));	
 										// strcat(_chu_cac_bit,_ghep_bit);
-										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_4));			//CB_BONG_GIUA_PHAI		1
-										strcat(_chu_cac_bit,_ghep_bit);
+										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_4));			//CB_BONG_GIUA_PHAI		1
+										// strcat(_chu_cac_bit,_ghep_bit);
 										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_13));	  
 										// strcat(_chu_cac_bit,_ghep_bit);
-										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_5));			//CB_BONG_GIUA_TRAI		1
-										strcat(_chu_cac_bit,_ghep_bit);
+										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_5));			//CB_BONG_GIUA_TRAI		1
+										// strcat(_chu_cac_bit,_ghep_bit);
 										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_12));	
 										// strcat(_chu_cac_bit,_ghep_bit);
-										sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_6));			//CB_BONG_SAU_PHAI		1	
-										strcat(_chu_cac_bit,_ghep_bit);
+										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_6));			//CB_BONG_SAU_PHAI		1	
+										// strcat(_chu_cac_bit,_ghep_bit);
 										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_10));	
 										// strcat(_chu_cac_bit,_ghep_bit);
 										// sprintf(_ghep_bit,"%d",GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_7));
@@ -1439,6 +1447,9 @@ void HMI_TRAN(vs32 _so_dong) {
 										strcat(_chu_cac_bit,_ghep_bit);
 										HMI_PUTS("O:",_chu_cac_bit,17);
 										break;	
+									case 18:
+										HMI_DMI("san: ",san,18);
+										break;
 						}
 }
 

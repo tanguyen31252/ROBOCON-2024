@@ -198,3 +198,14 @@ vu8 wantExit_UP(void)
     if(!UP)      return 1; 
     else         return 0;
 }
+
+vu8 wantExit_R2(void)
+{
+    if(!R2)     return 1;
+    else        return 0;   
+}
+vu8 wantExit_R1(void)
+{
+    if(!R1)     return 1;
+    else        return 0;   
+}
